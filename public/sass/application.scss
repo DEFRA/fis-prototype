@@ -1,0 +1,123 @@
+// Path to assets for use with the file-url function
+// in the govuk frontend toolkit's url-helpers partial
+$path: "/public/images/";
+
+@import "govuk-elements";
+@import 'util';
+@import 'chart';
+
+h1.heading-xlarge {
+  margin-bottom: 20px;
+}
+
+.search-box {
+  .form-group:first-child {
+    margin-bottom: 12px;
+
+    input.form-control {
+      width: 100%
+    }
+  }
+
+  button.button-get-started {
+    width: 100%
+  }
+}
+
+.error-message {
+  color: $red;
+  margin-top: 10px;
+  padding-left: 10px;
+  border-left: solid 3px $red;
+}
+
+.enter-fullscreen {
+  z-index: 100;
+  display: block;
+}
+
+.exit-fullscreen {
+  z-index: 100;
+  display: none;
+}
+
+.fullscreen {
+  >:not(.main-container) {
+    display: none;
+  }
+  
+  >.main-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 10;
+    margin: 0;
+    background-color: white;
+  }
+
+  .column-half:first-child {
+    display: none;
+  }
+
+  .enter-fullscreen {
+    display: none;
+  }
+
+  .exit-fullscreen {
+    display: block;
+  }
+}
+
+ .ol-full-screen.ol-control.toggle-fullscreen {
+  button {
+    width: auto;
+    background-color: #e3e4e5;
+    color: $link-colour;
+    padding: 3px;
+    font-weight: normal;
+    font-size: 14px;
+    cursor: pointer;
+    height: 25px;
+    span {
+      text-decoration: underline;
+    }
+  }
+}
+
+// Browser requirements
+
+.panel.panel-device-requirements {
+  @extend .panel-border-wide;
+  background-color: $panel-colour;
+  margin-top:em(5);
+  margin-bottom: em(20, 16);
+  p {
+      font-weight:bold;
+  }
+}
+
+// Details
+
+details:last-of-type {
+  margin-bottom: em(15, 16);
+}
+
+// Device requirments
+
+.js-enabled .hide {
+  @extend .hide;
+}
+
+// Page headings
+
+.page-header .heading-xlarge {
+
+  margin-top: em(45, 32);
+
+  @include media(tablet) {
+    margin-top: em(60, 48);
+  }
+
+}

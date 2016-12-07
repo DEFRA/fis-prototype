@@ -1,0 +1,17 @@
+.level-table {
+    td, th {
+        @include core-16;
+    }
+    th {
+        font-weight:700;
+    }
+    tbody td:first-child {
+        @include core-16($tabular-numbers: true);
+    }
+}
+
+.level-chart {
+    width:100%;
+    height:400px;
+}
+

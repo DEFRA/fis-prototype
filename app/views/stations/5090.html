@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+
+{% block page_title %}River Greta at Low Briery - FIS Prototype - GOV.UK{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main" tabindex="-1">
+
+  {% include "partials/phase_banner.html" %}
+
+  <div class="grid-row">
+    <div class="column-two-thirds">
+
+      <h1 class="heading-xlarge">
+        <span class="heading-secondary">FIS Prototype</span>
+        River Great at Low Briery
+      </h1>
+
+    </div>
+  </div>
+
+  <div class="grid-row">
+    <div class="column-one-third">
+
+      <p>
+        Copy
+      </p>
+
+    </div>
+  </div>
+
+</main><!-- / #content -->
+{% endblock %}
+
+{% block body_end %}
+  <!-- GOV.UK elements redirect -->
+  <script src="/public/javascripts/redirect.js"></script>
+  {% include "partials/scripts.html" %}
+{% endblock %}
+

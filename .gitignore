@@ -1,0 +1,23 @@
+.sass-cache
+.start.pid
+node_modules
+govuk_modules
+lib/govuk_template.html
+
+# Ignore generated snippets
+# app/views/snippets/encoded/*.html
+
+# Ignore compiled stylesheets
+# public/stylesheets/
+
+# Folder view configuration files
+.DS_Store
+Desktop.ini
+
+# Thumbnail cache files
+._*
+Thumbs.db
+
+# Files that might appear on external disks
+.Spotlight-V100
+.Trashes

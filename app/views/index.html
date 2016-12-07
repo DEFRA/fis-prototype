@@ -1,0 +1,49 @@
+{% extends "layout.html" %}
+
+{% block page_title %}FIS Prototype{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main" tabindex="-1">
+
+  {% include "partials/phase_banner.html" %}
+  {% include "partials/breadcrumb.html" %}
+
+  <div class="grid-row">
+    <div class="column-two-thirds">
+
+      <h1 class="heading-xlarge">
+        FIS Prototype
+      </h1>
+
+    </div>
+  </div>
+
+  <div class="grid-row">
+
+    <div class="column-one-third">
+
+      <h2 class="heading-medium heading-index"><a href="/stations">Gauging stations</a></h2>
+
+      <p>
+        Layout variations and user journeys
+      </p>
+
+    </div>
+    
+  </div>
+
+  <hr>
+  
+  <h2 class="heading-medium">Looking for the styles?</h2>
+  <p>The SASS files for <a href="https://github.com/EnvironmentAgency/fis-prototype/" rel="external">everything can be found on GitHub.</a></p>
+
+</main><!-- / #content -->
+{% endblock %}
+
+{% block body_end %}
+  <!-- GOV.UK elements redirect -->
+  <script src="/public/javascripts/redirect.js"></script>
+  {% include "partials/scripts.html" %}
+{% endblock %}
+
