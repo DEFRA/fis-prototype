@@ -36,9 +36,6 @@ app.use('/public', express.static(path.join(__dirname, '/govuk_modules/public'))
 app.use('/public', express.static(path.join(__dirname, '/govuk_modules/govuk_template/assets')))
 app.use('/public', express.static(path.join(__dirname, '/govuk_modules/govuk_frontend_toolkit')))
 
-// Middleware to serve static assets
-app.use('/assets', express.static(path.join(__dirname, '/public/assets')))
-
 // Support for parsing data in POSTs
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({
