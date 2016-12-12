@@ -18,5 +18,13 @@ module.exports = {
       res.render('stations/5090', { 'section': section, 'section_name': sectionName, 'page_name': pageName })
     })
 
+    // Example station: Greta at Low Briery [Box]
+    app.get('/stations/5090b', function (req, res) {
+      var section = 'stations'
+      var sectionName = 'Stations'
+      var pageName = 'Greta at Low Briery'
+      res.render('stations/5090b', { 'section': section, 'section_name': sectionName, 'page_name': pageName })
+    })
+
   }
 }

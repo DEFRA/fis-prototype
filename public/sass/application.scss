@@ -86,30 +86,6 @@ h1.heading-xlarge {
   }
 }
 
-// Browser requirements
-
-.panel.panel-device-requirements {
-  @extend .panel-border-wide;
-  background-color: $panel-colour;
-  margin-top:em(5);
-  margin-bottom: em(20, 16);
-  p {
-      font-weight:bold;
-  }
-}
-
-// Details
-
-details:last-of-type {
-  margin-bottom: em(15, 16);
-}
-
-// Device requirments
-
-.js-enabled .hide {
-  @extend .hide;
-}
-
 // Page headings
 
 .page-header .heading-xlarge {
@@ -121,3 +97,50 @@ details:last-of-type {
   }
 
 }
+
+// Gaging station
+
+.headline {
+
+  background-color:$govuk-blue;
+  overflow:auto;
+  padding:1.5em 0;
+
+  .lede {
+    padding-left:2.25rem;
+    padding-right:2.25rem;
+    color:white;
+  }
+
+  .data {
+    float:left;
+    padding-left:2.25rem;
+    padding-right:2.25rem;
+    margin-bottom:0;
+    box-sizing: border-box;
+    color:white;
+  }
+
+  .data:first-of-type {
+    width:33.33%;
+  }
+
+  a {
+    color:white;
+  }
+
+  a:hover {
+    opacity:0.8;
+  }
+}
+
+details.sation-information {
+  margin-top:em(15);
+}
+
+.map-container {
+  width: 100%;
+  height: 400px;
+  border:1px solid $grey-2;
+}
+
