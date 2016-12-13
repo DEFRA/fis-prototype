@@ -1804,18 +1804,8 @@ input[type=number] {
   white-space: nowrap;
 }
 
-.chart {
-  margin-top: 2.0833333333em;
-}
-
 .chart figure {
   padding-bottom: 4rem;
-}
-
-.chart-container {
-  position: relative;
-  height: 300px;
-  margin-left: 5rem;
 }
 
 .chart svg {
@@ -1839,6 +1829,16 @@ input[type=number] {
   left: 0;
   line-height: 1em;
   margin-top: -0.5em;
+}
+
+.chart-container {
+  padding-bottom: 3rem;
+}
+
+.chart-container-inner {
+  position: relative;
+  height: 300px;
+  margin-left: 5rem;
 }
 
 .chart-container ul:first-of-type li {
@@ -2007,37 +2007,31 @@ h1.heading-xlarge {
   margin-top: 1.25em;
 }
 
-.headline {
-  background-color: #005ea5;
-  overflow: auto;
-  padding: 1.5em 0;
+.headline .headline-data {
+  border-top: 1px solid #bfc1c3;
+  margin-bottom: 1.25em;
+  margin-top: 0.2631578947em;
+  margin-bottom: 1.3157894737em;
 }
 
-.headline .lede {
-  padding-left: 2.25rem;
-  padding-right: 2.25rem;
-  color: white;
+.headline .headline-data h2 {
+  margin-top: 0.9375em;
+  margin-top: 1.0526315789em;
 }
 
-.headline .data {
-  float: left;
-  padding-left: 2.25rem;
-  padding-right: 2.25rem;
-  margin-bottom: 0;
-  box-sizing: border-box;
-  color: white;
+.headline .headline-data .data-item:first-child {
+  margin-bottom: 0.3em;
 }
 
-.headline .data:first-of-type {
-  width: 33.33%;
+.station-data {
+  border-top: 1px solid #bfc1c3;
 }
 
-.headline a {
-  color: white;
-}
-
-.headline a:hover {
-  opacity: 0.8;
+.station-data h2 {
+  margin-top: 0.9375em;
+  margin-bottom: 0.3125em;
+  margin-top: 1.0526315789em;
+  margin-bottom: 0.2631578947em;
 }
 
 details.sation-information {

@@ -30,7 +30,7 @@
 
     <div class="column-full">
 
-      <p class="lede">River level is in normal range</p>
+      <p class="lede">The river level is within normal range</p>
 
     </div>
 
@@ -38,61 +38,47 @@
 
   <div class="grid-row">
 
-    <section class="column-one-third">
+    <div class="headline">
 
-      <div class="data">
-        <span class="data-item bold-xlarge headline--latest">0.98m</span>
-        <span class="data-item font-xsmall">recorded at 11.30pm yesterday</span>
-      </div>
+      <section class="column-one-third">
 
-    </section>
+        <div class="data headline-data">
+          <h2 class="data-item bold-medium">Latest level</h2>
+          <span class="data-item bold-xlarge headline--latest">0.98m</span>
+          <span class="data-item bold-xsmall">recorded at 11.30pm yesterday</span>
+        </div>
 
-    <section class="column-two-thirds">
+      </section>
 
-      <div class="data">
-        <span class="data-item bold-xlarge headline--forecast">0.9m - 0.95m</span>
-        <span class="data-item font-xsmall"><a href="#">forecast in the next 36 hours</a></span>
-      </div>
+      <section class="column-two-thirds">
 
-    </section>
+        <div class="data headline-data">
+          <h2 class="data-item bold-medium">Latest forecast range</h2>
+          <span class="data-item bold-xlarge headline--forecast">0.9m - 0.95m</span><span class="visuallyhidden">.</span>
+          <span class="data-item bold-xsmall"><a href="#">About this forecast</a></span>
+        </div>
 
-  </div>
-
-  <div class="grid-row">
-  
-    <div class="column-two-thirds">
-
-      <details class="sation-information">
-
-          <summary>
-              
-              <span class="summary">More station information</span>
-              
-          </summary>
-
-          <div class="panel panel-border-narrow">
-
-              <p>Normal range 0.0.5m to 1.9m</p>
-              <p>Copy</p>
-
-          </div>
-
-      </details>
+      </section>
 
     </div>
 
   </div>
 
   <div class="grid-row">
+
     <div class="column-full">
 
-      <section class="chart">
+      <section class="station-data">
 
-        <figure>
+        <h2 class="heading-medium">River level data</h2>       
+
+        <figure class="chart">
           
-            <figcaption>River levels for the previous 5 days and forecast levels for the next 36 hours</figcaption>
+          <figcaption>River levels for the previous 5 days and forecast levels for the next 36 hours</figcaption>
 
-            <div class="chart-container">
+          <div class="chart-container">
+
+            <div class="chart-container-inner">
 
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 650 304" preserveAspectRatio="none">
 
@@ -146,49 +132,65 @@
 
                 </g>
 
-                <!--
-                <g class="axis">
-
-                  <text class="no-scale cls-5b" x="110" y="330" font-size="16">Fri, 2nd Dec</text>
-                  <text class="no-scale cls-5b" x="210" y="330" font-size="16">Sat, 3rd Dec</text>
-                  <text class="no-scale cls-5b" x="310" y="330" font-size="16">Sun, 4th Dec</text>
-                  <text class="no-scale cls-5b" x="410" y="330" font-size="16">Mon, 5th Dec</text>
-                  <text class="no-scale cls-5b" x="510" y="330" font-size="16">Tue, 6th Dec</text>
-                  <text class="no-scale cls-5b" x="610" y="330" font-size="16">Wed, 7th Dec</text>
-
-                  <text class="no-scale cls-5" x="0" y="13" font-size="16">1.6m</text>
-                  <text class="no-scale cls-5" x="0" y="88" font-size="16">1.4m</text>
-                  <text class="no-scale cls-5" x="0" y="163" font-size="16">1.2m</text>
-                  <text class="no-scale cls-5" x="0" y="238" font-size="16">1.0m</text>
-                  <text class="no-scale cls-5" x="0" y="313" font-size="16">0.8m</text>
-
-                </g>
-                -->
-
               </svg>
 
               <ul>
-                  <li>1.6m</li>
-                  <li>1.4m</li>
-                  <li>1.2m</li>
-                  <li>1.0m</li>
-                  <li>0.8m</li>
-                </ul>
+                <li>1.6m</li>
+                <li>1.4m</li>
+                <li>1.2m</li>
+                <li>1.0m</li>
+                <li>0.8m</li>
+              </ul>
 
-                <ul>
-                  <li>Fri, 2nd Dec</li>
-                  <li>Sat, 3rd Dec</li>
-                  <li>Sun, 4th Dec</li>
-                  <li>Mon, 5th Dec</li>
-                  <li>Tue, 6th Dec</li>
-                  <li>Wed, 7th Dec</li>
-                </ul>
+              <ul>
+                <li>Fri, 2nd Dec</li>
+                <li>Sat, 3rd Dec</li>
+                <li>Sun, 4th Dec</li>
+                <li>Mon, 5th Dec</li>
+                <li>Tue, 6th Dec</li>
+                <li>Wed, 7th Dec</li>
+              </ul>
 
-              </div>
+            </div>
 
-          </figure>
+          </div>
 
-        </section>
+        </figure>
+
+      </section>
+
+    </div>
+
+  </div>
+
+  <div class="grid-row">
+
+    <div class="column-two-thirds">
+
+      <details class="sation-information">
+
+          <summary>
+              
+              <span class="summary">More station information</span>
+              
+          </summary>
+
+          <div class="panel panel-border-narrow">
+
+              <p>Normal range 0.0.5m to 1.9m</p>
+              <p>Copy</p>
+
+          </div>
+
+      </details>
+
+    </div>
+
+  </div>
+
+  <div class="grid-row">
+
+    <div class="column-full">
 
         <scetion class="map">
 
@@ -217,6 +219,7 @@
         </section>
 
     </div>
+
   </div>
 
   <div class="grid-row">

@@ -1,15 +1,7 @@
 //Chart SVG
 
-.chart {
-    margin-top: em(100, 48);
-}
 .chart figure {
     padding-bottom:4rem;
-}
-.chart-container {
-    position:relative;
-    height:300px;
-    margin-left:5rem;
 }
 .chart svg {
     width:100%;
@@ -33,6 +25,12 @@
     margin-top:-0.5em;
 }
 .chart-container {
+    padding-bottom:3rem;
+    &-inner {
+        position:relative;
+        height:300px;
+        margin-left:5rem;
+    }
     ul:first-of-type {
         li {
             width:15.38%;

@@ -11,19 +11,11 @@ module.exports = {
     })
 
     // Example station: Greta at Low Briery
-    app.get('/stations/5090', function (req, res) {
-      var section = 'stations'
-      var sectionName = 'Stations'
+    app.get('/station/5090', function (req, res) {
+      var section = 'station'
+      var sectionName = 'Station'
       var pageName = 'Greta at Low Briery'
-      res.render('stations/5090', { 'section': section, 'section_name': sectionName, 'page_name': pageName })
-    })
-
-    // Example station: Greta at Low Briery [Box]
-    app.get('/stations/5090b', function (req, res) {
-      var section = 'stations'
-      var sectionName = 'Stations'
-      var pageName = 'Greta at Low Briery'
-      res.render('stations/5090b', { 'section': section, 'section_name': sectionName, 'page_name': pageName })
+      res.render('station/5090', { 'section': section, 'section_name': sectionName, 'page_name': pageName })
     })
 
   }
