@@ -71,10 +71,19 @@
       <section class="station-data">
 
         <h2 class="heading-medium">River level data</h2>       
+        <p>River levels for the previous 5 days and forecast levels for the next 36 hours.</p>
 
         <figure class="chart">
-          
-          <figcaption>River levels for the previous 5 days and forecast levels for the next 36 hours</figcaption>
+
+          <figcaption class="chart-legend" role="presentation">
+            
+            <ol>
+              <li><span>Item one</span></li>
+              <li><span>Item two</span></li>
+              <li><span>Item three</span></li>
+            </ol>
+
+          </figcaption>
 
           <div class="chart-container">
 
@@ -90,15 +99,15 @@
                     .cls-10,.cls-11,.cls-12,.cls-3,.cls-4,.cls-8,.cls-9{stroke-miterlimit:10;}
                     .cls-4{shape-rendering:crispEdges;}
                     .cls-3{vector-effect:non-scaling-stroke;stroke-width:1px;}
-                    .cls-10,.cls-11,.cls-12,.cls-4,.cls-8,.cls-9{stroke-width:3px;vector-effect:non-scaling-stroke;}
+                    .cls-10,.cls-11,.cls-12,.cls-4,.cls-8,.cls-9{stroke-width:2px;vector-effect:non-scaling-stroke;}
                     .cls-5{text-anchor:start;fill:#404041;font-family:"nta", Helvetica, Helvetica;}
                     .cls-5b{text-anchor:middle;fill:#404041;font-family:"nta", Helvetica, Helvetica;}
                     .cls-6{letter-spacing:-0.04em;}
                     .cls-7{letter-spacing:-0.02em;}
                     .cls-10,.cls-11,.cls-12,.cls-8,.cls-9{fill:none;}
                     .cls-8{stroke:#097F96;}
-                    .cls-10,.cls-9{stroke:#BFC1C3;}
-                    .cls-10{stroke-dasharray:6 6;}
+                    .cls-10,.cls-9{stroke:#6F777B;}
+                    .cls-10{stroke-dasharray:4 4;}
                     .cls-11{stroke:#f47738;shape-rendering:crispEdges;}
                     .cls-12{stroke:#6F777B;shape-rendering:crispEdges;}
                   </style>
@@ -107,9 +116,11 @@
 
                 <g class="lines" transform="translate(0,2)">
 
-                  <polyline class="cls-1" points="0 300 0 232 525 264 525 300"/>
-                  <polygon class="cls-2" points="650 258 650 300 525 300 525 264"/>
-
+                  <!-- Historic area -->
+                  <polyline class="cls-1" points="0 300 0 232 500 264 500 300"/>
+                  <!-- Forecast area -->
+                  <polygon class="cls-2" points="650 258 650 300 500 300 500 264"/>
+                  <!-- Vertical grid lines -->
                   <line class="cls-3" x1="25" y1="0" x2="25" y2="300"/>
                   <line class="cls-3" x1="125" y1="0" x2="125" y2="300"/>
                   <line class="cls-3" x1="225" y1="0" x2="225" y2="300"/>
@@ -117,18 +128,20 @@
                   <line class="cls-3" x1="425" y1="0" x2="425" y2="300"/>
                   <line class="cls-3" x1="525" y1="0" x2="525" y2="300"/>
                   <line class="cls-3" x1="625" y1="0" x2="625" y2="300"/>
-
+                  <!-- Horizontal grid lines -->
                   <line class="cls-3" x1="0" y1="75" x2="650" y2="75"/>
                   <line class="cls-3" x1="0" y1="150" x2="650" y2="150"/>
                   <line class="cls-3" x1="0" y1="225" x2="650" y2="225"/>
-
-                  <polyline class="cls-8" points="0 232 525 264"/>
-                  <polyline class="cls-10" points="650 258 525 264"/>
-                  
+                  <!-- Historic line -->
+                  <polyline class="cls-8" points="0 232 500 264"/>
+                  <!-- Forecast line -->
+                  <polyline class="cls-10" points="650 258 500 264"/>
+                  <!-- Baseline -->
                   <line class="cls-4" x1="0" y1="300" x2="650" y2="300"/>
+                  <!-- Threshold -->
                   <line class="cls-11" x2="0" y2="0" x1="650" y1="0"/>
-
-                  <line class="cls-12" x1="525" y1="0" x2="525" y2="300"/>
+                  <!-- Now -->
+                  <line class="cls-12" x1="500" y1="0" x2="500" y2="300"/>
 
                 </g>
 
@@ -192,7 +205,7 @@
 
     <div class="column-full">
 
-        <scetion class="map">
+        <section class="map">
 
           <h2 class="heading-medium">Select another station in this area</h2>
 
@@ -224,57 +237,61 @@
 
   <div class="grid-row">
   
-    <div class="column-two-thirds">
+    <div class="column-full">
 
-      <h2 class="heading-medium">About river levels</h2>
+      <section class="about-river-levels">
 
-      <details class="sation-information">
+        <h2 class="heading-medium">About river levels</h2>
 
-        <summary>
-            
-          <span class="summary">How are river levels measured?</span>
-            
-        </summary>
+        <details class="sation-information">
 
-        <div class="panel panel-border-narrow">
+          <summary>
+              
+            <span class="summary">How are river levels measured?</span>
+              
+          </summary>
 
-          <p>Copy</p>
+          <div class="panel panel-border-narrow">
 
-        </div>
+            <p>Copy</p>
 
-      </details>
+          </div>
 
-      <details class="sation-information">
+        </details>
 
-        <summary>
-            
-          <span class="summary">How often are river and sea levels measured?</span>
-            
-        </summary>
+        <details class="sation-information">
 
-        <div class="panel panel-border-narrow">
+          <summary>
+              
+            <span class="summary">How often are river and sea levels measured?</span>
+              
+          </summary>
 
-          <p>Copy</p>
+          <div class="panel panel-border-narrow">
 
-        </div>
+            <p>Copy</p>
 
-      </details>
+          </div>
 
-      <details class="sation-information">
+        </details>
 
-        <summary>
-            
-          <span class="summary">How might river levels affect flood risk?</span>
-            
-        </summary>
+        <details class="sation-information">
 
-        <div class="panel panel-border-narrow">
+          <summary>
+              
+            <span class="summary">How might river levels affect flood risk?</span>
+              
+          </summary>
 
-          <p>Copy</p>
+          <div class="panel panel-border-narrow">
 
-        </div>
+            <p>Copy</p>
 
-      </details>      
+          </div>
+
+        </details>  
+
+      </section>
 
     </div>
 
