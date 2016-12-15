@@ -10,7 +10,7 @@ module.exports = {
       res.render('stations', { 'page_name': pageName })
     })
 
-    // Example station: Greta at Low Briery
+    // Example station: Normal range
     app.get('/station/5090', function (req, res) {
       var section = 'station'
       var sectionName = 'Station'
@@ -18,5 +18,36 @@ module.exports = {
       res.render('station/5090', { 'section': section, 'section_name': sectionName, 'page_name': pageName })
     })
 
+    // Example station: Flooding is possible
+    app.get('/station/5090-flooding-possible', function (req, res) {
+      var section = 'station'
+      var sectionName = 'Station'
+      var pageName = 'Greta at Low Briery'
+      res.render('station/5090-flooding-possible', { 'section': section, 'section_name': sectionName, 'page_name': pageName })
+    })
+
+    // Example station: Flooding is possible now
+    app.get('/station/5090-flooding-possible-now', function (req, res) {
+      var section = 'station'
+      var sectionName = 'Station'
+      var pageName = 'Greta at Low Briery'
+      res.render('station/5090-flooding-possible-now', { 'section': section, 'section_name': sectionName, 'page_name': pageName })
+    })
+
+    // Example station: Flood alert
+    app.get('/station/5090-alert', function (req, res) {
+      var section = 'station'
+      var sectionName = 'Station'
+      var pageName = 'Greta at Low Briery'
+      res.render('station/5090-alert', { 'section': section, 'section_name': sectionName, 'page_name': pageName })
+    })
+
+    // Example station: Flood warning
+    app.get('/station/5090-warning', function (req, res) {
+      var section = 'station'
+      var sectionName = 'Station'
+      var pageName = 'Greta at Low Briery'
+      res.render('station/5090-warning', { 'section': section, 'section_name': sectionName, 'page_name': pageName })
+    })
   }
 }
