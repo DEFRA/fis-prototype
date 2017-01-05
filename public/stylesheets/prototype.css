@@ -2521,6 +2521,7 @@ h1.heading-xlarge {
   text-transform: none;
   font-size: 14px;
   line-height: 1.1428571429;
+  margin-bottom: 0.5em;
 }
 
 @media (min-width: 641px) {

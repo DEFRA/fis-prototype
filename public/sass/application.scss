@@ -112,6 +112,7 @@ h1.heading-xlarge {
     .related-item {
       list-style:none;
       @include core-16;
+      margin-bottom:0.5em;
     }
 }
 
