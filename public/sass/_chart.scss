@@ -58,7 +58,7 @@
     }
     @include media(desktop) {
         float:left;
-        width:75%;
+        width:66.66%;
     }
 }
 .chart-legend {
@@ -111,7 +111,7 @@
     @include media(desktop) {
         margin:0;
         float:right;
-        width:25%;
+        width:33.33%;
         padding:0;        
     }
 }

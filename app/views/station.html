@@ -16,54 +16,58 @@
   {% include "partials/phase_banner.html" %}
 
   <div class="grid-row">
-    <div class="column-full">
+    
+    <div class="column-two-thirds">
 
       <h1 class="heading-xlarge">
         <span class="heading-secondary">Latest river level information for</span>
         River Greta at Low Briery
       </h1>
 
-    </div>
-  </div>
-
-  <div class="grid-row">
-
-    <div class="column-full">
-
       {% block message %}
       {% endblock %}
 
+      <div class="headline">
+
+        <div class="headline-column">
+
+          <div class="data headline-data">
+            <span class="data-item bold-medium">Latest level</span>
+            <span class="data-item bold-xlarge headline--latest">{% block level %}{% endblock %}</span>
+            <span class="data-item bold-xsmall">recorded at 11.30pm yesterday</span>
+          </div>
+
+        </div>
+
+        <div class="headline-column">
+
+          <div class="data headline-data">
+            <span class="data-item bold-medium">Latest forecast range</span>
+            <span class="data-item bold-xlarge headline--forecast">{% block range %}{% endblock %}</span><span class="visuallyhidden">.</span>
+            <span class="data-item bold-xsmall"><a href="#">About this forecast</a></span>
+          </div>
+
+        </div>
+
+      </div>
+    
+    </div>
+
+    <div class="column-third">
+      <aside class="related" role="complementary">
+        <h2 class="heading-medium related-title">About river level forcecasts</h2>
+        <nav role="navigation">
+          <ul>
+              <li class="related-item">
+                <a href="">Link one</a>
+              </li>
+          </ul>
+        </nav>
+      </aside>
     </div>
 
   </div>
 
-  <div class="grid-row">
-
-    <div class="headline">
-
-      <section class="column-one-third">
-
-        <div class="data headline-data">
-          <h2 class="data-item bold-medium">Latest level</h2>
-          <span class="data-item bold-xlarge headline--latest">{% block level %}{% endblock %}</span>
-          <span class="data-item bold-xsmall">recorded at 11.30pm yesterday</span>
-        </div>
-
-      </section>
-
-      <section class="column-two-thirds">
-
-        <div class="data headline-data">
-          <h2 class="data-item bold-medium">Latest forecast range</h2>
-          <span class="data-item bold-xlarge headline--forecast">{% block range %}{% endblock %}</span><span class="visuallyhidden">.</span>
-          <span class="data-item bold-xsmall"><a href="#">About this forecast</a></span>
-        </div>
-
-      </section>
-
-    </div>
-
-  </div>
 
   <div class="grid-row">
 
@@ -71,7 +75,7 @@
 
       <section class="station-data">
 
-        <h2 class="heading-medium">Gauging station data</h2>       
+        <h2 class="heading-medium">Gauging station information</h2>       
         <p>River levels for the previous 5 days and forecast levels for the next 36 hours.</p>
 
         <figure class="chart">
@@ -79,9 +83,10 @@
           <figcaption class="chart-legend" role="presentation">
             
             <ol>
-                <li><span>Flooding possible level</span></li>
-                <li><span>Actual river level</span></li>
-                <li><span>Forecast river level</span></li>
+                <li><span>Flood warning level<br/>2.4m</span></li>
+                <li><span>Flood alert level<br/>2.0m</span></li>
+                <li><span>Latest level<br/>0.9m</span></li>
+                <li><span>Forecast range<br/>0.9m - 0.91m</span></li>
             </ol>
 
           </figcaption>
@@ -153,6 +158,10 @@
 
     <div class="column-two-thirds">
 
+      <p><strong class="heading-small">Flooding thresholds</strong></p>
+      <p>At <strong class="bold-small">1.6m</strong> flooding of low-lying land such as farmland and recreational fields in the <strong class="bold-small">Upper River Ouse catchment</strong> is possible.</p>
+      <p>At <strong class="bold-small">2.4m</strong> property flooding is possible of the first/ lowest/most at risk properties in York city centre, York riverside properties, and York district x.</p>
+
       <details class="sation-information">
 
           <summary>
@@ -161,7 +170,7 @@
               
           </summary>
 
-          <div class="panel panel-border-narrow">
+          <div class="panel panel-border-wide">
 
               <p>Normal range 0.0.5m to 1.9m</p>
               <p>Copy</p>
@@ -170,17 +179,23 @@
 
       </details>
 
+      <div class="panel panel-border-wide" style="margin-top:1em">
+        <p>
+          Forecast river and tidal level information can be uncertain and frequently changes. At time of greater flood risk we update the forecast more frequency. You should always check <a href="">flood warnings</a> which advise you when to take action.
+        </p>
+      </div>
+
     </div>
 
   </div>
 
   <div class="grid-row">
 
-    <div class="column-full">
+    <div class="column-two-thirds">
 
         <section class="map">
 
-          <h2 class="heading-medium">Select another station in this area</h2>
+          <h2 class="heading-medium">Select another gauging station in this area</h2>
 
           <div id="map" class="map-container"></div>
 
@@ -210,7 +225,7 @@
 
   <div class="grid-row">
   
-    <div class="column-full">
+    <div class="column-two-thirds">
 
       <section class="about-river-levels">
 
