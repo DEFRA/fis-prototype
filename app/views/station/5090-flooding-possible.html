@@ -1,9 +1,20 @@
 {% extends "station.html" %}
 
 {% block message %}
+<div class="notice notice-flood-alert">
+  <i class="icon icon-flood-warning">
+    <span class="visually-hidden">Warning</span>
+  </i>
+  <strong class="font-medium">Check for <a href="">flood warnings</a>.</strong>
+</div>
+<p class="lede">Latest river level forecast indicates that flooding is possible in the next 36 hours.</p>
+<p>The latest forecast generated at time/date indicates that the river level is predicted to peak at Xm at time/date [use time of model export generation].</p>
+
+<!--
 <p class="lede">
   <strong>Latest river level forecast indicates that flooding is possible in the next 36 hours.</strong>
 </p>
+-->
 {% endblock %}
 
 {% block level %}1.49m{% endblock %}
