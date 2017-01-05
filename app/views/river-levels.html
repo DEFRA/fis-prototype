@@ -1,0 +1,95 @@
+{% extends "layout.html" %}
+
+{% block page_title %}River Greta at Low Briery - Latest river level information - GOV.UK{% endblock %}
+
+{% block head %}
+  {% include "partials/head.html" %}
+  {% include "partials/snippets_head.html" %}
+  <link rel="stylesheet" href="https://openlayers.org/en/v3.19.1/css/ol.css" type="text/css">
+  <script src="https://openlayers.org/en/v3.19.1/build/ol.js" type="text/javascript"></script>
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main" tabindex="-1">
+
+  {% include "partials/phase_banner.html" %}
+
+  <div class="grid-row">
+    
+    <div class="column-two-thirds">
+
+      <h1 class="heading-xlarge">
+        River levels
+      </h1>
+
+      {% block message %}
+      {% endblock %}
+
+      <h2 class="heading-medium">Latest river levels</h2>
+
+      <details>
+
+        <summary>
+            
+          <span class="summary">How are river levels measured?</span>
+            
+        </summary>
+
+        <div class="panel panel-border-narrow">
+
+          <p>Copy</p>
+
+        </div>
+
+      </details>
+
+      <details>
+
+        <summary>
+            
+          <span class="summary">How often are river and sea levels measured?</span>
+            
+        </summary>
+
+        <div class="panel panel-border-narrow">
+
+          <p>Copy</p>
+
+        </div>
+
+      </details>
+
+      <details>
+
+        <summary>
+            
+          <span class="summary">How might river levels affect flood risk?</span>
+            
+        </summary>
+
+        <div class="panel panel-border-narrow">
+
+          <p>Copy</p>
+
+        </div>
+
+      </details>  
+
+      <h2 class="heading-medium">Forecast river levels</h2>
+
+    </div>
+
+  </div>
+
+</main><!-- / #content -->
+{% endblock %}
+
+{% block body_end %}
+
+  <!-- GOV.UK elements redirect -->
+  <script src="/public/javascripts/redirect.js"></script>
+  {% include "partials/scripts.html" %}
+
+{% endblock %}
+

@@ -2,10 +2,15 @@
 
 .chart {
   margin-top: em(30, 19);
+  margin-left:-15px;
+  margin-right:-15px;
+  overflow:auto;
 }
 .chart-container {
     padding-bottom:32px;
     margin-bottom:3em;
+    padding:0 15px;
+    box-sizing: border-box;
     &-inner {
         position:relative;
         height:200px;
@@ -63,6 +68,7 @@
 }
 .chart-legend {
     display:block;
+    padding:0 15px;
     padding-bottom:1em;
     ol {
         @include core-16;

@@ -2169,11 +2169,16 @@ input[type=number] {
 
 .chart {
   margin-top: 1.5789473684em;
+  margin-left: -15px;
+  margin-right: -15px;
+  overflow: auto;
 }
 
 .chart-container {
   padding-bottom: 32px;
   margin-bottom: 3em;
+  padding: 0 15px;
+  box-sizing: border-box;
   font-size: 10pt;
 }
 
@@ -2288,6 +2293,7 @@ input[type=number] {
 
 .chart-legend {
   display: block;
+  padding: 0 15px;
   padding-bottom: 1em;
 }
 
@@ -2508,6 +2514,7 @@ h1.heading-xlarge {
   border-top: 10px solid #005ea5;
   padding-top: 5px;
   margin-top: 40px;
+  margin-left: 15px;
 }
 
 .related .related-title {
@@ -2585,6 +2592,11 @@ h1.heading-xlarge {
     margin-top: 1.0526315789em;
     margin-bottom: 0.2631578947em;
   }
+}
+
+.station-information {
+  margin-top: 2em;
+  margin-bottom: 1em;
 }
 
 .map {

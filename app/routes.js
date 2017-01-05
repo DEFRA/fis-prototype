@@ -10,6 +10,12 @@ module.exports = {
       res.render('stations', { 'page_name': pageName })
     })
 
+    // Gauging station
+    app.get('/river-levels', function (req, res) {
+      var pageName = 'River levels'
+      res.render('river-levels', { 'page_name': pageName })
+    })
+
     // Example station: Normal range
     app.get('/station/5090', function (req, res) {
       var section = 'station'
