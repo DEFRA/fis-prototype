@@ -2176,6 +2176,8 @@ h1.heading-xlarge {
 .headline {
   overflow: auto;
   border-bottom: 1px solid #bfc1c3;
+  margin-top: 1.25em;
+  margin-top: 1.3157894737em;
 }
 
 .headline .headline-column {

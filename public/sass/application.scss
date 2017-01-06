@@ -124,7 +124,12 @@ h1.heading-xlarge {
 
   overflow:auto;
   border-bottom:1px solid $grey-2;
-
+  
+  margin-top: em(20, 16);
+  @include media(tablet) {
+    margin-top: em(25, 19);
+  }
+  
   .headline-column {
     float:left;
     width:50%;
