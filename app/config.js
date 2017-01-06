@@ -8,6 +8,6 @@ module.exports = {
   cookieText: 'GOV.UK uses cookies to make the site simpler. <a href="https://www.gov.uk/help/cookies" title="Find out more about cookies">Find out more about cookies</a>',
   
   // Basic auth
-  useAuth: 'false'
+  useAuth: 'true'
 
 }
