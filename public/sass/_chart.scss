@@ -17,7 +17,7 @@
         height:200px;
         margin-left:5rem;
         @include media(desktop) {
-            height:256px;
+            height:300px;
         }
     }
     ul {
@@ -71,6 +71,7 @@
     display:block;
     padding:0 15px;
     padding-bottom:1em;
+    box-sizing: border-box;
     ol {
         @include core-16;
         margin-left:5%;

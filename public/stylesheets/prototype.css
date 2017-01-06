@@ -2191,7 +2191,7 @@ input[type=number] {
 
 @media (min-width: 769px) {
   .chart-container-inner {
-    height: 256px;
+    height: 300px;
   }
 }
 
@@ -2296,6 +2296,7 @@ input[type=number] {
   display: block;
   padding: 0 15px;
   padding-bottom: 1em;
+  box-sizing: border-box;
 }
 
 .chart-legend ol {
@@ -2555,8 +2556,10 @@ h1.heading-xlarge {
 }
 
 .headline {
-  overflow: auto;
+  border-top: 1px solid #bfc1c3;
   border-bottom: 1px solid #bfc1c3;
+  padding-top: 0.5em;
+  padding-bottom: 1.5em;
   margin-top: 1.25em;
 }
 
@@ -2566,20 +2569,12 @@ h1.heading-xlarge {
   }
 }
 
-.headline .headline-column {
-  float: left;
-  width: 50%;
-  padding-left: 15px;
-  box-sizing: border-box;
-}
-
 .headline .headline-column:first-child {
   padding-right: 15px;
   padding-left: 0;
 }
 
 .headline .headline-data {
-  border-top: 1px solid #bfc1c3;
   margin-bottom: 1.25em;
 }
 

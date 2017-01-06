@@ -48,25 +48,17 @@
 
       </details>
 
-      <div class="headline">
+      <section class="headline">
 
-        <div class="headline-column">
-
-          <div class="data headline-data">
-            <span class="data-item bold-medium">Latest level</span>
-            <span class="data-item bold-xlarge headline--latest">{% block level %}{% endblock %}</span>
-            <span class="data-item bold-xsmall">recorded at 11.30pm on Friday 6 January 2017</span>
-          </div>
-
+        <div class="data headline-data">
+          <span class="data-item bold-medium">Latest level</span>
+          <span class="data-item bold-xlarge headline--latest">{% block level %}{% endblock %}</span>
+          <span class="data-item font-xsmall">recorded at 11.30pm on Friday 6 January 2017</span>
         </div>
 
-        <div class="headline-column">
-
-          <div class="data headline-data">
-            <span class="data-item bold-medium">Forecast river level range in the next 36 hours</span>
-            <span class="data-item bold-xlarge headline--forecast">{% block range %}{% endblock %}</span><span class="visuallyhidden">.</span>
-          </div>
-
+        <div class="data headline-data">
+          <span class="data-item bold-medium">Forecast river level range in the next 36 hours</span>
+          <span class="data-item bold-xlarge headline--forecast">{% block range %}{% endblock %}</span><span class="visuallyhidden">.</span>
         </div>
 
         <details>
@@ -81,8 +73,8 @@
 
         </details>
 
-      </div>
-    
+      </section>
+
     </div>
 
     <div class="column-third">
@@ -121,8 +113,8 @@
           <figcaption class="chart-legend" role="presentation">
             
             <ol>
-                <li class="line"><span>Flood warning threshold<br/>1.6m</span></li>
-                <li class="line"><span>Flood alert threshold<br/>1.1m</span></li>
+                <li class="line"><span>Flood warnings are more likely above this level<br/>1.6m</span></li>
+                <li class="line"><span>Flood alerts are more likely above this level<br/>1.1m</span></li>
                 <li class="area"><span>Latest level<br/>0.9m</span></li>
                 <li class="area"><span>Forecast range<br/>0.9m - 0.91m</span></li>
             </ol>
@@ -270,72 +262,6 @@
     </div>
 
   </div>
-
-<!--
-
-  <div class="grid-row">
-  
-    <div class="column-two-thirds">
-
-      <section class="about-river-levels">
-
-        <h2 class="heading-medium">About river levels</h2>
-
-        <details class="sation-information">
-
-          <summary>
-              
-            <span class="summary">How are river levels measured?</span>
-              
-          </summary>
-
-          <div class="panel panel-border-narrow">
-
-            <p>Copy</p>
-
-          </div>
-
-        </details>
-
-        <details class="sation-information">
-
-          <summary>
-              
-            <span class="summary">How often are river and sea levels measured?</span>
-              
-          </summary>
-
-          <div class="panel panel-border-narrow">
-
-            <p>Copy</p>
-
-          </div>
-
-        </details>
-
-        <details class="sation-information">
-
-          <summary>
-              
-            <span class="summary">How might river levels affect flood risk?</span>
-              
-          </summary>
-
-          <div class="panel panel-border-narrow">
-
-            <p>Copy</p>
-
-          </div>
-
-        </details>  
-
-      </section>
-
-    </div>
-
-  </div>
-
--->
 
 </main><!-- / #content -->
 {% endblock %}
