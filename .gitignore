@@ -6,7 +6,7 @@ lib/govuk_template.html
 
 # Ignore generated snippets
 # app/views/snippets/encoded/*.html
-# app/config.js
+app/config.js
 
 # Ignore compiled stylesheets
 # public/stylesheets/
