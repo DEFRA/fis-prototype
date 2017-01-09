@@ -164,24 +164,17 @@ h1.heading-xlarge {
 
 .station-data {
   h2 {
-    margin-top: em(20, 16);
     margin-bottom: em(5, 16);
     @include media(tablet) {
-      margin-top: em(25, 19);
       margin-bottom: em(5, 19);
       max-width:66.66%;
     }
   }
-  margin-bottom:em(40,19);
 }
 
 .forecast-disclaimer {
   margin-top:2em;
   margin-bottom:2em;
-}
-
-.station-more-information {
-  margin-bottom:1em;
 }
 
 // Map

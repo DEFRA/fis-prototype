@@ -2176,14 +2176,8 @@ h1.heading-xlarge {
   margin-top: 1.0526315789em;
 }
 
-.station-data {
-  margin-bottom: 2.1052631579em;
-}
-
 .station-data h2 {
-  margin-top: 1.25em;
   margin-bottom: 0.3125em;
-  margin-top: 1.3157894737em;
   margin-bottom: 0.2631578947em;
   max-width: 66.66%;
 }
@@ -2191,10 +2185,6 @@ h1.heading-xlarge {
 .forecast-disclaimer {
   margin-top: 2em;
   margin-bottom: 2em;
-}
-
-.station-more-information {
-  margin-bottom: 1em;
 }
 
 .map {
