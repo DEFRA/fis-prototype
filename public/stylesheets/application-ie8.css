@@ -2148,6 +2148,8 @@ h1.heading-xlarge {
 
 .headline .headline-data {
   margin-bottom: 1.25em;
+  float: left;
+  width: 50%;
   margin-top: 0.2631578947em;
   margin-bottom: 1.3157894737em;
 }
@@ -2167,6 +2169,7 @@ h1.heading-xlarge {
   margin-bottom: 0.3125em;
   margin-top: 1.3157894737em;
   margin-bottom: 0.2631578947em;
+  max-width: 66.66%;
 }
 
 .forecast-disclaimer {

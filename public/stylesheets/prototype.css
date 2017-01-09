@@ -2580,6 +2580,8 @@ h1.heading-xlarge {
 
 @media (min-width: 641px) {
   .headline .headline-data {
+    float: left;
+    width: 50%;
     margin-top: 0.2631578947em;
     margin-bottom: 1.3157894737em;
   }
@@ -2609,6 +2611,7 @@ h1.heading-xlarge {
   .station-data h2 {
     margin-top: 1.3157894737em;
     margin-bottom: 0.2631578947em;
+    max-width: 66.66%;
   }
 }
 
