@@ -1906,6 +1906,22 @@ input[type=number] {
   top: 100%;
 }
 
+.chart-container ul.tidal:first-of-type li:nth-child(1) {
+  top: 0%;
+}
+
+.chart-container ul.tidal:first-of-type li:nth-child(2) {
+  top: 30%;
+}
+
+.chart-container ul.tidal:first-of-type li:nth-child(3) {
+  top: 60%;
+}
+
+.chart-container ul.tidal:first-of-type li:nth-child(4) {
+  top: 90%;
+}
+
 .chart-container ul:last-of-type li {
   width: 15.38%;
   text-align: center;
