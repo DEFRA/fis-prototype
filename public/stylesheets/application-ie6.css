@@ -1872,7 +1872,7 @@ input[type=number] {
   position: relative;
   height: 200px;
   margin-left: 5rem;
-  height: 300px;
+  height: 350px;
 }
 
 .chart-container ul {
@@ -2044,19 +2044,23 @@ input[type=number] {
 }
 
 .chart-legend ol li:nth-child(1) span:before {
-  border-color: #b10e1e;
+  border-color: #333;
 }
 
 .chart-legend ol li:nth-child(2) span:before {
-  border-color: #f47738;
+  border-color: #b10e1e;
 }
 
 .chart-legend ol li:nth-child(3) span:before {
+  border-color: #f47738;
+}
+
+.chart-legend ol li:nth-child(4) span:before {
   border-color: #097F96;
   background-color: #c1dfe4;
 }
 
-.chart-legend ol li:nth-child(4) span:before {
+.chart-legend ol li:nth-child(5) span:before {
   border-color: #6f777b;
   background-color: #e6e7e8;
   border-style: dashed;

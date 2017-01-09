@@ -1,4 +1,4 @@
-{% extends "station.html" %}
+{% extends "station-b.html" %}
 
 {% block page_title %}
 Irish Sea at Silloth Docks - Latest tidal level information - GOV.UK
@@ -36,9 +36,21 @@ Irish Sea at Silloth Docks
 </details>
 {% endblock %}
 
-{% block level %}0m{% endblock %}
+{% block headline_latest %}
+<div class="data headline-data">
+        <span class="data-item bold-medium">Latest level recorded<br/>at this location</span>
+        <span class="data-item bold-xlarge headline--latest">0m</span>
+        <span class="data-item bold-xsmall">at 6.00pm on Sunday 6 February 2017</span>
+</div>
+{% endblock %}
 
-{% block range %}-0.2m to 4.5m{% endblock %}
+{% block headline_forecast %}
+<div class="data headline-data">
+        <span class="data-item bold-medium">Highest forecast level<br/>in the next 36 hours</span>
+        <span class="data-item bold-xlarge headline--forecast">4.5m</span><span class="visuallyhidden">.</span>
+        <span class="data-item bold-xsmall">at 12.00pm on Monday 7 February 2017</span>
+</div>
+{% endblock %}
 
 {% block stationDataHeading %}
 Tidal levels for the last 5 days and forecast levels for the next 36 hours
@@ -46,10 +58,11 @@ Tidal levels for the last 5 days and forecast levels for the next 36 hours
 
 {% block stationLegend %}
 <ol>
-        <li class="line"><span>Flood warnings are more likely above this level<br/>6m</span></li>
-        <li class="line"><span>Flood alerts are more likely above this level<br/>4.3m</span></li>
-        <li class="area"><span>Latest level<br/>0.9m</span></li>
-        <li class="area"><span>Forecast range<br/>0.9m - 0.91m</span></li>
+        <li class="line"><span>Highest recorded level<br/>8m <a href="">Show</a></span></li>
+        <li class="line"><span>Flood warning level<br/>6m</span></li>
+        <li class="line"><span>Flood alert level<br/>4.3m</span></li>
+        <li class="area"><span>Latest recorded level<br/>0m</span></li>
+        <li class="area"><span>Highest forecast level<br/>4.5m</span></li>
 </ol>
 {% endblock %}
 
