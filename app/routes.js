@@ -32,6 +32,14 @@ module.exports = {
       res.render('station/5090-flooding-possible', { 'section': section, 'section_name': sectionName, 'page_name': pageName })
     })
 
+    // Example station: Flooding is possible, option B
+    app.get('/station/5090-flooding-possible-b', function (req, res) {
+      var section = 'station'
+      var sectionName = 'Station'
+      var pageName = 'Greta at Low Briery'
+      res.render('station/5090-flooding-possible-b', { 'section': section, 'section_name': sectionName, 'page_name': pageName })
+    })
+
     // Example station: Tidal normal range
     app.get('/station/5205', function (req, res) {
       var section = 'station'
@@ -46,6 +54,14 @@ module.exports = {
       var sectionName = 'Station'
       var pageName = 'Irish Sea at Silloth Docks'
       res.render('station/5205-flooding-possible', { 'section': section, 'section_name': sectionName, 'page_name': pageName })
+    })
+
+    // Example station: Tidal flooding possible, option B
+    app.get('/station/5205-flooding-possible-b', function (req, res) {
+      var section = 'station'
+      var sectionName = 'Station'
+      var pageName = 'Irish Sea at Silloth Docks'
+      res.render('station/5205-flooding-possible-b', { 'section': section, 'section_name': sectionName, 'page_name': pageName })
     })
 
   }
