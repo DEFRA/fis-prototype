@@ -22,6 +22,8 @@
         {% endblock %}
       </h1>
 
+      <p class="time-stamp">Current time: 6:30pm, Wednesday 11 January 2016</p>
+
       {% block message %}
       {% endblock %}
 
@@ -54,18 +56,17 @@
         <div class="data headline-data">
           <span class="data-item bold-medium">Latest level recorded<br/>at this location</span>
           <span class="data-item bold-xlarge headline--latest">0.9m</span>
-          <span class="data-item bold-xsmall">at 11.30pm on Friday 6 January 2017</span>
+          <span class="data-item bold-xsmall">at 6.00pm on Wednesday 11 Jan 2017</span>
         </div>
         {% endblock %}
 
         {% block headline_forecast %}
         <div class="data headline-data">
-          <span class="data-item bold-medium">Highest forecast level<br/>in the next 36 hours</span>
-          <span class="data-item bold-xlarge headline--forecast">1.67m</span><span class="visuallyhidden">.</span>
-          <span class="data-item bold-xsmall">at 11.30pm on Friday 6 January 2017</span>
+          <span class="data-item bold-medium">Highest level forecast<br/>in the next 36 hours</span>
+          <span class="data-item bold-xlarge headline--forecast">0.91m</span><span class="visuallyhidden">.</span>
+          <span class="data-item bold-xsmall">at 6.00am on Friday 13 Jan 2017</span>
         </div>
         {% endblock %}
-
         
         <details>
 
@@ -112,17 +113,22 @@
     <div class="column-two-thirds">
 
       <h2 class="heading-medium">Which levels are most likely to indicate flooding?</h2>
-      <p>Flood alerts are commonly associated with levels over 1.6m. They indicate potential flooding of low-lying land such as farmland and recreational fields is likely at:<p>
+      <p>At levels over 1.6m flooding of low-lying land such as farmland and recreational fields is likely at:<p>
       <ul class="list list-bullet">
-        <li><a href="">Upper River Ouse catchment</a></li>
+        <li><a href="https://flood-warning-information.service.gov.uk/target-area/013FWFGM75">River Irk at Cheetham Hill</a></li>
+        <li><a href="https://flood-warning-information.service.gov.uk/target-area/013FWFGM91">River Irk at Vale Park Industrial Estate</a></li>
+        <li><a href="https://flood-warning-information.service.gov.uk/target-area/013FWFGM92">River Irk at Crumpsall Hospital</a></li>
+        <li><a href="https://flood-warning-information.service.gov.uk/target-area/013FWFGM93">River Irk at Kendall Road</a></li>
+        <li><a href="https://flood-warning-information.service.gov.uk/target-area/013FWFGM94">River Irk at New Bridge</a></li>
+        <li><a href="https://flood-warning-information.service.gov.uk/target-area/013FWFGM95">River Irk at Rhodes</a></li>
+        <li><a href="https://flood-warning-information.service.gov.uk/target-area/013FWFGM96">River Irk at Little Green</a></li>
+        <li><a href="https://flood-warning-information.service.gov.uk/target-area/013FWFGM97">River Irk at Chadderton Fold</a></li>
       </ul>
-      <p>Flood warnings are commonly associated with levels over 2.4m. They indicate that flooding of property is likely at:</p>
+      <p>At levels over 2.4m flooding of property is likely at:</p>
       <ul class="list list-bullet">
-        <li><a href="">York city centre</a></li>
-        <li><a href="">York riverside properties</a></li>
-        <li><a href="">York district x</a></li>
+        <li><a href="https://flood-warning-information.service.gov.uk/target-area/013FWFGM91">River Irk at Vale Park Industrial Estate</a></li>
+        <li><a href="https://flood-warning-information.service.gov.uk/target-area/013FWFGM92">River Irk at Crumpsall Hospital</a></li>
       </ul>
-
       <div class="forecast-disclaimer">
         <div class="panel panel-border-wide">
           <p>Forecast river and tidal levels are not guaranteed as conditions can change rapidly. We update our forecasts more frequently when there's a greater risk of flooding.</p>
@@ -149,18 +155,24 @@
         <figure class="chart">
 
           <figcaption class="chart-legend" role="presentation">
-            
-            {% block stationLegend %}
-            <ol>
-                <li class="line"><span>Highest recorded level<br/>1.8m <a href="">Show</a></span></li>
-                <li class="line"><span>Flood warning level<br/>1.6m</span></li>
-                <li class="line"><span>Flood alert level<br/>1.1m</span></li>
-                <li class="area"><span>Latest recorderd level<br/>0.9m</span></li>
-                <li class="area"><span>Highest forecast level<br/>0.91m</span></li>
-            </ol>
-            {% endblock %}
+
+          {% block stationLegend %}
+          <ol>
+            <li class="area">Recorderd level <span>(latest 0.9m)</span></li>
+            <li class="area">Forecast level <span>(highest 0.91m)</span></li>
+          </ol>
+          {% endblock %}
 
           </figcaption>
+
+          <div class="chart-annotation">
+            <ol>
+              {% block chart_annotation %}
+              <li style="top:-7px">Flooding of property possible <span>(0.9m)</span></li>
+              <li style="top:209px">Flooding of low-lying land possible <span>(0.91m)</span></li>
+              {% endblock %}
+            </ol>
+          </div>
 
           <div class="chart-container">
 
@@ -168,34 +180,10 @@
 
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 650 304" preserveAspectRatio="none">
 
-                <defs>
-                  <style>
-                    .cls-1{fill:#c1dfe4;}
-                    .cls-2{fill:#e6e7e8;}
-                    .cls-3,.cls-4{fill:#fff;stroke:#BFC1C3;shape-rendering:crispEdges;}
-                    .cls-10,.cls-11,.cls-12,.cls-3,.cls-4,.cls-8,.cls-9{stroke-miterlimit:10;}
-                    .cls-4{shape-rendering:crispEdges;}
-                    .cls-3{vector-effect:non-scaling-stroke;stroke-width:1px;}
-                    .cls-10,.cls-11,.cls-12,.cls-13,.cls-14,.cls-4,.cls-8,.cls-9{stroke-width:2px;vector-effect:non-scaling-stroke;stroke-linejoin:round}
-                    .cls-5{text-anchor:start;fill:#404041;font-family:"nta", Helvetica, Helvetica;}
-                    .cls-5b{text-anchor:middle;fill:#404041;font-family:"nta", Helvetica, Helvetica;}
-                    .cls-6{letter-spacing:-0.04em;}
-                    .cls-7{letter-spacing:-0.02em;}
-                    .cls-10,.cls-11,.cls-12,.cls-8,.cls-9{fill:none;}
-                    .cls-8{stroke:#097F96;}
-                    .cls-10,.cls-9{stroke:#6F777B;}
-                    .cls-10{stroke-dasharray:4 4;}
-                    .cls-14{stroke:#333;shape-rendering:crispEdges;}
-                    .cls-13{stroke:#f47738;shape-rendering:crispEdges;}
-                    .cls-12{stroke:#6F777B;shape-rendering:crispEdges;}
-                    .cls-11{stroke:#B10E1E;shape-rendering:crispEdges;}
-                  </style>
-                </defs>
-
                 <g class="lines" transform="translate(0,2)">
 
-                  {% block chartLines %}
-                  {% endblock %}
+                {% block chartLines %}
+                {% endblock %}
 
                 </g>
 
@@ -205,16 +193,28 @@
               {% endblock %}
 
               <ul>
-                <li>Wed, 1 Feb</li>
-                <li>Thu, 2 Feb</li>
-                <li>Fri, 3 Feb</li>
-                <li>Sat, 5 Feb</li>
-                <li><strong class="bold-xsmall">Sun, 6 Feb</strong></li>
-                <li>Mon, 7 Feb</li>
+                <li>Sat, 7 Jan</li>
+                <li>Sun, 8 Jan</li>
+                <li>Mon, 9 Jan</li>
+                <li>Tue, 10 Jan</li>
+                <li><strong class="bold-xsmall">Wed, 11 Jan</strong></li>
+                <li>Thu, 12 Jan</li>
               </ul>
+
+              {% block chart_current_level %}
+              <div class="now" style="left:75.8%;bottom:11%">
+                <span class="visuallyhidden">Current time and level</span>
+              </div>
+              {% endblock %}
 
             </div>
 
+          </div>
+
+          <div class="highest-level">
+            {% block highest_level %}
+            <a href="#" onclick="return false;">Show highest recorded level</a>
+            {% endblock %}
           </div>
 
         </figure>

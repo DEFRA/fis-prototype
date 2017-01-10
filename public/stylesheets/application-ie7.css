@@ -1972,15 +1972,19 @@ input[type=number] {
   box-sizing: border-box;
 }
 
+.chart-container .now {
+  position: absolute;
+  height: 7px;
+  width: 7px;
+  border: 2px solid #097F96;
+  background-color: white;
+  border-radius: 100%;
+}
+
 .chart-legend {
   display: block;
   padding: 0 15px;
-  padding-bottom: 1em;
-  box-sizing: border-box;
-  margin: 0;
-  float: right;
-  width: 33.33%;
-  padding: 0;
+  margin-bottom: 2em;
 }
 
 .chart-legend ol {
@@ -1991,75 +1995,80 @@ input[type=number] {
   line-height: 1.1428571429;
   font-size: 16px;
   line-height: 1.25;
-  margin-left: 5%;
-  margin-right: 5%;
   display: block;
   overflow: auto;
-  margin: 0;
-  padding-left: 1.8421052632em;
 }
 
 .chart-legend ol li {
   line-height: 1.5em;
+  margin-right: 1em;
   text-align: center;
-  float: left;
+  display: inline-block;
   box-sizing: border-box;
-  padding-left: 1.7em;
-  width: 33.33%;
-  float: none;
-  width: auto;
-  margin-bottom: 1.5em;
-  text-align: left;
 }
 
 .chart-legend ol span {
   display: inline-block;
-  float: none;
+  color: #6f777b;
 }
 
-.chart-legend ol li.area span:before {
+.chart-legend ol li:before {
   border: 2px solid #6f777b;
   float: left;
   display: block;
   content: '';
   width: 0.75em;
   height: 0.75em;
-  margin-left: -1.7em;
-  margin-top: 0.1em;
+  margin-right: 0.5em;
+  margin-top: 0.2em;
 }
 
-.chart-legend ol li.line span:before {
-  border-bottom: 4px solid #6f777b;
-  float: left;
-  display: block;
-  content: '';
-  width: 0.9em;
-  height: 0.5em;
-  margin-left: -1.7em;
-  margin-top: 0.1em;
-}
-
-.chart-legend ol li:nth-child(1) span:before {
-  border-color: #333;
-}
-
-.chart-legend ol li:nth-child(2) span:before {
-  border-color: #b10e1e;
-}
-
-.chart-legend ol li:nth-child(3) span:before {
-  border-color: #f47738;
-}
-
-.chart-legend ol li:nth-child(4) span:before {
+.chart-legend ol li:nth-child(1):before {
   border-color: #097F96;
   background-color: #c1dfe4;
 }
 
-.chart-legend ol li:nth-child(5) span:before {
+.chart-legend ol li:nth-child(2):before {
   border-color: #6f777b;
   background-color: #e6e7e8;
   border-style: dashed;
+}
+
+.chart-annotation {
+  position: relative;
+  font-family: "nta", Arial, sans-serif;
+  font-weight: 400;
+  text-transform: none;
+  font-size: 14px;
+  line-height: 1.1428571429;
+  font-size: 16px;
+  line-height: 1.25;
+  margin: 0;
+  float: right;
+  width: 33.33%;
+  padding: 0;
+}
+
+.chart-annotation li {
+  position: absolute;
+  width: 50%;
+}
+
+.chart-annotation span {
+  color: #6f777b;
+}
+
+.highest-level {
+  font-family: "nta", Arial, sans-serif;
+  font-weight: 400;
+  text-transform: none;
+  font-size: 14px;
+  line-height: 1.1428571429;
+  font-size: 16px;
+  line-height: 1.25;
+  padding: 0 15px;
+  clear: both;
+  padding-top: 1.5em;
 }
 
 .level-table td, .level-table th {
@@ -2086,9 +2095,100 @@ input[type=number] {
   line-height: 1.25;
 }
 
-.level-chart {
-  width: 100%;
-  height: 400px;
+.cls-1 {
+  fill: #c1dfe4;
+}
+
+.cls-2 {
+  fill: #e6e7e8;
+}
+
+.cls-3, .cls-4 {
+  fill: #fff;
+  stroke: #BFC1C3;
+  shape-rendering: crispEdges;
+}
+
+.cls-10, .cls-11, .cls-12, .cls-3, .cls-4, .cls-8, .cls-9 {
+  stroke-miterlimit: 10;
+}
+
+.cls-4 {
+  shape-rendering: crispEdges;
+}
+
+.cls-3 {
+  vector-effect: non-scaling-stroke;
+  stroke-width: 1px;
+}
+
+.cls-10, .cls-11, .cls-12, .cls-13, .cls-14, .cls-4, .cls-8, .cls-9 {
+  stroke-width: 2px;
+  vector-effect: non-scaling-stroke;
+  stroke-linejoin: round;
+}
+
+.cls-5 {
+  text-anchor: start;
+  fill: #404041;
+  font-family: "nta", Helvetica, Helvetica;
+}
+
+.cls-5b {
+  text-anchor: middle;
+  fill: #404041;
+  font-family: "nta", Helvetica, Helvetica;
+}
+
+.cls-6 {
+  letter-spacing: -0.04em;
+}
+
+.cls-7 {
+  letter-spacing: -0.02em;
+}
+
+.cls-10, .cls-11, .cls-12, .cls-8, .cls-9 {
+  fill: none;
+}
+
+.cls-8 {
+  stroke: #097F96;
+}
+
+.cls-10, .cls-9 {
+  stroke: #6F777B;
+}
+
+.cls-10 {
+  stroke-dasharray: 4 4;
+}
+
+.cls-14 {
+  stroke: #333;
+  shape-rendering: crispEdges;
+}
+
+.cls-13 {
+  stroke: #f47738;
+  shape-rendering: crispEdges;
+}
+
+.cls-12 {
+  stroke: #6F777B;
+  shape-rendering: crispEdges;
+}
+
+.cls-11 {
+  stroke: #B10E1E;
+  shape-rendering: crispEdges;
+}
+
+.cls-15 {
+  stroke: #097F96;
+  stroke-width: 2px;
+  vector-effect: non-scaling-stroke;
+  fill: #c1dfe4;
 }
 
 h1.heading-xlarge {
@@ -2192,6 +2292,12 @@ h1.heading-xlarge {
   font-size: 16px;
   line-height: 1.25;
   margin-bottom: 0.5em;
+}
+
+.time-stamp {
+  color: #6f777b;
+  margin-top: -0.75em;
+  margin-bottom: 2em;
 }
 
 .headline {

@@ -12,6 +12,7 @@
     margin-bottom:3em;
     padding:0 15px;
     box-sizing: border-box;
+    font-size:10pt;
     &-inner {
         position:relative;
         height:200px;
@@ -23,7 +24,6 @@
     ul {
         @include core-16;
     }
-    font-size:10pt;
     ul:first-of-type {
         li {
             width:15.38%;
@@ -72,74 +72,70 @@
         float:left;
         width:66.66%;
     }
+    .now {
+        position:absolute;
+        height:7px;
+        width:7px;
+        border:2px solid #097F96;
+        background-color:white;
+        border-radius: 100%;
+    }
 }
 .chart-legend {
     display:block;
     padding:0 15px;
-    padding-bottom:1em;
-    box-sizing: border-box;
+    margin-bottom:2em;
     ol {
         @include core-16;
-        margin-left:5%;
-        margin-right:5%;
         display: block;
         overflow:auto;
         li {
             line-height:1.5em;
+            margin-right:1em;
             text-align:center;
-            float:left;
+            display:inline-block;
             box-sizing:border-box;
-            padding-left:1.7em;
-            width:33.33%;
-            @include media(desktop) {
-                float:none;
-                width:auto;
-                margin-bottom:1.5em;
-                text-align:left;
-            }
         }
         span {
             display:inline-block;
-            @include media(desktop) {
-                float:none;
-            }
+            color:$grey-1;
         }
-        li.area span:before {
+        li:before {
             border: 2px solid $grey-1;
             float: left;
             display: block;
             content: '';
             width: 0.75em;
             height: 0.75em;
-            margin-left: -1.7em;
-            margin-top:0.1em;
+            margin-right: 0.5em;
+            margin-top:0.2em;
         }
-        li.line span:before {
-            border-bottom: 4px solid $grey-1;
-            float: left;
-            display: block;
-            content: '';
-            width: 0.9em;
-            height: 0.5em;
-            margin-left: -1.7em;
-            margin-top:0.1em;
-        }
-        li:nth-child(1) span:before { border-color:#333; }
-        li:nth-child(2) span:before { border-color:$red; }
-        li:nth-child(3) span:before { border-color:$orange; }
-        li:nth-child(4) span:before { border-color:#097F96; background-color:#c1dfe4;}
-        li:nth-child(5) span:before { border-color:$grey-1; background-color: #e6e7e8; border-style: dashed; }
-        @include media(desktop) {
-            margin:0;
-            padding-left:em(35,19);
-        }
+        li:nth-child(1):before { border-color:#097F96; background-color:#c1dfe4;}
+        li:nth-child(2):before { border-color:$grey-1; background-color: #e6e7e8; border-style: dashed; }
     }
+}
+.chart-annotation {
+    position:relative;
+    @include core-16;
     @include media(desktop) {
         margin:0;
         float:right;
         width:33.33%;
-        padding:0;        
+        padding:0;  
+    }      
+    li {
+        position:absolute;
+        width:50%;
     }
+    span {
+        color:$grey-1;
+    }
+}
+.highest-level {
+    @include core-16;
+    padding:0 15px;
+    clear:both;
+    padding-top:1.5em;
 }
 .level-table {
     td, th {
@@ -153,8 +149,25 @@
     }
 }
 
-.level-chart {
-    width:100%;
-    height:400px;
-}
+// From Illustrator
 
+.cls-1{fill:#c1dfe4;}
+.cls-2{fill:#e6e7e8;}
+.cls-3,.cls-4{fill:#fff;stroke:#BFC1C3;shape-rendering:crispEdges;}
+.cls-10,.cls-11,.cls-12,.cls-3,.cls-4,.cls-8,.cls-9{stroke-miterlimit:10;}
+.cls-4{shape-rendering:crispEdges;}
+.cls-3{vector-effect:non-scaling-stroke;stroke-width:1px;}
+.cls-10,.cls-11,.cls-12,.cls-13,.cls-14,.cls-4,.cls-8,.cls-9{stroke-width:2px;vector-effect:non-scaling-stroke;stroke-linejoin:round}
+.cls-5{text-anchor:start;fill:#404041;font-family:"nta", Helvetica, Helvetica;}
+.cls-5b{text-anchor:middle;fill:#404041;font-family:"nta", Helvetica, Helvetica;}
+.cls-6{letter-spacing:-0.04em;}
+.cls-7{letter-spacing:-0.02em;}
+.cls-10,.cls-11,.cls-12,.cls-8,.cls-9{fill:none;}
+.cls-8{stroke:#097F96;}
+.cls-10,.cls-9{stroke:#6F777B;}
+.cls-10{stroke-dasharray:4 4;}
+.cls-14{stroke:#333;shape-rendering:crispEdges;}
+.cls-13{stroke:#f47738;shape-rendering:crispEdges;}
+.cls-12{stroke:#6F777B;shape-rendering:crispEdges;}
+.cls-11{stroke:#B10E1E;shape-rendering:crispEdges;}
+.cls-15{stroke:#097F96;stroke-width:2px;vector-effect:non-scaling-stroke;fill:#c1dfe4;}

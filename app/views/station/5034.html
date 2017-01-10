@@ -1,24 +1,16 @@
-{% extends "station.html" %}
+{% extends "station-b.html" %}
 
 {% block page_title %}
-River Greta at Low Briery - Latest river level information - GOV.UK
+Irk at Collyhurst Weir - Latest river level information - GOV.UK
 {% endblock %}
 
 {% block heading %}
 <span class="heading-secondary">Latest river level information for</span>
-River Greta at Low Briery
+Irk at Collyhurst Weir
 {% endblock %}
 
 {% block message %}
 <p class="lede">We forecast that river levels here will be within this river's normal range during the next 36 hours. </p>
-{% endblock %}
-
-{% block headline_forecast %}
-<div class="data headline-data">
-<span class="data-item bold-medium">Highest forecast level<br/>in the next 36 hours</span>
-<span class="data-item bold-xlarge headline--forecast">0.91m</span><span class="visuallyhidden">.</span>
-<span class="data-item bold-xsmall">at 6.00am on Tuesday 7 February 2017</span>
-</div>
 {% endblock %}
 
 {% block chartLines %}
@@ -46,9 +38,6 @@ River Greta at Low Briery
 <line class="cls-4" x1="0" y1="300" x2="650" y2="300"/>
 <!-- Warning threshold -->
 <line class="cls-11" x2="0" y2="0" x1="650" y1="0"/>
-<!-- Now
-<line class="cls-12" x1="500" y1="0" x2="500" y2="300"/>
- -->
 <!-- Alert threshold -->
 <line class="cls-13" x2="0" y2="187.5" x1="650" y1="187.5"/>
 {% endblock %}

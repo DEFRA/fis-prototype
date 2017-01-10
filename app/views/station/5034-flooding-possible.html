@@ -1,12 +1,12 @@
 {% extends "station.html" %}
 
 {% block page_title %}
-River Greta at Low Briery - Latest river level information - GOV.UK
+Irk at Collyhurst Weir - Latest river level information - GOV.UK
 {% endblock %}
 
 {% block heading %}
 <span class="heading-secondary">Latest river level information for</span>
-River Greta at Low Briery
+Irk at Collyhurst Weir
 {% endblock %}
 
 {% block message %}
@@ -19,14 +19,14 @@ River Greta at Low Briery
 </div>
 <p>Latest river level forecast indicates that flooding is possible in the next 36 hours. The latest forecast generated at time/date indicates that the river level is predicted to peak at Xm at time/date [use time of model export generation].</p>
 -->
-<p class="lede">Flooding is possible here and other areas downstream in the next 36 hours. You can <a href="">check if there's a flood warning in place near you</a>.</p>
+<p class="lede">Flooding is possible here and in surrounding areas in the next 36 hours. You can <a href="https://flood-warning-information.service.gov.uk/">check if there's a flood warning in place near you</a>.</p>
 {% endblock %}
 
 {% block headline_latest %}
 <div class="data headline-data">
   <span class="data-item bold-medium">Latest level recorded<br/>at this location</span>
   <span class="data-item bold-xlarge headline--latest">1.49m</span>
-  <span class="data-item bold-xsmall">at 6.00pm on Sunday 6 February 2017</span>
+  <span class="data-item bold-xsmall">at 6.00pm on Wednesday 11 Jan 2017</span>
 </div>
 {% endblock %}
 
@@ -34,8 +34,14 @@ River Greta at Low Briery
 <div class="data headline-data">
 <span class="data-item bold-medium">Highest forecast level<br/>in the next 36 hours</span>
 <span class="data-item bold-xlarge headline--forecast">1.67m</span><span class="visuallyhidden">.</span>
-<span class="data-item bold-xsmall">at 6.00am on Tuesday 7 February 2017</span>
+<span class="data-item bold-xsmall">at 6.00am on Friday 13 Jan 2017</span>
 </div>
+{% endblock %}
+
+{% block chart_annotation %}
+<li style="top:-7px">Highest recorded level <span>(1.8m on 26 Dec 2016)</span></li>
+<li style="top:80px">Flooding of property possible <span>(1.6m)</span></li>
+<li style="top:296px">Flooding of low-lying land possible <span>(1.1m)</span></li>
 {% endblock %}
 
 {% block chartLines %}
@@ -82,12 +88,19 @@ River Greta at Low Briery
 </ul>
 {% endblock %}
 
+{% block chart_current_level %}
+<div class="now" style="left:75.8%;bottom:61.5%">
+  <span class="visuallyhidden">Current time and level</span>
+</div>
+{% endblock %}
+
 {% block stationLegend %}
 <ol>
-    <li class="line"><span>Highest recorded level<br/>1.8m <a href="">Hide</a></span></li>
-    <li class="line"><span>Flood warning level<br/>1.6m</span></li>
-    <li class="line"><span>Flood alert level<br/>1.1m</span></li>
-    <li class="area"><span>Latest recorderd level<br/>0.9m</span></li>
-    <li class="area"><span>Highest forecast level<br/>0.91m</span></li>
+    <li>Recorderd level <span>(latest 1.49m)</span></li>
+    <li>Forecast level <span>(highest 1.67m)</span></li>
 </ol>
+{% endblock %}
+
+{% block highest_level %}
+<a href="#" onclick="return false;">Hide highest recorded level</a>
 {% endblock %}

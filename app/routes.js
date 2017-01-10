@@ -6,7 +6,7 @@ module.exports = {
 
     // Gauging station
     app.get('/stations', function (req, res) {
-      var pageName = 'Gauging stations'
+      var pageName = 'Measuring stations'
       res.render('stations', { 'page_name': pageName })
     })
 
@@ -17,34 +17,34 @@ module.exports = {
     })
 
     // Example station: Normal range
-    app.get('/station/5090', function (req, res) {
+    app.get('/station/5034', function (req, res) {
       var section = 'station'
       var sectionName = 'Station'
-      var pageName = 'Greta at Low Briery'
-      res.render('station/5090', { 'section': section, 'section_name': sectionName, 'page_name': pageName })
+      var pageName = 'Irk at Collyhurst Weir'
+      res.render('station/5034', { 'section': section, 'section_name': sectionName, 'page_name': pageName })
     })
 
     // Example station: Flooding is possible
-    app.get('/station/5090-flooding-possible', function (req, res) {
+    app.get('/station/5034-flooding-possible', function (req, res) {
       var section = 'station'
       var sectionName = 'Station'
-      var pageName = 'Greta at Low Briery'
-      res.render('station/5090-flooding-possible', { 'section': section, 'section_name': sectionName, 'page_name': pageName })
+      var pageName = 'Irk at Collyhurst Weir'
+      res.render('station/5034-flooding-possible', { 'section': section, 'section_name': sectionName, 'page_name': pageName })
     })
 
     // Example station: Flooding is possible, option B
-    app.get('/station/5090-flooding-possible-b', function (req, res) {
+    app.get('/station/5034-flooding-possible-b', function (req, res) {
       var section = 'station'
       var sectionName = 'Station'
-      var pageName = 'Greta at Low Briery'
-      res.render('station/5090-flooding-possible-b', { 'section': section, 'section_name': sectionName, 'page_name': pageName })
+      var pageName = 'Irk at Collyhurst Weir'
+      res.render('station/5034-flooding-possible-b', { 'section': section, 'section_name': sectionName, 'page_name': pageName })
     })
 
     // Example station: Tidal normal range
     app.get('/station/5205', function (req, res) {
       var section = 'station'
       var sectionName = 'Station'
-      var pageName = 'Irish Sea at Silloth Docks'
+      var pageName = ''
       res.render('station/5205', { 'section': section, 'section_name': sectionName, 'page_name': pageName })
     })
 
