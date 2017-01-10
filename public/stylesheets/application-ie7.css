@@ -1926,32 +1926,27 @@ input[type=number] {
 
 .chart-container ul:last-of-type li:nth-child(1) {
   top: 100%;
-  left: 3.85%;
+  left: 9.6%;
 }
 
 .chart-container ul:last-of-type li:nth-child(2) {
   top: 100%;
-  left: 19.23%;
+  left: 24.98%;
 }
 
 .chart-container ul:last-of-type li:nth-child(3) {
   top: 100%;
-  left: 34.61%;
+  left: 40.36%;
 }
 
 .chart-container ul:last-of-type li:nth-child(4) {
   top: 100%;
-  left: 49.99%;
+  left: 55.74%;
 }
 
 .chart-container ul:last-of-type li:nth-child(5) {
   top: 100%;
-  left: 65.37%;
-}
-
-.chart-container ul:last-of-type li:nth-child(6) {
-  top: 100%;
-  left: 80.75%;
+  left: 71.12%;
 }
 
 .chart-container li {
