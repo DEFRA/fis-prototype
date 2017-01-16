@@ -1854,40 +1854,33 @@ input[type=number] {
   margin-top: 1.5789473684em;
   margin-left: -15px;
   margin-right: -15px;
-  overflow: auto;
+  margin-bottom: 2em;
   padding-top: 15px;
 }
 
 .chart-container {
+  position: relative;
   padding-bottom: 32px;
   margin-bottom: 3em;
   padding: 0 15px;
   box-sizing: border-box;
-  font-size: 10pt;
-  float: left;
-  width: 66.66%;
 }
 
 .chart-container-inner {
   position: relative;
   height: 200px;
-  margin-left: 5rem;
+  margin-left: 4rem;
   height: 350px;
 }
 
 .chart-container ul {
-  font-family: "nta", Arial, sans-serif;
-  font-weight: 400;
-  text-transform: none;
   font-size: 14px;
-  line-height: 1.1428571429;
-  font-size: 16px;
-  line-height: 1.25;
 }
 
 .chart-container ul:first-of-type li {
   width: 15.38%;
-  margin-left: -5rem;
+  margin-left: -4rem;
+  top: 0%;
 }
 
 .chart-container ul:first-of-type li:nth-child(2) {
@@ -1925,7 +1918,7 @@ input[type=number] {
 .chart-container ul:last-of-type li {
   width: 15.38%;
   text-align: center;
-  margin-top: 1em;
+  margin-top: 0.8em;
 }
 
 .chart-container ul:last-of-type li:nth-child(1) {
@@ -1957,12 +1950,14 @@ input[type=number] {
   position: absolute;
   top: 0;
   left: 0;
+  margin-top: -0.3em;
   line-height: 1em;
-  margin-top: -0.5em;
 }
 
 .chart-container li strong {
-  line-height: 1em;
+  font-weight: bold;
+  display: inline-block;
+  margin-top: -1px;
 }
 
 .chart-container svg {
@@ -1983,7 +1978,8 @@ input[type=number] {
 .chart-legend {
   display: block;
   padding: 0 15px;
-  margin-bottom: 2em;
+  box-sizing: border-box;
+  text-align: center;
 }
 
 .chart-legend ol {
@@ -1996,18 +1992,19 @@ input[type=number] {
   line-height: 1.25;
   display: block;
   overflow: auto;
+  padding-left: 5rem;
 }
 
 .chart-legend ol li {
   line-height: 1.5em;
+  margin-left: 1em;
   margin-right: 1em;
-  text-align: center;
+  text-align: left;
   display: inline-block;
   box-sizing: border-box;
 }
 
-.chart-legend ol span {
-  display: inline-block;
+.chart-legend ol li span {
   color: #6f777b;
 }
 
@@ -2018,8 +2015,8 @@ input[type=number] {
   content: '';
   width: 0.75em;
   height: 0.75em;
-  margin-right: 0.5em;
   margin-top: 0.2em;
+  margin-right: 0.5em;
 }
 
 .chart-legend ol li:nth-child(1):before {
@@ -2030,11 +2027,9 @@ input[type=number] {
 .chart-legend ol li:nth-child(2):before {
   border-color: #6f777b;
   background-color: #e6e7e8;
-  border-style: dashed;
 }
 
 .chart-annotation {
-  position: relative;
   font-family: "nta", Arial, sans-serif;
   font-weight: 400;
   text-transform: none;
@@ -2042,32 +2037,34 @@ input[type=number] {
   line-height: 1.1428571429;
   font-size: 16px;
   line-height: 1.25;
+  position: absolute;
+  left: 100%;
   margin: 0;
-  float: right;
-  width: 33.33%;
+  width: 50%;
   padding: 0;
 }
 
 .chart-annotation li {
   position: absolute;
+  line-height: 1.25em;
+  padding-left: 1.75em;
   width: 50%;
 }
 
-.chart-annotation span {
+.chart-annotation li span {
   color: #6f777b;
 }
 
-.highest-level {
-  font-family: "nta", Arial, sans-serif;
-  font-weight: 400;
-  text-transform: none;
-  font-size: 14px;
-  line-height: 1.1428571429;
-  font-size: 16px;
-  line-height: 1.25;
-  padding: 0 15px;
-  clear: both;
-  padding-top: 1.5em;
+.chart-annotation li:before {
+  position: relative;
+  border-bottom: 1px solid #333;
+  float: left;
+  display: block;
+  content: '';
+  width: 1.25em;
+  height: 0.35em;
+  margin-top: 0.2em;
+  margin-left: -1.75em;
 }
 
 .level-table td, .level-table th {
@@ -2102,9 +2099,13 @@ input[type=number] {
   fill: #e6e7e8;
 }
 
-.cls-3, .cls-4 {
-  fill: #fff;
-  stroke: #BFC1C3;
+.cls-3 {
+  stroke: #dee0e2;
+  shape-rendering: crispEdges;
+}
+
+.cls-4 {
+  stroke: transparent;
   shape-rendering: crispEdges;
 }
 
@@ -2194,77 +2195,6 @@ h1.heading-xlarge {
   margin-bottom: 20px;
 }
 
-.search-box .form-group:first-child {
-  margin-bottom: 12px;
-}
-
-.search-box .form-group:first-child input.form-control {
-  width: 100%;
-}
-
-.search-box button.button-get-started {
-  width: 100%;
-}
-
-.error-message {
-  color: #b10e1e;
-  margin-top: 10px;
-  padding-left: 10px;
-  border-left: solid 3px #b10e1e;
-}
-
-.enter-fullscreen {
-  z-index: 100;
-  display: block;
-}
-
-.exit-fullscreen {
-  z-index: 100;
-  display: none;
-}
-
-.fullscreen > :not(.main-container) {
-  display: none;
-}
-
-.fullscreen > .main-container {
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  z-index: 10;
-  margin: 0;
-  background-color: white;
-}
-
-.fullscreen .column-half:first-child {
-  display: none;
-}
-
-.fullscreen .enter-fullscreen {
-  display: none;
-}
-
-.fullscreen .exit-fullscreen {
-  display: block;
-}
-
-.ol-full-screen.ol-control.toggle-fullscreen button {
-  width: auto;
-  background-color: #e3e4e5;
-  color: #005ea5;
-  padding: 3px;
-  font-weight: normal;
-  font-size: 14px;
-  cursor: pointer;
-  height: 25px;
-}
-
-.ol-full-screen.ol-control.toggle-fullscreen button span {
-  text-decoration: underline;
-}
-
 .page-header .heading-xlarge {
   margin-top: 1.40625em;
   margin-top: 1.25em;
@@ -2299,54 +2229,27 @@ h1.heading-xlarge {
   margin-bottom: 2em;
 }
 
-.headline {
+.station-data {
+  margin-top: 1.8421052632em;
   border-top: 1px solid #bfc1c3;
-  border-bottom: 1px solid #bfc1c3;
-  padding-top: 0.5em;
-  padding-bottom: 1.5em;
-  margin-top: 1.25em;
-  margin-top: 1.3157894737em;
-}
-
-.headline .headline-column:first-child {
-  padding-right: 15px;
-  padding-left: 0;
-}
-
-.headline .headline-data {
-  margin-bottom: 1.25em;
-  float: left;
-  width: 50%;
-  margin-top: 0.2631578947em;
-  margin-bottom: 1.3157894737em;
-}
-
-.headline .headline-data .data-item:first-child {
-  margin-top: 0.9375em;
-  margin-bottom: 0.3em;
-  margin-top: 1.0526315789em;
 }
 
 .station-data h2 {
+  margin-top: 1.5625em;
   margin-bottom: 0.3125em;
+  margin-top: 1.5789473684em;
   margin-bottom: 0.2631578947em;
-  max-width: 66.66%;
-}
-
-.forecast-disclaimer {
-  margin-top: 2em;
-  margin-bottom: 2em;
 }
 
 .map {
   border-top: 1px solid #bfc1c3;
-  margin-top: 1.0526315789em;
+  margin-top: 1.8421052632em;
   margin-bottom: 2.1052631579em;
 }
 
 .map h2 {
-  margin-top: 1.25em;
-  margin-top: 1.3157894737em;
+  margin-top: 1.5625em;
+  margin-top: 1.5789473684em;
 }
 
 .map .map-container {

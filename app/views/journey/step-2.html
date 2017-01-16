@@ -1,0 +1,56 @@
+{% extends "layout.html" %}
+
+{% block page_title %}Flood Information Service - GOV.UK{% endblock %}
+
+{% block head %}
+  {% include "partials/head.html" %}
+  {% include "partials/snippets_head.html" %}
+  <link rel="stylesheet" href="https://openlayers.org/en/v3.19.1/css/ol.css" type="text/css">
+  <script src="https://openlayers.org/en/v3.19.1/build/ol.js" type="text/javascript"></script>
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main" tabindex="-1">
+
+  {% include "partials/phase_banner.html" %}
+
+  <div class="grid-row">
+    
+    <div class="column-two-thirds">
+
+      <h1 class="heading-xlarge">
+        <span class="heading-secondary">Flood warnings for</span>
+        Manchester
+      </h1>
+
+      {% block message %}
+      {% endblock %}
+
+      <p class="lede">There is currently one alert in force in the Manchester area</p>
+
+      <div class="panel panel-border-wide" style="background-color:#eee">
+        <h2 class="heading-medium">View flood alerts</h2>
+        <ul class="list list-bullet">
+          <li><a href="/journey/step-3">River Irk at Cheetham Hill<a/></li>
+        </ul>
+      </div>
+
+      <p>&nbsp;</p>
+      <h2 class="heading-small">Latest recorded and forecast river and seal levels</h2>
+      <p>River and sea levels are regularly checked by a network of measuring stations. These levels can help you understand your imediate flood risk.</p>
+      <p><a href="/journey/step-4?t=Manchester">View river and sea levels in this area</a></p>
+
+  </div>
+
+</main><!-- / #content -->
+{% endblock %}
+
+{% block body_end %}
+
+  <!-- GOV.UK elements redirect -->
+  <script src="/public/javascripts/redirect.js"></script>
+  {% include "partials/scripts.html" %}
+
+{% endblock %}
+

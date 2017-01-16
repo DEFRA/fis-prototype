@@ -1,0 +1,72 @@
+{% extends "layout.html" %}
+
+{% block page_title %}Flood Information Service - GOV.UK{% endblock %}
+
+{% block head %}
+  {% include "partials/head.html" %}
+  {% include "partials/snippets_head.html" %}
+  <link rel="stylesheet" href="https://openlayers.org/en/v3.19.1/css/ol.css" type="text/css">
+  <script src="https://openlayers.org/en/v3.19.1/build/ol.js" type="text/javascript"></script>
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main" tabindex="-1">
+
+  {% include "partials/phase_banner.html" %}
+
+  <div class="grid-row">
+    
+    <div class="column-two-thirds">
+
+      <h1 class="heading-xlarge">
+        <span class="heading-secondary">Flood alert for</span>
+        Cheetham Hill (River Irk)
+      </h1>
+
+      <p class="lede">Flooding is possible be prepared</p>
+
+      {% block message %}
+      {% endblock %}
+
+      <div id="map-stations" class="map-container"></div>
+
+      <script type="text/javascript">
+      var map = new ol.Map({
+            target: 'map-stations',
+            layers: [
+            new ol.layer.Tile({
+            source: new ol.source.OSM()
+            })
+            ],
+            view: new ol.View({
+            center: ol.proj.fromLonLat([-2.229598,53.493779]),
+            zoom: 12
+            }),
+            interactions: ol.interaction.defaults({
+            mouseWheelZoom:false
+            })
+      });
+      </script>
+
+      <p>&nbsp;</p>
+      <h2 class="heading-small">Latest recorded and forecast river and seal levels</h2>
+      <p>River and sea levels are regularly checked by a network of measuring stations. These levels can help you understand your imediate flood risk.</p>
+      <ul>
+        <li><a href="/journey/step-4?t=Cheetham Hill (River Irk)">View river and sea levels in this area</a></li>
+      </ul>
+
+
+  </div>
+
+</main><!-- / #content -->
+{% endblock %}
+
+{% block body_end %}
+
+  <!-- GOV.UK elements redirect -->
+  <script src="/public/javascripts/redirect.js"></script>
+  {% include "partials/scripts.html" %}
+
+{% endblock %}
+

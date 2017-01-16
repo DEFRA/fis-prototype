@@ -6,7 +6,7 @@ module.exports = {
 
     // Gauging station
     app.get('/stations', function (req, res) {
-      var pageName = 'Measuring stations'
+      var pageName = 'Measuring stations (v3)'
       res.render('stations', { 'page_name': pageName })
     })
 
@@ -62,6 +62,47 @@ module.exports = {
       var sectionName = 'Station'
       var pageName = 'Irish Sea at Silloth Docks'
       res.render('station/5205-flooding-possible-b', { 'section': section, 'section_name': sectionName, 'page_name': pageName })
+    })
+
+    // Version 2
+    app.get('/stations-v2', function (req, res) {
+      var pageName = 'Measuring stations (v2)'
+      res.render('stations-v2', { 'page_name': pageName })
+    })
+
+    //
+    // Journey
+    //
+
+    // Step 1
+    app.get('/journey/step-1', function (req, res) {
+      var pageName = 'Flood Information Service'
+      res.render('journey/step-1', { 'page_name': pageName })
+    })
+
+    // Step 1b
+    app.get('/journey/step-1b', function (req, res) {
+      var pageName = 'Flood Information Service'
+      res.render('journey/step-1b', { 'page_name': pageName })
+    })
+
+    // Step 2
+    app.get('/journey/step-2', function (req, res) {
+      var pageName = 'Flood Information Service'
+      res.render('journey/step-2', { 'page_name': pageName })
+    })
+
+    // Step 3
+    app.get('/journey/step-3', function (req, res) {
+      var pageName = 'Flood Information Service'
+      res.render('journey/step-3', { 'page_name': pageName })
+    })
+
+    // Step 4
+    app.get('/journey/step-4', function (req, res) {
+      var pageName = 'Flood Information Service'
+      var location = req.param('t')
+      res.render('journey/step-4', { 'page_name': pageName, 'location': location })
     })
 
   }

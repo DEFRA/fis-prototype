@@ -1,4 +1,4 @@
-{% extends "station-b.html" %}
+{% extends "station.html" %}
 
 {% block page_title %}
 Irk at Collyhurst Weir - Latest river level information - GOV.UK
@@ -11,6 +11,11 @@ Irk at Collyhurst Weir
 
 {% block message %}
 <p class="lede">We forecast that river levels here will be within this river's normal range during the next 36 hours. </p>
+<ul class="list list-bullet">
+      <li><a href="">View recorded and forecast river levels</a></li>
+      <li><a href="">Which levels are most likely to indicate flooding?</a></li>
+      <li><a href="">View a nearby measuring station</a></li>
+</ul>
 {% endblock %}
 
 {% block chartLines %}
@@ -19,14 +24,14 @@ Irk at Collyhurst Weir
 <!-- Forecast area -->
 <polygon class="cls-2" points="650 258 650 300 500 300 500 264"/>
 <!-- Vertical grid lines -->
-<line class="cls-3" x1="1" y1="0" x2="1" y2="300"/>
+<!--<line class="cls-3" x1="1" y1="0" x2="1" y2="300"/>-->
 <line class="cls-3" x1="62.5" y1="0" x2="62.5" y2="300"/>
 <line class="cls-3" x1="162.5" y1="0" x2="162.5" y2="300"/>
 <line class="cls-3" x1="262.5" y1="0" x2="262.5" y2="300"/>
 <line class="cls-3" x1="362.5" y1="0" x2="362.5" y2="300"/>
 <line class="cls-3" x1="462.5" y1="0" x2="462.5" y2="300"/>
 <line class="cls-3" x1="562.5" y1="0" x2="562.5" y2="300"/>
-<line class="cls-3" x1="650" y1="0" x2="650" y2="300"/>
+<!--<line class="cls-3" x1="650" y1="0" x2="650" y2="300"/>-->
 <!-- Horizontal grid lines -->
 <line class="cls-3" x1="0" y1="75" x2="650" y2="75"/>
 <line class="cls-3" x1="0" y1="150" x2="650" y2="150"/>
@@ -51,4 +56,10 @@ Irk at Collyhurst Weir
       <li>1.0m</li>
       <li>0.8m</li>
 </ul>
+{% endblock %}
+
+{% block chart_current_level %}
+<div class="now" style="left:75.8%;bottom:10%">
+      <span class="visuallyhidden">Current time and level</span>
+</div>
 {% endblock %}

@@ -1,0 +1,56 @@
+{% extends "layout.html" %}
+
+{% block page_title %}Flood Information Service - GOV.UK{% endblock %}
+
+{% block head %}
+  {% include "partials/head.html" %}
+  {% include "partials/snippets_head.html" %}
+  <link rel="stylesheet" href="https://openlayers.org/en/v3.19.1/css/ol.css" type="text/css">
+  <script src="https://openlayers.org/en/v3.19.1/build/ol.js" type="text/javascript"></script>
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main" tabindex="-1">
+
+  {% include "partials/phase_banner.html" %}
+
+  <div class="grid-row">
+    
+    <div class="column-two-thirds">
+
+      <h1 class="heading-xlarge">Flood Information Service</h1>
+
+      {% block message %}
+      {% endblock %}
+
+      <h2 class="heading-medium" style="margin-top:2em">Are you at Risk Now?</h1>
+      <form action="/" method="post" class="form" style="overflow: auto">
+        <div class="form-group">
+          <label for="location" class="form-label">Enter a postcode or place in England or Wales</label>
+          <input type="text" class="form-control" id="location" placeholder="Manchester">
+        </div>
+        <div class="form-group">
+          <button class="button" onclick="window.location.href = '/journey/step-2';return false;">Check location</button>
+        </div>
+      </form>
+
+      <h2 class="heading-small">Latest recorded and forecast river and sea levels</h2>
+      <p>River and sea levels are regularly checked by a network of measuring stations. These levels can help you understand your imediate flood risk.</p>
+      <ul>
+        <li><a href="/journey/step-1b">Find a measuring station</a></li>
+      </ul>
+
+  </div>
+
+</main><!-- / #content -->
+{% endblock %}
+
+{% block body_end %}
+
+  <!-- GOV.UK elements redirect -->
+  <script src="/public/javascripts/redirect.js"></script>
+  {% include "partials/scripts.html" %}
+
+{% endblock %}
+
