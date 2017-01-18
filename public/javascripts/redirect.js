@@ -61,7 +61,8 @@
   var fragment = window.location.hash
   var newRoute
 
-  if (fragment === '') {
+  //if (fragment === '') {
+  if (newRoutes[fragment]) {
     return
   }
   newRoute = getNewRouteFor(fragment)

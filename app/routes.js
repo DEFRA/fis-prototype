@@ -64,10 +64,10 @@ module.exports = {
       res.render('station/5205-flooding-possible-b', { 'section': section, 'section_name': sectionName, 'page_name': pageName })
     })
 
-    // Version 2
-    app.get('/stations-v2', function (req, res) {
-      var pageName = 'Measuring stations (v2)'
-      res.render('stations-v2', { 'page_name': pageName })
+    // Version 3
+    app.get('/stations-v3', function (req, res) {
+      var pageName = 'Measuring stations (v3)'
+      res.render('stations-v3', { 'page_name': pageName })
     })
 
     //

@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<!--[if lt IE 9]><html class="lte-ie8" lang="en"><![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en"><!--<![endif]--><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>Flood information service - GOV.UK</title>
+
+    <!--[if gt IE 8]><!--><link href="assets/govuk-template.css" media="screen" rel="stylesheet"><!--<![endif]-->
+    <!--[if IE 6]><link href="/public/stylesheets/govuk-template-ie6.css?0.19.0" media="screen" rel="stylesheet" /><![endif]-->
+    <!--[if IE 7]><link href="/public/stylesheets/govuk-template-ie7.css?0.19.0" media="screen" rel="stylesheet" /><![endif]-->
+    <!--[if IE 8]><link href="/public/stylesheets/govuk-template-ie8.css?0.19.0" media="screen" rel="stylesheet" /><![endif]-->
+    <link href="assets/govuk-template-print.css" media="print" rel="stylesheet">
+
+    <!--[if IE 8]><link href="/public/stylesheets/fonts-ie8.css?0.19.0" media="all" rel="stylesheet" /><![endif]-->
+    <!--[if gte IE 9]><!--><link href="assets/fonts.css" media="all" rel="stylesheet"><!--<![endif]-->
+    <!--[if lt IE 9]><script src="/public/javascripts/ie.js?0.19.0"></script><![endif]-->
+
+    <link rel="shortcut icon" href="http://localhost:3000/public/images/favicon.ico?0.19.0" type="image/x-icon">
+    <link rel="mask-icon" href="http://localhost:3000/public/images/gov.uk_logotype_crown.svg?0.19.0" color="#0b0c0c">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="http://localhost:3000/public/images/apple-touch-icon-152x152.png?0.19.0">
+    <link rel="apple-touch-icon-precomposed" sizes="120x120" href="http://localhost:3000/public/images/apple-touch-icon-120x120.png?0.19.0">
+    <link rel="apple-touch-icon-precomposed" sizes="76x76" href="http://localhost:3000/public/images/apple-touch-icon-76x76.png?0.19.0">
+    <link rel="apple-touch-icon-precomposed" href="http://localhost:3000/public/images/apple-touch-icon-60x60.png?0.19.0">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta property="og:image" content="/public/images/opengraph-image.png?0.19.0">
+
+    <meta http-equiv="refresh" content="900">
+    <meta name="google-site-verification" content="HjuKUejT64a0rBdUxxtbnIKNB4_cZ3X3hlXOxk4_OX8">
+    <link rel="stylesheet" href="assets/application.css">
+    <!--[if IE 6]><link href="/public/stylesheets/application-ie6.css" media="screen" rel="stylesheet" type="text/css" /><![endif]-->
+    <!--[if IE 7]><link href="/public/stylesheets/application-ie7.css" media="screen" rel="stylesheet" type="text/css" /><![endif]-->
+    <!--[if IE 8]><link href="/public/stylesheets/application-ie8.css" media="screen" rel="stylesheet" type="text/css" /><![endif]-->
+    <!-- Application version: 1.1.0 -->
+    <link rel="stylesheet" href="assets/style.css">
+    <script src="assets/jquery.js"></script>
+    <script src="assets/core.js"></script>
+  </head>
+
+  <body class="js-enabled">
+    <script>document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');</script>
+
+
+    <div id="skiplink-container">
+      <div>
+        <a href="#" class="skiplink">Skip to main content</a>
+      </div>
+    </div>
+
+    <div id="global-cookie-message">
+      
+        <div>
+          <p>GOV.UK uses cookies to make the site simpler. <a href="#">Find out more about cookies</a></p>
+        </div>
+      
+    </div>
+
+    
+    <header role="banner" id="global-header" class="with-proposition">
+      <div class="header-wrapper">
+        <div class="header-global">
+          <div class="header-logo">
+            <a href="#" title="Go to the GOV.UK homepage" id="logo" class="content">
+              <img src="assets/gov.png" alt="" width="36" height="32"> GOV.UK
+            </a>
+          </div>
+        </div>
+        <div class="header-proposition">
+          <div class="content">
+            <nav id="proposition-menu">
+              <a href="/" id="proposition-name">Flood information service</a>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </header>
+    
+
+
+    <div id="global-header-bar"></div>
+
+    <div id="content" class="wrapper">
+		
+			<link rel="stylesheet" type="text/css" property="stylesheet" href="assets/ol.css">
+<link rel="stylesheet" type="text/css" property="stylesheet" href="assets/index-step-4.css">
+<main id="river-levels-page">
+  <header class="intro">
+      <h1 class="heading-xlarge" tabindex="0">River and sea levels in England</h1>
+    <time class="form-hint" title="2:05pm Tuesday 17 January 2017" datetime="1484661900996" tabindex="0">9:30am Wednesday 11 January 2017</time>
+    <p>
+        River and sea levels are regularly checked by a network of monitoring stations. These levels can help you understand
+        your flood risk now and in the next few days. Enter a river name, postcode or place to find your nearest station. Or
+        select one from the map.
+    </p>
+  </header>
+  <div id="map-container">
+    <div class="map-controls">
+      <div class="clearfix">
+        <form>
+          <label class="form-label" for="txtSearch">Location</label>
+          <input id="txtSearch" name="location" title="Enter a place or postcode in England" value="M7 2DU" placeholder="Enter a place or postcode in England" type="text">
+          <button id="mapSearch" title="Search Location" class="button" onclick="window.location.href='/static/journey/step-3b.html';return false;"><i class="fa fa-search" title="Search Location"></i></button>
+        </form>
+        <div class="nojs-hide ie-hide">
+          <nav>
+            <a class="toggle-base" title="Earth view" href="#">Earth view<i class="fa fa-earth" title="Earth view"></i></a>
+            <a class="toggle-map" title="Full screen" href="#">Full screen<i class="fa fa-expand" title="Full screen"></i></a>
+          </nav>
+        </div>
+      </div>
+      <div id="error-message"></div>
+    </div>
+
+    <div class="map-viewport nojs-hide ie-hide" style="position:relative">
+      <img src="/public/images/maps/measuring-stations-all.png" alt="" style="position:absolute"/>
+      <div id="map" title="National monitoring station network" class="map map-min"><div class="ol-viewport" style="position: relative; overflow: hidden; width: 100%; height: 100%;"><canvas style="width: 100%; height: 100%;" class="ol-unselectable" width="960" height="450"></canvas><div class="ol-overlaycontainer"></div><div class="ol-overlaycontainer-stopevent"><div class="ol-overlay-container" style="position: absolute; display: none;"><div id="station-popup" class="station-popup nojs-hide ie-hide" style="">
+      <div id="station-popup-content">
+      </div>
+    </div></div><div class="ol-zoom ol-unselectable ol-control"><button class="ol-zoom-in" type="button" title="Zoom in">+</button><button class="ol-zoom-out" type="button" title="Zoom out">−</button></div><div class="ol-rotate ol-unselectable ol-control ol-hidden"><button class="ol-rotate-reset" type="button" title="Reset rotation"><span class="ol-compass" style="transform: rotate(0rad);">⇧</span></button></div><div class="ol-attribution ol-unselectable ol-control ol-collapsed"><ul><li style=""><a href="http://openlayers.org/"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAAAA3NCSVQICAjb4U/gAAAACXBIWXMAAAHGAAABxgEXwfpGAAAAGXRFWHRTb2Z0d2FyZQB3d3cuaW5rc2NhcGUub3Jnm+48GgAAAhNQTFRF////AP//AICAgP//AFVVQECA////K1VVSbbbYL/fJ05idsTYJFtbbcjbJllmZszWWMTOIFhoHlNiZszTa9DdUcHNHlNlV8XRIVdiasrUHlZjIVZjaMnVH1RlIFRkH1RkH1ZlasvYasvXVsPQH1VkacnVa8vWIVZjIFRjVMPQa8rXIVVkXsXRsNveIFVkIFZlIVVj3eDeh6GmbMvXH1ZkIFRka8rWbMvXIFVkIFVjIFVkbMvWH1VjbMvWIFVlbcvWIFVla8vVIFVkbMvWbMvVH1VkbMvWIFVlbcvWIFVkbcvVbMvWjNPbIFVkU8LPwMzNIFVkbczWIFVkbsvWbMvXIFVkRnB8bcvW2+TkW8XRIFVkIlZlJVloJlpoKlxrLl9tMmJwOWd0Omh1RXF8TneCT3iDUHiDU8LPVMLPVcLPVcPQVsPPVsPQV8PQWMTQWsTQW8TQXMXSXsXRX4SNX8bSYMfTYcfTYsfTY8jUZcfSZsnUaIqTacrVasrVa8jTa8rWbI2VbMvWbcvWdJObdcvUdszUd8vVeJaee87Yfc3WgJyjhqGnitDYjaarldPZnrK2oNbborW5o9bbo9fbpLa6q9ndrL3ArtndscDDutzfu8fJwN7gwt7gxc/QyuHhy+HizeHi0NfX0+Pj19zb1+Tj2uXk29/e3uLg3+Lh3+bl4uXj4ufl4+fl5Ofl5ufl5ujm5+jmySDnBAAAAFp0Uk5TAAECAgMEBAYHCA0NDg4UGRogIiMmKSssLzU7PkJJT1JTVFliY2hrdHZ3foSFhYeJjY2QkpugqbG1tre5w8zQ09XY3uXn6+zx8vT09vf4+Pj5+fr6/P39/f3+gz7SsAAAAVVJREFUOMtjYKA7EBDnwCPLrObS1BRiLoJLnte6CQy8FLHLCzs2QUG4FjZ5GbcmBDDjxJBXDWxCBrb8aM4zbkIDzpLYnAcE9VXlJSWlZRU13koIeW57mGx5XjoMZEUqwxWYQaQbSzLSkYGfKFSe0QMsX5WbjgY0YS4MBplemI4BdGBW+DQ11eZiymfqQuXZIjqwyadPNoSZ4L+0FVM6e+oGI6g8a9iKNT3o8kVzNkzRg5lgl7p4wyRUL9Yt2jAxVh6mQCogae6GmflI8p0r13VFWTHBQ0rWPW7ahgWVcPm+9cuLoyy4kCJDzCm6d8PSFoh0zvQNC5OjDJhQopPPJqph1doJBUD5tnkbZiUEqaCnB3bTqLTFG1bPn71kw4b+GFdpLElKIzRxxgYgWNYc5SCENVHKeUaltHdXx0dZ8uBI1hJ2UUDgq82CM2MwKeibqAvSO7MCABq0wXEPiqWEAAAAAElFTkSuQmCC"></a><img src="assets/logo_powered_by.png"></li><li>© 2017 HERE</li><li>© AND</li><li>© 2010 Intermap</li><li>© 2016 Microsoft Corporation</li><li><a class="ol-attribution-bing-tos" href="http://www.microsoft.com/maps/product/terms.html">Terms of Use</a></li><li style="display: none;">© 2017 MapData Sciences Pty Ltd, PSMA</li><li style="display: none;">© 2017 Zenrin</li><li style="display: none;">© 2017 DigitalGlobe</li><li style="display: none;">Image courtesy of NASA</li><li style="display: none;">© Harris Corp, Earthstar Geographics LLC</li><li style="display: none;">Image courtesy of USGS</li><li style="display: none;">© Getmapping plc</li><li style="display: none;">© 2017 GeoEye</li><li style="display: none;">© 2017 Pasco</li><li style="display: none;">© GeoContent / (p) Intergraph</li><li style="display: none;">© 2017 Intermap</li><li style="display: none;">Image courtesy of the IndianaMap</li><li style="display: none;">Image courtesy of the Nevada State Mapping Advisory Committee</li><li style="display: none;">© 2017 InterAtlas</li><li style="display: none;">© 2017 Eurosense</li><li style="display: none;">© 2017 IGP</li><li style="display: none;">© 2017 IGN</li><li style="display: none;">© Province of British Columbia</li><li style="display: none;">© 2017 Blom</li><li style="display: none;">© 2017 Aerials Express</li><li style="display: none;">Image courtesy of LAR-IAC</li><li style="display: none;">Image courtesy of ImagePatch.com</li><li style="display: none;">State of Michigan</li><li style="display: none;">Earthstar Geographics  SIO</li><li style="display: none;">© 2012 DigitalGlobe</li><li style="display: none;">© 2016 Microsoft Corporation</li><li style="display: none;">© 2017 HERE</li><li style="display: none;">© AND</li><li style="display: none;">© 2017 MapData Sciences Pty Ltd, PSMA</li><li style="display: none;">© 2017 Zenrin</li></ul><button type="button" title="Attributions"><span>i</span></button></div><div class="ol-scale-line ol-unselectable"><div class="ol-scale-line-inner" style="width: 177px;">5 mi</div></div></div></div></div>
+      <div class="legend">
+        <ul>
+          <li class="blue pin">Monitoring station</li>
+          <li class="amber pin">Monitoring station with flood risk</li>
+          <li class="grey pin">Monitoring station unavailable</li>
+          <li class="crosshair" style="">
+            <div>Location of the place you entered</div>
+          </li>
+        </ul>
+      </div>
+    </div>
+    
+    
+    
+    <div class="map-info nojs-hide ie-hide">
+      <p>
+        <img src="assets/zoom-river-levels.png" alt="Zoom map icon" class="hidden-mobile">
+        <span>Zoom into the map and select a river or sea level station to see more information.</span>
+      </p>
+    </div>
+
+  </div>
+  <div>
+    <p class="nojs-show"><strong>You're missing out. A map should be visible here.</strong><br>Javascript must be enabled.</p>
+    <p class="ie-show">Use of Internet Explorer requires version 9 or later to access maps.</p>
+  </div>
+  <br>
+  <section class="notifications-banner">
+    <div class="grid-row">
+      <div class="column-third">
+        <a class="severity severity-1" href="#">
+          <h3 class="heading-xlarge ">
+            <img src="assets/severe-flood-warnings-icon.gif" alt="Severe Flood Warnings">0
+          </h3>
+          <div class="details">
+            <div class="title">Severe Flood Warnings</div>
+            <div class="tagline">Severe flooding</div>
+            <div class="description" title="danger to life">danger to life</div>
+          </div>
+        </a>
+      </div>
+      <div class="column-third">
+        <a class="severity severity-2" href="#">
+          <h3 class="heading-xlarge">
+            <img src="assets/flood-warnings-icon.gif" alt="Flood Warnings">1
+          </h3>
+          <div class="details">
+            <div class="title">Flood Warnings</div>
+            <div class="tagline">Flooding is expected</div>
+            <div class="description" title="immediate action required">immediate action required</div>
+          </div>
+        </a>
+      </div>
+      <div class="column-third">
+        <a class="severity severity-3" href="#">
+          <h3 class="heading-xlarge">
+            <img src="assets/flood-alerts-icon.gif" alt="Flood Alerts">3
+          </h3>
+          <div class="details">
+            <div class="title">Flood Alerts</div>
+            <div class="tagline">Flooding is possible</div>
+            <div class="description" title="be prepared">be prepared</div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+  <br>
+  <div>
+    <div class="secondary-links">
+      <div class="grid-row">
+        <div class="column-third"><a class="media" href="#">
+  <img class="img" src="assets/ball-home.png" alt="National flood information service">
+  <span class="content">National flood information service</span>
+</a>
+</div>
+        <div class="column-third"><a class="media" href="#">
+  <img class="img" src="assets/ball-risk.png" alt="View your property's long term risk of flooding">
+  <span class="content">View your property's long term risk of flooding</span>
+</a>
+</div>
+        <div class="column-third"><a class="media" href="#">
+  <img class="img" src="assets/ball-map.png" alt="View the current national flood situation">
+  <span class="content">View the current national flood situation</span>
+</a>
+</div>
+      </div>
+    </div>
+    <br>
+    <details>
+      <summary aria-controls="details-content-wales-scotland-ni" aria-expanded="false" role="button">
+        <span class="summary">Flood information for Wales, Scotland and Northern Ireland
+    </span>
+      </summary>
+      <div class="panel panel-border-narrow" id="details-content-wales-scotland-ni" aria-hidden="true">
+        <a href="#" rel="external">Natural Resources Wales</a><br>
+        <a href="#" rel="external">Scottish Environment Protection Agency</a><br>
+        <a href="#" rel="external">Northern Ireland Direct</a>
+      </div>
+    </details>
+    <br>
+  </div>
+</main>
+<!--
+<script src="/river-levels.js"></script>
+<script>
+  $(function () {
+    LFW.RiverLevelsPage = new LFW.RiverLevelsPage({
+      map: {
+        centroid: [53.49271,-2.23322]
+      }
+    })
+  })
+</script>
+-->
+		<div class="grid-row">
+    <div class="column-half feedback-footer">
+        Your <a href="#">feedback</a> will help us improve this service
+    </div>
+</div>
+</div>
+
+    <footer class="group js-footer" id="footer" role="contentinfo">
+
+      <div class="footer-wrapper">
+
+        <div class="footer-meta">
+          <div class="footer-meta-inner">
+            <h2 class="visuallyhidden">Support links</h2>
+            <ul>
+              <li><a href="#">Help</a></li>
+              <li><a href="#">Cookies</a></li>
+              <li><a href="#">Contact</a></li>
+              <li><a href="#">Cymraeg</a></li>
+              <li>Built by the <a href="#">Environment Agency</a>
+              </li>
+            </ul>
+
+            <div class="open-government-licence">
+              <p class="logo"><a href="#" rel="license">Open Government Licence</a></p>
+              
+                <p>All content is available under the <a href="#" rel="license">Open Government Licence v3.0</a>, except where otherwise stated</p>
+              
+            </div>
+          </div>
+
+          <div class="copyright">
+            <a href="#">© Crown copyright</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <div id="global-app-error" class="app-error hidden"></div>
+
+    <script src="assets/govuk-template.js"></script>
+
+
+    
+    <script>if (typeof window.GOVUK === 'undefined') document.body.className = document.body.className.replace('js-enabled', '');</script>
+  
+
+</body></html>

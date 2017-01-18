@@ -26,8 +26,16 @@
 
       {% block message %}
       {% endblock %}
+      <!--
+      <ul class="list list-bullet">
+            <li><a href="#river-levels">View recorded and forecast river levels</a></li>
+            <li><a href="#surrounding-areas">Which levels are most likely to indicate flooding?</a></li>
+            <li><a href="#nearby-measuring-stations">View a nearby measuring station</a></li>
+      </ul>
+      -->
 
       {% block affects %}
+      <!--
       <details style="margin-top:2em">
 
         <summary><span class="summary">More about our 36-hour forecasts</span></summary>
@@ -40,6 +48,7 @@
         </div>
 
       </details>
+      -->
       {% endblock %}
 
     </div>
@@ -76,7 +85,7 @@
 
       <section class="station-data">
 
-        <h2 class="heading-medium">
+        <h2 class="heading-medium" id="river-levels">
           {% block stationDataHeading %}
           River levels for the last 5 days and forecast levels for the next 36 hours at this measuring station
           {% endblock %}
@@ -89,8 +98,8 @@
             <div class="chart-annotation">
               <ol>
                 {% block chart_annotation %}
-                <li style="top:-3px">Flooding of property possible in <a href="">surrounding areas</a> <span>(1.6m)</span></li>
-                <li style="top:216px">Flooding of low-lying land possible in <a href="">surrounding areas</a> <span>(1.1m)</span></li>
+                <li style="top:-3px">Flooding of property possible in <a href="#surrounding-areas">surrounding areas</a> <span>(1.6m)</span></li>
+                <li style="top:216px">Flooding of low-lying land possible in <a href="#surrounding-areas">surrounding areas</a> <span>(1.1m)</span></li>
                 {% endblock %}
               </ol>
             </div>
@@ -157,55 +166,41 @@
 
       <section class="map">
 
-        <h2 class="heading-medium">Which levels are most likely to indicate flooding to surrounding areas?</h2>
+        <h2 class="heading-medium" id="surrounding-areas">Which levels are most likely to indicate flooding to surrounding areas?</h2>
         
-        <ul>
-          <li>
-            <p>At 1.1m flooding of low-lying land is possible</br><a href="">Hide areas affected</a></p>
-          </li>
-          <li>
-            <p>At 1.6m flooding to property is possible</br><a href="">Show areas affected</a></p>
-          </li>
-        </ul>
+        <figure>
 
-        <div id="map-levels" class="map-container"></div>
+          <div id="map-levels" class="map-container">
+            <img src="/public/images/maps/river-levels.png" alt="Screen grab" />
+            <div class="ol-overlaycontainer-stopevent"><div class="ol-zoom ol-unselectable ol-control"><button class="ol-zoom-in" type="button" title="Zoom in">+</button><button class="ol-zoom-out" type="button" title="Zoom out">−</button></div><div class="ol-rotate ol-unselectable ol-control ol-hidden"><button class="ol-rotate-reset" type="button" title="Reset rotation"><span class="ol-compass" style="transform: rotate(0rad);">⇧</span></button></div><div class="ol-attribution ol-unselectable ol-control ol-collapsed"><ul><li style=""><a href="https://openlayers.org/"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAAAA3NCSVQICAjb4U/gAAAACXBIWXMAAAHGAAABxgEXwfpGAAAAGXRFWHRTb2Z0d2FyZQB3d3cuaW5rc2NhcGUub3Jnm+48GgAAAhNQTFRF////AP//AICAgP//AFVVQECA////K1VVSbbbYL/fJ05idsTYJFtbbcjbJllmZszWWMTOIFhoHlNiZszTa9DdUcHNHlNlV8XRIVdiasrUHlZjIVZjaMnVH1RlIFRkH1RkH1ZlasvYasvXVsPQH1VkacnVa8vWIVZjIFRjVMPQa8rXIVVkXsXRsNveIFVkIFZlIVVj3eDeh6GmbMvXH1ZkIFRka8rWbMvXIFVkIFVjIFVkbMvWH1VjbMvWIFVlbcvWIFVla8vVIFVkbMvWbMvVH1VkbMvWIFVlbcvWIFVkbcvVbMvWjNPbIFVkU8LPwMzNIFVkbczWIFVkbsvWbMvXIFVkRnB8bcvW2+TkW8XRIFVkIlZlJVloJlpoKlxrLl9tMmJwOWd0Omh1RXF8TneCT3iDUHiDU8LPVMLPVcLPVcPQVsPPVsPQV8PQWMTQWsTQW8TQXMXSXsXRX4SNX8bSYMfTYcfTYsfTY8jUZcfSZsnUaIqTacrVasrVa8jTa8rWbI2VbMvWbcvWdJObdcvUdszUd8vVeJaee87Yfc3WgJyjhqGnitDYjaarldPZnrK2oNbborW5o9bbo9fbpLa6q9ndrL3ArtndscDDutzfu8fJwN7gwt7gxc/QyuHhy+HizeHi0NfX0+Pj19zb1+Tj2uXk29/e3uLg3+Lh3+bl4uXj4ufl4+fl5Ofl5ufl5ujm5+jmySDnBAAAAFp0Uk5TAAECAgMEBAYHCA0NDg4UGRogIiMmKSssLzU7PkJJT1JTVFliY2hrdHZ3foSFhYeJjY2QkpugqbG1tre5w8zQ09XY3uXn6+zx8vT09vf4+Pj5+fr6/P39/f3+gz7SsAAAAVVJREFUOMtjYKA7EBDnwCPLrObS1BRiLoJLnte6CQy8FLHLCzs2QUG4FjZ5GbcmBDDjxJBXDWxCBrb8aM4zbkIDzpLYnAcE9VXlJSWlZRU13koIeW57mGx5XjoMZEUqwxWYQaQbSzLSkYGfKFSe0QMsX5WbjgY0YS4MBplemI4BdGBW+DQ11eZiymfqQuXZIjqwyadPNoSZ4L+0FVM6e+oGI6g8a9iKNT3o8kVzNkzRg5lgl7p4wyRUL9Yt2jAxVh6mQCogae6GmflI8p0r13VFWTHBQ0rWPW7ahgWVcPm+9cuLoyy4kCJDzCm6d8PSFoh0zvQNC5OjDJhQopPPJqph1doJBUD5tnkbZiUEqaCnB3bTqLTFG1bPn71kw4b+GFdpLElKIzRxxgYgWNYc5SCENVHKeUaltHdXx0dZ8uBI1hJ2UUDgq82CM2MwKeibqAvSO7MCABq0wXEPiqWEAAAAAElFTkSuQmCC"></a></li><li>© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors.</li></ul><button type="button" title="Attributions"><span>i</span></button></div></div>
+          </div>
 
-        <script type="text/javascript">
-          var map = new ol.Map({
-            target: 'map-levels',
-            layers: [
-              new ol.layer.Tile({
-                source: new ol.source.OSM()
-              })
-            ],
-            view: new ol.View({
-              center: ol.proj.fromLonLat([-2.229598,53.493779]),
-              zoom: 12
-            }),
-            interactions: ol.interaction.defaults({
-              mouseWheelZoom:false
-            })
-          });
-        </script>
+          <figcaption>
 
-        <div style="display:none">
-          <p>At levels over 1.6m flooding of low-lying land such as farmland and recreational fields is likely at:<p>
-          <ul class="list list-bullet">
-            <li><a href="https://flood-warning-information.service.gov.uk/target-area/013FWFGM75">River Irk at Cheetham Hill</a></li>
-            <li><a href="https://flood-warning-information.service.gov.uk/target-area/013FWFGM91">River Irk at Vale Park Industrial Estate</a></li>
-            <li><a href="https://flood-warning-information.service.gov.uk/target-area/013FWFGM92">River Irk at Crumpsall Hospital</a></li>
-            <li><a href="https://flood-warning-information.service.gov.uk/target-area/013FWFGM93">River Irk at Kendall Road</a></li>
-            <li><a href="https://flood-warning-information.service.gov.uk/target-area/013FWFGM94">River Irk at New Bridge</a></li>
-            <li><a href="https://flood-warning-information.service.gov.uk/target-area/013FWFGM95">River Irk at Rhodes</a></li>
-            <li><a href="https://flood-warning-information.service.gov.uk/target-area/013FWFGM96">River Irk at Little Green</a></li>
-            <li><a href="https://flood-warning-information.service.gov.uk/target-area/013FWFGM97">River Irk at Chadderton Fold</a></li>
-          </ul>
-          <p>At levels over 2.4m flooding of property is likely at:</p>
-          <ul class="list list-bullet">
-            <li><a href="https://flood-warning-information.service.gov.uk/target-area/013FWFGM91">River Irk at Vale Park Industrial Estate</a></li>
-            <li><a href="https://flood-warning-information.service.gov.uk/target-area/013FWFGM92">River Irk at Crumpsall Hospital</a></li>
-          </ul>
-        </div>
+            <h3 class="heading-small" style="margin-top:2em" id="1-1m">Over 1.1m</h3>
+            <p>Flooding of low-lying land such as farmland and recreational fields is possible at:</p>
+            <ul class="list list-bullet">
+              <li><a href="#">River Irk at Cheetham Hill</a></li>
+              <li><a href="#">River Irk at Vale Park Industrial Estate</a></li>
+              <li><a href="#">River Irk at Crumpsall Hospital</a></li>
+              <li><a href="#">River Irk at Kendall Road</a></li>
+              <li><a href="#">River Irk at New Bridge</a></li>
+              <li><a href="#">River Irk at Rhodes</a></li>
+              <li><a href="#">River Irk at Little Green</a></li>
+              <li><a href="#">River Irk at Chadderton Fold</a></li>
+            </ul>
+
+            <h3 class="heading-small" style="margin-top:2em" id="1-6m">Over 1.6m</h3>
+            <p>Flooding to property is possible at:</p>
+            <ul class="list list-bullet">
+              <li><a href="#">River Irk at Cheetham Hill</a></li>
+              <li><a href="#">River Irk at Vale Park Industrial Estate</a></li>
+            </p>
+
+          </figcaption>
+
+        </figure>
+
 
       </section>
 
@@ -240,10 +235,16 @@
 
         <section class="map">
 
-          <h2 class="heading-medium">View a nearby measuring station</h2>
+          <h2 class="heading-medium" id="nearby-measuring-stations">View a nearby measuring station</h2>
 
           <p>Select a marker on the map to view measuring station.</p>
 
+          <div id="map-levels" class="map-container">
+            <img src="/public/images/maps/measuring-stations.png" alt="Screen grab" />
+            <div class="ol-overlaycontainer-stopevent"><div class="ol-zoom ol-unselectable ol-control"><button class="ol-zoom-in" type="button" title="Zoom in">+</button><button class="ol-zoom-out" type="button" title="Zoom out">−</button></div><div class="ol-rotate ol-unselectable ol-control ol-hidden"><button class="ol-rotate-reset" type="button" title="Reset rotation"><span class="ol-compass" style="transform: rotate(0rad);">⇧</span></button></div><div class="ol-attribution ol-unselectable ol-control ol-collapsed"><ul><li style=""><a href="https://openlayers.org/"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAAAA3NCSVQICAjb4U/gAAAACXBIWXMAAAHGAAABxgEXwfpGAAAAGXRFWHRTb2Z0d2FyZQB3d3cuaW5rc2NhcGUub3Jnm+48GgAAAhNQTFRF////AP//AICAgP//AFVVQECA////K1VVSbbbYL/fJ05idsTYJFtbbcjbJllmZszWWMTOIFhoHlNiZszTa9DdUcHNHlNlV8XRIVdiasrUHlZjIVZjaMnVH1RlIFRkH1RkH1ZlasvYasvXVsPQH1VkacnVa8vWIVZjIFRjVMPQa8rXIVVkXsXRsNveIFVkIFZlIVVj3eDeh6GmbMvXH1ZkIFRka8rWbMvXIFVkIFVjIFVkbMvWH1VjbMvWIFVlbcvWIFVla8vVIFVkbMvWbMvVH1VkbMvWIFVlbcvWIFVkbcvVbMvWjNPbIFVkU8LPwMzNIFVkbczWIFVkbsvWbMvXIFVkRnB8bcvW2+TkW8XRIFVkIlZlJVloJlpoKlxrLl9tMmJwOWd0Omh1RXF8TneCT3iDUHiDU8LPVMLPVcLPVcPQVsPPVsPQV8PQWMTQWsTQW8TQXMXSXsXRX4SNX8bSYMfTYcfTYsfTY8jUZcfSZsnUaIqTacrVasrVa8jTa8rWbI2VbMvWbcvWdJObdcvUdszUd8vVeJaee87Yfc3WgJyjhqGnitDYjaarldPZnrK2oNbborW5o9bbo9fbpLa6q9ndrL3ArtndscDDutzfu8fJwN7gwt7gxc/QyuHhy+HizeHi0NfX0+Pj19zb1+Tj2uXk29/e3uLg3+Lh3+bl4uXj4ufl4+fl5Ofl5ufl5ujm5+jmySDnBAAAAFp0Uk5TAAECAgMEBAYHCA0NDg4UGRogIiMmKSssLzU7PkJJT1JTVFliY2hrdHZ3foSFhYeJjY2QkpugqbG1tre5w8zQ09XY3uXn6+zx8vT09vf4+Pj5+fr6/P39/f3+gz7SsAAAAVVJREFUOMtjYKA7EBDnwCPLrObS1BRiLoJLnte6CQy8FLHLCzs2QUG4FjZ5GbcmBDDjxJBXDWxCBrb8aM4zbkIDzpLYnAcE9VXlJSWlZRU13koIeW57mGx5XjoMZEUqwxWYQaQbSzLSkYGfKFSe0QMsX5WbjgY0YS4MBplemI4BdGBW+DQ11eZiymfqQuXZIjqwyadPNoSZ4L+0FVM6e+oGI6g8a9iKNT3o8kVzNkzRg5lgl7p4wyRUL9Yt2jAxVh6mQCogae6GmflI8p0r13VFWTHBQ0rWPW7ahgWVcPm+9cuLoyy4kCJDzCm6d8PSFoh0zvQNC5OjDJhQopPPJqph1doJBUD5tnkbZiUEqaCnB3bTqLTFG1bPn71kw4b+GFdpLElKIzRxxgYgWNYc5SCENVHKeUaltHdXx0dZ8uBI1hJ2UUDgq82CM2MwKeibqAvSO7MCABq0wXEPiqWEAAAAAElFTkSuQmCC"></a></li><li>© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors.</li></ul><button type="button" title="Attributions"><span>i</span></button></div></div>
+          </div>
+
+          <!--
           <div id="map-stations" class="map-container"></div>
 
           <script type="text/javascript">
@@ -263,6 +264,7 @@
               })
             });
           </script>
+          -->
 
         </section>
 

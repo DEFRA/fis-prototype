@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<!--[if lt IE 9]><html class="lte-ie8" lang="en"><![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en"><!--<![endif]--><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>Flood information service - GOV.UK</title>
+
+    <!--[if gt IE 8]><!--><link href="assets/govuk-template.css" media="screen" rel="stylesheet"><!--<![endif]-->
+    <!--[if IE 6]><link href="/public/stylesheets/govuk-template-ie6.css?0.19.0" media="screen" rel="stylesheet" /><![endif]-->
+    <!--[if IE 7]><link href="/public/stylesheets/govuk-template-ie7.css?0.19.0" media="screen" rel="stylesheet" /><![endif]-->
+    <!--[if IE 8]><link href="/public/stylesheets/govuk-template-ie8.css?0.19.0" media="screen" rel="stylesheet" /><![endif]-->
+    <link href="assets/govuk-template-print.css" media="print" rel="stylesheet">
+
+    <!--[if IE 8]><link href="/public/stylesheets/fonts-ie8.css?0.19.0" media="all" rel="stylesheet" /><![endif]-->
+    <!--[if gte IE 9]><!--><link href="assets/fonts.css" media="all" rel="stylesheet"><!--<![endif]-->
+    <!--[if lt IE 9]><script src="/public/javascripts/ie.js?0.19.0"></script><![endif]-->
+
+    <link rel="shortcut icon" href="http://localhost:3000/public/images/favicon.ico?0.19.0" type="image/x-icon">
+    <link rel="mask-icon" href="http://localhost:3000/public/images/gov.uk_logotype_crown.svg?0.19.0" color="#0b0c0c">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="http://localhost:3000/public/images/apple-touch-icon-152x152.png?0.19.0">
+    <link rel="apple-touch-icon-precomposed" sizes="120x120" href="http://localhost:3000/public/images/apple-touch-icon-120x120.png?0.19.0">
+    <link rel="apple-touch-icon-precomposed" sizes="76x76" href="http://localhost:3000/public/images/apple-touch-icon-76x76.png?0.19.0">
+    <link rel="apple-touch-icon-precomposed" href="http://localhost:3000/public/images/apple-touch-icon-60x60.png?0.19.0">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta property="og:image" content="/public/images/opengraph-image.png?0.19.0">
+
+    <meta http-equiv="refresh" content="900">
+    <meta name="google-site-verification" content="HjuKUejT64a0rBdUxxtbnIKNB4_cZ3X3hlXOxk4_OX8">
+    <link rel="stylesheet" href="assets/application.css">
+    <!--[if IE 6]><link href="/public/stylesheets/application-ie6.css" media="screen" rel="stylesheet" type="text/css" /><![endif]-->
+    <!--[if IE 7]><link href="/public/stylesheets/application-ie7.css" media="screen" rel="stylesheet" type="text/css" /><![endif]-->
+    <!--[if IE 8]><link href="/public/stylesheets/application-ie8.css" media="screen" rel="stylesheet" type="text/css" /><![endif]-->
+    <!-- Application version: 1.1.0 -->
+    <link rel="stylesheet" href="assets/style.css">
+    <script src="assets/jquery.js"></script>
+    <script src="assets/core.js"></script>
+  </head>
+
+  <body class="js-enabled">
+    <script>document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');</script>
+
+
+    <div id="skiplink-container">
+      <div>
+        <a href="#content" class="skiplink">Skip to main content</a>
+      </div>
+    </div>
+
+    <div id="global-cookie-message">
+      
+        <div>
+          <p>GOV.UK uses cookies to make the site simpler. <a href="#">Find out more about cookies</a></p>
+        </div>
+      
+    </div>
+
+    
+    <header role="banner" id="global-header" class="with-proposition">
+      <div class="header-wrapper">
+        <div class="header-global">
+          <div class="header-logo">
+            <a href="#" title="Go to the GOV.UK homepage" id="logo" class="content">
+              <img src="assets/gov.png" alt="" width="36" height="32"> GOV.UK
+            </a>
+          </div>
+        </div>
+        <div class="header-proposition">
+          <div class="content">
+            <nav id="proposition-menu">
+              <a href="/" id="proposition-name">Flood information service</a>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </header>
+    
+
+
+    <div id="global-header-bar"></div>
+
+    <div id="content" class="wrapper">
+		
+			<link rel="stylesheet" type="text/css" property="stylesheet" href="assets/index-step-2.css">
+<main id="warnings-page" data-test-info="[{&quot;severity&quot;:1,&quot;count&quot;:0,&quot;title&quot;:&quot;Severe flood warning&quot;,&quot;pluralisedTitle&quot;:&quot;Severe Flood Warnings&quot;,&quot;hash&quot;:&quot;severe-flood-warnings&quot;,&quot;tagline&quot;:&quot;Severe flooding&quot;,&quot;description&quot;:&quot;danger to life&quot;},{&quot;severity&quot;:2,&quot;count&quot;:2,&quot;title&quot;:&quot;Flood warning&quot;,&quot;pluralisedTitle&quot;:&quot;Flood Warnings&quot;,&quot;hash&quot;:&quot;flood-warnings&quot;,&quot;tagline&quot;:&quot;Flooding is expected&quot;,&quot;description&quot;:&quot;immediate action required&quot;},{&quot;severity&quot;:3,&quot;count&quot;:1,&quot;title&quot;:&quot;Flood alert&quot;,&quot;pluralisedTitle&quot;:&quot;Flood Alerts&quot;,&quot;hash&quot;:&quot;flood-alerts&quot;,&quot;tagline&quot;:&quot;Flooding is possible&quot;,&quot;description&quot;:&quot;be prepared&quot;,&quot;onlyNotification&quot;:{&quot;fwa_code&quot;:&quot;013WAFLI&quot;,&quot;fwa_key&quot;:101101,&quot;description&quot;:&quot;Lower River Irwell catchment including areas in Greater Manchester&quot;,&quot;area_floodline_quickdial_id&quot;:&quot;143116&quot;,&quot;region&quot;:&quot;North West&quot;,&quot;area&quot;:&quot;Greater Manchester&quot;,&quot;flood_type&quot;:&quot;t&quot;,&quot;severity&quot;:3,&quot;severity_description&quot;:&quot;Flood Alert&quot;,&quot;warning_key&quot;:1,&quot;raised&quot;:&quot;2014-10-23T10:34:00.000Z&quot;,&quot;severity_changed&quot;:&quot;2014-10-23T10:34:00.000Z&quot;,&quot;message_changed&quot;:&quot;2014-10-23T10:34:00.000Z&quot;,&quot;message&quot;:&quot;A flood alert has been issued for the North Sea Coast at Bridlington for the high tide at 5.15pm on Thursday 23 October. The main area of concern is the South Pier. Onshore winds may lead to wave overtopping between 4pm and 7.15pm. The flood alert has also been issued for the high tide at 5.15am on Friday 24 October. Also impacting the most at the South Pier. Onshore winds may lead to wave overtopping between 4am and 6.45am. The Environment Agency will continue to monitor the situation and update this message accordingly.&quot;,&quot;centroid&quot;:&quot;POINT(-2.29325347275404 53.4886270765454)&quot;,&quot;centroid_json&quot;:&quot;{\&quot;type\&quot;:\&quot;Point\&quot;,\&quot;coordinates\&quot;:[-2.29325347275404,53.4886270765454]}&quot;}},{&quot;severity&quot;:4,&quot;count&quot;:0,&quot;title&quot;:&quot;Flood warning no longer in force&quot;,&quot;pluralisedTitle&quot;:&quot;Warnings no longer in force&quot;,&quot;hash&quot;:&quot;warnings-no-longer-in-force&quot;,&quot;tagline&quot;:&quot;Flood warnings and flood alerts&quot;,&quot;description&quot;:&quot;removed in the last 24 hours&quot;}]">
+  <header class="intro">
+    <h1 id="title" class="heading-large" title="M7 2DU, Broughton, Salford, England" tabindex="0">Flood warnings for: <br>
+      <span class="heading-xlarge">M7 2DU, Broughton, Salford, England</span>
+    </h1>
+    <span id="error-message"></span>
+    <time class="form-hint" title="2:04pm Tuesday 17 January 2017" datetime="1484661845347" tabindex="0">9:30am Wednesday 11 January 2017</time>
+    <h2 tabindex="0">There are currently no severe flood warnings, 1 warning and 3 alerts in force at this location.</h2>
+  </header>
+  <div class="warnings-container">
+    <div class="warnings-search clearfix">
+      <form class="form-group" method="get" action="/warnings">
+        <label for="location" title="Search warnings and river levels in your location" class="sr-fix">Search warnings and river levels in your location</label>
+        <input id="location" class="form-control" value="M7 2DU" placeholder="Enter a postcode or place in England or Wales" name="location" autocomplete="off" type="text">
+        <button type="submit" class="button">Check a location</button>
+      </form>
+    </div>
+    <ul class="warnings-list">
+           <li>
+            <details id="flood-warnings" class="details-severity" open>
+              <summary id="summary-severity-2" class="summary-severity" title="2 flood warnings - flooding is expected. Immediate action required." aria-controls="details-content-severity-2" aria-expanded="false" role="button">
+                <div class="notifications-banner">
+                  <span class="severity severity-2">
+                     <h2 class="heading-xlarge" tabindex="0">
+                      <img src="assets/flood-warnings-icon.gif" alt="Flood Warnings">1
+                    </h2>
+                    <div class="details">
+                      <div class="title">Flood Warnings</div>
+                      <div class="tagline">Flooding is expected</div>
+                      <div class="description" title="immediate action required">immediate action required</div>
+                    </div>
+                  </span>
+                </div>
+              </summary>
+              <div id="details-content-severity-2" class="details-content-severity">
+                <div class="details-content-severity-spacer"></div>
+                <ul>
+                    <li><a href="/static/journey/step-3.html"><span>River Irk at Cheetham Hill</span></a></li>
+                </ul>
+              </div>
+            </details>
+          </li>
+           <li>
+              <a href="#" class="only-1">
+                <div class="details-severity">
+                  <div class="summary-severity">
+                    <div class="notifications-banner">
+                      <span class="severity severity-3">
+                        <h2 class="heading-xlarge" tabindex="0">
+                          <img src="assets/flood-alerts-icon.gif" alt="Flood Alerts">3
+                        </h2>
+                        <div class="details">
+                          <div class="title">Flood Alerts</div>
+                          <div class="tagline">Flooding is possible</div>
+                          <div class="description" title="be prepared">be prepared</div>
+                        </div>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                </a>
+          </li>
+    </ul>
+  </div>
+  <br>
+  <br>
+    <p>Wrong location? <a data-journey-click="lfw:warnings:search-again" href="#">Search again</a></p>
+  <br>
+  <div class="secondary-links">
+    <div class="grid-row">
+      <div class="column-third"><a class="media" href="#">
+  <img class="img" src="assets/ball-map.png" alt="View the current national flood situation">
+  <span class="content">View the current national flood situation</span>
+</a>
+</div>
+      <div class="column-third"><a class="media" href="#">
+  <img class="img" src="assets/ball-river-sea-level.png" alt="View the latest river and sea levels near you">
+  <span class="content">View the latest river and sea levels near you</span>
+</a>
+</div>
+      <div class="column-third"><a class="media" href="#">
+  <img class="img" src="assets/ball-home.png" alt="National flood information service">
+  <span class="content">National flood information service</span>
+</a>
+</div>
+    </div>
+    <div class="grid-row">
+      <div class="column-third"><a class="media" href="#">
+  <img class="img" src="assets/ball-forecast.png" alt="View the 5-day flood risk">
+  <span class="content">View the 5-day flood risk</span>
+</a>
+</div>
+      <div class="column-third"><a class="media" href="#">
+  <img class="img" src="assets/ball-alerts.png" alt="Sign up to flood warnings">
+  <span class="content">Sign up to flood warnings</span>
+</a>
+</div>
+    </div>
+  </div>
+</main>
+<script src="assets/warnings.js"></script>
+<script>
+  $(function () {
+    (new LFW.WarningsPage({
+      isLocalised: true
+    }))
+  })
+</script>
+
+		<div class="grid-row">
+    <div class="column-half feedback-footer">
+        Your <a href="#">feedback</a> will help us improve this service
+    </div>
+</div>
+</div>
+
+    <footer class="group js-footer" id="footer" role="contentinfo">
+
+      <div class="footer-wrapper">
+
+        <div class="footer-meta">
+          <div class="footer-meta-inner">
+            <h2 class="visuallyhidden">Support links</h2>
+            <ul>
+              <li><a href="#">Help</a></li>
+              <li><a href="#">Cookies</a></li>
+              <li><a href="#">Contact</a></li>
+              <li><a href="#">Cymraeg</a></li>
+              <li>Built by the <a href="#">Environment Agency</a>
+              </li>
+            </ul>
+
+            <div class="open-government-licence">
+              <p class="logo"><a href="#" rel="license">Open Government Licence</a></p>
+              
+                <p>All content is available under the <a href="#" rel="license">Open Government Licence v3.0</a>, except where otherwise stated</p>
+              
+            </div>
+          </div>
+
+          <div class="copyright">
+            <a href="#">© Crown copyright</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <div id="global-app-error" class="app-error hidden"></div>
+
+    <script src="assets/govuk-template.js"></script>
+
+
+    
+    <script>if (typeof window.GOVUK === 'undefined') document.body.className = document.body.className.replace('js-enabled', '');</script>
+  
+
+</body></html>
