@@ -6,7 +6,7 @@ module.exports = {
 
     // Gauging station
     app.get('/stations', function (req, res) {
-      var pageName = 'Measuring stations (v3)'
+      var pageName = 'Measuring stations (v4)'
       res.render('stations', { 'page_name': pageName })
     })
 
