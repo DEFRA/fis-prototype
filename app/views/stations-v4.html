@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+
+{% block page_title %}Measuring stations - FIS Prototype - GOV.UK{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main" tabindex="-1">
+
+  {% include "partials/phase_banner.html" %}
+  {% include "partials/breadcrumb.html" %}
+
+  <div class="grid-row">
+    <div class="column-two-thirds">
+
+      <h1 class="heading-xlarge">
+        <span class="heading-secondary">FIS Prototype</span>
+        Measuring stations
+      </h1>
+
+    </div>
+  </div>
+
+  <div class="grid-row">
+    <div class="column-two-thirds">
+
+      <ul class="list">
+        <li><a href="/static/v4/station/5034.html">Normal range</a></li>
+        <li><a href="/static/v4/station/5034-flooding-possible.html">Flooding is possible</a></li>
+      </ul>
+
+    </div>
+  </div>
+
+</main><!-- / #content -->
+{% endblock %}
+
+{% block body_end %}
+  <!-- GOV.UK elements redirect -->
+  <!--<script src="/public/javascripts/redirect.js"></script>-->
+  {% include "partials/scripts.html" %}
+{% endblock %}
+

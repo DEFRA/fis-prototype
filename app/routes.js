@@ -70,6 +70,18 @@ module.exports = {
       res.render('stations-v3', { 'page_name': pageName })
     })
 
+    // Version 4
+    app.get('/stations-v4', function (req, res) {
+      var pageName = 'Measuring stations (v4)'
+      res.render('stations-v4', { 'page_name': pageName })
+    })
+
+    // Version 5
+    app.get('/stations', function (req, res) {
+      var pageName = 'Measuring stations'
+      res.render('stations', { 'page_name': pageName })
+    })
+
     //
     // Journey
     //
