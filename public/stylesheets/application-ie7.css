@@ -2196,6 +2196,13 @@ h1.heading-xlarge {
   margin-top: 1.25em;
 }
 
+.heading-nearby {
+  margin-top: 0.3125em;
+  margin-bottom: 1.25em;
+  margin-top: 0.2631578947em;
+  margin-bottom: 1.0526315789em;
+}
+
 .related {
   border-top: 10px solid #005ea5;
   padding-top: 5px;
@@ -2310,13 +2317,11 @@ h1.heading-xlarge {
 }
 
 .notice-flood-alert .icon-flood-warning {
-  position: absolute;
-  top: 0;
   width: 35px;
   height: 35px;
   background-image: url("/public/images/icon-flood-alert.png");
-  margin-top: -8px;
-  margin-top: -9px;
+  margin-top: -20px;
+  margin-top: -21px;
 }
 
 @media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 20 / 10), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
@@ -2324,20 +2329,4 @@ h1.heading-xlarge {
     background-image: url("/public/images/icon-flood-alert-2x.png");
     background-size: 100%;
   }
-}
-
-.notice-flood-alert strong {
-  display: block;
-  margin-top: 0.3125em;
-  margin-bottom: 1.25em;
-  display: block;
-  padding-left: 65px;
-  margin-left: -15px;
-  margin-top: 0.2631578947em;
-  margin-bottom: 1.0526315789em;
-}
-
-.notice-flood-alert ul {
-  padding-left: 65px;
-  margin-left: 8px;
 }
