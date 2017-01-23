@@ -19,7 +19,7 @@ Irk at Collyhurst Weir
 </div>
 <p>Latest river level forecast indicates that flooding is possible in the next 36 hours. The latest forecast generated at time/date indicates that the river level is predicted to peak at Xm at time/date [use time of model export generation].</p>
 -->
-<p class="lede">Flooding is possible here and in nearby areas in the next 36 hours. You can <a href="#nearby-areas">see if there are flood warnings in force now</a>.</p>
+<p class="lede">Flooding is possible here and in nearby areas in the next 36 hours. You can <a href="#nearby-areas2">see if there are flood warnings in force near this location</a>.</p>
 {% endblock %}
 
 {% block headline_latest %}
@@ -40,8 +40,8 @@ Irk at Collyhurst Weir
 
 {% block chart_annotation %}
 <li style="top:-3px">Highest level on record at this location <span>(1.8m on 26 Dec 2015)</span></li>
-<li style="top:85px">At this level some property flooding is possible here and in <a href="#nearby-areas">nearby areas</a> <span>(1.60m)</span></li>
-<li style="top:304px">At this level flooding of low-lying land is possible here and in <a href="#nearby-areas">nearby areas</a> <span>(1.10m)</span></li>
+<li style="top:85px">At this level some property flooding is possible here and in <a href="#flood-warning">nearby areas</a> <span>(1.60m)</span></li>
+<li style="top:304px">At this level flooding of low-lying land is possible here and in <a href="#flood-alert">nearby areas</a> <span>(1.10m)</span></li>
 {% endblock %}
 
 {% block chartLines %}
@@ -148,4 +148,20 @@ Irk at Collyhurst Weir
     <li><a href="https://flood-warning-information.service.gov.uk/target-area/013FWFGM91">River Irk at Vale Park Industrial Estate</a></li>
   </ul>
 </div>
+{% endblock %}
+
+
+{% block nearby_areas2 %}
+<h3 class="heading-small" id="flood-warning">From 1.60m some property flooding may occur in these areas</h3>
+<ul class="list list-bullet">
+  <li><a href="https://flood-warning-information.service.gov.uk/target-area/013FWFGM92">River Irk at Crumpsall Hospital</a> [FLOOD WARNING in force]</li>
+</ul>
+<h3 class="heading-small" id="flood-alert">From 1.10m flooding of low-lying land may occur in parts of these areas</h3>
+<ul class="list list-bullet">
+  <li><a href="https://flood-warning-information.service.gov.uk/target-area/013FWFGM95">River Irk at Rhodes</a> [FLOOD ALERT in force]</li>
+  <li><a href="https://flood-warning-information.service.gov.uk/target-area/013FWFGM96">River Irk at Little Green</a> [FLOOD ALERT in force]</li>
+  <li><a href="https://flood-warning-information.service.gov.uk/target-area/013FWFGM97">River Irk at Chadderton Fold</a> [FLOOD ALERT in force]</li>
+  <li><a href="https://flood-warning-information.service.gov.uk/target-area/013FWFGM93">River Irk at Kendall Road</a></li>  
+  <li><a href="https://flood-warning-information.service.gov.uk/target-area/013FWFGM91">River Irk at Vale Park Industrial Estate</a></li>
+</ul>
 {% endblock %}

@@ -98,8 +98,8 @@
             <div class="chart-annotation">
               <ol>
                 {% block chart_annotation %}
-                <li style="top:-3px">At this level some property flooding is possible here and in <a href="#nearby-areas">nearby areas</a> <span>(1.60m)</span></li>
-                <li style="top:216px">At this level flooding of low-lying land is possible here and in <a href="#nearby-areas">nearby areas</a> <span>(1.10m)</span></li>
+                <li style="top:-3px">At this level some property flooding is possible here and in <a href="#flood-warning">nearby areas</a> <span>(1.60m)</span></li>
+                <li style="top:216px">At this level flooding of low-lying land is possible here and in <a href="#flood-alert">nearby areas</a> <span>(1.10m)</span></li>
                 {% endblock %}
               </ol>
             </div>
@@ -228,6 +228,64 @@
     </div>
 
   </div>
+
+  <!-- Second nearby areas -->
+
+  <div class="grid-row">
+
+    <div class="column-two-thirds">
+
+      <section class="map">
+
+        <h2 class="heading-medium" id="nearby-areas2">What affect could these levels have on nearby areas?</h2>
+
+        <!--<p>Which levels are most likely to indicate flooding to nearby areas?</p>-->
+        <p>Select an area for more information.</p>
+
+        {% block nearby_areas2 %}
+        <ul class="list list-bullet">
+          <li><a href="https://flood-warning-information.service.gov.uk/target-area/013FWFGM75">River Irk at Cheetham Hill</a></li>
+          <li><a href="https://flood-warning-information.service.gov.uk/target-area/013FWFGM91">River Irk at Vale Park Industrial Estate</a></li>
+          <li><a href="https://flood-warning-information.service.gov.uk/target-area/013FWFGM92">River Irk at Crumpsall Hospital</a></li>
+          <li><a href="https://flood-warning-information.service.gov.uk/target-area/013FWFGM93">River Irk at Kendall Road</a></li>
+          <li><a href="https://flood-warning-information.service.gov.uk/target-area/013FWFGM94">River Irk at New Bridge</a></li>
+          <li><a href="https://flood-warning-information.service.gov.uk/target-area/013FWFGM95">River Irk at Rhodes</a></li>
+          <li><a href="https://flood-warning-information.service.gov.uk/target-area/013FWFGM96">River Irk at Little Green</a></li>
+          <li><a href="https://flood-warning-information.service.gov.uk/target-area/013FWFGM97">River Irk at Chadderton Fold</a></li>
+        </ul>
+        {% endblock %}
+
+      </section>
+
+      <p><a href="/static/journey/step-1.html">Check if there's a flood warning near you</a></p>
+
+      <!--
+      <details>
+
+          <summary>
+              
+            <span class="summary">More information about this measuring station</span>
+              
+          </summary>
+
+          <div class="panel panel-border-narrow">
+
+              <p><strong class="bold-small">Station name:</strong> Collyhurst Weir<br/>
+              <strong class="bold-small">Station ID:</strong> 5034<br/>
+              <strong class="bold-small">River name:</strong> Irk<br/>
+              <strong class="bold-small">Typical range:</strong> 0.12m to 1.1m<br/>
+              <strong class="bold-small">Highest level on record:</strong> 1.8m on 26 December 2015<br/>
+              <strong class="bold-small">Site datum:</strong> 29.21mAOD (what does this mean?)</p>
+
+          </div>
+
+      </details>
+      -->
+
+    </div>
+
+  </div>
+
 
   <div class="grid-row">
 
