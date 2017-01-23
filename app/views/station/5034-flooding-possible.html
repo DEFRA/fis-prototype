@@ -19,7 +19,7 @@ Irk at Collyhurst Weir
 </div>
 <p>Latest river level forecast indicates that flooding is possible in the next 36 hours. The latest forecast generated at time/date indicates that the river level is predicted to peak at Xm at time/date [use time of model export generation].</p>
 -->
-<p class="lede">Flooding is possible here and in surrounding areas in the next 36 hours. You can <a href="/static/journey/step-1.html">check if there's a flood warning in place near you</a>.</p>
+<p class="lede">Flooding is possible here and in nearby areas in the next 36 hours. You can <a href="#nearby-areas">check if there's a flood warning nearby</a>.</p>
 {% endblock %}
 
 {% block headline_latest %}
@@ -39,9 +39,9 @@ Irk at Collyhurst Weir
 {% endblock %}
 
 {% block chart_annotation %}
-<li style="top:-3px">Highest recorded level <span>(1.8m on 26 Dec 2016)</span></li>
-<li style="top:85px">Flooding of property possible in <a href="#surrounding-areas">surrounding areas</a> <span>(1.6m)</span></li>
-<li style="top:304px">Flooding of low-lying land possible in <a href="#surrounding-areas">surrounding areas</a> <span>(1.1m)</span></li>
+<li style="top:-3px">Highest recorded level <span>(1.8m on 26 Dec 2015)</span></li>
+<li style="top:85px">Flooding of property possible in <a href="#nearby-areas">nearby areas</a> <span>(from 1.6m)</span></li>
+<li style="top:304px">Flooding of low-lying land possible in <a href="#nearby-areas">nearby areas</a> <span>(from 1.1m)</span></li>
 {% endblock %}
 
 {% block chartLines %}
@@ -97,11 +97,55 @@ Irk at Collyhurst Weir
 
 {% block stationLegend %}
 <ol>
-    <li>Recorderd level <span>(latest 1.49m)</span></li>
+    <li>Recorded level <span>(latest 1.49m)</span></li>
     <li>Forecast level <span>(highest 1.67m)</span></li>
 </ol>
 {% endblock %}
 
 {% block highest_level %}
-<a href="#" onclick="return false;">Hide highest recorded level</a>
+<p class="font-xsmall"><a href="#" onclick="return false;">Hide highest recorded level</a></p>
+{% endblock %}
+
+{% block nearby_areas %}
+<div class="notice notice-flood-alert">
+  <i class="icon icon-flood-warning">
+    <span class="visually-hidden">Warning</span>
+  </i>
+  <strong>There are currently flood warnings in these areas</strong>
+  <ul class="list list-bullet">
+    <li><a href="https://flood-warning-information.service.gov.uk/target-area/013FWFGM92">River Irk at Crumpsall Hospital</a></li>
+  </ul>
+</div>
+
+<div class="notice notice-flood-alert">
+  <i class="icon icon-flood-warning">
+    <span class="visually-hidden">Warning</span>
+  </i>
+  <strong>There are currently flood alerts in these areas</strong>
+  <ul class="list list-bullet">
+    <li><a href="https://flood-warning-information.service.gov.uk/target-area/013FWFGM95">River Irk at Rhodes</a></li>
+    <li><a href="https://flood-warning-information.service.gov.uk/target-area/013FWFGM96">River Irk at Little Green</a></li>
+    <li><a href="https://flood-warning-information.service.gov.uk/target-area/013FWFGM97">River Irk at Chadderton Fold</a></li>
+  </ul>
+</div>
+
+<div class="notice notice-flood-alert">
+  <i class="icon icon-flood-warning">
+    <span class="visually-hidden">Warning</span>
+  </i>
+  <strong>Warnings are no longer in force in these areas</strong>
+  <ul class="list list-bullet">
+    <li><a href="https://flood-warning-information.service.gov.uk/target-area/013FWFGM93">River Irk at Kendall Road</a></li>
+  </ul>
+</div>
+
+<div class="notice notice-flood-alert">
+  <i class="icon icon-flood-warning">
+    <span class="visually-hidden">Warning</span>
+  </i>
+  <strong>There are no flood warnings or alerts in these areas</strong>
+  <ul class="list list-bullet">
+    <li><a href="https://flood-warning-information.service.gov.uk/target-area/013FWFGM91">River Irk at Vale Park Industrial Estate</a></li>
+  </ul>
+</div>
 {% endblock %}

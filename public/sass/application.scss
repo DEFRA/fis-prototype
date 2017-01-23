@@ -129,16 +129,34 @@ h1.heading-xlarge {
   }
   .icon-flood-alert {
     @include icon(icon-flood-alert, 35, 35);
-    margin-top:-20px;
+    margin-top:-8px;
     @include media(tablet) {
-      margin-top:-21px;
+      margin-top:-9px;
     }
   }
   .icon-flood-warning {
+    position:absolute;
+    top:0;
     @include icon(icon-flood-alert, 35, 35);
-    margin-top:-20px;
+    margin-top:-8px;
     @include media(tablet) {
-      margin-top:-21px;
+      margin-top:-9px;
     }
+  }
+  strong {
+    display:block;
+    margin-top: em(5, 16);
+    margin-bottom: em(20, 16);
+    display: block;
+    padding-left: (35 + 30) + px;
+    margin-left: -$gutter-half;
+    @include media(tablet) {
+      margin-top: em(5);
+      margin-bottom: em(20);
+    }
+  }
+  ul {
+    padding-left: (35 + 30) + px;  
+    margin-left: 8px;
   }
 }
