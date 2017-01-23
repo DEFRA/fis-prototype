@@ -98,8 +98,8 @@
             <div class="chart-annotation">
               <ol>
                 {% block chart_annotation %}
-                <li style="top:-3px">Flooding of property possible in <a href="#nearby-areas">nearby areas</a> <span>(from 1.6m)</span></li>
-                <li style="top:216px">Flooding of low-lying land possible in <a href="#nearby-areas">nearby areas</a> <span>(from 1.1m)</span></li>
+                <li style="top:-3px">At this level some property flooding is possible here and in <a href="#nearby-areas">nearby areas</a> <span>(1.60m)</span></li>
+                <li style="top:216px">At this level flooding of low-lying land is possible here and in <a href="#nearby-areas">nearby areas</a> <span>(1.10m)</span></li>
                 {% endblock %}
               </ol>
             </div>
@@ -149,9 +149,7 @@
         </figure>
 
         {% block highest_level %}
-        <div>
-          <a href="onclick='return false'">Show highest recorded level</a>
-        </div>
+        <p class="font-xsmall"><a href="#" onclick="return false;">Show highest recorded level</a></p>
         {% endblock %}
 
       </section>
