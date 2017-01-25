@@ -2277,8 +2277,8 @@ h1.heading-xlarge {
   width: 35px;
   height: 35px;
   background-image: url("/public/images/icon-flood-alert.png");
-  margin-top: -8px;
-  margin-top: -9px;
+  margin-top: -20px;
+  margin-top: -21px;
 }
 
 @media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 20 / 10), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
@@ -2288,41 +2288,17 @@ h1.heading-xlarge {
   }
 }
 
-.notice-flood-alert .icon-flood-warning {
-  width: 35px;
-  height: 35px;
-  background-image: url("/public/images/icon-flood-alert.png");
-  margin-top: -20px;
-  margin-top: -21px;
-}
-
-@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 20 / 10), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
-  .notice-flood-alert .icon-flood-warning {
-    background-image: url("/public/images/icon-flood-alert-2x.png");
-    background-size: 100%;
-  }
-}
-
-.notice-flood-alert .icon-flood-warning-removed {
-  width: 35px;
-  height: 35px;
-  background-image: url("/public/images/icon-flood-warning-removed.png");
-  margin-top: -20px;
-  margin-top: -21px;
-}
-
-@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 20 / 10), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
-  .notice-flood-alert .icon-flood-warning-removed {
-    background-image: url("/public/images/icon-flood-warning-removed-2x.png");
-    background-size: 100%;
-  }
-}
-
 .inline-alert {
   white-space: nowrap;
-  color: #f47738;
   position: relative;
   padding-left: 1.5em;
+  font-family: "nta", Arial, sans-serif;
+  font-weight: 400;
+  text-transform: none;
+  font-size: 14px;
+  line-height: 1.1428571429;
+  font-size: 16px;
+  line-height: 1.25;
   margin-top: 0px;
 }
 

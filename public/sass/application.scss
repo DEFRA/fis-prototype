@@ -159,20 +159,6 @@ h1.heading-xlarge {
   }
   .icon-flood-alert {
     @include icon(icon-flood-alert, 35, 35);
-    margin-top:-8px;
-    @include media(tablet) {
-      margin-top:-9px;
-    }
-  }
-  .icon-flood-warning {
-    @include icon(icon-flood-alert, 35, 35);
-    margin-top:-20px;
-    @include media(tablet) {
-      margin-top:-21px;
-    }
-  }
-  .icon-flood-warning-removed {
-    @include icon(icon-flood-warning-removed, 35, 35);
     margin-top:-20px;
     @include media(tablet) {
       margin-top:-21px;
@@ -184,9 +170,9 @@ h1.heading-xlarge {
 
 .inline-alert {
   white-space: nowrap;
-  color:$orange;
   position:relative;
   padding-left:1.5em;
+  @include core-16;
   .inline-alert-icon {
     position:absolute;
     width:1.25em;
