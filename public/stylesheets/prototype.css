@@ -2615,6 +2615,25 @@ h1.heading-xlarge {
   }
 }
 
+.target-areas {
+  border-top: 1px solid #bfc1c3;
+  margin-top: 1.8421052632em;
+}
+
+.target-areas h2 {
+  margin-top: 1.5625em;
+}
+
+@media (min-width: 641px) {
+  .target-areas h2 {
+    margin-top: 1.5789473684em;
+  }
+}
+
+.list-target-areas li a {
+  margin-right: 0.5em;
+}
+
 .map {
   border-top: 1px solid #bfc1c3;
   margin-top: 1.8421052632em;
@@ -2720,6 +2739,57 @@ h1.heading-xlarge {
   .notice-flood-alert .icon-flood-warning {
     margin-top: -21px;
   }
+}
+
+.notice-flood-alert .icon-flood-warning-removed {
+  width: 35px;
+  height: 35px;
+  background-image: url("/public/images/icon-flood-warning-removed.png");
+  margin-top: -20px;
+}
+
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 20 / 10), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
+  .notice-flood-alert .icon-flood-warning-removed {
+    background-image: url("/public/images/icon-flood-warning-removed-2x.png");
+    background-size: 100%;
+  }
+}
+
+@media (min-width: 641px) {
+  .notice-flood-alert .icon-flood-warning-removed {
+    margin-top: -21px;
+  }
+}
+
+.inline-alert {
+  white-space: nowrap;
+  color: #f47738;
+  position: relative;
+  padding-left: 1.5em;
+  margin-top: 0px;
+}
+
+.inline-alert .inline-alert-icon {
+  position: absolute;
+  width: 1.25em;
+  height: 1.25em;
+  top: -0.05em;
+  margin-left: -1.5em;
+  background-image: url("/public/images/icon-flood-alert.png");
+  background-size: 100%;
+}
+
+.inline-alert.inline-alert--warning {
+  color: #b10e1e;
+}
+
+.inline-alert.inline-alert--warning .inline-alert-icon {
+  background-image: url("/public/images/icon-flood-warning.png");
+}
+
+.inline-alert.inline-alert--warning-removed {
+  color: #0b0c0c;
+  padding-left: 0;
 }
 
 .heading-index {

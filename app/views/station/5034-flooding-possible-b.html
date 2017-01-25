@@ -11,7 +11,7 @@ Irk at Collyhurst Weir
 
 {% block message %}
 <div class="notice notice-flood-alert">
-  <i class="icon icon-flood-warning">
+  <i class="icon icon-flood-warning-removed">
     <span class="visually-hidden">Warning</span>
   </i>
   <strong class="font-medium"><a href="#nearby-areas">Flood warnings in place in the Upper Irk Catchment</a>.</strong>
@@ -108,20 +108,50 @@ Irk at Collyhurst Weir
 <p>The normal range at this location is 0.05m to 1.10m. The latest level recorded is 1.49m at 9.00am on Wednesday 11 Jan 2017. The highest level forecast
 in the next 36 hours is 1.67m at 9.00pm on Thursday 12 Jan 2017</p>
 <h3 class="heading-small heading-nearby" id="flood-alert">Above 1.10m flooding of low-lying land may occur in these areas</h3>
-<ul class="list list-bullet">
-  <li><a href="/static/journey/step-3-2.html">Upper Irk Catchment</a> [FLOOD ALERT]</li>
+<ul class="list list-bullet list-target-areas">
+  <li>
+    <a href="/static/journey/step-3-2.html">Upper Irk Catchment</a>
+    <strong class="inline-alert">
+      <span class="inline-alert-icon"></span>
+      <span class="inline-alert-message">Flood alert in force now</span>
+    </strong>
+  </li>
 </ul>
 <h3 class="heading-small heading-nearby" id="flood-warning">Above 1.50m some property flooding may occur in these areas</h3>
-<ul class="list list-bullet">
-  <li><a href="/static/journey/step-3.html" data-url="https://flood-warning-information.service.gov.uk/target-area/013FWFGM75">River Irk at Cheetham Hill</a> [FLOOD WARNING]</li>
-  <li><a href="https://flood-warning-information.service.gov.uk/target-area/013FWFGM92" onclick="return false;">River Irk at Crumpsall Hospital</a> [All clear]</li>
-  <li><a href="https://flood-warning-information.service.gov.uk/target-area/013FWFGM91" onclick="return false;">River Irk at Vale Park Industrial Estate</a> [All clear]</li>
-  <li><a href="https://flood-warning-information.service.gov.uk/target-area/013FWFGM92" onclick="return false;">River Irk at Crumpsall Hospital</a> [All clear]</li>
-  <li><a href="https://flood-warning-information.service.gov.uk/target-area/013FWFGM93" onclick="return false;">River Irk at Kendall Road</a> [All clear]</li>
-  <li><a href="https://flood-warning-information.service.gov.uk/target-area/013FWFGM94" onclick="return false;">River Irk at New Bridge</a> [All clear]</li>
-  <li><a href="https://flood-warning-information.service.gov.uk/target-area/013FWFGM95" onclick="return false;">River Irk at Rhodes</a> [All clear]</li>
-  <li><a href="https://flood-warning-information.service.gov.uk/target-area/013FWFGM96" onclick="return false;">River Irk at Little Green</a> [All clear]</li>
-  <li><a href="https://flood-warning-information.service.gov.uk/target-area/013FWFGM97" onclick="return false;">River Irk at Chadderton Fold</a> [All clear]</li>
+<ul class="list list-bullet list-target-areas">
+  <li>
+    <a href="/static/journey/step-3.html" data-url="https://flood-warning-information.service.gov.uk/target-area/013FWFGM75">River Irk at Cheetham Hill</a>
+    <strong class="inline-alert inline-alert--warning">
+      <span class="inline-alert-icon"></span>
+      <span class="inline-alert-message">Flood warning in force now</span>
+    </strong>
+  </li>
+  <li>
+    <a href="https://flood-warning-information.service.gov.uk/target-area/013FWFGM92" onclick="return false;">River Irk at Crumpsall Hospital</a>
+  </li>
+  <li>
+    <a href="https://flood-warning-information.service.gov.uk/target-area/013FWFGM91" onclick="return false;">River Irk at Vale Park Industrial Estate</a>
+  </li>
+  <li>
+    <a href="https://flood-warning-information.service.gov.uk/target-area/013FWFGM92" onclick="return false;">River Irk at Crumpsall Hospital</a>
+  </li>
+  <li>
+    <a href="https://flood-warning-information.service.gov.uk/target-area/013FWFGM93" onclick="return false;">River Irk at Kendall Road</a>
+    <strong class="inline-alert inline-alert--warning-removed">
+      <span class="inline-alert-message">(Flood warning no longer in force)</span>
+    </strong>
+  <li>
+    <a href="https://flood-warning-information.service.gov.uk/target-area/013FWFGM94" onclick="return false;">River Irk at New Bridge</a>
+  </li>
+  <li>
+    <a href="https://flood-warning-information.service.gov.uk/target-area/013FWFGM95" onclick="return false;">River Irk at Rhodes</a>
+  </li>
+  <li>
+    <a href="https://flood-warning-information.service.gov.uk/target-area/013FWFGM96" onclick="return false;">River Irk at Little Green</a>
+  </li>
+  <li>
+    <a href="https://flood-warning-information.service.gov.uk/target-area/013FWFGM97" onclick="return false;">River Irk at Chadderton Fold</a>
+  </li>
 </ul>
 
 {% endblock %}
