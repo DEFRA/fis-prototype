@@ -18,66 +18,48 @@
     <div class="column-two-thirds">
 
       <h1 class="heading-xlarge">
-        {% block heading %}
-        {% endblock %}
+        {% block heading %}{% endblock %}
       </h1>
 
       <p class="time-stamp">Updated at 9:30am on Wednesday 11 January 2017</p>
 
-      {% block message %}
-      {% endblock %}
-      <!--
-      <ul class="list list-bullet">
-            <li><a href="#river-levels">View recorded and forecast river levels</a></li>
-            <li><a href="#nearby-areas">Which levels are most likely to indicate flooding?</a></li>
-            <li><a href="#nearby-measuring-stations">View a nearby measuring station</a></li>
-      </ul>
-      -->
-
-      {% block affects %}
-      <!--
-      <details style="margin-top:2em">
-
-        <summary><span class="summary">More about our 36-hour forecasts</span></summary>
-
-        <div class="panel panel-border-narrow">
-
-          <p>Forecast river and tidal levels are not guaranteed as conditions can change rapidly. We update our forecasts more frequently when there's a greater risk of flooding.</p>
-          <p>You can find out if you’re at immediate risk of flooding by <a href="https://flood-warning-information.service.gov.uk/">checking current flood warnings (in England only)</a></p>
-
-        </div>
-
-      </details>
-      -->
-      {% endblock %}
+      {% block message %}{% endblock %}
 
     </div>
 
+    <!--
     <div class="column-third">
       
       <aside class="related" role="complementary">
 
         <h2 class="heading-medium related-title">River levels</h2>
+        
         <nav role="navigation">
+
           <ul>
+
               <li class="related-item">
                 <a href="/river-levels">How might river levels affect flood risk?</a>
               </li>
+
               <li class="related-item">
                 <a href="/river-levels">How river levels are measured?</a>
               </li>
+
               <li class="related-item">
                 <a href="/river-levels">How forecast levels are produced?</a>
               </li>
+
           </ul>
+
         </nav>
 
       </aside>
 
     </div>
+    -->
 
   </div>
-
 
   <div class="grid-row">
 
@@ -96,12 +78,14 @@
           <div class="chart-container">
 
             <div class="chart-annotation">
+
               <ol>
                 {% block chart_annotation %}
                 <li style="top:-3px">At this level some property flooding is possible here and in <a class="scroll" href="#flood-warning">nearby areas</a> <span>(1.60m)</span></li>
                 <li style="top:216px">At this level flooding of low-lying land is possible here and in <a class="scroll" href="#flood-alert">nearby areas</a> <span>(1.10m)</span></li>
                 {% endblock %}
               </ol>
+
             </div>
 
             <div class="chart-container-inner">
@@ -110,26 +94,25 @@
 
                 <g class="lines" transform="translate(0,2)">
 
-                {% block chartLines %}
-                {% endblock %}
+                {% block chartLines %}{% endblock %}
 
                 </g>
 
               </svg>
 
-              {% block chartLevels %}
-              {% endblock %}
+              {% block chartLevels %}{% endblock %}
 
               <ul>
+
                 <li>Sat, 7 Jan</li>
                 <li>Sun, 8 Jan</li>
                 <li>Mon, 9 Jan</li>
                 <li>Tue, 10 Jan</li>
                 <li><strong>Wed, 11 Jan</strong></li>
+
               </ul>
 
-              {% block chart_current_level %}
-              {% endblock %}
+              {% block chart_current_level %}{% endblock %}
 
             </div>
 
@@ -164,37 +147,9 @@
 
       <section class="target-areas">
 
-        {% block nearby_areas %}
-        {% endblock %}
+        {% block nearby_areas %}{% endblock %}
 
       </section>
-
-      <!--
-      <p><a href="/static/journey/step-1.html">Check if there's a flood warning near you</a></p>
-      -->
-      
-      <!--
-      <details>
-
-          <summary>
-              
-            <span class="summary">More information about this measuring station</span>
-              
-          </summary>
-
-          <div class="panel panel-border-narrow">
-
-              <p><strong class="bold-small">Station name:</strong> Collyhurst Weir<br/>
-              <strong class="bold-small">Station ID:</strong> 5034<br/>
-              <strong class="bold-small">River name:</strong> Irk<br/>
-              <strong class="bold-small">Typical range:</strong> 0.12m to 1.1m<br/>
-              <strong class="bold-small">Highest level on record:</strong> 1.8m on 26 December 2015<br/>
-              <strong class="bold-small">Site datum:</strong> 29.21mAOD (what does this mean?)</p>
-
-          </div>
-
-      </details>
-      -->
 
     </div>
 
@@ -212,11 +167,48 @@
           <p>Select a marker on the map to view measuring station.</p>
 
           <div id="map-levels" class="map-container">
-            <img src="/public/images/maps/measuring-stations.png" alt="Screen grab" />
-            <div class="ol-overlaycontainer-stopevent"><div class="ol-zoom ol-unselectable ol-control"><button class="ol-zoom-in" type="button" title="Zoom in">+</button><button class="ol-zoom-out" type="button" title="Zoom out">−</button></div><div class="ol-rotate ol-unselectable ol-control ol-hidden"><button class="ol-rotate-reset" type="button" title="Reset rotation"><span class="ol-compass" style="transform: rotate(0rad);">⇧</span></button></div><div class="ol-attribution ol-unselectable ol-control ol-collapsed"><ul><li style=""><a href="https://openlayers.org/"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAAAA3NCSVQICAjb4U/gAAAACXBIWXMAAAHGAAABxgEXwfpGAAAAGXRFWHRTb2Z0d2FyZQB3d3cuaW5rc2NhcGUub3Jnm+48GgAAAhNQTFRF////AP//AICAgP//AFVVQECA////K1VVSbbbYL/fJ05idsTYJFtbbcjbJllmZszWWMTOIFhoHlNiZszTa9DdUcHNHlNlV8XRIVdiasrUHlZjIVZjaMnVH1RlIFRkH1RkH1ZlasvYasvXVsPQH1VkacnVa8vWIVZjIFRjVMPQa8rXIVVkXsXRsNveIFVkIFZlIVVj3eDeh6GmbMvXH1ZkIFRka8rWbMvXIFVkIFVjIFVkbMvWH1VjbMvWIFVlbcvWIFVla8vVIFVkbMvWbMvVH1VkbMvWIFVlbcvWIFVkbcvVbMvWjNPbIFVkU8LPwMzNIFVkbczWIFVkbsvWbMvXIFVkRnB8bcvW2+TkW8XRIFVkIlZlJVloJlpoKlxrLl9tMmJwOWd0Omh1RXF8TneCT3iDUHiDU8LPVMLPVcLPVcPQVsPPVsPQV8PQWMTQWsTQW8TQXMXSXsXRX4SNX8bSYMfTYcfTYsfTY8jUZcfSZsnUaIqTacrVasrVa8jTa8rWbI2VbMvWbcvWdJObdcvUdszUd8vVeJaee87Yfc3WgJyjhqGnitDYjaarldPZnrK2oNbborW5o9bbo9fbpLa6q9ndrL3ArtndscDDutzfu8fJwN7gwt7gxc/QyuHhy+HizeHi0NfX0+Pj19zb1+Tj2uXk29/e3uLg3+Lh3+bl4uXj4ufl4+fl5Ofl5ufl5ujm5+jmySDnBAAAAFp0Uk5TAAECAgMEBAYHCA0NDg4UGRogIiMmKSssLzU7PkJJT1JTVFliY2hrdHZ3foSFhYeJjY2QkpugqbG1tre5w8zQ09XY3uXn6+zx8vT09vf4+Pj5+fr6/P39/f3+gz7SsAAAAVVJREFUOMtjYKA7EBDnwCPLrObS1BRiLoJLnte6CQy8FLHLCzs2QUG4FjZ5GbcmBDDjxJBXDWxCBrb8aM4zbkIDzpLYnAcE9VXlJSWlZRU13koIeW57mGx5XjoMZEUqwxWYQaQbSzLSkYGfKFSe0QMsX5WbjgY0YS4MBplemI4BdGBW+DQ11eZiymfqQuXZIjqwyadPNoSZ4L+0FVM6e+oGI6g8a9iKNT3o8kVzNkzRg5lgl7p4wyRUL9Yt2jAxVh6mQCogae6GmflI8p0r13VFWTHBQ0rWPW7ahgWVcPm+9cuLoyy4kCJDzCm6d8PSFoh0zvQNC5OjDJhQopPPJqph1doJBUD5tnkbZiUEqaCnB3bTqLTFG1bPn71kw4b+GFdpLElKIzRxxgYgWNYc5SCENVHKeUaltHdXx0dZ8uBI1hJ2UUDgq82CM2MwKeibqAvSO7MCABq0wXEPiqWEAAAAAElFTkSuQmCC"></a></li><li>© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors.</li></ul><button type="button" title="Attributions"><span>i</span></button></div></div>
+
+            {% include "partials/map-nearby-measuring-stations.html" %}
+            
           </div>
 
         </section>
+
+        <details>
+
+          <summary><span class="summary">How might river levels affect flood risk?</span></summary>
+
+          <div class="panel panel-border-narrow">
+
+            <p>Copy</p>
+
+          </div>
+
+        </details>
+
+        <details>
+
+          <summary><span class="summary">How river levels are measured?</span></summary>
+
+          <div class="panel panel-border-narrow">
+
+            <p>Copy</p>
+
+          </div>
+
+        </details>
+
+        <details>
+
+          <summary><span class="summary">How are forecast levels are produced?</span></summary>
+
+          <div class="panel panel-border-narrow">
+
+            <p>Copy</p>
+
+          </div>
+
+        </details>
 
     </div>
 
@@ -228,30 +220,7 @@
 
       <nav class="secondary-nav">
 
-        <ul class="secondary-links">
-
-          <li>
-            <a class="media" href="/" id="5090">
-              <img class="img" src="/public/images/ball-home.png" alt="National flood information service" />
-              <span class="content">National flood information service</span>
-            </a>
-          </li>
-
-          <li>
-            <a class="media" href="/long-term-flood-risk" id="5090">
-              <img class="img" src="/public/images/ball-risk.png" alt="View your property's long term risk of flooding" />
-              <span class="content">View your property's long term risk of flooding</span>
-            </a>
-          </li>
-
-          <li>
-            <a class="media" href="/map" id="5090">
-              <img class="img" src="/public/images/ball-map.png" alt="View the current national flood situation" />
-              <span class="content">View the current national flood situation</span>
-            </a>
-          </li>
-
-        </ul>
+        {% include "partials/secondary-links.html" %}
 
       </nav>
 
@@ -273,13 +242,11 @@
 
   </div>
 
-</main><!-- / #content -->
+</main>
 {% endblock %}
 
 {% block body_end %}
 
-  <!-- GOV.UK elements redirect -->
-  <!--<script src="/public/javascripts/redirect.js"></script>-->
   {% include "partials/scripts.html" %}
 
 {% endblock %}

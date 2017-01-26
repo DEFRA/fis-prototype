@@ -98,6 +98,9 @@ h1.heading-xlarge {
       margin-top: em(30, 19);
     }
   }
+  [tabindex='-1'] {
+    outline:0;
+  }
 }
 
 .list-target-areas {
@@ -212,7 +215,7 @@ h1.heading-xlarge {
 
 .secondary-nav {
   border-top:1px solid $grey-2;
-  margin-top:em(20,19);
+  margin-top:em(35,19);
   ul.secondary-links {
     padding-top: em(30, 16);
     @include media(tablet) {

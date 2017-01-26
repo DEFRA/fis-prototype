@@ -43,14 +43,19 @@ $(window).load(function () {
   }
 
   // ScrollTo
-  $('a.scroll').each(function(){
-    $(this).on('click',function(e){
-      e.preventDefault()
-      var fragment = $(this).attr('href').split("#")[1]
-      $('html,body').animate({scrollTop: $('#'+fragment).offset().top},'medium', function() {
-        // Animation complete
-        // Set Link focus
-      })
+
+  $(document).on('click keypress','a.scroll',function(e){
+    e.preventDefault()
+    var fragment = $(this).attr('href').split("#")[1]
+    $('html,body')
+    .animate({scrollTop: $('#'+fragment).offset().top},'medium')
+    .promise().then(function() {
+      // Animation complete
+      // Set Link focus
+      console.log(fragment)
+      $(fragment).focus()
+      // Add hash to url
+      window.location.hash = fragment
     })
   })
 

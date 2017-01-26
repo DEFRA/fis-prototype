@@ -1924,7 +1924,7 @@ input[type=number] {
   position: absolute;
   height: 7px;
   width: 7px;
-  border: 2px solid #097F96;
+  border: 2px solid #005EA5;
   background-color: white;
   border-radius: 100%;
 }
@@ -1974,8 +1974,8 @@ input[type=number] {
 }
 
 .chart-legend ol li:nth-child(1):before {
-  border-color: #097F96;
-  background-color: #c1dfe4;
+  border-color: #005EA5;
+  background-color: #CCDFED;
 }
 
 .chart-legend ol li:nth-child(2):before {
@@ -2046,7 +2046,7 @@ input[type=number] {
 }
 
 .cls-1 {
-  fill: #c1dfe4;
+  fill: #CCDFED;
 }
 
 .cls-2 {
@@ -2107,7 +2107,7 @@ input[type=number] {
 }
 
 .cls-8 {
-  stroke: #097F96;
+  stroke: #005EA5;
 }
 
 .cls-10, .cls-9 {
@@ -2220,6 +2220,10 @@ h1.heading-xlarge {
 .target-areas h2 {
   margin-top: 1.5625em;
   margin-top: 1.5789473684em;
+}
+
+.target-areas [tabindex='-1'] {
+  outline: 0;
 }
 
 .list-target-areas li a {
@@ -2337,7 +2341,7 @@ h1.heading-xlarge {
 
 .secondary-nav {
   border-top: 1px solid #bfc1c3;
-  margin-top: 1.0526315789em;
+  margin-top: 1.8421052632em;
 }
 
 .secondary-nav ul.secondary-links {
