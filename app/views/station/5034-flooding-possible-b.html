@@ -37,8 +37,8 @@ Irk at Collyhurst Weir
 
 {% block chart_annotation %}
 <li style="top:-3px">Highest level on record at this location <span>(1.80m on 26 Dec 2015)</span></li>
-<li style="top:85px">At this level some property flooding is possible here and in <a href="#flood-warning">nearby areas</a> <span>(1.50m)</span></li>
-<li style="top:304px">At this level flooding of low-lying land is possible here and in <a href="#flood-alert">nearby areas</a> <span>(1.10m)</span></li>
+<li style="top:85px">At this level some property flooding is possible here and in <a class="scroll"href="#flood-warning">nearby areas</a> <span>(1.50m)</span></li>
+<li style="top:304px">At this level flooding of low-lying land is possible here and in <a class="scroll" href="#flood-alert">nearby areas</a> <span>(1.10m)</span></li>
 {% endblock %}
 
 {% block chartLines %}
@@ -101,29 +101,37 @@ Irk at Collyhurst Weir
 
 {% block highest_level %}
 <p class="font-xsmall"><a href="#" onclick="return false;">Hide highest recorded level</a></p>
+<!--
+<h2 class="heading-medium">Summary</h2>
+<h3 class="heading-small">Latest level recorded at this location</h3>
+<p>1.49m at 9.00am on Wednesday 11 Jan 2017</p>
+<h3 class="heading-small">Highest level forecast at his location in the next 36 hours</h3>
+<p>1.67m at 9.00pm on Thursday 12 Jan 2017</p>
+<h3 class="heading-small">Normal range at this location</h3>
+<p>0.05m to 1.10m</p>
+-->
+<p>Normal range at this location 0.05m to 1.10m</p>
 {% endblock %}
 
 {% block nearby_areas %}
 <h2 class="heading-medium" id="nearby-areas">What effect could these levels have on nearby areas?</h2>
-<p>The normal range at this location is 0.05m to 1.10m. The latest level recorded is 1.49m at 9.00am on Wednesday 11 Jan 2017. The highest level forecast
-in the next 36 hours is 1.67m at 9.00pm on Thursday 12 Jan 2017</p>
-<h3 class="heading-small heading-nearby" id="flood-alert">Above 1.10m flooding of low-lying land may occur in these areas</h3>
+<p id="flood-alert">Above 1.10m flooding of low-lying land may occur in these areas</p>
 <ul class="list list-bullet list-target-areas">
   <li>
     <a href="/static/journey/step-3-2.html">Upper Irk Catchment</a>
-    <strong class="inline-alert">
-      <span class="inline-alert-icon"></span>
-      <span class="inline-alert-message">Flood alert in force now</span>
+    <strong class="alert-inline">
+      <span class="alert-inline-icon"></span>
+      <span class="alert-inline-message">Flood alert in force now</span>
     </strong>
   </li>
 </ul>
-<h3 class="heading-small heading-nearby" id="flood-warning">Above 1.50m some property flooding may occur in these areas</h3>
+<p id="flood-warning">Above 1.50m some property flooding may occur in these areas</p>
 <ul class="list list-bullet list-target-areas">
   <li>
     <a href="/static/journey/step-3.html" data-url="https://flood-warning-information.service.gov.uk/target-area/013FWFGM75">River Irk at Cheetham Hill</a>
-    <strong class="inline-alert inline-alert--warning">
-      <span class="inline-alert-icon"></span>
-      <span class="inline-alert-message">Flood warning in force now</span>
+    <strong class="alert-inline alert-inline--warning">
+      <span class="alert-inline-icon"></span>
+      <span class="alert-inline-message">Flood warning in force now</span>
     </strong>
   </li>
   <li>
@@ -137,8 +145,8 @@ in the next 36 hours is 1.67m at 9.00pm on Thursday 12 Jan 2017</p>
   </li>
   <li>
     <a href="https://flood-warning-information.service.gov.uk/target-area/013FWFGM93" onclick="return false;">River Irk at Kendall Road</a>
-    <strong class="inline-alert inline-alert--warning-removed">
-      <span class="inline-alert-message">(Flood warning no longer in force)</span>
+    <strong class="alert-inline alert-inline--warning-removed">
+      <span class="alert-inline-message">(Flood warning no longer in force)</span>
     </strong>
   <li>
     <a href="https://flood-warning-information.service.gov.uk/target-area/013FWFGM94" onclick="return false;">River Irk at New Bridge</a>

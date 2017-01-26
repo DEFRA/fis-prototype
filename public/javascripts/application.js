@@ -4,7 +4,7 @@
 
 $(document).ready(function () {
   // Turn off jQuery animation
-  jQuery.fx.off = true
+  //jQuery.fx.off = true
 
   // Use GOV.UK selection-buttons.js to set selected
   // and focused states for block labels
@@ -22,6 +22,7 @@ $(document).ready(function () {
 
   // Details/summary polyfill
   // See /javascripts/vendor/details.polyfill.js
+
 })
 
 $(window).load(function () {
@@ -40,4 +41,17 @@ $(window).load(function () {
       $('.error input:first').focus()
     }
   }
+
+  // ScrollTo
+  $('a.scroll').each(function(){
+    $(this).on('click',function(e){
+      e.preventDefault()
+      var fragment = $(this).attr('href').split("#")[1]
+      $('html,body').animate({scrollTop: $('#'+fragment).offset().top},'medium', function() {
+        // Animation complete
+        // Set Link focus
+      })
+    })
+  })
+
 })
