@@ -166,6 +166,7 @@ h1.heading-xlarge {
 // Notices
 
 .notice-flood-alert {
+  position:relative;
   @extend .notice;
   margin-top: em(25, 16);
   margin-bottom: em(25, 16);
@@ -173,14 +174,24 @@ h1.heading-xlarge {
     margin-top: em(25, 19);
     margin-bottom: em(25, 19);
   }
-  .icon-flood-alert {
-    @include icon(icon-flood-alert, 35, 35);
-    margin-top:-20px;
+  .lede {
+    margin-left:3em;
     @include media(tablet) {
-      margin-top:-21px;
+      margin-left:2.75em;
+    }
+  }
+  .notice-image {
+    position:absolute;
+    width:auto;
+    height:42px;
+    margin-top:-0.75em;
+    @include media(tablet) {
+      margin-top:-0.6em;
+      height:51px;
     }
   }
 }
+
 
 // Inline alert
 

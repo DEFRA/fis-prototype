@@ -2705,6 +2705,7 @@ h1.heading-xlarge {
 }
 
 .notice-flood-alert {
+  position: relative;
   margin-top: 1.5625em;
   margin-bottom: 1.5625em;
 }
@@ -2716,23 +2717,27 @@ h1.heading-xlarge {
   }
 }
 
-.notice-flood-alert .icon-flood-alert {
-  width: 35px;
-  height: 35px;
-  background-image: url("/public/images/icon-flood-alert.png");
-  margin-top: -20px;
-}
-
-@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 20 / 10), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
-  .notice-flood-alert .icon-flood-alert {
-    background-image: url("/public/images/icon-flood-alert-2x.png");
-    background-size: 100%;
-  }
+.notice-flood-alert .lede {
+  margin-left: 3em;
 }
 
 @media (min-width: 641px) {
-  .notice-flood-alert .icon-flood-alert {
-    margin-top: -21px;
+  .notice-flood-alert .lede {
+    margin-left: 2.75em;
+  }
+}
+
+.notice-flood-alert .notice-image {
+  position: absolute;
+  width: auto;
+  height: 42px;
+  margin-top: -0.75em;
+}
+
+@media (min-width: 641px) {
+  .notice-flood-alert .notice-image {
+    margin-top: -0.6em;
+    height: 51px;
   }
 }
 
