@@ -2150,12 +2150,17 @@ h1.heading-xlarge {
 }
 
 .phase-banner-disclaimer {
-  margin: 0 -15px;
+  background-color: #dee0e2;
+  border: 0;
+  padding: 15px 0;
 }
 
 .phase-banner-disclaimer p {
   box-sizing: border-box;
   padding: 0 15px;
+}
+
+.phase-banner-disclaimer p {
   width: 66.66%;
 }
 

@@ -13,11 +13,15 @@ h1.heading-xlarge {
 // Phase banner
 
 .phase-banner-disclaimer {
+  background-color:$grey-3;
+  border:0;
+  padding:15px 0;
+  p {
+    box-sizing: border-box;
+    padding:0 15px;
+  }
   @include media(tablet) {
-    margin:0 -15px;
     p {
-      box-sizing: border-box;
-      padding:0 15px;
       width:66.66%;
     }
   }
