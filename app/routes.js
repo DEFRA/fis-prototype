@@ -10,10 +10,16 @@ module.exports = {
       res.render('stations', { 'page_name': pageName })
     })
 
-    // Gauging station
+    // River levels
     app.get('/river-levels', function (req, res) {
       var pageName = 'River levels'
       res.render('river-levels', { 'page_name': pageName })
+    })
+
+    // Terms and conditions (Private Beta)
+    app.get('/terms-conditions', function (req, res) {
+      var pageName = 'Private Beta terms and conditions'
+      res.render('terms-conditions', { 'page_name': pageName })
     })
 
     // Example station: Normal range

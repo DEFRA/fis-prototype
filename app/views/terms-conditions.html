@@ -1,0 +1,73 @@
+{% extends "layout.html" %}
+
+{% block page_title %}River levels - GOV.UK{% endblock %}
+
+{% block head %}
+  {% include "partials/head.html" %}
+  {% include "partials/snippets_head.html" %}
+  <link rel="stylesheet" href="https://openlayers.org/en/v3.19.1/css/ol.css" type="text/css">
+  <script src="https://openlayers.org/en/v3.19.1/build/ol.js" type="text/javascript"></script>
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main" tabindex="-1">
+
+  {% include "partials/phase_banner.html" %}
+
+  <div class="grid-row">
+    
+    <div class="column-two-thirds">
+
+      <h1 class="heading-xlarge">Terms of use</h1>
+
+      {% block message %}
+      {% endblock %}
+
+      <p>This is a private beta version of the government’s flood information service. It’s part of a programme of user research being conducted by the Environment Agency in some areas of England known to be at risk of flooding.</p>
+
+      <p>It’s designed to find out about how people feel about their flood risk and how they get their information. By studying this data, we can build better services in the future.</p>
+
+      <p>We value your participation. By being part of this research, you are granted access to, and use of, this online prototype. This prototype features designs that may or may not evolve into publicly-available information services. </p>
+
+      <p>If you have any questions you can <a href="">contact the research team</a> directly.</p>
+
+      <p><strong class="bold-small">When using this private beta service we’d like you to:</strong></p>
+      <ul class="list list-bullet">
+      <li>view and use the service as often as you would normally</li>
+      <li>tell us about your experience as often as you can using the <a href="">feedback</a> form. There’s a link located at the top of every page. </li>
+      <li>have a telephone or face to face conversation with us at least once during the course of the research in order to talk about your experience</li>
+      </ul>
+
+      <p><strong class="bold-small">When using this private beta service you must not:</strong></p>
+      <ul class="list list-bullet">
+      <li>share your sign in details with anybody outside your household</li>
+      <li>distribute, share or discuss information about this research using social media or any other online public forum</li>
+      <li>input untruthful or inaccurate information</li>
+      <li>upload any files that contain computer viruses or malware</li>
+      <li>commit any cybercrime as described by the <a href="http://www.legislation.gov.uk/ukpga/1990/18/contents">Computer Misuse Act 1990</a></li>
+      </ul>
+
+      <p><strong class="bold-small">We will not:</strong></p>
+      <ul class="list list-bullet">
+      <li>use or disclose the information gathered for purposes other than research and service improvement (except where we're legally required to do so)</li>
+      <li>use your details for any marketing purposes or for any reason unrelated to this research</li>
+      </ul>
+
+      <p>This private beta version of the flood information service is for testing and research purposes only. It doesn’t replace the <a href="https://flood-warning-information.service.gov.uk/">live flood information service</a> which provides the latest updates on flood alerts and warnings across England.</p>
+
+    </div>
+
+  </div>
+
+</main><!-- / #content -->
+{% endblock %}
+
+{% block body_end %}
+
+  <!-- GOV.UK elements redirect -->
+  <!--<script src="/public/javascripts/redirect.js"></script>-->
+  {% include "partials/scripts.html" %}
+
+{% endblock %}
+
