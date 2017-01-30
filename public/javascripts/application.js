@@ -52,8 +52,7 @@ $(window).load(function () {
     .promise().then(function() {
       // Animation complete
       // Set Link focus
-      console.log(fragment)
-      $(fragment).focus()
+      $('#'+fragment).attr('tabindex', '-1').focus()
       // Add hash to url
       window.location.hash = fragment
     })
