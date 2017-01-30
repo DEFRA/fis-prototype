@@ -2150,8 +2150,8 @@ h1.heading-xlarge {
 }
 
 .phase-banner-disclaimer {
-  background-color: #dee0e2;
-  border: 0;
+  margin-top: 15px;
+  border: 1px solid #bfc1c3;
   padding: 15px 0;
 }
 
