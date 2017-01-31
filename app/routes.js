@@ -4,6 +4,12 @@ module.exports = {
       res.render('index', { 'asset_path': assetPath })
     })
 
+    // Long term flood risk
+    app.get('/long-term-flood-risk', function (req, res) {
+      var pageName = 'Long term flood risk'
+      res.render('long-term-flood-risk', { 'page_name': pageName })
+    })
+
     // Gauging station
     app.get('/stations', function (req, res) {
       var pageName = 'Measuring stations (v4)'

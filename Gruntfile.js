@@ -9,7 +9,7 @@ module.exports = function (grunt) {
           'public/stylesheets/application-ie6.css': 'public/sass/application-ie6.scss',
           'public/stylesheets/application-ie7.css': 'public/sass/application-ie7.scss',
           'public/stylesheets/application-ie8.css': 'public/sass/application-ie8.scss',
-          'public/stylesheets/prototype.css': 'public/sass/prototype.scss',
+          'public/stylesheets/measuring-station.css': 'public/sass/measuring-station.scss',
           'public/stylesheets/vendor/prism.css': 'public/sass/vendor/prism.scss'
         },
         options: {

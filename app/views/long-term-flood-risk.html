@@ -1,0 +1,118 @@
+{% extends "layout.html" %}
+
+{% block page_title %}Long term flood risk - GOV.UK{% endblock %}
+
+{% block head %}
+  {% include "partials/head.html" %}
+  {% include "partials/snippets_head.html" %}
+{% endblock %}
+
+{% block content %}
+<div id="content" class="wrapper">
+	<div class="phase-banner-beta">
+    <p>
+      <strong class="phase-tag">beta</strong>
+      <span>
+        This is a new service – your <a href="/long-term-flood-risk/feedback">feedback</a> will help us to improve it.
+      </span>
+    </p>
+  </div>
+
+			<link rel="stylesheet" type="text/css" href="static/long-term-flood-risk/public/stylesheets/home/index.css">
+<main id="home-page">
+  <section class="mission">
+    <h1 class="heading-xlarge">Long term flood risk assessment for locations in England</h1>
+    <p>Use this service to find out:</p>
+    <ul class="list list-bullet">
+      <li>how likely it is that a place could flood in the future</li>
+      <li>what factors could cause or contribute to any potential flooding</li>
+      <li>where to find more information about managing your flood risk</li>
+    </ul>
+  </section>
+  <p>
+    Enter an English postcode to see long term flood risk information for a specific location.
+  </p>
+  <div class="grid-row">
+    <div class="column-half">
+      <form method="get" action="/long-term-flood-risk/search">
+        <div class="form-group">
+          <label class="form-label" for="postcode">Postcode</label>
+          <input class="form-control" name="postcode" id="postcode" type="text" placeholder="Enter a postcode" title="A valid postcode in England is required" autocomplete="off">
+        </div>
+        <div class="form-group">
+          <button class="button" type="submit" title="Find address">Find address</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <p>&#169; Crown copyright and database rights 2017 <a href='http://www.ordnancesurvey.co.uk'>OS</a> 100024198. Use of this addressing  data is subject to the <a href="/long-term-flood-risk/os-terms">terms and conditions</a>.</p>
+  <details>
+    <summary><span class="summary">I don't know the postcode</span></summary>
+    <div class="panel panel-border-narrow">
+      You can look for postcodes using the <a href="http://www.royalmail.com/find-a-postcode" target="_blank">Royal Mail find a postcode service</a>
+    </div>
+  </details>
+  <br>
+  <details>
+    <summary><span class="summary">Flood information for Wales, Scotland and Northern Ireland</span></summary>
+    <div class="panel panel-border-narrow">
+      <a href="https://naturalresources.wales/splash?orig=/" rel="external">Natural Resources Wales</a><br>
+      <a href="http://www.sepa.org.uk/" rel="external">Scottish Environment Protection Agency</a><br>
+      <a href="http://www.nidirect.gov.uk/" rel="external">Northern Ireland Direct</a>
+    </div>
+  </details>
+  <br>
+  <br>
+  <section class="secondary-links">
+    <div class="grid-row">
+      <div class="column-third">
+        <a class="media" href="https://flood-warning-information.service.gov.uk">
+          <img class="img" src="/public/images/ball-home.png" alt="National flood information service">
+          <span class="content">National flood information service</span>
+        </a>
+      </div>
+      <div class="column-third">
+        <a class="media" href="https://flood-warning-information.service.gov.uk/river-and-sea-levels">
+          <img class="img" src="/public/images/ball-river-sea-level.png" alt="View the latest river and sea levels near you">
+          <span class="content">View the latest river and sea levels near you</span>
+        </a>
+      </div>
+      <div class="column-third">
+        <a class="media" href="https://flood-warning-information.service.gov.uk/map">
+          <img class="img" src="/public/images/ball-map.png" alt="View the current national flood situation">
+          <span class="content">View the current national flood situation</span>
+        </a>
+      </div>
+    </div>
+  </section>
+</main>
+
+		  <div class="grid-row">
+      <div class="column-half feedback-footer">
+          Your <a href="/long-term-flood-risk/feedback">feedback</a> will help us improve this service
+      </div>
+  </div>
+</div>
+
+{% endblock %}
+
+{% block footer_support_links %}
+<h2 class="visuallyhidden">Support links</h2>
+<ul>
+    <li><a href="https://www.gov.uk/help">Help</a></li>
+    <li><a href="https://www.gov.uk/help/cookies">Cookies</a></li>
+    <li><a href="https://www.gov.uk/contact">Contact</a></li>
+    <li><a href="https://www.gov.uk/cymraeg">Cymraeg</a></li>
+    <li>Built by the <a href="https://www.gov.uk/government/organisations/environment-agency">Environment Agency</a>
+    </li>
+</ul>
+{% endblock %}
+
+{% block body_end %}
+
+  <!-- GOV.UK elements redirect -->
+  <!--<script src="/public/javascripts/redirect.js"></script>-->
+  {% include "partials/scripts.html" %}
+
+{% endblock %}
+

@@ -17,6 +17,20 @@
   with-proposition
 {% endblock %}
 
+
+{% block footer_support_links %}
+<h2 class="visuallyhidden">Support links</h2>
+<ul>
+    <li><a href="/terms-conditions">Private beta terms of use</a></li>
+    <li><a href="https://www.gov.uk/help">Help</a></li>
+    <li><a href="https://www.gov.uk/help/cookies">Cookies</a></li>
+    <li><a href="https://www.gov.uk/contact">Contact</a></li>
+    <li><a href="https://www.gov.uk/cymraeg">Cymraeg</a></li>
+    <li>Built by the <a href="https://www.gov.uk/government/organisations/environment-agency">Environment Agency</a>
+    </li>
+</ul>
+{% endblock %}
+
 {% block body_end %}
   {% include "partials/script_device.html" %}
   {% include "partials/scripts.html" %}

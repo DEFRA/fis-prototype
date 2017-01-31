@@ -3,6 +3,7 @@
 {% block head %}
   {% include "partials/head.html" %}
   {% include "partials/snippets_head.html" %}
+  <link href="/public/stylesheets/measuring-station.css"  rel="stylesheet" type="text/css">
   <link rel="stylesheet" href="https://openlayers.org/en/v3.19.1/css/ol.css" type="text/css">
   <script src="https://openlayers.org/en/v3.19.1/build/ol.js" type="text/javascript"></script>
 {% endblock %}
@@ -11,7 +12,7 @@
 
 <main id="content" role="main" tabindex="-1">
 
-  {% include "partials/phase_banner.html" %}
+  {% include "partials/phase_banner_disclaimer.html" %}
 
   <div class="grid-row">
     
