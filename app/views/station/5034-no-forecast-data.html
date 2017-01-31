@@ -28,12 +28,11 @@ River levels for the last 5 days at this location
 <polyline class="cls-1" points="0 300 0 232 650 264 650 300"/>
 <!-- Vertical grid lines -->
 <!--<line class="cls-3" x1="1" y1="0" x2="1" y2="300"/>-->
-<line class="cls-3" x1="62.5" y1="0" x2="62.5" y2="300"/>
-<line class="cls-3" x1="162.5" y1="0" x2="162.5" y2="300"/>
-<line class="cls-3" x1="262.5" y1="0" x2="262.5" y2="300"/>
-<line class="cls-3" x1="362.5" y1="0" x2="362.5" y2="300"/>
-<line class="cls-3" x1="462.5" y1="0" x2="462.5" y2="300"/>
-<line class="cls-3" x1="562.5" y1="0" x2="562.5" y2="300"/>
+<line class="cls-3" x1="16.25" y1="0" x2="16.25" y2="300"/>
+<line class="cls-3" x1="146.25" y1="0" x2="146.25" y2="300"/>
+<line class="cls-3" x1="276.25" y1="0" x2="276.25" y2="300"/>
+<line class="cls-3" x1="406.25" y1="0" x2="406.25" y2="300"/>
+<line class="cls-3" x1="536.25" y1="0" x2="536.25" y2="300"/>
 <!--<line class="cls-3" x1="650" y1="0" x2="650" y2="300"/>-->
 <!-- Horizontal grid lines -->
 <line class="cls-3" x1="0" y1="75" x2="650" y2="75"/>
@@ -57,6 +56,19 @@ River levels for the last 5 days at this location
 	<li>1.2m</li>
 	<li>1.0m</li>
 	<li>0.8m</li>
+</ul>
+{% endblock %}
+
+
+{% block chartDates %}
+<ul class="five-days">
+
+<li>Sat, 7 Jan</li>
+<li>Sun, 8 Jan</li>
+<li>Mon, 9 Jan</li>
+<li>Tue, 10 Jan</li>
+<li><strong>Wed, 11 Jan</strong></li>
+
 </ul>
 {% endblock %}
 

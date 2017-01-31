@@ -1946,6 +1946,35 @@ input[type=number] {
   left: 71.12%;
 }
 
+.chart-container ul:last-of-type.five-days li {
+  width: 20%;
+}
+
+.chart-container ul:last-of-type.five-days li:nth-child(1) {
+  top: 100%;
+  left: 2.5%;
+}
+
+.chart-container ul:last-of-type.five-days li:nth-child(2) {
+  top: 100%;
+  left: 22.5%;
+}
+
+.chart-container ul:last-of-type.five-days li:nth-child(3) {
+  top: 100%;
+  left: 42.5%;
+}
+
+.chart-container ul:last-of-type.five-days li:nth-child(4) {
+  top: 100%;
+  left: 62.5%;
+}
+
+.chart-container ul:last-of-type.five-days li:nth-child(5) {
+  top: 100%;
+  left: 82.5%;
+}
+
 .chart-container li {
   position: absolute;
   top: 0;
