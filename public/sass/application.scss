@@ -15,10 +15,9 @@ h1.heading-xlarge {
 .phase-banner-disclaimer {
   margin-top:15px;
   border:1px solid $grey-2;
-  padding:15px 0;
   p {
     box-sizing: border-box;
-    padding:0 15px;
+    padding:0 10px;
   }
   @include media(tablet) {
     p {
