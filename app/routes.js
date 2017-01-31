@@ -12,7 +12,7 @@ module.exports = {
 
     // Gauging station
     app.get('/stations', function (req, res) {
-      var pageName = 'Measuring stations (v4)'
+      var pageName = 'Measuring stations (v5)'
       res.render('stations', { 'page_name': pageName })
     })
 
@@ -44,37 +44,38 @@ module.exports = {
       res.render('station/5034-flooding-possible', { 'section': section, 'section_name': sectionName, 'page_name': pageName })
     })
 
-    // Example station: Flooding is possible, option B
-    app.get('/station/5034-flooding-possible-b', function (req, res) {
+    // Example station: Below normal range
+    app.get('/station/5034-below-normal-range', function (req, res) {
       var section = 'station'
       var sectionName = 'Station'
       var pageName = 'Irk at Collyhurst Weir'
-      res.render('station/5034-flooding-possible-b', { 'section': section, 'section_name': sectionName, 'page_name': pageName })
+      res.render('station/5034-below-normal-range', { 'section': section, 'section_name': sectionName, 'page_name': pageName })
     })
 
-    // Example station: Tidal normal range
-    app.get('/station/5205', function (req, res) {
+    // Example station: No forecast data
+    app.get('/station/5034-no-forecast-data', function (req, res) {
       var section = 'station'
       var sectionName = 'Station'
-      var pageName = ''
-      res.render('station/5205', { 'section': section, 'section_name': sectionName, 'page_name': pageName })
+      var pageName = 'Irk at Collyhurst Weir'
+      res.render('station/5034-no-forecast-data', { 'section': section, 'section_name': sectionName, 'page_name': pageName })
     })
 
-    // Example station: Tidal flooding possible
-    app.get('/station/5205-flooding-possible', function (req, res) {
+    // Example station: No forecast data
+    app.get('/station/5034-no-forecast-data', function (req, res) {
       var section = 'station'
       var sectionName = 'Station'
-      var pageName = 'Irish Sea at Silloth Docks'
-      res.render('station/5205-flooding-possible', { 'section': section, 'section_name': sectionName, 'page_name': pageName })
+      var pageName = 'Irk at Collyhurst Weir'
+      res.render('station/5034-no-forecast-data', { 'section': section, 'section_name': sectionName, 'page_name': pageName })
     })
 
-    // Example station: Tidal flooding possible, option B
-    app.get('/station/5205-flooding-possible-b', function (req, res) {
+    // Example station: No data
+    app.get('/station/5034-no-data', function (req, res) {
       var section = 'station'
       var sectionName = 'Station'
-      var pageName = 'Irish Sea at Silloth Docks'
-      res.render('station/5205-flooding-possible-b', { 'section': section, 'section_name': sectionName, 'page_name': pageName })
+      var pageName = 'Irk at Collyhurst Weir'
+      res.render('station/5034-no-data', { 'section': section, 'section_name': sectionName, 'page_name': pageName })
     })
+
 
     // Version 3
     app.get('/stations-v3', function (req, res) {
