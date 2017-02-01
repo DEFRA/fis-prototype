@@ -96,6 +96,22 @@ module.exports = {
     })
 
     //
+    // Holding pages
+    //
+    
+    // Long term flood risk - Service unavailable
+    app.get('/holding-pages/long-term-flood-risk/service-unavailable', function (req, res) {
+      var pageName = 'Long term flood risk - GOV.UK'
+      res.render('holding-pages/long-term-flood-risk/service-unavailable', { 'page_name': pageName })
+    })
+    
+    // Long term flood risk - Service maintenance
+    app.get('/holding-pages/long-term-flood-risk/service-maintenance', function (req, res) {
+      var pageName = 'Long term flood risk - GOV.UK'
+      res.render('holding-pages/long-term-flood-risk/service-maintenance', { 'page_name': pageName })
+    })
+
+    //
     // Journey
     //
 
