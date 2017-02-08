@@ -4,9 +4,15 @@ $path: "/public/images/";
 
 @import "govuk-elements";
 @import 'util';
-@import 'chart';
+@import 'application';
+@import 'charts';
+
 
 // Page headings
+
+h1.heading-xlarge {
+  margin-bottom: 20px;
+}
 
 .heading-nearby {
   margin-top: em(5, 16);

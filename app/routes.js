@@ -98,6 +98,17 @@ module.exports = {
     //
     // Holding pages
     //
+
+    // Graph
+    app.get('/graphs', function (req, res) {
+      var pageName = 'Graphs'
+      res.render('graphs', { 'page_name': pageName })
+    })
+
+
+    //
+    // Holding pages
+    //
     
     // Long term flood risk - Service unavailable
     app.get('/holding-pages/long-term-flood-risk/service-unavailable', function (req, res) {

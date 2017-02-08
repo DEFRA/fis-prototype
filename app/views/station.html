@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block head %}
-  {% include "partials/head.html" %}
+  <!--[if gt IE 8]><!--><link href="/public/stylesheets/measuring-station.css"  rel="stylesheet" type="text/css"><!--<![endif]-->
   {% include "partials/snippets_head.html" %}
   <link href="/public/stylesheets/measuring-station.css"  rel="stylesheet" type="text/css">
   <link rel="stylesheet" href="https://openlayers.org/en/v3.19.1/css/ol.css" type="text/css">
@@ -122,7 +122,7 @@
 
           </div>
 
-          <figcaption class="chart-legend" role="presentation">
+          <div class="chart-legend" role="presentation">
 
             {% block stationLegend %}
             <ol>
@@ -131,7 +131,7 @@
             </ol>
             {% endblock %}
 
-          </figcaption>
+          </div>
 
         </figure>
 
