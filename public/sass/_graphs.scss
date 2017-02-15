@@ -30,7 +30,10 @@
             padding-left:1.5em;
             padding-right:2em;
             margin-top:0;
-        }       
+        }   
+        .data-item {
+            line-height:1.1;
+        }    
     }
     .icon {
         float:left;
@@ -54,6 +57,18 @@
             fill:#e6e7e8;
             stroke-dasharray:4 4;
        }
+        &-max rect {
+            stroke:$black;
+            fill:white;
+       }
+        &-property rect {
+            stroke:$red;
+            fill:white;
+       }
+        &-land rect {
+            stroke:$orange;
+            fill:white;
+        }
     }
     li.line:before {
         position:relative;

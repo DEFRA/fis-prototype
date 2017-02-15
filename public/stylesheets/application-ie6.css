@@ -1898,6 +1898,10 @@ section.feedback {
   margin-top: 0;
 }
 
+.graph-legend li .data-item {
+  line-height: 1.1;
+}
+
 .graph-legend .icon {
   float: left;
   position: relative;
@@ -1921,6 +1925,21 @@ section.feedback {
   stroke: #6f777b;
   fill: #e6e7e8;
   stroke-dasharray: 4 4;
+}
+
+.graph-legend .icon-max rect {
+  stroke: #0b0c0c;
+  fill: white;
+}
+
+.graph-legend .icon-property rect {
+  stroke: #b10e1e;
+  fill: white;
+}
+
+.graph-legend .icon-land rect {
+  stroke: #f47738;
+  fill: white;
 }
 
 .graph-legend li.line:before {
