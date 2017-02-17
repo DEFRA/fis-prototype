@@ -433,6 +433,71 @@
 
 // End Option E
 
+// Option F
+
+.graph-legend.f {
+    margin-top: 0;
+    margin-bottom: em(30, 19);
+    @include core-16;   
+    @include media(tablet) {
+        display:none;
+    }  
+    li {
+        float:left;
+        width:50%;
+        @include media(tablet) {
+            float:none;
+            width:auto;
+            max-width:16em;
+        }
+        padding-left:1.5em;
+        padding-right:2em;
+        margin-bottom:1.5em;
+        box-sizing: border-box;
+    }
+    .graph-legend-inner {
+        @include media(tablet) {
+            position:absolute;
+            left:100%;
+            top:0;
+            width:50%;
+            margin-left:30px;
+            margin-right:15px;
+        }
+    }
+    .icon {
+        float:left;
+        position:relative;
+        margin-left:-1.5em;
+        border-bottom: 3px solid #333;
+        display: block;
+        content: '';
+        width: 14px;
+        height: 6px;
+        svg {
+            display:none;
+        }
+        &-latest {
+            border-color:$govuk-blue;
+        }
+        &-forecast {
+            border-bottom: 3px dotted $grey-1;
+        }
+        &-max {
+            border-color:$black;
+        }
+        &-property {
+            border-color:$red;
+        }
+        &-land {
+            border-color:$orange;
+        }    
+    }
+}
+
+
+// End Option F
+
 table.table-levels {
     thead {
         th {
