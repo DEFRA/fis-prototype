@@ -325,6 +325,114 @@
 
 // End Option D
 
+// Option E
+
+.graph-legend.e {
+    margin-top: em(40, 19);
+    margin-bottom: em(30, 19);
+    @include core-16;     
+    ul {
+        @include media(tablet) {
+            margin-top:3em;
+        }
+    }
+    li {
+        float:left;
+        width:50%;
+        @include media(tablet) {
+            float:none;
+            width:auto;
+            max-width:16em;
+        }
+        padding-left:1.5em;
+        padding-right:2em;
+        margin-bottom:1.5em;
+        box-sizing: border-box;
+    }
+    .graph-legend-inner {
+        @include media(tablet) {
+            position:absolute;
+            left:100%;
+            top:0;
+            width:50%;
+            margin-left:30px;
+            margin-right:15px;
+        }
+    }
+    .icon {
+        float:left;
+        position:relative;
+        margin-left:-1.5em;
+        border-bottom: 3px solid #333;
+        display: block;
+        content: '';
+        width: 14px;
+        height: 6px;
+        svg {
+            display:none;
+        }
+        &-latest {
+            border-color:$govuk-blue;
+        }
+        &-forecast {
+            border-bottom: 3px dotted $grey-1;
+        }
+        &-max {
+            border-color:$black;
+        }
+        &-property {
+            border-color:$red;
+        }
+        &-land {
+            border-color:$orange;
+        }    
+    }
+}
+.graph-annotation.e {
+
+    margin-left:40px;
+    text-align:center;
+
+    ul {
+        overflow:auto;
+    }
+    li {
+        @include core-16;
+        display:inline-block;
+        padding-left:1.5em;
+        padding-right:2em;
+        margin-bottom:1.5em;
+        box-sizing: border-box;
+    }
+    .icon {
+        float:left;
+        position:relative;
+        margin-left:-1.5em;
+        margin-top:-1px;
+        @include media(tablet) {
+            margin-top:1px;
+        }
+        rect {
+            stroke:$black;
+            stroke-width:2px;        
+            shape-rendering:crispEdges;
+            vector-effect:non-scaling-stroke;
+        }
+        &-latest rect {
+            stroke:$govuk-blue;
+            fill:#CCDFED;
+        }
+        &-forecast rect {
+            stroke:$grey-1;
+            fill:#e6e7e8;
+            stroke-dasharray:4 4;
+        }
+    }
+
+}
+
+// End Option E
+
 table.table-levels {
     thead {
         th {
