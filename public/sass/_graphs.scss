@@ -12,7 +12,56 @@
         height:350px;
     }
 }
-.graph-legend {
+
+// Option A
+
+.graph-legend.a {
+    margin-bottom: em(30, 19);
+    @include core-16;     
+    ul {
+        float:left;
+        width:50%;
+    }
+    li {
+        padding-left:1.5em;
+        padding-right:2em;
+        margin-bottom:1.5em;
+    }
+    .icon {
+        float:left;
+        position:relative;
+        margin-left:-1.5em;
+        border-bottom: 3px solid #333;
+        display: block;
+        content: '';
+        width: 14px;
+        height: 6px;
+        svg {
+            display:none;
+        }
+        &-latest {
+            border-color:$govuk-blue;
+        }
+        &-forecast {
+            border-bottom: 3px dotted $grey-1;
+        }
+        &-max {
+            border-color:$black;
+        }
+        &-property {
+            border-color:$red;
+        }
+        &-land {
+            border-color:$orange;
+        }    
+    }
+}
+
+// End Option A
+
+// Option B
+
+.graph-legend.b {
     margin-bottom: em(30, 19);
     @include core-16;     
     ul {
@@ -25,19 +74,14 @@
         }
     }
     li {
-        line-height:1.25em; 
-        .data {
-            padding-left:1.5em;
-            padding-right:2em;
-            margin-top:0;
-        }   
-        .data-item {
-            line-height:1.1;
-        }    
+        padding-left:1.5em;
+        padding-right:2em;
+        margin-bottom:1.5em;
     }
     .icon {
         float:left;
         position:relative;
+        margin-left:-1.5em;
         margin-top:-1px;
         @include media(tablet) {
             margin-top:0;
@@ -50,44 +94,25 @@
         }
         &-latest rect {
             stroke:$govuk-blue;
-            fill:#c1dfe4;
-       }
+            fill:white;
+        }
         &-forecast rect {
             stroke:$grey-1;
-            fill:#e6e7e8;
+            fill:white;
             stroke-dasharray:4 4;
-       }
+        }
         &-max rect {
             stroke:$black;
             fill:white;
-       }
+        }
         &-property rect {
             stroke:$red;
             fill:white;
-       }
+        }
         &-land rect {
             stroke:$orange;
             fill:white;
         }
-    }
-    li.line:before {
-        position:relative;
-        margin-top:-1px;
-        border-bottom: 3px solid #333;
-        float: left;
-        display: block;
-        content: '';
-        width: 14px;
-        height: 6px;
-        @include media(tablet) {
-            margin-top:0;
-        }
-    }
-    li.line-property:before {
-        border-color:$red;
-    }
-    li.line-land:before {
-        border-color:$orange;
     }
     .graph-legend-inner {
         @include media(tablet) {
@@ -100,14 +125,72 @@
         }
     }
 }
+
+// End option B
+
 .graph-button {
     @include core-16;
     display: inline-block;
     margin-bottom:1.5em;
+}
+
+// Option B
+
+.graph-button.b {
     @include media(tablet) {
         margin-bottom:0;
     }
 }
+
+// End option B
+
+// Option C
+
+.graph-legend.c {
+    margin-bottom: em(30, 19);
+    @include core-16;     
+    li {
+        float:left;
+        width:50%;
+        @include media(tablet) {
+            width:33.33%;
+        }
+        padding-left:1.5em;
+        padding-right:2em;
+        margin-bottom:1.5em;
+        box-sizing: border-box;
+    }
+    .icon {
+        float:left;
+        position:relative;
+        margin-left:-1.5em;
+        border-bottom: 3px solid #333;
+        display: block;
+        content: '';
+        width: 14px;
+        height: 6px;
+        svg {
+            display:none;
+        }
+        &-latest {
+            border-color:$govuk-blue;
+        }
+        &-forecast {
+            border-bottom: 3px dotted $grey-1;
+        }
+        &-max {
+            border-color:$black;
+        }
+        &-property {
+            border-color:$red;
+        }
+        &-land {
+            border-color:$orange;
+        }    
+    }
+}
+
+// End Option C
 
 table.table-levels {
     thead {
@@ -237,15 +320,51 @@ table.table-levels {
     }
     .now {
         position:absolute;
-        height:8px;
-        width:8px;
-        border:2px solid #005EA5;
-        margin-left:-4px;
-        margin-bottom:-4px;
-        background-color:white;
-        border-radius: 100%;
+        width:16px;
+        height:16px;
+        margin-left:-8px;
+        margin-bottom:-8px;
+        svg {
+            position:absolute;
+        }
+        circle {
+            stroke:#005EA5;
+            stroke-width:4px;   
+            fill:white;     
+            vector-effect:non-scaling-stroke;
+        }
         span {
             @extend .visuallyhidden;
+        }
+    }
+    .tool-tip {
+        position:absolute;
+        width:6.5em;
+        padding-bottom:1.25em;
+        margin-left:-3.25em;
+        color:white;
+        .tool-tip-value {
+            @include core-19($font-weight:bold);
+        }
+        .tool-tip-inner {
+            position:relative;
+            background-color:#005EA5;
+            padding:0.5em;
+        }
+        .tool-tip-item {
+            font-size:0.8em;
+            display:block;
+        }
+        .tool-tip-arrow {
+            position:absolute;
+            top:100%;
+            left:50%;
+            margin-left:-0.5em;
+            width: 0; 
+            height: 0; 
+            border-left: 0.5em solid transparent;
+            border-right: 0.5em solid transparent;
+            border-top: 0.5em solid #005EA5;
         }
     }
 }
@@ -255,13 +374,13 @@ table.table-levels {
 .svg-4{stroke:transparent}
 .svg-10,.svg-11,.svg-12,.svg-3,.svg-4,.svg-8,.svg-9{stroke-miterlimit:10;vector-effect:non-scaling-stroke;vector-effect:non-scaling-stroke;}
 .svg-3{stroke-width:1px;}
-.svg-10,.svg-11,.svg-12,.svg-13,.svg-14,.svg-4,.svg-8,.svg-9{stroke-width:2px;stroke-linejoin:round}
+.svg-10,.svg-11,.svg-12,.svg-13,.svg-14,.svg-4,.svg-9{stroke-width:2px;stroke-linejoin:round}
 .svg-5{text-anchor:start;fill:#404041;font-family:"nta", Helvetica, Helvetica;}
 .svg-5b{text-anchor:middle;fill:#404041;font-family:"nta", Helvetica, Helvetica;}
 .svg-6{letter-spacing:-0.04em;}
 .svg-7{letter-spacing:-0.02em;}
 .svg-10,.svg-11,.svg-12,.svg-8,.svg-9{fill:none;}
-.svg-8{stroke:#005EA5}
+.svg-8{stroke:#005EA5;stroke-width:4px;stroke-linejoin:round}
 .svg-10,.svg-9{stroke:$grey-1}
 .svg-10{stroke-dasharray:4 4;}
 .svg-14{stroke:#333;shape-rendering:crispEdges;}

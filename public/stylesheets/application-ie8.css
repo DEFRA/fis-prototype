@@ -1823,7 +1823,7 @@ section.feedback {
   height: 350px;
 }
 
-.graph-legend {
+.graph-legend.a {
   margin-bottom: 1.5789473684em;
   font-family: "nta", Arial, sans-serif;
   font-weight: 400;
@@ -1834,7 +1834,64 @@ section.feedback {
   line-height: 1.25;
 }
 
-.graph-legend ul {
+.graph-legend.a ul {
+  float: left;
+  width: 50%;
+}
+
+.graph-legend.a li {
+  padding-left: 1.5em;
+  padding-right: 2em;
+  margin-bottom: 1.5em;
+}
+
+.graph-legend.a .icon {
+  float: left;
+  position: relative;
+  margin-left: -1.5em;
+  border-bottom: 3px solid #333;
+  display: block;
+  content: '';
+  width: 14px;
+  height: 6px;
+}
+
+.graph-legend.a .icon svg {
+  display: none;
+}
+
+.graph-legend.a .icon-latest {
+  border-color: #005ea5;
+}
+
+.graph-legend.a .icon-forecast {
+  border-bottom: 3px dotted #6f777b;
+}
+
+.graph-legend.a .icon-max {
+  border-color: #0b0c0c;
+}
+
+.graph-legend.a .icon-property {
+  border-color: #b10e1e;
+}
+
+.graph-legend.a .icon-land {
+  border-color: #f47738;
+}
+
+.graph-legend.b {
+  margin-bottom: 1.5789473684em;
+  font-family: "nta", Arial, sans-serif;
+  font-weight: 400;
+  text-transform: none;
+  font-size: 14px;
+  line-height: 1.1428571429;
+  font-size: 16px;
+  line-height: 1.25;
+}
+
+.graph-legend.b ul {
   float: left;
   width: 50%;
   float: none;
@@ -1842,81 +1899,54 @@ section.feedback {
   max-width: 16em;
 }
 
-.graph-legend li {
-  line-height: 1.25em;
-}
-
-.graph-legend li .data {
+.graph-legend.b li {
   padding-left: 1.5em;
   padding-right: 2em;
-  margin-top: 0;
+  margin-bottom: 1.5em;
 }
 
-.graph-legend li .data-item {
-  line-height: 1.1;
-}
-
-.graph-legend .icon {
+.graph-legend.b .icon {
   float: left;
   position: relative;
+  margin-left: -1.5em;
   margin-top: -1px;
   margin-top: 0;
 }
 
-.graph-legend .icon rect {
+.graph-legend.b .icon rect {
   stroke: #0b0c0c;
   stroke-width: 2px;
   shape-rendering: crispEdges;
   vector-effect: non-scaling-stroke;
 }
 
-.graph-legend .icon-latest rect {
+.graph-legend.b .icon-latest rect {
   stroke: #005ea5;
-  fill: #c1dfe4;
+  fill: white;
 }
 
-.graph-legend .icon-forecast rect {
+.graph-legend.b .icon-forecast rect {
   stroke: #6f777b;
-  fill: #e6e7e8;
+  fill: white;
   stroke-dasharray: 4 4;
 }
 
-.graph-legend .icon-max rect {
+.graph-legend.b .icon-max rect {
   stroke: #0b0c0c;
   fill: white;
 }
 
-.graph-legend .icon-property rect {
+.graph-legend.b .icon-property rect {
   stroke: #b10e1e;
   fill: white;
 }
 
-.graph-legend .icon-land rect {
+.graph-legend.b .icon-land rect {
   stroke: #f47738;
   fill: white;
 }
 
-.graph-legend li.line:before {
-  position: relative;
-  margin-top: -1px;
-  border-bottom: 3px solid #333;
-  float: left;
-  display: block;
-  content: '';
-  width: 14px;
-  height: 6px;
-  margin-top: 0;
-}
-
-.graph-legend li.line-property:before {
-  border-color: #b10e1e;
-}
-
-.graph-legend li.line-land:before {
-  border-color: #f47738;
-}
-
-.graph-legend .graph-legend-inner {
+.graph-legend.b .graph-legend-inner {
   position: absolute;
   left: 100%;
   top: 0;
@@ -1935,7 +1965,66 @@ section.feedback {
   line-height: 1.25;
   display: inline-block;
   margin-bottom: 1.5em;
+}
+
+.graph-button.b {
   margin-bottom: 0;
+}
+
+.graph-legend.c {
+  margin-bottom: 1.5789473684em;
+  font-family: "nta", Arial, sans-serif;
+  font-weight: 400;
+  text-transform: none;
+  font-size: 14px;
+  line-height: 1.1428571429;
+  font-size: 16px;
+  line-height: 1.25;
+}
+
+.graph-legend.c li {
+  float: left;
+  width: 50%;
+  width: 33.33%;
+  padding-left: 1.5em;
+  padding-right: 2em;
+  margin-bottom: 1.5em;
+  box-sizing: border-box;
+}
+
+.graph-legend.c .icon {
+  float: left;
+  position: relative;
+  margin-left: -1.5em;
+  border-bottom: 3px solid #333;
+  display: block;
+  content: '';
+  width: 14px;
+  height: 6px;
+}
+
+.graph-legend.c .icon svg {
+  display: none;
+}
+
+.graph-legend.c .icon-latest {
+  border-color: #005ea5;
+}
+
+.graph-legend.c .icon-forecast {
+  border-bottom: 3px dotted #6f777b;
+}
+
+.graph-legend.c .icon-max {
+  border-color: #0b0c0c;
+}
+
+.graph-legend.c .icon-property {
+  border-color: #b10e1e;
+}
+
+.graph-legend.c .icon-land {
+  border-color: #f47738;
 }
 
 table.table-levels thead th {
@@ -2122,13 +2211,62 @@ table.table-levels tbody .error:before {
 
 .google-visualisation .now {
   position: absolute;
-  height: 8px;
-  width: 8px;
-  border: 2px solid #005EA5;
-  margin-left: -4px;
-  margin-bottom: -4px;
-  background-color: white;
-  border-radius: 100%;
+  width: 16px;
+  height: 16px;
+  margin-left: -8px;
+  margin-bottom: -8px;
+}
+
+.google-visualisation .now svg {
+  position: absolute;
+}
+
+.google-visualisation .now circle {
+  stroke: #005EA5;
+  stroke-width: 4px;
+  fill: white;
+  vector-effect: non-scaling-stroke;
+}
+
+.google-visualisation .tool-tip {
+  position: absolute;
+  width: 6.5em;
+  padding-bottom: 1.25em;
+  margin-left: -3.25em;
+  color: white;
+}
+
+.google-visualisation .tool-tip .tool-tip-value {
+  font-family: "nta", Arial, sans-serif;
+  font-weight: bold;
+  text-transform: none;
+  font-size: 16px;
+  line-height: 1.25;
+  font-size: 19px;
+  line-height: 1.3157894737;
+}
+
+.google-visualisation .tool-tip .tool-tip-inner {
+  position: relative;
+  background-color: #005EA5;
+  padding: 0.5em;
+}
+
+.google-visualisation .tool-tip .tool-tip-item {
+  font-size: 0.8em;
+  display: block;
+}
+
+.google-visualisation .tool-tip .tool-tip-arrow {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -0.5em;
+  width: 0;
+  height: 0;
+  border-left: 0.5em solid transparent;
+  border-right: 0.5em solid transparent;
+  border-top: 0.5em solid #005EA5;
 }
 
 .svg-1 {
@@ -2157,7 +2295,7 @@ table.table-levels tbody .error:before {
   stroke-width: 1px;
 }
 
-.svg-10, .svg-11, .svg-12, .svg-13, .svg-14, .svg-4, .svg-8, .svg-9 {
+.svg-10, .svg-11, .svg-12, .svg-13, .svg-14, .svg-4, .svg-9 {
   stroke-width: 2px;
   stroke-linejoin: round;
 }
@@ -2188,6 +2326,8 @@ table.table-levels tbody .error:before {
 
 .svg-8 {
   stroke: #005EA5;
+  stroke-width: 4px;
+  stroke-linejoin: round;
 }
 
 .svg-10, .svg-9 {
