@@ -2439,6 +2439,193 @@ section.feedback {
   border-color: #f47738;
 }
 
+.graph-annotation {
+  margin-left: 40px;
+  text-align: center;
+}
+
+.graph-annotation ul {
+  overflow: auto;
+}
+
+.graph-annotation li {
+  font-family: "nta", Arial, sans-serif;
+  font-weight: 400;
+  text-transform: none;
+  font-size: 14px;
+  line-height: 1.1428571429;
+  display: inline-block;
+  padding-left: 1.5em;
+  padding-right: 2em;
+  margin-bottom: 1.5em;
+  box-sizing: border-box;
+}
+
+@media (min-width: 641px) {
+  .graph-annotation li {
+    font-size: 16px;
+    line-height: 1.25;
+  }
+}
+
+.graph-annotation .icon {
+  float: left;
+  position: relative;
+  margin-left: -1.5em;
+  margin-top: -1px;
+}
+
+@media (min-width: 641px) {
+  .graph-annotation .icon {
+    margin-top: 1px;
+  }
+}
+
+.graph-annotation .icon rect {
+  stroke: #0b0c0c;
+  stroke-width: 2px;
+  shape-rendering: crispEdges;
+  vector-effect: non-scaling-stroke;
+}
+
+.graph-annotation .icon-latest rect {
+  stroke: #005ea5;
+  fill: white;
+}
+
+.graph-annotation .icon-forecast rect {
+  stroke: #6f777b;
+  fill: white;
+  stroke-dasharray: 4 4;
+}
+
+.graph-legend.d {
+  margin-top: 2.1052631579em;
+  margin-bottom: 1.5789473684em;
+  font-family: "nta", Arial, sans-serif;
+  font-weight: 400;
+  text-transform: none;
+  font-size: 14px;
+  line-height: 1.1428571429;
+}
+
+@media (min-width: 641px) {
+  .graph-legend.d {
+    font-size: 16px;
+    line-height: 1.25;
+  }
+}
+
+.graph-legend.d li {
+  float: left;
+  width: 50%;
+  padding-left: 1.5em;
+  padding-right: 2em;
+  margin-bottom: 1.5em;
+  box-sizing: border-box;
+}
+
+@media (min-width: 641px) {
+  .graph-legend.d li {
+    width: 33.33%;
+  }
+}
+
+.graph-legend.d .icon {
+  float: left;
+  position: relative;
+  margin-left: -1.5em;
+  border-bottom: 3px solid #333;
+  display: block;
+  content: '';
+  width: 14px;
+  height: 6px;
+}
+
+.graph-legend.d .icon svg {
+  display: none;
+}
+
+.graph-legend.d .icon-latest {
+  border-color: #005ea5;
+}
+
+.graph-legend.d .icon-forecast {
+  border-bottom: 3px dotted #6f777b;
+}
+
+.graph-legend.d .icon-max {
+  border-color: #0b0c0c;
+}
+
+.graph-legend.d .icon-property {
+  border-color: #b10e1e;
+}
+
+.graph-legend.d .icon-land {
+  border-color: #f47738;
+}
+
+.graph-annotation.d {
+  margin-left: 40px;
+  text-align: center;
+}
+
+.graph-annotation.d ul {
+  overflow: auto;
+}
+
+.graph-annotation.d li {
+  font-family: "nta", Arial, sans-serif;
+  font-weight: 400;
+  text-transform: none;
+  font-size: 14px;
+  line-height: 1.1428571429;
+  display: inline-block;
+  padding-left: 1.5em;
+  padding-right: 2em;
+  margin-bottom: 1.5em;
+  box-sizing: border-box;
+}
+
+@media (min-width: 641px) {
+  .graph-annotation.d li {
+    font-size: 16px;
+    line-height: 1.25;
+  }
+}
+
+.graph-annotation.d .icon {
+  float: left;
+  position: relative;
+  margin-left: -1.5em;
+  margin-top: -1px;
+}
+
+@media (min-width: 641px) {
+  .graph-annotation.d .icon {
+    margin-top: 1px;
+  }
+}
+
+.graph-annotation.d .icon rect {
+  stroke: #0b0c0c;
+  stroke-width: 2px;
+  shape-rendering: crispEdges;
+  vector-effect: non-scaling-stroke;
+}
+
+.graph-annotation.d .icon-latest rect {
+  stroke: #005ea5;
+  fill: #CCDFED;
+}
+
+.graph-annotation.d .icon-forecast rect {
+  stroke: #6f777b;
+  fill: #e6e7e8;
+  stroke-dasharray: 4 4;
+}
+
 table.table-levels thead th {
   font-family: "nta", Arial, sans-serif;
   font-weight: bold;
