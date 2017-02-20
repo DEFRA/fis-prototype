@@ -26,6 +26,40 @@ $path: "/public/images/";
 
 // Data visualisation
 
+.visualisation-heading-measured {
+    color:$govuk-blue;
+}
+.visualisation-heading-measured:before {
+    content:' ';
+    display:inline-block;
+    width:10px;
+    height:10px;
+    @include media(tablet) {
+        width:11px;
+        height:11px;
+    }
+    line-height:1;
+    background-color:$govuk-blue;
+    margin-right:0.2em;
+}
+.visualisation-heading-forecast {
+    color:#52585a;
+}
+.visualisation-heading-forecast:before {
+    content:' ';
+    display:inline-block;
+    width:10px;
+    height:10px;
+    @include media(tablet) {
+        width:11px;
+        height:11px;
+    }
+    line-height:1;
+    background-color:$grey-1;
+    margin-right:0.2em;
+    margin-left:0.1em;
+}
+
 .visualisation-table {
     max-height:30em;
     overflow:auto;
