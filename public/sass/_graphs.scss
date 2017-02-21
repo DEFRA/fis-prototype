@@ -13,9 +13,7 @@
     }
 }
 
-// Option A
-
-.graph-legend.a {
+.graph-legend {
     margin-top: em(40, 19);
     margin-bottom: em(30, 19);
     @include core-16; 
@@ -75,8 +73,6 @@
         background-color:$orange;
     }
 }
-
-// End Option A
 
 table.table-levels {
     thead {

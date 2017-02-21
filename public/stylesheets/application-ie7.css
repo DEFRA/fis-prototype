@@ -1865,7 +1865,7 @@ section.feedback {
   height: 350px;
 }
 
-.graph-legend.a {
+.graph-legend {
   margin-top: 2.1052631579em;
   margin-bottom: 1.5789473684em;
   font-family: "nta", Arial, sans-serif;
@@ -1877,7 +1877,7 @@ section.feedback {
   line-height: 1.25;
 }
 
-.graph-legend.a .graph-legend-inner {
+.graph-legend .graph-legend-inner {
   position: absolute;
   left: 100%;
   top: 0;
@@ -1886,7 +1886,7 @@ section.feedback {
   margin-right: 15px;
 }
 
-.graph-legend.a li {
+.graph-legend li {
   max-width: 16em;
   padding-left: 1.5em;
   padding-right: 2em;
@@ -1894,7 +1894,7 @@ section.feedback {
   box-sizing: border-box;
 }
 
-.graph-legend.a li:before {
+.graph-legend li:before {
   position: relative;
   content: ' ';
   float: left;
@@ -1905,7 +1905,7 @@ section.feedback {
   border-bottom: 3px solid #0b0c0c;
 }
 
-.graph-legend.a li.property:before {
+.graph-legend li.property:before {
   border: 0;
   top: 4px;
   left: 1px;
@@ -1916,7 +1916,7 @@ section.feedback {
   background-color: #b10e1e;
 }
 
-.graph-legend.a li.land:before {
+.graph-legend li.land:before {
   border: 0;
   left: 2px;
   top: 1px;
@@ -2300,6 +2300,7 @@ table.table-levels tbody .error:before {
 }
 
 .visualisation-heading-forecast {
+  margin-left: 0.25em;
   color: #52585a;
 }
 
