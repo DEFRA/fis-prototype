@@ -21,107 +21,295 @@ Irk at Collyhurst Weir
 </div>
 {% endblock %}
 
+{% block riverLevels %}
 
-{% block headline_latest %}
-<div class="data headline-data">
-	<span class="data-item bold-medium">Latest level recorded<br/>at this location</span>
-	<span class="data-item bold-xlarge headline--latest">1.49m</span>
-	<span class="data-item bold-xsmall">at 9.00am on Wednesday 11 Jan 2017</span>
+<div class="grid-row">
+
+	<div class="column-two-thirds">
+
+		<section aria-labelledby="levels-heading" role="region">
+
+			<h2 id="levels-heading" class="heading-large">
+				River levels at this location
+			</h2>       
+
+			<p id="visualisation-heading" class="font-xsmall">
+				<span class="visualisation-heading-measured">Measured levels</span> for the last 5 days <span class="visualisation-heading-forecast">Forecast levels</span> for the next 36 hours
+			</p>
+
+			<div class="visualisation">
+
+				<!--
+					If Google Charts available (Javascript, SVG or VML)
+					remove hidden class and hidden attribute
+				-->
+
+				<div class="visualisation-inner hidden" hidden>
+
+					<figure class="graph" role="presentation" aria-hidden="true">
+
+						<div class="graph-inner">
+
+							<!-- 
+								Presentation and behavior only. Currently delivered through Goole Visualisation
+							--> 
+
+							<div class="google-visualisation">
+
+								<svg id="graph" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 650 300" preserveAspectRatio="none">
+
+									<g class="lines" transform="translate(0,2)">
+
+										<!-- Historic area -->
+										<polyline class="svg-1" points="0 300 0 225 250 200 500 110 500 300"></polyline>
+										<!-- Forecast area -->
+										<polygon class="svg-2" points="650 50 650 300 500 300 500 110"></polygon>
+										<!-- Vertical grid lines -->
+										<line class="svg-3" x1="1" y1="0" x2="1" y2="300"></line>
+										<line class="svg-3" x1="62.5" y1="0" x2="62.5" y2="300"></line>
+										<line class="svg-3" x1="162.5" y1="0" x2="162.5" y2="300"></line>
+										<line class="svg-3" x1="262.5" y1="0" x2="262.5" y2="300"></line>
+										<line class="svg-3" x1="362.5" y1="0" x2="362.5" y2="300"></line>
+										<line class="svg-3" x1="462.5" y1="0" x2="462.5" y2="300"></line>
+										<line class="svg-3" x1="562.5" y1="0" x2="562.5" y2="300"></line>
+										<line class="svg-3" x1="650" y1="0" x2="650" y2="300"></line>
+										<!-- Horizontal grid lines -->
+										<line class="svg-3" x1="0" y1="0" x2="650" y2="0"></line>
+										<line class="svg-3" x1="0" y1="150" x2="650" y2="150"></line>
+										<line class="svg-3" x1="0" y1="225" x2="650" y2="225"></line>
+										<!-- Historic line -->
+										<polyline class="svg-8" points="0 225 250 200 500 110"></polyline>
+										<!-- Forecast line -->
+										<polyline class="svg-10" points="650 50 500 110"></polyline>
+										<!-- Baseline -->
+										<line class="svg-4" x1="0" y1="300" x2="650" y2="300"></line>
+										<!-- Alert threshold -->
+										<line class="svg-13" x2="0" y2="262.5" x1="650" y1="262.5"></line>
+										<!-- Warning threshold -->
+										<line class="svg-11" x2="0" y2="75" x1="650" y1="75"></line>
+										<!-- Highest recorded -->
+										<line class="svg-14" x2="0" y2="0" x1="650" y1="0"></line>
+
+									</g>
+
+								</svg>
+
+								<ul>
+
+									<li>1.80m</li>
+									<li>1.60m</li>
+									<li>1.40m</li>
+									<li>1.20m</li>
+									<li>1.00m</li>
+
+								</ul>
+
+								<ul>
+
+									<li><span>Sat </span>7 Jan</li>
+									<li><span>Sun </span>8 Jan</li>
+									<li><span>Mon </span>9 Jan</li>
+									<li><span>Tue </span>10 Jan</li>
+									<li><strong><span>Wed </span>11 Jan</strong></li>
+
+								</ul>
+
+								<div class="tool-tip" style="left:76.75%;bottom:62.5%">
+									<div class="tool-tip-inner">
+										<strong class="tool-tip-value">1.49m</strong>
+										<span class="tool-tip-item">Latest level</span>
+										<span class="tool-tip-item">9:00am, 11 Jan</span>
+										<span class="tool-tip-arrow"></span>
+									</div>
+								</div>
+
+								<div class="now" style="left:76.75%;bottom:62.5%">
+									<span>Current time and level</span>
+									<svg width="16px" height="16px" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+										<circle cx="8" cy="8" r="5"/>
+									</svg>
+								</div>
+
+							</div>
+
+							<!--
+								End Google Visualisation
+							-->
+
+						</div>
+
+						<figcaption class="graph-legend a">
+
+							<div class="graph-legend-inner">
+								
+								<ul>
+
+									<li class="max">
+										<span>1.80<abbr title="Metres">m</abbr> on 6 Dec 2015 is the highest level on record at this location
+											<a href="#">Hide from the graph</a>
+										</span>
+									</li>
+									<li class="property">
+										<span>At 1.60<abbr title="Metres">m</abbr> some property flooding is possible here and in
+											<a class="scroll" href="#flood-warning">nearby areas</a>
+										</span>
+									</li>
+									<li class="land">
+										<span>At 1.10<abbr title="Metres">m</abbr> flooding of low-lying land is possible here and in
+											<a class="scroll" href="#flood-alert">nearby areas</a>
+										</span>
+									</li>
+
+								</ul>
+
+							</div>
+
+						</figcaption>
+
+					</figure>
+
+				</div>
+
+				<!-- End dynamic render -->
+
+				<!--
+					If Google Charts available add class visuallyhidden
+				-->
+
+				<div class="visualisation-table">
+
+					<div class="panel panel-border-narrow" aria-hidden="true">
+						<p>
+							A graph is available with JavaScript enabled and a modern browser
+						</p>
+					</div>
+
+					<table class="table-levels" aria-labelledby="visualisation-heading">
+						<thead>
+							<tr>
+								<th scope="col">Time</th> <!-- role="columnheader" ? -->
+								<th scope="col" class="numeric">
+									Level (<abbr title="Metres">m</abbr>)
+								</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<th scope="col" colspan="2">
+									<time datetime="2017-01-06T09:00+00:00">
+										Friday 6 January	
+									</time>
+								</th>
+							</tr>
+							<tr>
+								<td scope="row">
+									<time datetime="2017-01-06T09:00+00:00">
+										9:00am	
+									</time>
+								</td>
+								<td class="numeric">
+									0.43
+									<span class="error">
+										Error
+									</span>
+								</td>
+							</tr>
+						</tbody>
+						<tbody>
+							<tr>
+								<td scope="row">
+									<time datetime="2017-01-06T09:15+00:00">
+										9:15am	
+									</time>
+								</td>
+								<td class="numeric">
+									0.48
+								</td>
+							</tr>	
+						</tbody>
+						<tbody>
+							<tr>
+								<th scope="col" colspan="2">
+									<time datetime="2017-01-06T09:00+00:00">
+										Saturday 7 January	
+									</time>
+								</th>
+							</tr>
+							<tr>
+								<td scope="row">
+									<time datetime="2017-01-06T09:00+00:00">
+										9:00am
+										<em class="forecast">
+											(Latest recorded)
+										</em>		
+									</time>
+								</td>
+								<td class="numeric">
+									0.59
+									<span class="error">
+										Error
+									</span>
+								</td>
+							</tr>
+						</tbody>
+						<tbody>
+							<tr>
+								<td scope="row">
+									<time datetime="2017-01-06T09:30+00:00">
+										9:30am
+										<em class="forecast">
+											(Forecast)
+										</em>	
+									</time>
+								</td>
+								<td class="numeric">
+									0.65
+								</td>
+							</tr>	
+							<tr>
+								<td scope="row">
+									<time datetime="2017-01-06T09:45+00:00">
+										9:45am
+										<em class="forecast">
+											(Highest forecast)
+										</em>	
+									</time>
+								</td>
+								<td class="numeric">
+									0.63
+								</td>
+							</tr>
+						</tbody>
+					</table>
+
+				</div>
+
+				<!--
+					End Google charts available
+				-->
+
+			</div>
+
+		</section>
+
+	</div>
+
 </div>
+
+<!-- Remove -->
+<script>
+	var visualisation = document.getElementsByClassName('visualisation')
+	for (i=0; i<visualisation.length; i++){
+		var table = visualisation[i].getElementsByClassName('visualisation-table')[0]
+		var inner = visualisation[i].getElementsByClassName('visualisation-inner')[0]
+		table.className += ' visuallyhidden'
+		inner.className = 'visualisation-inner'
+		inner.removeAttribute('hidden')
+	}
+</script>
+<!-- End remove -->
+
 {% endblock %}
-
-
-{% block headline_forecast %}
-<div class="data headline-data">
-	<span class="data-item bold-medium">Highest forecast level<br/>in the next 36 hours</span>
-	<span class="data-item bold-xlarge headline--forecast">1.67m</span><span class="visuallyhidden">.</span>
-	<span class="data-item bold-xsmall">at 9.00pm on Thursday 12 Jan 2017</span>
-</div>
-{% endblock %}
-
-
-{% block chart_annotation %}
-<li style="top:-3px">Highest level on record at this location 
-	<span>(1.80m on 26 Dec 2015)</span>
-</li>
-<li style="top:85px">At this level some property flooding is possible here and in
-	<a class="scroll"href="#flood-warning">nearby areas</a>
-	<span>(1.50m)</span>
-</li>
-<li style="top:304px">At this level flooding of low-lying land is possible here and in
-	<a class="scroll" href="#flood-alert">nearby areas</a>
-	<span>(1.10m)</span>
-</li>
-{% endblock %}
-
-
-{% block chartLines %}
-<!-- Historic area -->
-<polyline class="cls-1" points="0 300 0 225 250 200 500 110 500 300"/>
-<!-- Forecast area -->
-<polygon class="cls-2" points="650 50 650 300 500 300 500 110"/>
-<!-- Vertical grid lines -->
-<line class="cls-3" x1="62.5" y1="0" x2="62.5" y2="300"/>
-<line class="cls-3" x1="162.5" y1="0" x2="162.5" y2="300"/>
-<line class="cls-3" x1="262.5" y1="0" x2="262.5" y2="300"/>
-<line class="cls-3" x1="362.5" y1="0" x2="362.5" y2="300"/>
-<line class="cls-3" x1="462.5" y1="0" x2="462.5" y2="300"/>
-<line class="cls-3" x1="562.5" y1="0" x2="562.5" y2="300"/>
-<!-- Horizontal grid lines -->
-<line class="cls-3" x1="0" y1="0" x2="650" y2="0"/>
-<line class="cls-3" x1="0" y1="150" x2="650" y2="150"/>
-<line class="cls-3" x1="0" y1="225" x2="650" y2="225"/>
-<!-- Historic line -->
-<polyline class="cls-8" points="0 225 250 200 500 110"/>
-<!-- Forecast line -->
-<polyline class="cls-10" points="650 50 500 110"/>
-<!-- Baseline -->
-<line class="cls-4" x1="0" y1="300" x2="650" y2="300"/>
-<!-- Alert threshold -->
-<line class="cls-13" x2="0" y2="262.5" x1="650" y1="262.5"/>
-<!-- Warning threshold -->
-<line class="cls-11" x2="0" y2="75" x1="650" y1="75"/>
-<!-- Highest recorded -->
-<line class="cls-14" x2="0" y2="0" x1="650" y1="0"/>
-{% endblock %}
-
-
-{% block chartLevels %}
-<ul>
-	<li>1.8m</li>
-	<li>1.6m</li>
-	<li>1.4m</li>
-	<li>1.2m</li>
-	<li>1.0m</li>
-</ul>
-{% endblock %}
-
-
-{% block chart_current_level %}
-<div class="now" style="left:75.8%;bottom:61.5%">
-	<span class="visuallyhidden">Current time and level</span>
-</div>
-{% endblock %}
-
-
-{% block stationLegend %}
-<ol>
-	<li>Recorded level
-		<span>(latest 1.49m)</span>
-	</li>
-	<li>Forecast level 
-		<span>(highest 1.67m)</span>
-	</li>
-</ol>
-{% endblock %}
-
-
-{% block highest_level %}
-<p class="font-xsmall">
-	<a href="#" onclick="return false;">Hide highest recorded level</a>
-</p>
-{% endblock %}
-
 
 {% block nearby_areas %}
 <h2 class="heading-medium" id="nearby-areas">What effect could these levels have on nearby areas?</h2>

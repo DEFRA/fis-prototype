@@ -10,12 +10,6 @@ module.exports = {
       res.render('long-term-flood-risk', { 'page_name': pageName })
     })
 
-    // Gauging station
-    app.get('/stations', function (req, res) {
-      var pageName = 'Measuring stations (v5)'
-      res.render('stations', { 'page_name': pageName })
-    })
-
     // River levels
     app.get('/river-levels', function (req, res) {
       var pageName = 'River levels'
@@ -90,8 +84,14 @@ module.exports = {
     })
 
     // Version 5
+    app.get('/stations-v5', function (req, res) {
+      var pageName = 'Measuring stations (v5)'
+      res.render('stations-v5', { 'page_name': pageName })
+    })
+
+    // Verson 6
     app.get('/stations', function (req, res) {
-      var pageName = 'Measuring stations'
+      var pageName = 'Measuring stations (v6)'
       res.render('stations', { 'page_name': pageName })
     })
 
