@@ -103,17 +103,17 @@ h1.heading-xlarge {
   margin-bottom:2em;
 }
 
+.lede-station {
+  margin-bottom:0;
+}
+
 // Station data
 
 .station-data {
-  margin-top:em(15,19);
-  border-top:1px solid $grey-2;
   h2 {
-    margin-top: em(25, 16);
-    margin-bottom: em(5, 16);
+    margin-top: em(30, 16);
     @include media(tablet) {
-      margin-top: em(30, 19);
-      margin-bottom: em(5, 19);
+      margin-top: em(35, 19);
     }
   }
 }
@@ -121,12 +121,10 @@ h1.heading-xlarge {
 // Target areas
 
 .target-areas {
-  border-top:1px solid $grey-2;
-  margin-top:em(20,19);
   h2 {
-    margin-top: em(25, 16);
+    margin-top: em(30, 16);
     @include media(tablet) {
-      margin-top: em(30, 19);
+      margin-top: em(35, 19);
     }
   }
   [tabindex='-1'] {
@@ -145,12 +143,10 @@ h1.heading-xlarge {
 // Nearby measuring stations
 
 .nearby-measuring-stations {
-  border-top:1px solid $grey-2;
-  margin-top:em(20,19);
   h2 {
-    margin-top: em(25, 16);
+    margin-top: em(30, 16);
     @include media(tablet) {
-      margin-top: em(30, 19);
+      margin-top: em(35, 19);
     }
   }
   .map-container {
@@ -250,23 +246,29 @@ h1.heading-xlarge {
 // Secondary nav
 
 .secondary-nav {
-  border-top:1px solid $grey-2;
-  margin-top:em(35,19);
+  margin-top: em(30, 16);
+  @include media(tablet) {
+    width:66.66%;
+    margin-top: em(50, 19);
+  }
   ul.secondary-links {
-    padding-top: em(30, 16);
-    @include media(tablet) {
-      padding-top: em(40, 19);
-    }
     margin-left:-15px;
     margin-right:-15px;
     li {
       padding:0 15px;
       box-sizing: border-box;
       @include media(tablet) {
-        width:33.33%;
+        width:50%;
         float:left;
       }
     }
   }
 }
 
+// Static map - Long term flood risk
+
+.ol-viewport {
+  background-image:url('/static/long-term-flood-risk/public/images/map-national.png');
+  background-position:top center;
+  background-repeat:no-repeat;
+}

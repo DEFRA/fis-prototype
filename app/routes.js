@@ -4,11 +4,38 @@ module.exports = {
       res.render('index', { 'asset_path': assetPath })
     })
 
-    // Long term flood risk
+    //
+    // Long term flood risk 
+    //
+    
+    // Start - Long term flood risk
     app.get('/long-term-flood-risk', function (req, res) {
       var pageName = 'Long term flood risk'
       res.render('long-term-flood-risk', { 'page_name': pageName })
     })
+
+    // Search - Long term flood risk
+    app.get('/long-term-flood-risk/search', function (req, res) {
+      var pageName = 'Long term flood risk'
+      res.render('long-term-flood-risk/search', { 'page_name': pageName })
+    })
+
+    // Risk - Long term flood risk
+    app.get('/long-term-flood-risk/risk', function (req, res) {
+      var pageName = 'Long term flood risk'
+      res.render('long-term-flood-risk/risk', { 'page_name': pageName })
+    })
+
+    // Map - Long term flood risk
+    app.get('/long-term-flood-risk/map', function (req, res) {
+      var pageName = 'Long term flood risk'
+      var national = req.query.address > 0 ? false : true;
+      res.render('long-term-flood-risk/map', { 'page_name': pageName, 'national': national })
+    })
+
+    //
+    // Flood information service 
+    //   
 
     // River levels
     app.get('/river-levels', function (req, res) {

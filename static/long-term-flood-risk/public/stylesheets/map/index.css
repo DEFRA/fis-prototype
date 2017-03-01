@@ -1,0 +1,467 @@
+.map-container ul.nav > li {
+  background-color: #000;
+}
+
+.map-container ul.nav > li:not(:last-child) {
+  margin-bottom: 20px;
+}
+
+.map-container ul.nav > li img {
+  width: 20%;
+  float: left;
+  padding: 0 8px 0px 4px;
+}
+
+.map-container ul.nav > li h2 {
+  color: #fff;
+  cursor: pointer;
+  font-size: 16px;
+  padding-top: 4px;
+}
+
+.map-container ul.nav > li a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.map-container ul.nav > li a:focus {
+  outline: none;
+}
+
+.map-container ul.nav > li ul {
+  clear: both;
+  color: #0b0c0c;
+  background-color: #fff;
+  border-left: solid 22px #E2E4E5;
+}
+
+.map-container ul.nav > li ul > li {
+  display: none;
+}
+
+.map-container ul.nav > li ul > li a {
+  color: #0b0c0c;
+  text-decoration: none;
+  padding: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  display: block;
+  padding-left: 34px;
+  border-top: solid 1px #E2E4E5;
+  background-size: 18px 18px;
+  background-repeat: no-repeat;
+  background-position: 4px center;
+  background-image: url(../../images/icon-radio-off.png);
+}
+
+.map-container ul.nav > li ul > li:first-child {
+  display: block;
+}
+
+.map-container ul.nav > li ul > li.selected a {
+  text-decoration: underline;
+  background-color: #ffbf47;
+  background-image: url(../../images/icon-radio-on.png);
+}
+
+.map-container.detailed ul.nav ul > li {
+  display: block;
+}
+
+.map-container .map-switch a {
+  text-decoration: none;
+}
+
+.map-container .map-switch a:focus {
+  outline: none;
+  background: none;
+}
+
+#map-overlay {
+  display: none;
+  position: absolute;
+  top: 2px;
+  left: 10px;
+  bottom: 2px;
+  right: 2px;
+  z-index: 101;
+  background-color: #fff;
+}
+
+@media (max-width: 640px) {
+  #map-overlay {
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    border: solid 2px #ffbf47;
+  }
+}
+
+#map-overlay .map-overlay-container {
+  height: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+#map-overlay .map-overlay-container .map-overlay-content {
+  position: absolute;
+  bottom: 0;
+  top: 0;
+  overflow: auto;
+}
+
+#map-overlay .map-overlay-container .map-overlay-content .heading-large {
+  margin-top: 10px;
+  padding-right: 70px;
+}
+
+#map-overlay .map-overlay-container .map-overlay-content .heading-large {
+  margin-top: 10px;
+}
+
+#map-overlay .map-overlay-container .map-overlay-close {
+  cursor: pointer;
+  position: absolute;
+  width: 45px;
+  height: 45px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-image: url(../../images/icon-close.png);
+  z-index: 1;
+  right: 20px;
+  background-color: #fff;
+}
+
+@media (max-width: 640px) {
+  #map-overlay .map-overlay-container .map-overlay-close {
+    width: 25px;
+    height: 25px;
+  }
+}
+
+#map-page h1.heading-xlarge {
+  margin-bottom: 0;
+}
+
+#map-page .map {
+  height: 700px;
+}
+
+@media (min-width: 641px) {
+  #map-page .map {
+    border: solid #ffbf47;
+    border-width: 2px 2px 2px 10px;
+  }
+}
+
+#map-page .map-container {
+  margin: 24px 0;
+  background-color: #E2E4E5;
+}
+
+@media (max-width: 640px) {
+  #map-page .map-container {
+    height: auto;
+  }
+}
+
+@media (min-width: 641px) {
+  #map-page .map-container {
+    padding: 15px;
+  }
+}
+
+#map-page .map-container .lhs {
+  width: 215px;
+  float: left;
+}
+
+@media (max-width: 640px) {
+  #map-page .map-container .lhs {
+    display: none;
+  }
+}
+
+#map-page .map-container .rhs {
+  position: relative;
+}
+
+@media (min-width: 641px) {
+  #map-page .map-container .rhs {
+    margin-left: 215px;
+  }
+}
+
+@media (min-width: 641px) {
+  #map-page .map-container .rhs {
+    padding-left: 0;
+  }
+}
+
+@media (min-width: 641px) {
+  #map-page .map-container .rhs .controls {
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    width: 100px;
+    bottom: 2px;
+    text-align: center;
+  }
+}
+
+#map-page .map-container .rhs .controls {
+  padding: 14px;
+  overflow: hidden;
+  background-color: #fff;
+}
+
+@media (min-width: 641px) {
+  #map-page .map-container .rhs .controls {
+    background-color: rgba(255, 255, 255, 0.9);
+  }
+}
+
+#map-page .map-container .rhs .controls .heading-small {
+  font-size: medium;
+}
+
+#map-page .map-container .rhs .controls .legend .subtitle {
+  font-size: 14px;
+}
+
+#map-page .map-container .rhs .controls .legend ul {
+  font-size: 14px;
+  display: inline-block;
+}
+
+#map-page .map-container .rhs .controls .legend ul li::before {
+  width: 50px;
+  height: 50px;
+  content: '';
+  display: inline-block;
+}
+
+#map-page .map-container .rhs .controls .legend ul li.round::before {
+  border-radius: 50%;
+}
+
+#map-page .map-container .rhs .controls .legend ul li.purple::before {
+  background-color: #3D4489;
+}
+
+#map-page .map-container .rhs .controls .legend ul li.dark-blue::before {
+  background-color: #6699CD;
+}
+
+#map-page .map-container .rhs .controls .legend ul li.blue::before {
+  background-color: #A2CFFF;
+}
+
+#map-page .map-container .rhs .controls .legend ul li.light-blue::before {
+  background-color: #C4E1FF;
+}
+
+#map-page .map-container .rhs .controls .legend ul li.green::before {
+  background-color: #00FF21;
+}
+
+#map-page .map-container .rhs .controls .legend ul li.red::before {
+  background-color: #CE0000;
+}
+
+#map-page .map-container .rhs .controls .legend ul li.white::before {
+  background-color: #FFF;
+  border: solid 2px #b9b9b9;
+}
+
+#map-page .map-container .rhs .controls .legend ul li.arrow::before {
+  content: '\003C';
+  font-size: x-large;
+  -webkit-transform: rotate(30deg);
+  -moz-transform: rotate(30deg);
+  -o-transform: rotate(30deg);
+  -ms-transform: rotate(30deg);
+  transform: rotate(30deg);
+}
+
+@media (max-width: 640px) {
+  #map-page .map-container .rhs .controls .legend ul li.arrow::before {
+    line-height: 20px;
+  }
+}
+
+@media (min-width: 641px) {
+  #map-page .map-container .rhs .controls .legend ul li.arrow::before {
+    line-height: 65px;
+  }
+}
+
+#map-page .map-container .rhs .controls .legend ul li.crosshair {
+  margin-top: 20px;
+}
+
+#map-page .map-container .rhs .controls .legend ul li.crosshair::before {
+  width: 30px;
+  height: 30px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center bottom;
+  background-image: url("../../images/crosshair.png");
+}
+
+@media (max-width: 640px) {
+  #map-page .map-container .rhs .controls .legend ul li.crosshair::before {
+    line-height: 20px;
+  }
+}
+
+@media (min-width: 641px) {
+  #map-page .map-container .rhs .controls .legend ul li.crosshair::before {
+    line-height: 65px;
+  }
+}
+
+@media (min-width: 641px) {
+  #map-page .map-container .rhs .controls .legend ul li {
+    margin-bottom: 10px;
+  }
+}
+
+@media (max-width: 640px) {
+  #map-page .map-container .rhs .controls .legend ul li {
+    margin-right: 10px;
+    margin-bottom: 5px;
+    display: inline-block;
+  }
+  #map-page .map-container .rhs .controls .legend ul li::before {
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
+  }
+  #map-page .map-container .rhs .controls .legend ul li div {
+    display: inline;
+    margin-left: 3px;
+    vertical-align: middle;
+  }
+}
+
+@media (max-width: 640px) {
+  #map-page .map-container .rhs .controls .legend strong {
+    margin-right: 10px;
+  }
+}
+
+@media (min-width: 641px) {
+  #map-page .map-container .rhs .controls .print {
+    left: 0;
+    right: 0;
+    bottom: 0;
+    position: absolute;
+  }
+}
+
+@media (min-width: 641px) {
+  #map-page .map-container .rhs .ol-full-screen, #map-page .map-container .rhs .ol-attribution {
+    right: 135px;
+  }
+}
+
+#map-page .map-container .map-switch {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+#map-page .map-container .map-switch a {
+  color: #0b0c0c;
+  cursor: pointer;
+}
+
+#map-page .map-container .map-switch img {
+  width: 60px;
+  vertical-align: middle;
+}
+
+#map-page .map-container .map-switch img.detailed {
+  display: none;
+}
+
+#map-page .map-container .enter-fullscreen {
+  z-index: 100;
+  display: block;
+}
+
+#map-page .map-container .exit-fullscreen {
+  z-index: 100;
+  display: none;
+}
+
+#map-page .map-container.detailed .map-switch img.basic {
+  display: none;
+}
+
+#map-page .map-container.detailed .map-switch img.detailed {
+  display: inline;
+}
+
+#map-page.fullscreen > :not(.map-container) {
+  display: none;
+}
+
+#map-page.fullscreen > .map-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 10;
+  margin: 0;
+}
+
+@media (max-width: 640px) {
+  #map-page.fullscreen .map-container {
+    padding: 10px;
+  }
+}
+
+#map-page.fullscreen .enter-fullscreen {
+  display: none;
+}
+
+#map-page.fullscreen .exit-fullscreen {
+  display: block;
+}
+
+#map-page .ol-full-screen.ol-control.toggle-fullscreen button {
+  width: auto;
+  background-color: rgba(227, 228, 229, 0.7);
+  color: #005ea5;
+  padding: 3px;
+  font-weight: normal;
+  font-size: 14px;
+  cursor: pointer;
+  height: 25px;
+}
+
+#map-page .ol-full-screen.ol-control.toggle-fullscreen button span {
+  text-decoration: underline;
+}
+
+#map-page .ol-rotate {
+  top: 3em;
+}
+
+#map-page .eu-directive {
+  color: #6f777b;
+}
+
+#map-page #progress {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 2px;
+  background: rgba(0, 94, 165, 0.9);
+  width: 0;
+  transition: width 250ms;
+  z-index: 1;
+}

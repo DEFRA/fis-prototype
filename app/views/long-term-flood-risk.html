@@ -18,7 +18,7 @@
     </p>
   </div>
 
-			<link rel="stylesheet" type="text/css" href="static/long-term-flood-risk/public/stylesheets/home/index.css">
+<link rel="stylesheet" type="text/css" href="static/long-term-flood-risk/public/stylesheets/home/index.css">
 <main id="home-page">
   <section class="mission">
     <h1 class="heading-xlarge">Long term flood risk assessment for locations in England</h1>
@@ -37,7 +37,7 @@
       <form method="get" action="/long-term-flood-risk/search">
         <div class="form-group">
           <label class="form-label" for="postcode">Postcode</label>
-          <input class="form-control" name="postcode" id="postcode" type="text" placeholder="Enter a postcode" title="A valid postcode in England is required" autocomplete="off">
+          <input value="M3 6AQ" class="form-control" name="postcode" id="postcode" type="text" placeholder="Enter a postcode" title="A valid postcode in England is required" autocomplete="off">
         </div>
         <div class="form-group">
           <button class="button" type="submit" title="Find address">Find address</button>
@@ -48,7 +48,8 @@
   <details>
     <summary><span class="summary">I don't know the postcode</span></summary>
     <div class="panel panel-border-narrow">
-      You can look for postcodes using the <a href="http://www.royalmail.com/find-a-postcode" target="_blank">Royal Mail find a postcode service</a>
+      <p>You can look for postcodes using the <a href="http://www.royalmail.com/find-a-postcode" target="_blank">Royal Mail find a postcode service</a></p>
+      <p><a href="/long-term-flood-risk/map">View a map showing flood risk areas</a></p>
     </div>
   </details>
   <br>

@@ -2757,35 +2757,27 @@ h1.heading-xlarge {
   margin-bottom: 2em;
 }
 
-.station-data {
-  margin-top: 0.7894736842em;
-  border-top: 1px solid #bfc1c3;
+.lede-station {
+  margin-bottom: 0;
 }
 
 .station-data h2 {
-  margin-top: 1.5625em;
-  margin-bottom: 0.3125em;
+  margin-top: 1.875em;
 }
 
 @media (min-width: 641px) {
   .station-data h2 {
-    margin-top: 1.5789473684em;
-    margin-bottom: 0.2631578947em;
+    margin-top: 1.8421052632em;
   }
 }
 
-.target-areas {
-  border-top: 1px solid #bfc1c3;
-  margin-top: 1.0526315789em;
-}
-
 .target-areas h2 {
-  margin-top: 1.5625em;
+  margin-top: 1.875em;
 }
 
 @media (min-width: 641px) {
   .target-areas h2 {
-    margin-top: 1.5789473684em;
+    margin-top: 1.8421052632em;
   }
 }
 
@@ -2798,18 +2790,16 @@ h1.heading-xlarge {
 }
 
 .nearby-measuring-stations {
-  border-top: 1px solid #bfc1c3;
-  margin-top: 1.0526315789em;
   margin-bottom: 2.1052631579em;
 }
 
 .nearby-measuring-stations h2 {
-  margin-top: 1.5625em;
+  margin-top: 1.875em;
 }
 
 @media (min-width: 641px) {
   .nearby-measuring-stations h2 {
-    margin-top: 1.5789473684em;
+    margin-top: 1.8421052632em;
   }
 }
 
@@ -2924,20 +2914,19 @@ h1.heading-xlarge {
 }
 
 .secondary-nav {
-  border-top: 1px solid #bfc1c3;
-  margin-top: 1.8421052632em;
-}
-
-.secondary-nav ul.secondary-links {
-  padding-top: 1.875em;
-  margin-left: -15px;
-  margin-right: -15px;
+  margin-top: 1.875em;
 }
 
 @media (min-width: 641px) {
-  .secondary-nav ul.secondary-links {
-    padding-top: 2.1052631579em;
+  .secondary-nav {
+    width: 66.66%;
+    margin-top: 2.6315789474em;
   }
+}
+
+.secondary-nav ul.secondary-links {
+  margin-left: -15px;
+  margin-right: -15px;
 }
 
 .secondary-nav ul.secondary-links li {
@@ -2947,7 +2936,13 @@ h1.heading-xlarge {
 
 @media (min-width: 641px) {
   .secondary-nav ul.secondary-links li {
-    width: 33.33%;
+    width: 50%;
     float: left;
   }
+}
+
+.ol-viewport {
+  background-image: url("/static/long-term-flood-risk/public/images/map-national.png");
+  background-position: top center;
+  background-repeat: no-repeat;
 }
