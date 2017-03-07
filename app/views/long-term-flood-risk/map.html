@@ -3,8 +3,9 @@
 {% block page_title %}Long term flood risk - GOV.UK{% endblock %}
 
 {% block head %}
+  <link rel="stylesheet" type="text/css" href="/static/long-term-flood-risk/public/stylesheets/map/index.css">
+  <link rel="stylesheet" href="/static/long-term-flood-risk/public/stylesheets/style.css">
   {% include "partials/head.html" %}  
-  <link rel="stylesheet" type="text/css" href="/static/long-term-flood-risk/public/stylesheets/application.css">
   {% include "partials/snippets_head.html" %}
 {% endblock %}
 
@@ -21,7 +22,6 @@
   </div>
 
   <link rel="stylesheet" type="text/css" href="/static/long-term-flood-risk/public/stylesheets/ol.css">
-  <link rel="stylesheet" type="text/css" href="/static/long-term-flood-risk/public/stylesheets/map/index.css">
 
   <main id="map-page">
 
@@ -51,14 +51,36 @@
     </div>
 
     <div class="map-container nojs-hide ie-hide">
-      <div class="map-switch hidden-mobile">
-        <a href="#" class="toggle-view">
-        Basic view&nbsp;
-        <img src="/static/long-term-flood-risk/public/images/icon-detailed-off.png" alt="basic" class="basic">
-        <img src="/static/long-term-flood-risk/public/images/icon-detailed-on.png" alt="detailed" class="detailed">
-        &nbsp;Detailed view
-        </a>
+      <div class="map-controls clearfix">
+        <div class="map-switch hidden-mobile">
+          <a href="#" class="toggle-view">
+          Basic view&nbsp;
+          <img src="/static/long-term-flood-risk/public/images/icon-detailed-off.png" alt="basic" class="basic">
+          <img src="/static/long-term-flood-risk/public/images/icon-detailed-on.png" alt="detailed" class="detailed">
+          &nbsp;Detailed view
+          </a>
+        </div>
+        <div class="map-search">
+          <form class="clearfix">
+            <label class="form-label" for="txtSearch">Location</label>
+            <div class="map-search-input">
+              <input id="txtSearch" name="location" title="Enter a place" placeholder="Enter a place" type="text">
+            </div>
+            <button id="mapSearch" title="Search Location" class="button">
+              <i class="fa fa-search" title="Search Location"></i>
+            </button>
+          </form>
+          <div id="error-message">No results match your search term.</div>
+        </div>
       </div>
+      <div class="local-details">
+        <div class="inner-content">
+          <p>Search results for <em class="bold-small">Carlisle</em></p>
+          <ul>
+            <li><a href="">Carlisle</a></li>
+          </ul>
+        </div>
+      </div>      
       <div class="visible-mobile">
         <select>
             <optgroup label="Flood risk from rivers or the sea">

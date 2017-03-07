@@ -2503,6 +2503,122 @@ h1.heading-xlarge {
   float: left;
 }
 
+.map-controls {
+  padding: 10px;
+  overflow: visible;
+  position: relative;
+  padding: 0 0 13px 0;
+}
+
+#map-page .map-container .map-switch {
+  float: left;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  margin-right: 0;
+  width: 35%;
+}
+
+.map-search {
+  float: right;
+  width: 65%;
+  margin-top: -3px;
+}
+
+.map-controls form {
+  position: relative;
+  display: block;
+  padding: 3px;
+}
+
+.map-controls .form-label {
+  display: none;
+  text-align: right;
+  float: left;
+  margin-top: 3px;
+  left: 0;
+  width: 30%;
+  display: block;
+  padding-top: 7px;
+}
+
+.map-controls .button {
+  float: left;
+  width: 40px;
+  height: 29px;
+  margin: 0;
+  position: absolute;
+  margin-top: 3px;
+  right: 0;
+  width: 46px;
+  height: 34px;
+}
+
+.map-controls .button i {
+  width: 21px;
+  margin-left: -1px;
+  color: #fff;
+}
+
+.map-search .map-search-input {
+  position: absolute;
+  width: auto;
+  margin-top: 3px;
+  left: 32.5%;
+  right: 65px;
+}
+
+.map-controls input {
+  float: left;
+  width: 70%;
+  padding: 4px 6px 2px 9px;
+  margin: auto;
+  width: 100%;
+}
+
+#error-message {
+  clear: both;
+  display: block;
+  padding-left: 10px;
+  margin: 10px 15px 0 4px;
+  border-left: 3px solid #b10e1e;
+  color: #b10e1e;
+  margin-left: 32.5%;
+}
+
+.local-details {
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.local-details .inner-content {
+  position: relative;
+  padding: 1em;
+  background-color: #fff;
+  border-left: solid 5px #e2e4e5;
+  border-right: solid 5px #e2e4e5;
+  margin: 0 -7px 15px -7px;
+  margin-left: -5px;
+  margin-right: -5px;
+}
+
+.print-link {
+  font-family: "nta", Arial, sans-serif;
+  font-weight: 400;
+  text-transform: none;
+  font-size: 14px;
+  line-height: 1.1428571429;
+  font-size: 16px;
+  line-height: 1.25;
+  margin-bottom: 1.2em;
+}
+
+.print-link a {
+  background: url("/public/images/icon-print.png") no-repeat 0% 50%;
+  padding: 0.5em 0 0.5em 28px;
+}
+
 .ol-viewport {
   background-image: url("/static/long-term-flood-risk/public/images/map-national.png");
   background-position: top center;
