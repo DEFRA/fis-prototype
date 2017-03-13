@@ -123,15 +123,20 @@ module.exports = {
     })
 
     //
-    // Holding pages
+    // Paterns pages
     //
 
-    // Graph
+    // Graphs
     app.get('/graphs', function (req, res) {
       var pageName = 'Graphs'
       res.render('graphs', { 'page_name': pageName })
     })
 
+    // Maps
+    app.get('/maps', function (req, res) {
+      var pageName = 'Maps'
+      res.render('maps', { 'page_name': pageName })
+    })
 
     //
     // Holding pages

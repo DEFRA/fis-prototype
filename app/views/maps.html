@@ -1,0 +1,129 @@
+{% extends "layout.html" %}
+
+{% block page_title %}Graphs - FIS Prototype - GOV.UK{% endblock %}
+
+{% block head %}
+  {% include "partials/head.html" %}
+  {% include "partials/snippets_head.html" %}
+  <link rel="stylesheet" href="https://openlayers.org/en/v3.19.1/css/ol.css" type="text/css">
+  <script src="https://openlayers.org/en/v3.19.1/build/ol.js" type="text/javascript"></script>
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main" tabindex="-1">
+
+	{% include "partials/phase_banner.html" %}
+	{% include "partials/breadcrumb.html" %}
+
+	<div class="grid-row">
+
+		<div class="column-two-thirds">
+
+			<h1 class="heading-xlarge">
+				<span class="heading-secondary">FIS Prototype</span>
+				Maps
+			</h1>
+
+		</div>
+
+	</div>
+
+	<div class="grid-row">
+
+		<div class="column-two-thirds">
+
+			<section aria-labelledby="flood-warning-area" role="region">
+
+				<h2 id="flood-warning-area" class="heading-medium">
+					Flood alert area
+				</h2>       
+
+				<div class="map" id="map"></div>
+
+			</section>
+
+		</div>
+
+	</div>
+
+</main>
+
+<!-- Open layers -->
+<script type="text/javascript">
+	var geoJSON1 = {
+		'type': 'Feature',
+		'properties': {
+			'id': 'shape'
+		},
+		'geometry': {
+			'type': 'MultiPolygon',
+			'coordinates': {% include "snippets/061waf06coln.txt" %}
+		}
+	};
+	var geoJSON2 = {
+		'type': 'Feature',
+		'properties': {
+			'id': 'shape'
+		},
+		'geometry': {
+			'type': 'MultiPolygon',
+			'coordinates': {% include "snippets/061fwf23CalcLech.txt" %}
+		}
+	};
+	var map = new ol.Map({
+		target: 'map',
+		layers: [
+			new ol.layer.Tile({
+				source: new ol.source.OSM()
+			}),
+			new ol.layer.Vector({
+				source: new ol.source.Vector({
+					features: (new ol.format.GeoJSON()).readFeatures(geoJSON1, {
+						dataProjection: 'EPSG:4326',
+						featureProjection: 'EPSG:3857'
+					})
+				}),
+				style: new ol.style.Style({
+					stroke: new ol.style.Stroke({
+						color: 'rgba(241,135,0,1)',
+						width: 2
+					}),
+					fill: new ol.style.Fill({
+						color: 'rgba(241,135,0,0.6)'
+					})
+				})
+			}),
+			new ol.layer.Vector({
+				source: new ol.source.Vector({
+					features: (new ol.format.GeoJSON()).readFeatures(geoJSON2, {
+						dataProjection: 'EPSG:4326',
+						featureProjection: 'EPSG:3857'
+					})
+				}),
+				style: new ol.style.Style({
+					stroke: new ol.style.Stroke({
+						color: 'rgba(241,135,0,0)',
+						width: 2
+					}),
+					fill: new ol.style.Fill({
+						color: 'rgba(241,135,0,0.4)'
+					})
+				})
+			})
+		],
+		view: new ol.View({
+			center: ol.proj.fromLonLat([-1.83,51.77]),
+			zoom: 10
+		})
+	});
+</script>
+<!-- / Open layers -->
+
+{% endblock %}
+
+{% block body_end %}
+  <!-- GOV.UK elements redirect -->
+  <!--<script src="/public/javascripts/redirect.js"></script>-->
+  {% include "partials/scripts.html" %}
+{% endblock %}

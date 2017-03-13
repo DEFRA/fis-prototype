@@ -2264,6 +2264,10 @@ table.table-levels tbody .error:before {
   fill: #c1dfe4;
 }
 
+.map {
+  height: 450px;
+}
+
 .phase-banner-disclaimer {
   margin-top: 15px;
   border: 1px solid #bfc1c3;
