@@ -49,81 +49,60 @@
 
 </main>
 
-<!-- Open layers -->
-<script type="text/javascript">
-	var geoJSON1 = {
-		'type': 'Feature',
-		'properties': {
-			'id': 'shape'
-		},
-		'geometry': {
-			'type': 'MultiPolygon',
-			'coordinates': {% include "snippets/061waf06coln.txt" %}
-		}
-	};
-	var geoJSON2 = {
-		'type': 'Feature',
-		'properties': {
-			'id': 'shape'
-		},
-		'geometry': {
-			'type': 'MultiPolygon',
-			'coordinates': {% include "snippets/061fwf23CalcLech.txt" %}
-		}
-	};
-	var map = new ol.Map({
-		target: 'map',
-		layers: [
-			new ol.layer.Tile({
-				source: new ol.source.OSM()
-			}),
-			new ol.layer.Vector({
-				source: new ol.source.Vector({
-					features: (new ol.format.GeoJSON()).readFeatures(geoJSON1, {
-						dataProjection: 'EPSG:4326',
-						featureProjection: 'EPSG:3857'
-					})
-				}),
-				style: new ol.style.Style({
-					stroke: new ol.style.Stroke({
-						color: 'rgba(241,135,0,1)',
-						width: 2
-					}),
-					fill: new ol.style.Fill({
-						color: 'rgba(241,135,0,0.6)'
-					})
-				})
-			}),
-			new ol.layer.Vector({
-				source: new ol.source.Vector({
-					features: (new ol.format.GeoJSON()).readFeatures(geoJSON2, {
-						dataProjection: 'EPSG:4326',
-						featureProjection: 'EPSG:3857'
-					})
-				}),
-				style: new ol.style.Style({
-					stroke: new ol.style.Stroke({
-						color: 'rgba(241,135,0,0.5)',
-						width: 2
-					}),
-					fill: new ol.style.Fill({
-						color: 'rgba(241,135,0,0.4)'
-					})
-				})
-			})
-		],
-		view: new ol.View({
-			center: ol.proj.fromLonLat([-1.83,51.77]),
-			zoom: 10
-		})
-	});
-</script>
-<!-- / Open layers -->
-
 {% endblock %}
 
 {% block body_end %}
   <!-- GOV.UK elements redirect -->
   <!--<script src="/public/javascripts/redirect.js"></script>-->
   {% include "partials/scripts.html" %}
+  <!-- Open layers -->
+	<script type="text/javascript">
+
+		var geoJSON1 = '/public/javascripts/json/061waf06Coln.json';
+		var geoJSON2 = '/public/javascripts/json/061fwf23CalcLech.json';
+
+		var map = new ol.Map({
+			target: 'map',
+			layers: [
+				new ol.layer.Tile({
+					source: new ol.source.OSM()
+				}),
+				new ol.layer.Vector({
+					source: new ol.source.Vector({
+						format: new ol.format.GeoJSON(),
+						url: geoJSON1
+					}),
+					style: new ol.style.Style({
+						stroke: new ol.style.Stroke({
+							color: 'rgba(241,135,0,1)',
+							width: 2
+						}),
+						fill: new ol.style.Fill({
+							color: 'rgba(241,135,0,0.6)'
+						})
+					})
+				}),
+				new ol.layer.Vector({
+					source: new ol.source.Vector({
+						format: new ol.format.GeoJSON(),
+						url: geoJSON2
+					}),
+					style: new ol.style.Style({
+						stroke: new ol.style.Stroke({
+							color: 'rgba(241,135,0,0.5)',
+							width: 2
+						}),
+						fill: new ol.style.Fill({
+							color: 'rgba(241,135,0,0.4)'
+						})
+					})
+				})
+			],
+			view: new ol.View({
+				center: ol.proj.fromLonLat([-1.83,51.77]),
+				zoom: 10
+			})
+		});
+	</script>
+	<!-- / Open layers <--></-->
 {% endblock %}
