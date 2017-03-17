@@ -5,7 +5,8 @@
 {% block head %}
   {% include "partials/head.html" %}
   {% include "partials/snippets_head.html" %}
-  <link rel="stylesheet" href="https://openlayers.org/en/v3.19.1/css/ol.css" type="text/css">
+  <!--<link rel="stylesheet" href="https://openlayers.org/en/v3.19.1/css/ol.css" type="text/css">-->
+  <link rel="stylesheet" href="/public/stylesheets/vendor/ol.css" type="text/css">
   <script src="https://openlayers.org/en/v3.19.1/build/ol.js" type="text/javascript"></script>
 {% endblock %}
 
@@ -55,7 +56,11 @@
   <!-- GOV.UK elements redirect -->
   <!--<script src="/public/javascripts/redirect.js"></script>-->
   {% include "partials/scripts.html" %}
+
   <!-- Open layers -->
+  <!-- Below is for visual and interaction reference only -->
+  <!-- Will need to be converted to production code -->
+
 	<script type="text/javascript">
 
 		var geoJSON1 = '/public/javascripts/json/061waf06Coln.json';
@@ -103,6 +108,16 @@
 				zoom: 10
 			})
 		});
+
+		// Change pointer type when element is clickable
+		map.on('pointermove', function (e) {
+			var pixel = map.getEventPixel(e.originalEvent);
+			var hit = map.hasFeatureAtPixel(pixel);
+			map.getViewport().style.cursor = hit ? 'pointer' : '';
+		});
+
 	</script>
-	<!-- / Open layers <--></-->
+
+	<!-- / Visual and interaction reference -->
+	<!-- / Open layers -->
 {% endblock %}
