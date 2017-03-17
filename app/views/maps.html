@@ -37,10 +37,16 @@
 			<section aria-labelledby="flood-warning-area" role="region">
 
 				<h2 id="flood-warning-area" class="heading-medium">
-					Flood alert area
+					Flood alert area - Option A
 				</h2>       
 
 				<div class="map" id="map"></div>
+
+				<h2 id="flood-warning-area" class="heading-medium">
+					Flood alert area - Option B
+				</h2>       
+
+				<div class="map" id="map-b"></div>
 
 			</section>
 
@@ -75,7 +81,9 @@
 				new ol.layer.Vector({
 					source: new ol.source.Vector({
 						format: new ol.format.GeoJSON(),
-						url: geoJSON1
+						url: geoJSON1,
+						defaultProjection :'EPSG:4326', 
+						projection: 'EPSG:3857'
 					}),
 					style: new ol.style.Style({
 						stroke: new ol.style.Stroke({
@@ -90,7 +98,9 @@
 				new ol.layer.Vector({
 					source: new ol.source.Vector({
 						format: new ol.format.GeoJSON(),
-						url: geoJSON2
+						url: geoJSON2,
+						defaultProjection :'EPSG:4326', 
+						projection: 'EPSG:3857'
 					}),
 					style: new ol.style.Style({
 						stroke: new ol.style.Stroke({
@@ -109,11 +119,63 @@
 			})
 		});
 
+		/* Option B */
+
+		var mapB = new ol.Map({
+			target: 'map-b',
+			layers: [
+				new ol.layer.Tile({
+					source: new ol.source.OSM()
+				}),
+				new ol.layer.Vector({
+					source: new ol.source.Vector({
+						format: new ol.format.GeoJSON(),
+						url: geoJSON1,
+						defaultProjection :'EPSG:4326', 
+						projection: 'EPSG:3857'
+					}),
+					style: new ol.style.Style({
+						stroke: new ol.style.Stroke({
+							color: 'rgba(241,135,0,1)',
+							width: 2
+						}),
+						fill: new ol.style.Fill({
+							color: 'rgba(241,135,0,0.6)'
+						})
+					})
+				}),
+				new ol.layer.Vector({
+					source: new ol.source.Vector({
+						format: new ol.format.GeoJSON(),
+						url: geoJSON2,
+						defaultProjection :'EPSG:4326', 
+						projection: 'EPSG:3857'
+					}),
+					style: new ol.style.Style({
+						fill: new ol.style.Fill({
+							color: 'rgba(0,0,0,0.4)'
+						})
+					})
+				})
+			],
+			view: new ol.View({
+				center: ol.proj.fromLonLat([-1.83,51.77]),
+				zoom: 10
+			})
+		});
+
 		// Change pointer type when element is clickable
 		map.on('pointermove', function (e) {
 			var pixel = map.getEventPixel(e.originalEvent);
 			var hit = map.hasFeatureAtPixel(pixel);
 			map.getViewport().style.cursor = hit ? 'pointer' : '';
+		});
+
+		/* Option B */
+		mapB.on('pointermove', function (e) {
+			var pixel = mapB.getEventPixel(e.originalEvent);
+			var hit = mapB.hasFeatureAtPixel(pixel);
+			mapB.getViewport().style.cursor = hit ? 'pointer' : '';
 		});
 
 	</script>
