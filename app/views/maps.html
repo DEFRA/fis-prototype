@@ -42,23 +42,18 @@
 
 				<div class="map" id="map"></div>
 
-				<h2 id="flood-warning-area" class="heading-medium">
+
+				<h2 id="flood-alert-area" class="heading-medium">
 					Alert
 				</h2>       
 
 				<div class="map" id="map-b"></div>
-
+				
 				<h2 id="flood-warning-area" class="heading-medium">
 					Warning no longer in force
 				</h2>       
 
 				<div class="map" id="map-c"></div>
-
-				<h2 id="flood-warning-area" class="heading-medium">
-					Target area
-				</h2>       
-
-				<div class="map" id="map-d"></div>
 
 			</section>
 
@@ -84,195 +79,245 @@
 		var geoJSON1 = '/public/javascripts/json/061waf06Coln.json';
 		var geoJSON2 = '/public/javascripts/json/061fwf23CalcLech.json';
 
-		var selectedBg = new ol.style.Style({
-			stroke: new ol.style.Stroke({ color: '#ffffff', width: 3 }), zIndex: 1
+		//
+		//
+		// Styles
+		//
+		//
+
+		// Higlighted style displays a 4px border to the outside of the target area
+		var styleSelectedBg = new ol.style.Style({
+			stroke: new ol.style.Stroke({ color: 'rgb(255,170,0)', width: 8, miterLimit: 2, lineJoin: 'round' }), zIndex: 1,
+			fill: new ol.style.Fill({ color: 'rgb(255,170,0)', miterLimit: 2, lineJoin: 'round' })
 		});
 
-		// Warning styles
-
-		var selectedWarning = new ol.style.Style({
-			fill: new ol.style.Fill({ color: 'rgba(227,0,15,0.3)' }),			
-			stroke: new ol.style.Stroke({ color: '#c4000b', width: 1 }), zIndex: 1
+		// Visual representation only: Used to maintain colour consistent with non-highligthed areas
+		var styleBg = new ol.style.Style({
+			stroke: new ol.style.Stroke({ color: 'rgb(255,170,0)', width: 1, miterLimit: 2, lineJoin: 'round' }), zIndex: 1,
+			fill: new ol.style.Fill({ color: 'rgb(255,170,0)', miterLimit: 2, lineJoin: 'round' })
 		});
 
-		var unselectedWarning = new ol.style.Style({
-			fill: new ol.style.Fill({ color: 'rgba(227,0,15,0.6)' }),
-			stroke: new ol.style.Stroke({ color: '#e3000f', width: 1, lineCap: 'round' }), zIndex: 2
+		// Warning
+
+		var styleWarning = new ol.style.Style({
+			fill: new ol.style.Fill({ color: 'rgba(230,8,13,1)', miterLimit: 2, lineJoin: 'round' }),			
+			stroke: new ol.style.Stroke({ color: 'rgba(230,8,13,1)', width: 2, miterLimit: 2, lineJoin: 'round' }), zIndex: 1
 		});
 
-		// Alert styles
+		// Alert
 
-		var selectedAlert = new ol.style.Style({
-			fill: new ol.style.Fill({ color: 'rgba(241,135,0,0.3)' }),			
-			stroke: new ol.style.Stroke({ color: '#e06b00', width: 1 }), zIndex: 1
+		var styleAlert = new ol.style.Style({
+			fill: new ol.style.Fill({ color: '#e06b00' }),			
+			stroke: new ol.style.Stroke({ color: '#e06b00', width: 2, miterLimit: 2, lineJoin: 'round' }), zIndex: 1
 		});
 
-		var unselectedAlert = new ol.style.Style({
-			fill: new ol.style.Fill({ color: 'rgba(241,135,0,0.6)' }),
-			stroke: new ol.style.Stroke({ color: '#f18700', width: 1, lineCap: 'round' }), zIndex: 2
+		// Warning no longer in force (Removed)
+
+		var styleRemoved = new ol.style.Style({
+			fill: new ol.style.Fill({ color: 'rgb(123,123,123)' }),			
+			stroke: new ol.style.Stroke({ color: 'rgb(123,123,123)', width: 2, miterLimit: 2, lineJoin: 'round' }), zIndex: 1
 		});
-
-		// Warning no longer in force styles
-
-		var selectedWarningRemoved = new ol.style.Style({
-			fill: new ol.style.Fill({ color: 'rgba(111,119,123,0.3)' }),			
-			stroke: new ol.style.Stroke({ color: '#575e61', width: 1 }), zIndex: 1
-		});
-
-		var unselectedWarningRemoved = new ol.style.Style({
-			fill: new ol.style.Fill({ color: 'rgba(111,119,123,0.5)' }),
-			stroke: new ol.style.Stroke({ color: '#6F777B', width: 1, lineCap: 'round' }), zIndex: 2
-		});
-
-		// Target area styles
-
-		var selectedArea = new ol.style.Style({
-			fill: new ol.style.Fill({ color: 'rgba(111,119,123,0.3)' }),			
-			stroke: new ol.style.Stroke({ color: '#575e61', width: 1, lineDash: [4,2] }), zIndex: 1
-		});
-
-		var unselectedArea = new ol.style.Style({
-			fill: new ol.style.Fill({ color: 'rgba(111,119,123,0.5)' }),
-			stroke: new ol.style.Stroke({ color: '#6F777B', width: 1, lineCap: 'round', lineDash: [4,2] }), zIndex: 2
-		});
-
+		
+		
+		//
+		//
 		// Warning or sever warning map
+		//
+		//
+
+		var title = new ol.layer.Tile({
+			source: new ol.source.OSM()
+		});
+
+		var area1 = new ol.layer.Vector({
+			source: new ol.source.Vector({
+				format: new ol.format.GeoJSON(),
+				url: geoJSON2,
+				defaultProjection :'EPSG:4326', 
+				projection: 'EPSG:3857'
+			}),
+			style: [styleBg, styleWarning],
+			opacity: 0.75
+		});
+
+		var area2 = new ol.layer.Vector({
+			source: new ol.source.Vector({
+				format: new ol.format.GeoJSON(),
+				url: geoJSON1,
+				defaultProjection :'EPSG:4326', 
+				projection: 'EPSG:3857'
+			}),
+			style: [styleSelectedBg, styleWarning],
+			opacity: 0.75,
+			zIndex: 1
+		});
 
 		var map = new ol.Map({
 			target: 'map',
-			layers: [
-				new ol.layer.Tile({
-					source: new ol.source.OSM()
-				}),
-				new ol.layer.Vector({
-					source: new ol.source.Vector({
-						format: new ol.format.GeoJSON(),
-						url: geoJSON2,
-						defaultProjection :'EPSG:4326', 
-						projection: 'EPSG:3857'
-					}),
-					style: [unselectedWarning]
-				}),
-				new ol.layer.Vector({
-					source: new ol.source.Vector({
-						format: new ol.format.GeoJSON(),
-						url: geoJSON1,
-						defaultProjection :'EPSG:4326', 
-						projection: 'EPSG:3857'
-					}),
-					style: [selectedBg, selectedWarning]
-				})
-			],
+			layers: [title, area1, area2],
 			view: new ol.View({
 				center: ol.proj.fromLonLat([-1.83,51.77]),
 				zoom: 10
 			})
 		});
 
-		// Alert map
+		// Enable transparency above zoom level of 10
+		// With a solid fill at small zoom levels target areas are easier to identify and select
 
-		var mapB = new ol.Map({
-			target: 'map-b',
-			layers: [
-				new ol.layer.Tile({
-					source: new ol.source.OSM()
-				}),
-				new ol.layer.Vector({
-					source: new ol.source.Vector({
-						format: new ol.format.GeoJSON(),
-						url: geoJSON2,
-						defaultProjection :'EPSG:4326', 
-						projection: 'EPSG:3857'
-					}),
-					style: [unselectedAlert]
-				}),
-				new ol.layer.Vector({
-					source: new ol.source.Vector({
-						format: new ol.format.GeoJSON(),
-						url: geoJSON1,
-						defaultProjection :'EPSG:4326', 
-						projection: 'EPSG:3857'
-					}),
-					style: [selectedBg, selectedAlert]
-				})
-			],
-			view: new ol.View({
-				center: ol.proj.fromLonLat([-1.83,51.77]),
-				zoom: 10
-			})
+		map.on('moveend', function (e){
+			if (map.getView().getZoom() >= 11) {
+				map.on('precompose', function (e){
+					e.context.globalCompositeOperation = 'darken';
+				});
+			}
+			else {
+				map.on('precompose', function (e){
+					e.context.globalCompositeOperation = 'source-over';
+				});
+			};
 		});
 
-		// Warning no longer inforce map
-
-		var mapC = new ol.Map({
-			target: 'map-c',
-			layers: [
-				new ol.layer.Tile({
-					source: new ol.source.OSM()
-				}),
-				new ol.layer.Vector({
-					source: new ol.source.Vector({
-						format: new ol.format.GeoJSON(),
-						url: geoJSON2,
-						defaultProjection :'EPSG:4326', 
-						projection: 'EPSG:3857'
-					}),
-					style: [unselectedWarningRemoved]
-				}),
-				new ol.layer.Vector({
-					source: new ol.source.Vector({
-						format: new ol.format.GeoJSON(),
-						url: geoJSON1,
-						defaultProjection :'EPSG:4326', 
-						projection: 'EPSG:3857'
-					}),
-					style: [selectedBg, selectedWarningRemoved]
-				})
-			],
-			view: new ol.View({
-				center: ol.proj.fromLonLat([-1.83,51.77]),
-				zoom: 10
-			})
-		});
-
-		// Target area map
-
-		var mapD = new ol.Map({
-			target: 'map-d',
-			layers: [
-				new ol.layer.Tile({
-					source: new ol.source.OSM()
-				}),
-				new ol.layer.Vector({
-					source: new ol.source.Vector({
-						format: new ol.format.GeoJSON(),
-						url: geoJSON2,
-						defaultProjection :'EPSG:4326', 
-						projection: 'EPSG:3857'
-					}),
-					style: [unselectedArea]
-				}),
-				new ol.layer.Vector({
-					source: new ol.source.Vector({
-						format: new ol.format.GeoJSON(),
-						url: geoJSON1,
-						defaultProjection :'EPSG:4326', 
-						projection: 'EPSG:3857'
-					}),
-					style: [selectedBg, selectedArea]
-				})
-			],
-			view: new ol.View({
-				center: ol.proj.fromLonLat([-1.83,51.77]),
-				zoom: 10
-			})
-		});
-
-		// Change pointer type when element is clickable
+		// Change pointer type and highlight style
 		map.on('pointermove', function (e) {
+
 			var pixel = map.getEventPixel(e.originalEvent);
 			var hit = map.hasFeatureAtPixel(pixel);
 			map.getViewport().style.cursor = hit ? 'pointer' : '';
+
+		});
+
+
+		//
+		//
+		// Alert map
+		//
+		//
+
+		var title = new ol.layer.Tile({
+			source: new ol.source.OSM()
+		});
+
+		var area1B = new ol.layer.Vector({
+			source: new ol.source.Vector({
+				format: new ol.format.GeoJSON(),
+				url: geoJSON2,
+				defaultProjection :'EPSG:4326', 
+				projection: 'EPSG:3857'
+			}),
+			style: [styleBg, styleAlert],
+			opacity: 0.75
+		});
+
+		var area2B = new ol.layer.Vector({
+			source: new ol.source.Vector({
+				format: new ol.format.GeoJSON(),
+				url: geoJSON1,
+				defaultProjection :'EPSG:4326', 
+				projection: 'EPSG:3857'
+			}),
+			style: [styleSelectedBg, styleAlert],
+			opacity: 0.75,
+			zIndex: 1
+		});
+
+		var mapB = new ol.Map({
+			target: 'map-b',
+			layers: [title, area1B, area2B],
+			view: new ol.View({
+				center: ol.proj.fromLonLat([-1.83,51.77]),
+				zoom: 10
+			})
+		});
+
+		// Enable transparency above zoom level of 10
+		// With a solid fill at small zoom levels target areas are easier to identify and select
+		mapB.on('moveend', function (e){
+			if (mapB.getView().getZoom() >= 11) {
+				mapB.on('precompose', function (e){
+					e.context.globalCompositeOperation = 'darken';
+				});
+			}
+			else {
+				mapB.on('precompose', function (e){
+					e.context.globalCompositeOperation = 'source-over';
+				});
+			};
+		});
+
+		// Change pointer type and highlight style
+		mapB.on('pointermove', function (e) {
+
+			var pixel = mapB.getEventPixel(e.originalEvent);
+			var hit = mapB.hasFeatureAtPixel(pixel);
+			mapB.getViewport().style.cursor = hit ? 'pointer' : '';
+
+		});
+
+
+		//
+		//
+		// Warning no longer inforce map
+		//
+		//
+		
+		var title = new ol.layer.Tile({
+			source: new ol.source.OSM()
+		});
+
+		var area1C = new ol.layer.Vector({
+			source: new ol.source.Vector({
+				format: new ol.format.GeoJSON(),
+				url: geoJSON2,
+				defaultProjection :'EPSG:4326', 
+				projection: 'EPSG:3857'
+			}),
+			style: [styleBg, styleRemoved],
+			opacity: 0.75
+		});
+
+		var area2C = new ol.layer.Vector({
+			source: new ol.source.Vector({
+				format: new ol.format.GeoJSON(),
+				url: geoJSON1,
+				defaultProjection :'EPSG:4326', 
+				projection: 'EPSG:3857'
+			}),
+			style: [styleSelectedBg, styleRemoved],
+			opacity: 0.75,
+			zIndex: 1
+		});
+
+		var mapC = new ol.Map({
+			target: 'map-c',
+			layers: [title, area1C, area2C],
+			view: new ol.View({
+				center: ol.proj.fromLonLat([-1.83,51.77]),
+				zoom: 10
+			})
+		});
+
+		// Enable transparency above zoom level of 10
+		// With a solid fill at small zoom levels target areas are easier to identify and select
+		mapC.on('moveend', function (e){
+			if (mapC.getView().getZoom() >= 11) {
+				mapC.on('precompose', function (e){
+					e.context.globalCompositeOperation = 'darken';
+				});
+			}
+			else {
+				mapC.on('precompose', function (e){
+					e.context.globalCompositeOperation = 'source-over';
+				});
+			};
+		});
+
+		// Change pointer type and highlight style
+		mapC.on('pointermove', function (e) {
+
+			var pixel = mapC.getEventPixel(e.originalEvent);
+			var hit = mapC.hasFeatureAtPixel(pixel);
+			mapC.getViewport().style.cursor = hit ? 'pointer' : '';
+
 		});
 
 	</script>
