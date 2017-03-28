@@ -86,36 +86,29 @@
 		//
 
 		// Higlighted style displays a 4px border to the outside of the target area
-		var styleSelectedBg = new ol.style.Style({
-			stroke: new ol.style.Stroke({ color: 'rgb(255,170,0)', width: 8, miterLimit: 2, lineJoin: 'round' }), zIndex: 1,
-			fill: new ol.style.Fill({ color: 'rgb(255,170,0)', miterLimit: 2, lineJoin: 'round' })
-		});
-
-		// Visual representation only: Used to maintain colour consistent with non-highligthed areas
-		var styleBg = new ol.style.Style({
-			stroke: new ol.style.Stroke({ color: 'rgb(255,170,0)', width: 1, miterLimit: 2, lineJoin: 'round' }), zIndex: 1,
-			fill: new ol.style.Fill({ color: 'rgb(255,170,0)', miterLimit: 2, lineJoin: 'round' })
+		var styleSelected = new ol.style.Style({
+			stroke: new ol.style.Stroke({ color: 'rgba(255,191,71,1)', width: 8, miterLimit: 2, lineJoin: 'round' }),
 		});
 
 		// Warning
 
 		var styleWarning = new ol.style.Style({
-			fill: new ol.style.Fill({ color: 'rgba(230,8,13,1)', miterLimit: 2, lineJoin: 'round' }),			
-			stroke: new ol.style.Stroke({ color: 'rgba(230,8,13,1)', width: 2, miterLimit: 2, lineJoin: 'round' }), zIndex: 1
+			fill: new ol.style.Fill({ color: 'rgba(227,0,15,0.8)' }),			
+			stroke: new ol.style.Stroke({ color: 'rgba(227,0,15,1)', width: 2, miterLimit: 2, lineJoin: 'round' })
 		});
 
 		// Alert
 
 		var styleAlert = new ol.style.Style({
-			fill: new ol.style.Fill({ color: '#e06b00' }),			
-			stroke: new ol.style.Stroke({ color: '#e06b00', width: 2, miterLimit: 2, lineJoin: 'round' }), zIndex: 1
+			fill: new ol.style.Fill({ color: 'rgba(241,135,0,0.8)' }),			
+			stroke: new ol.style.Stroke({ color: 'rgba(241,135,0,1)', width: 2, miterLimit: 2, lineJoin: 'round' })
 		});
 
 		// Warning no longer in force (Removed)
 
 		var styleRemoved = new ol.style.Style({
-			fill: new ol.style.Fill({ color: 'rgb(123,123,123)' }),			
-			stroke: new ol.style.Stroke({ color: 'rgb(123,123,123)', width: 2, miterLimit: 2, lineJoin: 'round' }), zIndex: 1
+			fill: new ol.style.Fill({ color: 'rgba(123,123,123,0.8)' }),			
+			stroke: new ol.style.Stroke({ color: 'rgba(123,123,123,1)', width: 2, miterLimit: 2, lineJoin: 'round' })
 		});
 		
 		
@@ -136,8 +129,7 @@
 				defaultProjection :'EPSG:4326', 
 				projection: 'EPSG:3857'
 			}),
-			style: [styleBg, styleWarning],
-			opacity: 0.75
+			style: [styleWarning]
 		});
 
 		var area2 = new ol.layer.Vector({
@@ -147,9 +139,7 @@
 				defaultProjection :'EPSG:4326', 
 				projection: 'EPSG:3857'
 			}),
-			style: [styleSelectedBg, styleWarning],
-			opacity: 0.75,
-			zIndex: 1
+			style: [styleSelected, styleWarning]
 		});
 
 		var map = new ol.Map({
@@ -164,26 +154,11 @@
 		// Enable transparency above zoom level of 10
 		// With a solid fill at small zoom levels target areas are easier to identify and select
 
-		map.on('moveend', function (e){
-			if (map.getView().getZoom() >= 11) {
-				map.on('precompose', function (e){
-					e.context.globalCompositeOperation = 'darken';
-				});
-			}
-			else {
-				map.on('precompose', function (e){
-					e.context.globalCompositeOperation = 'source-over';
-				});
-			};
-		});
-
 		// Change pointer type and highlight style
 		map.on('pointermove', function (e) {
-
 			var pixel = map.getEventPixel(e.originalEvent);
 			var hit = map.hasFeatureAtPixel(pixel);
 			map.getViewport().style.cursor = hit ? 'pointer' : '';
-
 		});
 
 
@@ -204,8 +179,7 @@
 				defaultProjection :'EPSG:4326', 
 				projection: 'EPSG:3857'
 			}),
-			style: [styleBg, styleAlert],
-			opacity: 0.75
+			style: [styleAlert]
 		});
 
 		var area2B = new ol.layer.Vector({
@@ -215,9 +189,7 @@
 				defaultProjection :'EPSG:4326', 
 				projection: 'EPSG:3857'
 			}),
-			style: [styleSelectedBg, styleAlert],
-			opacity: 0.75,
-			zIndex: 1
+			style: [styleSelected, styleAlert]
 		});
 
 		var mapB = new ol.Map({
@@ -229,28 +201,11 @@
 			})
 		});
 
-		// Enable transparency above zoom level of 10
-		// With a solid fill at small zoom levels target areas are easier to identify and select
-		mapB.on('moveend', function (e){
-			if (mapB.getView().getZoom() >= 11) {
-				mapB.on('precompose', function (e){
-					e.context.globalCompositeOperation = 'darken';
-				});
-			}
-			else {
-				mapB.on('precompose', function (e){
-					e.context.globalCompositeOperation = 'source-over';
-				});
-			};
-		});
-
 		// Change pointer type and highlight style
 		mapB.on('pointermove', function (e) {
-
 			var pixel = mapB.getEventPixel(e.originalEvent);
 			var hit = mapB.hasFeatureAtPixel(pixel);
 			mapB.getViewport().style.cursor = hit ? 'pointer' : '';
-
 		});
 
 
@@ -271,8 +226,7 @@
 				defaultProjection :'EPSG:4326', 
 				projection: 'EPSG:3857'
 			}),
-			style: [styleBg, styleRemoved],
-			opacity: 0.75
+			style: [styleRemoved]
 		});
 
 		var area2C = new ol.layer.Vector({
@@ -282,9 +236,7 @@
 				defaultProjection :'EPSG:4326', 
 				projection: 'EPSG:3857'
 			}),
-			style: [styleSelectedBg, styleRemoved],
-			opacity: 0.75,
-			zIndex: 1
+			style: [styleSelected, styleRemoved]
 		});
 
 		var mapC = new ol.Map({
@@ -296,28 +248,11 @@
 			})
 		});
 
-		// Enable transparency above zoom level of 10
-		// With a solid fill at small zoom levels target areas are easier to identify and select
-		mapC.on('moveend', function (e){
-			if (mapC.getView().getZoom() >= 11) {
-				mapC.on('precompose', function (e){
-					e.context.globalCompositeOperation = 'darken';
-				});
-			}
-			else {
-				mapC.on('precompose', function (e){
-					e.context.globalCompositeOperation = 'source-over';
-				});
-			};
-		});
-
 		// Change pointer type and highlight style
 		mapC.on('pointermove', function (e) {
-
 			var pixel = mapC.getEventPixel(e.originalEvent);
 			var hit = mapC.hasFeatureAtPixel(pixel);
 			mapC.getViewport().style.cursor = hit ? 'pointer' : '';
-
 		});
 
 	</script>
