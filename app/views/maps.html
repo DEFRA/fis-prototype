@@ -42,19 +42,6 @@
 
 				<div class="map" id="map"></div>
 
-
-				<h2 id="flood-alert-area" class="heading-medium">
-					Alert
-				</h2>       
-
-				<div class="map" id="map-b"></div>
-				
-				<h2 id="flood-warning-area" class="heading-medium">
-					Warning no longer in force
-				</h2>       
-
-				<div class="map" id="map-c"></div>
-
 			</section>
 
 		</div>
@@ -76,183 +63,118 @@
 
 	<script type="text/javascript">
 
-		var geoJSON1 = '/public/javascripts/json/061waf06Coln.json';
-		var geoJSON2 = '/public/javascripts/json/061fwf23CalcLech.json';
+		var geoJSON = '/public/javascripts/json/features.json';
+		var selectedId = '123FWF315'; // Warning
+		//var selectedId = '123FWF308'; // Warning removed
+		//var selectedId = '123WAF963'; // Alert
 
-		//
-		//
-		// Styles
-		//
-		//
-
-		// Higlighted style displays a 4px border to the outside of the target area
-		var styleSelected = new ol.style.Style({
-			stroke: new ol.style.Stroke({ color: 'rgba(255,191,71,1)', width: 8, miterLimit: 2, lineJoin: 'round' }),
-		});
-
-		// Warning
-
-		var styleWarning = new ol.style.Style({
-			fill: new ol.style.Fill({ color: 'rgba(227,0,15,0.8)' }),			
-			stroke: new ol.style.Stroke({ color: 'rgba(227,0,15,1)', width: 2, miterLimit: 2, lineJoin: 'round' })
-		});
-
-		// Alert
-
-		var styleAlert = new ol.style.Style({
-			fill: new ol.style.Fill({ color: 'rgba(241,135,0,0.8)' }),			
-			stroke: new ol.style.Stroke({ color: 'rgba(241,135,0,1)', width: 2, miterLimit: 2, lineJoin: 'round' })
-		});
-
-		// Warning no longer in force (Removed)
-
-		var styleRemoved = new ol.style.Style({
-			fill: new ol.style.Fill({ color: 'rgba(123,123,123,0.8)' }),			
-			stroke: new ol.style.Stroke({ color: 'rgba(123,123,123,1)', width: 2, miterLimit: 2, lineJoin: 'round' })
-		});
-		
-		
-		//
-		//
-		// Warning or sever warning map
-		//
-		//
-
-		var title = new ol.layer.Tile({
+		var tile = new ol.layer.Tile({
 			source: new ol.source.OSM()
 		});
 
-		var area1 = new ol.layer.Vector({
-			source: new ol.source.Vector({
-				format: new ol.format.GeoJSON(),
-				url: geoJSON2,
-				defaultProjection :'EPSG:4326', 
-				projection: 'EPSG:3857'
-			}),
-			style: [styleWarning]
+		var styleFunction = function(feature, resolution) {
+
+			var styles = [];
+
+			// Alert area colours
+			var strokeColour = 'rgba(241,135,0,1)';
+			var fillColour = 'rgba(241,135,0,1)';
+			var strokeWidth = 2;
+			var zIndex = 2;
+
+			// Warning or severe warning colours
+			if (feature.get('severity') == 1 || feature.get('severity') == 2) {
+				strokeColour = 'rgba(227,0,15,1)';
+				fillColour = 'rgba(227,0,15,1)';
+				zIndex = 3;
+			}
+			
+			// Warning removed colours
+			else if (feature.get('severity') == -1) {
+				strokeColour = '#6F777B';
+				fillColour = '#6F777B';
+				zIndex = 3;				
+			}
+
+			// Generate style
+			var style = new ol.style.Style({
+				fill: new ol.style.Fill({ color: fillColour }),			
+				stroke: new ol.style.Stroke({ color: strokeColour, width: strokeWidth, miterLimit: 2, lineJoin: 'round' }),
+				zIndex: zIndex 
+			});
+
+			// Selected area style
+			var styleSelectedGlow = new ol.style.Style({
+				stroke: new ol.style.Stroke({ color: 'rgba(255,179,31,1)', width: 10, miterLimit: 2, lineJoin: 'round' }),
+				zIndex: zIndex
+			});
+			var styleSelectedBdr = new ol.style.Style({
+				stroke: new ol.style.Stroke({ color: 'rgba(0,0,0,0.2)', width: 1, miterLimit: 2, lineJoin: 'round' }),
+				zIndex: zIndex
+			});
+
+			// Add selected style first
+			if (feature.getId() == selectedId) {
+				styles.push(styleSelectedGlow);
+				styles.push(style);
+				styles.push(styleSelectedBdr);
+			} else {
+				styles.push(style);
+			}
+
+			return styles;
+
+		};
+
+		var source = new ol.source.Vector({
+			format: new ol.format.GeoJSON(),
+			url: geoJSON,
+			defaultProjection :'EPSG:4326', 
+			projection: 'EPSG:3857'
 		});
 
-		var area2 = new ol.layer.Vector({
-			source: new ol.source.Vector({
-				format: new ol.format.GeoJSON(),
-				url: geoJSON1,
-				defaultProjection :'EPSG:4326', 
-				projection: 'EPSG:3857'
+		var targetAreas = new ol.layer.Image({
+			source: new ol.source.ImageVector({
+				source: source,
+				style: styleFunction
 			}),
-			style: [styleSelected, styleWarning]
+			opacity: 0.75
 		});
 
 		var map = new ol.Map({
 			target: 'map',
-			layers: [title, area1, area2],
+			layers: [tile, targetAreas],
 			view: new ol.View({
-				center: ol.proj.fromLonLat([-1.83,51.77]),
-				zoom: 10
+				center: ol.proj.fromLonLat([-1.98221629139491,53.7296721399487]),
+				zoom: 14
 			})
 		});
 
-		// Enable transparency above zoom level of 10
-		// With a solid fill at small zoom levels target areas are easier to identify and select
+		// Blend mode
+
+		map.on('precompose', function(e){
+			e.context.globalCompositeOperation = 'source-over';
+		});
+		map.on('postcompose', function(e){
+			e.context.globalCompositeOperation = 'source-over';
+		});
+
+		// Iterate through features after loaded
+
+		/*
+		var sourceListener = source.on('change', function(e) {
+			if (source.getState() == 'ready') {
+				source.unByKey(sourceListener);
+				var feature = source.getFeatureById(selectedId);
+			}
+		});
+		*/
 
 		// Change pointer type and highlight style
 		map.on('pointermove', function (e) {
 			var pixel = map.getEventPixel(e.originalEvent);
 			var hit = map.hasFeatureAtPixel(pixel);
 			map.getViewport().style.cursor = hit ? 'pointer' : '';
-		});
-
-
-		//
-		//
-		// Alert map
-		//
-		//
-
-		var title = new ol.layer.Tile({
-			source: new ol.source.OSM()
-		});
-
-		var area1B = new ol.layer.Vector({
-			source: new ol.source.Vector({
-				format: new ol.format.GeoJSON(),
-				url: geoJSON2,
-				defaultProjection :'EPSG:4326', 
-				projection: 'EPSG:3857'
-			}),
-			style: [styleAlert]
-		});
-
-		var area2B = new ol.layer.Vector({
-			source: new ol.source.Vector({
-				format: new ol.format.GeoJSON(),
-				url: geoJSON1,
-				defaultProjection :'EPSG:4326', 
-				projection: 'EPSG:3857'
-			}),
-			style: [styleSelected, styleAlert]
-		});
-
-		var mapB = new ol.Map({
-			target: 'map-b',
-			layers: [title, area1B, area2B],
-			view: new ol.View({
-				center: ol.proj.fromLonLat([-1.83,51.77]),
-				zoom: 10
-			})
-		});
-
-		// Change pointer type and highlight style
-		mapB.on('pointermove', function (e) {
-			var pixel = mapB.getEventPixel(e.originalEvent);
-			var hit = mapB.hasFeatureAtPixel(pixel);
-			mapB.getViewport().style.cursor = hit ? 'pointer' : '';
-		});
-
-
-		//
-		//
-		// Warning no longer inforce map
-		//
-		//
-		
-		var title = new ol.layer.Tile({
-			source: new ol.source.OSM()
-		});
-
-		var area1C = new ol.layer.Vector({
-			source: new ol.source.Vector({
-				format: new ol.format.GeoJSON(),
-				url: geoJSON2,
-				defaultProjection :'EPSG:4326', 
-				projection: 'EPSG:3857'
-			}),
-			style: [styleRemoved]
-		});
-
-		var area2C = new ol.layer.Vector({
-			source: new ol.source.Vector({
-				format: new ol.format.GeoJSON(),
-				url: geoJSON1,
-				defaultProjection :'EPSG:4326', 
-				projection: 'EPSG:3857'
-			}),
-			style: [styleSelected, styleRemoved]
-		});
-
-		var mapC = new ol.Map({
-			target: 'map-c',
-			layers: [title, area1C, area2C],
-			view: new ol.View({
-				center: ol.proj.fromLonLat([-1.83,51.77]),
-				zoom: 10
-			})
-		});
-
-		// Change pointer type and highlight style
-		mapC.on('pointermove', function (e) {
-			var pixel = mapC.getEventPixel(e.originalEvent);
-			var hit = mapC.hasFeatureAtPixel(pixel);
-			mapC.getViewport().style.cursor = hit ? 'pointer' : '';
 		});
 
 	</script>

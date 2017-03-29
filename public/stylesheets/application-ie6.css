@@ -2627,8 +2627,10 @@ h1.heading-xlarge {
   padding: 0.5em 0 0.5em 28px;
 }
 
+/*
 .ol-viewport {
-  background-image: url("/static/long-term-flood-risk/public/images/map-national.png");
-  background-position: top center;
-  background-repeat: no-repeat;
+  background-image:url('/static/long-term-flood-risk/public/images/map-national.png');
+  background-position:top center;
+  background-repeat:no-repeat;
 }
+*/
