@@ -141,17 +141,20 @@
 			opacity: 0.75
 		});
 
+		var view = new ol.View({
+			center: ol.proj.fromLonLat([-1.98221629139491,53.7296721399487]),
+			zoom: 14
+		});
+
 		var map = new ol.Map({
 			target: 'map',
 			layers: [tile, targetAreas],
-			view: new ol.View({
-				center: ol.proj.fromLonLat([-1.98221629139491,53.7296721399487]),
-				zoom: 14
-			})
+			view: view
 		});
 
 		// Blend mode
 
+		/*
 		map.on('precompose', function(e){
 			e.context.globalCompositeOperation = 'source-over';
 		});
@@ -171,11 +174,13 @@
 		*/
 
 		// Change pointer type and highlight style
+
 		map.on('pointermove', function (e) {
 			var pixel = map.getEventPixel(e.originalEvent);
 			var hit = map.hasFeatureAtPixel(pixel);
 			map.getViewport().style.cursor = hit ? 'pointer' : '';
 		});
+
 
 	</script>
 
