@@ -282,7 +282,7 @@ var Chart = (function(window,d3) {
 
 		//Initialize axis
 		xAxis = d3.svg.axis().orient('bottom').tickFormat(d3.time.format('%a, %e %b')).outerTickSize(0);
-		yAxis = d3.svg.axis().orient('left').ticks(4).tickFormat(function(d) { return parseFloat(d).toFixed(1) + 'm'; }).outerTickSize(0);
+		yAxis = d3.svg.axis().orient('left').ticks(5).tickFormat(function(d) { return parseFloat(d).toFixed(1) + 'm'; }).outerTickSize(0);
 
 		//Area generator
 		area = d3.svg.area()
