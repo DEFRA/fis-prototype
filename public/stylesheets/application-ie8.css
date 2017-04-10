@@ -68,9 +68,7 @@
 }
 
 .visually-hidden,
-.visuallyhidden,
-.google-visualisation li span,
-.google-visualisation .now span {
+.visuallyhidden {
   position: absolute;
   overflow: hidden;
   clip: rect(0 0 0 0);
@@ -1816,15 +1814,7 @@ section.feedback {
   margin-top: 1.5789473684em;
 }
 
-.graph-inner {
-  position: relative;
-  height: 300px;
-  margin-bottom: 1.0526315789em;
-  height: 350px;
-}
-
 .graph-legend {
-  margin-top: 2.1052631579em;
   margin-bottom: 1.5789473684em;
   font-family: "nta", Arial, sans-serif;
   font-weight: 400;
@@ -1833,9 +1823,6 @@ section.feedback {
   line-height: 1.1428571429;
   font-size: 16px;
   line-height: 1.25;
-}
-
-.graph-legend .graph-legend-inner {
   position: absolute;
   left: 100%;
   top: 0;
@@ -1876,6 +1863,17 @@ section.feedback {
 
 .graph-legend li.land:before {
   background-color: #f47738;
+}
+
+.graph-legend .data-level {
+  margin-top: 0;
+  margin-bottom: 1.5789473684em;
+}
+
+.graph-legend .data-level-item-heading {
+  border-bottom: 1px solid #dee0e2;
+  line-height: 1.5;
+  margin-bottom: 0.5em;
 }
 
 table.table-levels thead th {
@@ -1937,285 +1935,105 @@ table.table-levels tbody .error:before {
   width: 1em;
 }
 
-.google-visualisation {
-  position: absolute;
-  left: 50px;
-  top: 0;
-  right: 0;
-  bottom: 30px;
-}
-
-.google-visualisation li span {
-  position: static;
-  left: auto;
-  top: auto;
-  width: auto;
-  height: auto;
-  overflow: visible;
-}
-
-.google-visualisation ul {
-  font-size: 14px;
-}
-
-.google-visualisation ul:first-of-type li {
-  width: 50px;
-  margin-left: -50px;
-  top: 0%;
-}
-
-.google-visualisation ul:first-of-type li:nth-child(2) {
-  top: 25%;
-}
-
-.google-visualisation ul:first-of-type li:nth-child(3) {
-  top: 50%;
-}
-
-.google-visualisation ul:first-of-type li:nth-child(4) {
-  top: 75%;
-}
-
-.google-visualisation ul:first-of-type li:nth-child(5) {
-  top: 100%;
-}
-
-.google-visualisation ul:last-of-type li {
-  width: 15.38%;
-  text-align: center;
-  margin-top: 0.8em;
-}
-
-.google-visualisation ul:last-of-type li:nth-child(1) {
-  top: 100%;
-  left: 9.6%;
-}
-
-.google-visualisation ul:last-of-type li:nth-child(2) {
-  top: 100%;
-  left: 24.98%;
-}
-
-.google-visualisation ul:last-of-type li:nth-child(3) {
-  top: 100%;
-  left: 40.36%;
-}
-
-.google-visualisation ul:last-of-type li:nth-child(4) {
-  top: 100%;
-  left: 55.74%;
-}
-
-.google-visualisation ul:last-of-type li:nth-child(5) {
-  top: 100%;
-  left: 71.12%;
-}
-
-.google-visualisation ul:last-of-type.five-days li {
-  width: 20%;
-}
-
-.google-visualisation ul:last-of-type.five-days li:nth-child(1) {
-  top: 100%;
-  left: 2.5%;
-}
-
-.google-visualisation ul:last-of-type.five-days li:nth-child(2) {
-  top: 100%;
-  left: 22.5%;
-}
-
-.google-visualisation ul:last-of-type.five-days li:nth-child(3) {
-  top: 100%;
-  left: 42.5%;
-}
-
-.google-visualisation ul:last-of-type.five-days li:nth-child(4) {
-  top: 100%;
-  left: 62.5%;
-}
-
-.google-visualisation ul:last-of-type.five-days li:nth-child(5) {
-  top: 100%;
-  left: 82.5%;
-}
-
-.google-visualisation li {
-  position: absolute;
-  top: 0;
-  left: 0;
-  margin-top: -0.3em;
-  line-height: 1em;
-}
-
-.google-visualisation li strong {
-  font-weight: bold;
-  display: inline-block;
-  margin-top: -1px;
-}
-
-.google-visualisation svg {
-  width: 100%;
-  height: 100%;
-  box-sizing: border-box;
-}
-
-.google-visualisation .now {
-  position: absolute;
-  width: 16px;
-  height: 16px;
-  margin-left: -8px;
-  margin-bottom: -8px;
-}
-
-.google-visualisation .now svg {
-  position: absolute;
-}
-
-.google-visualisation .now circle {
-  stroke: #005EA5;
-  stroke-width: 4px;
-  fill: white;
-  vector-effect: non-scaling-stroke;
-}
-
-.google-visualisation .tool-tip {
-  position: absolute;
-  width: 6.5em;
-  padding-bottom: 1.25em;
-  margin-left: -3.25em;
-  color: white;
-}
-
-.google-visualisation .tool-tip .tool-tip-value {
-  font-family: "nta", Arial, sans-serif;
-  font-weight: bold;
-  text-transform: none;
-  font-size: 16px;
-  line-height: 1.25;
-  font-size: 19px;
-  line-height: 1.3157894737;
-}
-
-.google-visualisation .tool-tip .tool-tip-inner {
+.graph svg {
   position: relative;
-  background-color: #005EA5;
-  padding: 0.5em;
+  overflow: visible;
+  height: 300px;
+  width: 100%;
+  margin-bottom: 1.0526315789em;
+  height: 400px;
 }
 
-.google-visualisation .tool-tip .tool-tip-item {
-  font-size: 0.8em;
-  display: block;
+.graph svg .axis.y {
+  font-family: "ntatabularnumbers", "nta", Arial, sans-serif;
+  font-weight: 400;
+  text-transform: none;
+  font-size: 12px;
+  line-height: 1.25;
+  font-size: 14px;
+  line-height: 1.4285714286;
 }
 
-.google-visualisation .tool-tip .tool-tip-arrow {
-  position: absolute;
-  top: 100%;
-  left: 50%;
-  margin-left: -0.5em;
-  width: 0;
-  height: 0;
-  border-left: 0.5em solid transparent;
-  border-right: 0.5em solid transparent;
-  border-top: 0.5em solid #005EA5;
+.graph svg .axis.x {
+  font-family: "nta", Arial, sans-serif;
+  font-weight: 400;
+  text-transform: none;
+  font-size: 12px;
+  line-height: 1.25;
+  font-size: 14px;
+  line-height: 1.4285714286;
 }
 
-.svg-1 {
-  fill: #CCDFED;
+.graph svg .axis path,
+.graph svg .axis line {
+  fill: none;
+  stroke: #bfc1c3;
+  stroke-width: 1;
+  shape-rendering: crispEdges;
 }
 
-.svg-2 {
-  fill: #e6e7e8;
+.graph svg .axis.x .tick line {
+  visibility: hidden;
 }
 
-.svg-3 {
+.graph svg .grid line {
+  fill: none;
   stroke: #dee0e2;
+  stroke-width: 1;
+  shape-rendering: crispEdges;
 }
 
-.svg-4 {
-  stroke: transparent;
+.graph svg .grid path {
+  visibility: hidden;
 }
 
-.svg-10, .svg-11, .svg-12, .svg-3, .svg-4, .svg-8, .svg-9 {
-  stroke-miterlimit: 10;
-  vector-effect: non-scaling-stroke;
-  vector-effect: non-scaling-stroke;
+.graph svg .warning {
+  stroke: #b10e1e;
+  stroke-width: 2;
+  shape-rendering: crispEdges;
 }
 
-.svg-3 {
-  stroke-width: 1px;
+.graph svg .alert {
+  stroke: #f47738;
+  stroke-width: 2;
+  shape-rendering: crispEdges;
 }
 
-.svg-10, .svg-11, .svg-12, .svg-13, .svg-14, .svg-4, .svg-9 {
-  stroke-width: 2px;
-  stroke-linejoin: round;
-}
-
-.svg-5 {
-  text-anchor: start;
-  fill: #404041;
-  font-family: "nta", Helvetica, Helvetica;
-}
-
-.svg-5b {
-  text-anchor: middle;
-  fill: #404041;
-  font-family: "nta", Helvetica, Helvetica;
-}
-
-.svg-6 {
-  letter-spacing: -0.04em;
-}
-
-.svg-7 {
-  letter-spacing: -0.02em;
-}
-
-.svg-10, .svg-11, .svg-12, .svg-8, .svg-9 {
+.graph svg .observed-line {
+  stroke: #005ea5;
+  stroke-width: 3;
   fill: none;
 }
 
-.svg-8 {
-  stroke: #005EA5;
-  stroke-width: 4px;
-  stroke-linejoin: round;
+.graph svg .observed-area {
+  fill: rgba(0, 94, 165, 0.2);
 }
 
-.svg-10, .svg-9 {
+.graph svg .forecast-line {
+  stroke-dasharray: 4, 4;
+  stroke: #6f777b;
+  stroke-width: 3;
+  fill: none;
+}
+
+.graph svg .forecast-area {
+  fill: rgba(111, 119, 123, 0.2);
+}
+
+.graph svg .locator-point {
+  stroke-width: 3;
+  stroke: #005ea5;
+  fill: white;
+}
+
+.graph svg .locator-point-forecast {
   stroke: #6f777b;
 }
 
-.svg-10 {
-  stroke-dasharray: 4 4;
-  stroke-width: 4px;
-  stroke-linejoin: round;
-}
-
-.svg-14 {
-  stroke: #333;
+.graph svg .locator-line {
+  stroke-width: 1;
+  stroke: #0b0c0c;
   shape-rendering: crispEdges;
-}
-
-.svg-13 {
-  stroke: #f47738;
-  shape-rendering: crispEdges;
-}
-
-.svg-12 {
-  stroke: #6F777B;
-  shape-rendering: crispEdges;
-}
-
-.svg-11 {
-  stroke: #B10E1E;
-  shape-rendering: crispEdges;
-}
-
-.svg-15 {
-  stroke: #097F96;
-  stroke-width: 2px;
-  vector-effect: non-scaling-stroke;
-  fill: #c1dfe4;
 }
 
 .map {

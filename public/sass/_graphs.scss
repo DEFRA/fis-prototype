@@ -4,29 +4,18 @@
     position:relative;
     margin-top: em(30, 19);
 }
-.graph-inner {
-    position:relative;
-    height:300px;
-    margin-bottom: em(20, 19);
-    @include media(desktop) {
-        height:350px;
-    }
-}
 
 .graph-legend {
-    margin-top: em(40, 19);
     margin-bottom: em(30, 19);
     @include core-16; 
-    .graph-legend-inner {
-        @include media(tablet) {
-            position:absolute;
-            left:100%;
-            top:0;
-            width:50%;
-            margin-left:30px;
-            margin-right:15px;
-        }
-    }    
+    @include media(tablet) {
+        position:absolute;
+        left:100%;
+        top:0;
+        width:50%;
+        margin-left:30px;
+        margin-right:15px;
+    }
     li {
         @include media(tablet) {
             max-width:16em;
@@ -60,6 +49,15 @@
     }
     li.land:before {
         background-color:$orange;
+    }
+    .data-level {
+        margin-top:0;
+        margin-bottom: em(30, 19);
+    }
+    .data-level-item-heading {
+        border-bottom:1px solid $grey-3;
+        line-height:1.5;
+        margin-bottom:0.5em;
     }
 }
 
@@ -114,152 +112,79 @@ table.table-levels {
     }
 }
 
-//
-// Google charts remove in production
-//
-
-.google-visualisation {
-    position:absolute;
-    left:50px;
-    top:0;
-    right:0;
-    bottom:30px;
-    li span {
-        @extend .visuallyhidden;
-        @include media(desktop) {
-            // Undo visuallyhidden
-            position: static;
-            left: auto;
-            top: auto;
-            width: auto;
-            height: auto;
-            overflow: visible;
-        }
+.graph svg {
+    
+    position:relative;
+    overflow:visible;
+    height:300px;
+    width:100%;
+    margin-bottom: em(20, 19);
+    @include media(desktop) {
+        height:400px;
     }
-    ul {
-        font-size:14px;
+    .axis.y { 
+        @include core-14($tabular-numbers: true); 
     }
-    ul:first-of-type {
-        li {
-            width:50px;
-            margin-left:-50px;
-            top:0%;
-        }
-        li:nth-child(2) { top:25%; }
-        li:nth-child(3) { top:50%; }
-        li:nth-child(4) { top:75%; }
-        li:nth-child(5) { top:100%; }
+    .axis.x { 
+        @include core-14(); 
     }
-    ul:last-of-type {
-        li {
-            width:15.38%;
-            text-align:center;
-            margin-top:0.8em;
-        }
-        li:nth-child(1) { top:100%;left:9.6%; }
-        li:nth-child(2) { top:100%;left:24.98%; }
-        li:nth-child(3) { top:100%;left:40.36%; }
-        li:nth-child(4) { top:100%;left:55.74%; }
-        li:nth-child(5) { top:100%;left:71.12%; }
+    .axis path,
+    .axis line {
+        fill: none;
+        stroke: $border-colour;
+        stroke-width: 1;
+        shape-rendering: crispEdges;
     }
-    ul:last-of-type.five-days {
-        li {
-            width:20%;
-        }
-        li:nth-child(1) { top:100%;left:2.5%; }
-        li:nth-child(2) { top:100%;left:22.5%; }
-        li:nth-child(3) { top:100%;left:42.5%; }
-        li:nth-child(4) { top:100%;left:62.5%; }
-        li:nth-child(5) { top:100%;left:82.5%; }
+    .axis.x .tick line {
+        visibility:hidden;
     }
-    li {
-        position:absolute;
-        top:0;
-        left:0;
-        margin-top:-0.3em;
-        line-height:1em;
-        strong {
-            font-weight:bold;
-            display: inline-block;
-            margin-top:-1px;
-        }
+    .grid line {
+        fill: none;
+        stroke: $panel-colour;
+        stroke-width: 1;
+        shape-rendering: crispEdges;
     }
-    svg {
-        width:100%;
-        height:100%;
-        box-sizing:border-box;
+    .grid path {
+        visibility: hidden;
     }
-    .now {
-        position:absolute;
-        width:16px;
-        height:16px;
-        margin-left:-8px;
-        margin-bottom:-8px;
-        svg {
-            position:absolute;
-        }
-        circle {
-            stroke:#005EA5;
-            stroke-width:4px;   
-            fill:white;     
-            vector-effect:non-scaling-stroke;
-        }
-        span {
-            @extend .visuallyhidden;
-        }
+    .warning {
+        stroke: #b10e1e;
+        stroke-width: 2;
+        shape-rendering: crispEdges;
     }
-    .tool-tip {
-        position:absolute;
-        width:6.5em;
-        padding-bottom:1.25em;
-        margin-left:-3.25em;
-        color:white;
-        .tool-tip-value {
-            @include core-19($font-weight:bold);
-        }
-        .tool-tip-inner {
-            position:relative;
-            background-color:#005EA5;
-            padding:0.5em;
-        }
-        .tool-tip-item {
-            font-size:0.8em;
-            display:block;
-        }
-        .tool-tip-arrow {
-            position:absolute;
-            top:100%;
-            left:50%;
-            margin-left:-0.5em;
-            width: 0; 
-            height: 0; 
-            border-left: 0.5em solid transparent;
-            border-right: 0.5em solid transparent;
-            border-top: 0.5em solid #005EA5;
-        }
+    .alert {
+        stroke: #f47738;
+        stroke-width: 2;
+        shape-rendering: crispEdges;
+    }
+    .observed-line { 
+        stroke: $govuk-blue;
+        stroke-width: 3;
+        fill: none;
+    }
+    .observed-area { 
+        fill: rgba($govuk-blue, 0.2);
+    }
+    .forecast-line { 
+        stroke-dasharray: 4, 4; 
+        stroke: $grey-1;
+        stroke-width: 3;
+        fill: none;
+    }
+    .forecast-area { 
+        fill: rgba($grey-1, 0.2);
+    }
+    .locator-point {
+        stroke-width: 3;
+        stroke: $govuk-blue;
+        fill: white; 
+    }
+    .locator-point-forecast {
+        stroke: $grey-1;
+    }
+    .locator-line {
+        stroke-width: 1;
+        stroke: $black;
+        shape-rendering: crispEdges; 
     }
 }
-.svg-1{fill:#CCDFED;}
-.svg-2{fill:#e6e7e8;}
-.svg-3{stroke:$grey-3;}
-.svg-4{stroke:transparent}
-.svg-10,.svg-11,.svg-12,.svg-3,.svg-4,.svg-8,.svg-9{stroke-miterlimit:10;vector-effect:non-scaling-stroke;vector-effect:non-scaling-stroke;}
-.svg-3{stroke-width:1px;}
-.svg-10,.svg-11,.svg-12,.svg-13,.svg-14,.svg-4,.svg-9{stroke-width:2px;stroke-linejoin:round}
-.svg-5{text-anchor:start;fill:#404041;font-family:"nta", Helvetica, Helvetica;}
-.svg-5b{text-anchor:middle;fill:#404041;font-family:"nta", Helvetica, Helvetica;}
-.svg-6{letter-spacing:-0.04em;}
-.svg-7{letter-spacing:-0.02em;}
-.svg-10,.svg-11,.svg-12,.svg-8,.svg-9{fill:none;}
-.svg-8{stroke:#005EA5;stroke-width:4px;stroke-linejoin:round}
-.svg-10,.svg-9{stroke:$grey-1}
-.svg-10{stroke-dasharray:4 4;stroke-width:4px;stroke-linejoin:round}
-.svg-14{stroke:#333;shape-rendering:crispEdges;}
-.svg-13{stroke:#f47738;shape-rendering:crispEdges;}
-.svg-12{stroke:#6F777B;shape-rendering:crispEdges;}
-.svg-11{stroke:#B10E1E;shape-rendering:crispEdges;}
-.svg-15{stroke:#097F96;stroke-width:2px;vector-effect:non-scaling-stroke;fill:#c1dfe4;}
-
-//
-// End Google charts remove
-//
