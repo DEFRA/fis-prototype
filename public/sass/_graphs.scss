@@ -147,6 +147,11 @@ table.table-levels {
     .grid path {
         visibility: hidden;
     }
+    .highest {
+        stroke: $black;
+        stroke-width: 2;
+        shape-rendering: crispEdges;
+    }
     .warning {
         stroke: #b10e1e;
         stroke-width: 2;
@@ -158,21 +163,35 @@ table.table-levels {
         shape-rendering: crispEdges;
     }
     .observed-line { 
-        stroke: $govuk-blue;
-        stroke-width: 3;
+        stroke: rgba($govuk-blue, 0.8);
+        stroke-width: 2;
         fill: none;
     }
     .observed-area { 
-        fill: rgba($govuk-blue, 0.2);
+        fill: rgba($govuk-blue, 0.1);
+    }
+    .observed-focus .observed-line {
+        stroke: rgba($govuk-blue, 1);
+        stroke-width: 3;
+    }
+    .observed-focus .observed-area {
+        fill: rgba($govuk-blue, 0.3);
     }
     .forecast-line { 
-        stroke-dasharray: 4, 4; 
-        stroke: $grey-1;
-        stroke-width: 3;
+        stroke-dasharray: 4, 2; 
+        stroke: rgba($grey-1, 0.8);
+        stroke-width: 2;
         fill: none;
     }
     .forecast-area { 
-        fill: rgba($grey-1, 0.2);
+        fill: rgba($grey-1, 0.1);
+    }
+    .forecast-focus .forecast-line {
+        stroke: rgba($grey-1, 1);
+        stroke-width: 3;
+    }
+    .forecast-focus .forecast-area {
+        fill: rgba($grey-1, 0.4);
     }
     .locator-point {
         stroke-width: 3;
@@ -184,7 +203,7 @@ table.table-levels {
     }
     .locator-line {
         stroke-width: 1;
-        stroke: $black;
+        stroke: rgba($black, 0.8);
         shape-rendering: crispEdges; 
     }
 }
