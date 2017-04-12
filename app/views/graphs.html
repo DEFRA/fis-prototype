@@ -231,268 +231,302 @@
 <script src="http://d3js.org/d3.v3.min.js"></script>
 <script>
 
-var Chart = (function(window,d3) {
+	var Chart = (function(window,d3) {
 
-	const yExtension = 0.4,
-		breakPoint = 640,
-		xCutOff = 9;
+		const yExtension = 0.4,
+			breakPoint = 640,
+			xCutOff = 9;
 
-	var svg,
-		data,
-		x, 
-		y, 
-		xAxis, 
-		yAxis, 
-		dim, 
-		chartWrapper, 
-		line,
-		area, 
-		path, 
-		margin = {}, 
-		locator,
-		locatorX,
-		locatorY,
-		width, height, parentWidth, parentHeight;
-
-
-	d3.json('/public/javascripts/json/river-level.json', init);
-
-	function init(json) {
-
-		data = json;
-		lines = data.observed.concat(data.forecast);
-
-		//Initialize scales
-		xExtent = d3.extent(lines, function(d,i) { return new Date(d.date) });
-		yExtent = d3.extent(lines, function(d,i) { return d.level });
-
-		// Add margin to bottom of Y Axis
-		yExtent[0] = ((yExtent[0] * 100) - (yExtension * 100))/100;
-		// Set Y Top to highest level
-		yExtent[1] = Math.max(data.highest, data.warning, data.alert, yExtent[1]);
-		// Add margin to top of Y Axis
-		yExtent[1] = ((yExtent[1] * 100) + (yExtension * 100))/100;
-
-		// Setup scales
-		x = d3.time.scale().domain(xExtent);
-		y = d3.scale.linear().domain(yExtent);
-
-		// Bisect date
-		bisectDate = d3.bisector(function(d) { return new Date(d.date); }).left;
-
-		//Initialize axis
-		xAxis = d3.svg.axis().orient('bottom').tickFormat(d3.time.format('%a, %e %b')).outerTickSize(0);
-		yAxis = d3.svg.axis().orient('left').ticks(5).tickFormat(function(d) { return parseFloat(d).toFixed(1) + 'm'; }).outerTickSize(0);
-
-		//Area generator
-		area = d3.svg.area()
-		.x(function(d) { return x(new Date(d.date)) })
-		.y0(function(d) { return height })
-		.y1(function(d) { return y(d.level) });
-
-		//Line generator
-		line = d3.svg.line()
-		.x(function(d) { return x(new Date(d.date)) })
-		.y(function(d) { return y(d.level) });
-
-		//Initialize svg
-		svg = d3.select('#graph').append('svg').style('pointer-events', 'none');
-		chartWrapper = svg.append('g').style('pointer-events', 'all');
-		chartWrapper.append('g').classed('y grid', true);
-		chartWrapper.append('g').classed('x grid', true);
-		chartWrapper.append('g').classed('x axis', true);
-		chartWrapper.append('g').classed('y axis', true);
-		chartWrapper.append('g').classed('forecast', true);
-		chartWrapper.append('g').classed('observed observed-focus', true);
-		forecastArea = svg.select('.forecast').append('path').datum(data.forecast).classed('forecast-area', true);
-		observedArea = svg.select('.observed').append('path').datum(data.observed).classed('observed-area', true);
-		observed = svg.select('.observed').append('path').datum(data.observed).classed('observed-line', true);
-		forecast = svg.select('.forecast').append('path').datum(data.forecast).classed('forecast-line', true);
-		chartWrapper.append('g').classed('thresholds', true);
-		svg.select('.thresholds').append('line').classed('highest', true);
-		svg.select('.thresholds').append('line').classed('warning', true);
-		svg.select('.thresholds').append('line').classed('alert', true);
-		chartWrapper.on('mousemove', mousemove);
-
-		// Add locator
-		chartWrapper.append('g').classed('locator', true);
-		locatorLine = svg.select('.locator').append('line').classed('locator-line', true);
-		locatorPoint = svg.select('.locator').append('circle').attr('r', 4).classed('locator-point', true);
-		
-		//Render the chart
-		render();
-
-	}
+		var svg,
+			data,
+			x, 
+			y, 
+			xAxis, 
+			yAxis, 
+			dim, 
+			chartWrapper, 
+			line,
+			area, 
+			path, 
+			margin = {}, 
+			locator,
+			locatorX,
+			locatorY,
+			width, height, parentWidth, parentHeight;
+			hasForecast = false;
+			hasHighest = false;
+			hasWarning = false;
+			hasAlert = false;
 
 
-	function render() {
+		d3.json('/public/javascripts/json/river-level.json', init);
 
-		//Get dimensions based on parent size
-		parentWidth = Math.floor(d3.select('#graph').node().getBoundingClientRect().width);
-		parentHeight = Math.floor(d3.select('#graph').node().getBoundingClientRect().height);
-		updateDimensions(parentWidth, parentHeight);
+		function init(json) {
 
-		//Update x and y scales to new dimensions
-		x.range([0, width]);
-		y.range([height, 0]);
+			data = json;
+			lines = data.observed;
 
-		//Update svg elements to new dimensions
-		chartWrapper.attr('transform', 'translate(' + (margin.left + margin.right) + ',' + 0 + ')');
-
-		//Update the axis and line
-		xAxis.scale(x);
-		yAxis.scale(y);
-		svg.select('.x.axis')
-		.attr('transform', 'translate(0,' + height + ')')
-		.call(xAxis);
-		svg.select('.y.axis')
-		.call(yAxis);
-
-		// Update grid lines
-		svg.select('.x.grid')
-		.attr('transform', 'translate(0,' + height + ')')
-		.call(d3.svg.axis()
-			.scale(x)
-			.orient('bottom')
-			.ticks(d3.time.day,1)
-			.tickSize(-height, 0, 0)
-			.tickFormat('')
-		);
-		svg.select('.y.grid')
-		.attr('transform', 'translate(0,' + 0 + ')')
-		.call(d3.svg.axis()
-			.scale(y)
-			.orient('left')
-			.ticks(5)
-			.tickSize(-width, 0, 0)
-			.tickFormat('')
-		);
-
-		// Update thresholds
-		svg.select('.highest')
-			.attr('transform', 'translate(0,' + y(data.highest) + ')')
-			.attr('x2', x(xExtent[1]))
-			.attr('y2', 0);
-		svg.select('.warning')
-			.attr('transform', 'translate(0,' + y(data.warning) + ')')
-			.attr('x2', x(xExtent[1]))
-			.attr('y2', 0);
-		svg.select('.alert')
-			.attr('transform', 'translate(0,' + y(data.alert) + ')')
-			.attr('x2', x(xExtent[1]))
-			.attr('y2', 0);
-
-		// Update locator
-		locatorX = Math.floor(x(new Date(data.observed[data.observed.length-1].date)));
-		locatorY = Math.floor(y(data.observed[data.observed.length-1].level));
-		svg.select('.locator-line')		
-			.attr('y1', 0).attr('y2', height)	
-			.attr('transform', 'translate(' + locatorX + ',0)');
-		svg.select('.locator-point')			
-			.attr('transform', 'translate(' + locatorX + ',' + locatorY + ')');
-
-		// Draw lines and areas
-		observedArea.attr('d', area);
-		forecastArea.attr('d', area);
-		observed.attr('d', line);
-		forecast.attr('d', line);
-
-	}
-
-	function updateDimensions(parentWidth, parentHeight) {
-
-		margin.top = 25;
-		margin.bottom = 25;
-		margin.left = 18;
-		margin.right = 18;
-
-		xCutOffLeft = d3.time.hour.offset(xExtent[0], + xCutOff).getTime();
-		xCutOffRight = d3.time.hour.offset(xExtent[1], - xCutOff).getTime();
-
-		// Mobile first
-
-		xAxis.ticks(d3.time.hour.utc, 12).tickFormat(function(d) {
-			if (d.getUTCHours() == 12 & d >= xCutOffLeft & d <= xCutOffRight) {
-				formatter = d3.time.format('%e %b');
-				return formatter(d);
-			} else {
-				return null
+			if (data.forecast) {
+				lines = lines.concat(data.forecast);
+				hasForecast = true;
 			}
-		});
 
-		// Greater than breakpoint
+			//Initialize scales
+			xExtent = d3.extent(lines, function(d,i) { return new Date(d.date) });
+			yExtent = d3.extent(lines, function(d,i) { return d.level });
 
-		if(window.innerWidth > breakPoint) {
+			// Add margin to bottom of Y Axis
+			yExtent[0] = ((yExtent[0] * 100) - (yExtension * 100))/100;
+
+			// Set Y Top to highest value thats available
+			yTop = [yExtent[1]];
+
+			if (data.highest) { yTop.push(data.highest); hasHighest = true; }
+			if (data.warning) { yTop.push(data.warning); hasWarning = true; }
+			if (data.alert) { yTop.push(data.alert); hasAlert = true; }
+			yExtent[1] = Math.max.apply(Math,yTop);
+
+			console.log(yTop);
+
+			// Add margin to top of Y Axis
+			yExtent[1] = ((yExtent[1] * 100) + (yExtension * 100))/100;
+
+			// Setup scales
+			x = d3.time.scale().domain(xExtent);
+			y = d3.scale.linear().domain(yExtent);
+
+			// Bisect date
+			bisectDate = d3.bisector(function(d) { return new Date(d.date); }).left;
+
+			//Initialize axis
+			xAxis = d3.svg.axis().orient('bottom').tickFormat(d3.time.format('%a, %e %b')).outerTickSize(0);
+			yAxis = d3.svg.axis().orient('left').ticks(5).tickFormat(function(d) { return parseFloat(d).toFixed(1) + 'm'; }).outerTickSize(0);
+
+			//Area generator
+			area = d3.svg.area()
+			.x(function(d) { return x(new Date(d.date)) })
+			.y0(function(d) { return height })
+			.y1(function(d) { return y(d.level) });
+
+			//Line generator
+			line = d3.svg.line()
+			.x(function(d) { return x(new Date(d.date)) })
+			.y(function(d) { return y(d.level) });
+
+			//Initialize svg
+			svg = d3.select('#graph').append('svg').style('pointer-events', 'none');
+			chartWrapper = svg.append('g').style('pointer-events', 'all');
+			chartWrapper.append('g').classed('y grid', true);
+			chartWrapper.append('g').classed('x grid', true);
+			chartWrapper.append('g').classed('x axis', true);
+			chartWrapper.append('g').classed('y axis', true);
+			chartWrapper.append('g').classed('forecast', true);
+			chartWrapper.append('g').classed('observed observed-focus', true);
+			if (hasForecast) {
+				forecastArea = svg.select('.forecast').append('path').datum(data.forecast).classed('forecast-area', true);
+				forecast = svg.select('.forecast').append('path').datum(data.forecast).classed('forecast-line', true);
+			}
+			observedArea = svg.select('.observed').append('path').datum(data.observed).classed('observed-area', true);
+			observed = svg.select('.observed').append('path').datum(data.observed).classed('observed-line', true);
+			chartWrapper.append('g').classed('thresholds', true);
+			if (hasHighest) {
+				svg.select('.thresholds').append('line').classed('highest', true);
+			}
+			if (hasWarning) {
+				svg.select('.thresholds').append('line').classed('warning', true);
+			}
+			if (hasAlert) {
+				svg.select('.thresholds').append('line').classed('alert', true);
+			}
+			chartWrapper.on('mousemove', mousemove);
+
+			// Add locator
+			chartWrapper.append('g').classed('locator', true);
+			locatorLine = svg.select('.locator').append('line').classed('locator-line', true);
+			locatorPoint = svg.select('.locator').append('circle').attr('r', 4).classed('locator-point', true);
+			
+			//Render the chart
+			render();
+
+		}
+
+
+		function render() {
+
+			//Get dimensions based on parent size
+			parentWidth = Math.floor(d3.select('#graph').node().getBoundingClientRect().width);
+			parentHeight = Math.floor(d3.select('#graph').node().getBoundingClientRect().height);
+			updateDimensions(parentWidth, parentHeight);
+
+			//Update x and y scales to new dimensions
+			x.range([0, width]);
+			y.range([height, 0]);
+
+			//Update svg elements to new dimensions
+			chartWrapper.attr('transform', 'translate(' + (margin.left + margin.right) + ',' + 0 + ')');
+
+			//Update the axis and line
+			xAxis.scale(x);
+			yAxis.scale(y);
+			svg.select('.x.axis')
+			.attr('transform', 'translate(0,' + height + ')')
+			.call(xAxis);
+			svg.select('.y.axis')
+			.call(yAxis);
+
+			// Update grid lines
+			svg.select('.x.grid')
+			.attr('transform', 'translate(0,' + height + ')')
+			.call(d3.svg.axis()
+				.scale(x)
+				.orient('bottom')
+				.ticks(d3.time.day,1)
+				.tickSize(-height, 0, 0)
+				.tickFormat('')
+			);
+			svg.select('.y.grid')
+			.attr('transform', 'translate(0,' + 0 + ')')
+			.call(d3.svg.axis()
+				.scale(y)
+				.orient('left')
+				.ticks(5)
+				.tickSize(-width, 0, 0)
+				.tickFormat('')
+			);
+
+			// Update thresholds
+			if (hasHighest) {
+				svg.select('.highest')
+					.attr('transform', 'translate(0,' + y(data.highest) + ')')
+					.attr('x2', x(xExtent[1]))
+					.attr('y2', 0);
+			}
+			if (hasWarning) {
+				svg.select('.warning')
+					.attr('transform', 'translate(0,' + y(data.warning) + ')')
+					.attr('x2', x(xExtent[1]))
+					.attr('y2', 0);
+			}
+			if (hasAlert) {
+				svg.select('.alert')
+					.attr('transform', 'translate(0,' + y(data.alert) + ')')
+					.attr('x2', x(xExtent[1]))
+					.attr('y2', 0);
+			}
+
+			// Update locator
+			locatorX = Math.floor(x(new Date(data.observed[data.observed.length-1].date)));
+			locatorY = Math.floor(y(data.observed[data.observed.length-1].level));
+			svg.select('.locator-line')		
+				.attr('y1', 0).attr('y2', height)	
+				.attr('transform', 'translate(' + locatorX + ',0)');
+			svg.select('.locator-point')			
+				.attr('transform', 'translate(' + locatorX + ',' + locatorY + ')');
+
+			// Draw lines and areas
+			observedArea.attr('d', area);
+			observed.attr('d', line);
+			if (hasForecast) {
+				forecastArea.attr('d', area);
+				forecast.attr('d', line);
+			}
+
+		}
+
+		function updateDimensions(parentWidth, parentHeight) {
+
+			margin.top = 25;
+			margin.bottom = 25;
+			margin.left = 18;
+			margin.right = 18;
+
+			xCutOffLeft = d3.time.hour.offset(xExtent[0], + xCutOff).getTime();
+			xCutOffRight = d3.time.hour.offset(xExtent[1], - xCutOff).getTime();
+
+			// Mobile first
+
 			xAxis.ticks(d3.time.hour.utc, 12).tickFormat(function(d) {
-				if (d.getUTCHours() == 12 & d.getTime() >= xCutOffLeft & d.getTime() <= xCutOffRight) {
-					formatter = d3.time.format('%a, %e %b');
+				if (d.getUTCHours() == 12 & d >= xCutOffLeft & d <= xCutOffRight) {
+					formatter = d3.time.format('%e %b');
 					return formatter(d);
 				} else {
 					return null
 				}
 			});
-			margin.left = 21;
-			margin.right = 21;
+
+			// Greater than breakpoint
+
+			if(window.innerWidth > breakPoint) {
+				xAxis.ticks(d3.time.hour.utc, 12).tickFormat(function(d) {
+					if (d.getUTCHours() == 12 & d.getTime() >= xCutOffLeft & d.getTime() <= xCutOffRight) {
+						formatter = d3.time.format('%a, %e %b');
+						return formatter(d);
+					} else {
+						return null
+					}
+				});
+				margin.left = 21;
+				margin.right = 21;
+			}
+
+			width = parentWidth - margin.left - margin.right;
+			height = parentHeight - margin.top - margin.bottom;
+
 		}
 
-		width = parentWidth - margin.left - margin.right;
-		height = parentHeight - margin.top - margin.bottom;
 
-	}
+		function mousemove() {
 
+			var x0 = x.invert(d3.mouse(this)[0]),
+			i = bisectDate(lines, x0, 1);
+			d0 = lines[i - 1],
+			d1 = lines[i],
+			d = x0 - new Date(d0.date) > new Date(d1.date) - x0 ? d1 : d0;
 
-	function mousemove() {
+			locatorX = Math.floor(x(new Date(d.date)));
+			locatorY = Math.floor(y(d.level));
+			latestX = Math.floor(x(new Date(data.observed[data.observed.length-1].date)));
 
-		var x0 = x.invert(d3.mouse(this)[0]),
-		i = bisectDate(lines, x0, 1);
-        d0 = lines[i - 1],
-        d1 = lines[i],
-        d = x0 - new Date(d0.date) > new Date(d1.date) - x0 ? d1 : d0;
+			// Update figcaption data
 
-		locatorX = Math.floor(x(new Date(d.date)));
-		locatorY = Math.floor(y(d.level));
-		latestX = Math.floor(x(new Date(data.observed[data.observed.length-1].date)));
+			if (locatorX > latestX) {
+				locatorPoint.classed('locator-point-forecast', true);
+				svg.select('.forecast').classed('forecast-focus', true);
+				svg.select('.observed').classed('observed-focus', false);
+				d3.select('#data-type').html('Forecast level');
+			} else {
+				locatorPoint.classed('locator-point-forecast', false);
+				svg.select('.forecast').classed('forecast-focus', false);
+				svg.select('.observed').classed('observed-focus', true);
+				d3.select('#data-type').html('Recorded level');
+			}
 
-		// Update figcaption data
+			if (locatorX == latestX) {
+				d3.select('#data-type').html('Latest recorded level');
+			}
 
-		if (locatorX > latestX) {
-			locatorPoint.classed('locator-point-forecast', true);
-			svg.select('.forecast').classed('forecast-focus', true);
-			svg.select('.observed').classed('observed-focus', false);
-			d3.select('#data-type').html('Forecast level');
-		} else {
-			locatorPoint.classed('locator-point-forecast', false);
-			svg.select('.forecast').classed('forecast-focus', false);
-			svg.select('.observed').classed('observed-focus', true);
-			d3.select('#data-type').html('Recorded level');
+			parseTime = d3.time.format('%-I:%M%p');
+			parseDate = d3.time.format('%e %b %Y');
+			d3.select('#data-details').html(
+				+ d.level + 'm at '
+				+ parseTime(new Date(d.date)).toLowerCase()
+				+ ' on '
+				+ parseDate(new Date(d.date)));
+
+			locatorPoint.attr('transform', 'translate(' + locatorX + ',' + locatorY + ')');
+			locatorLine.attr('transform', 'translate(' + locatorX + ',0)');
+
 		}
 
-		if (locatorX == latestX) {
-			d3.select('#data-type').html('Latest recorded level');
+		return {
+
+			render : render
+
 		}
 
-		parseTime = d3.time.format('%-I:%M%p');
-		parseDate = d3.time.format('%e %b %Y');
-		d3.select('#data-details').html(
-			+ d.level + 'm at '
-			+ parseTime(new Date(d.date)).toLowerCase()
-			+ ' on '
-			+ parseDate(new Date(d.date)));
+	})(window,d3);
 
-		locatorPoint.attr('transform', 'translate(' + locatorX + ',' + locatorY + ')');
-		locatorLine.attr('transform', 'translate(' + locatorX + ',0)');
-
-	}
-
-	return {
-
-		render : render
-
-	}
-
-})(window,d3);
-
-window.addEventListener('resize', Chart.render);
+	window.addEventListener('resize', Chart.render);
 
 </script>
 {% include "partials/scripts.html" %}

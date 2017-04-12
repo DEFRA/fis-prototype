@@ -2415,7 +2415,7 @@ table.table-levels tbody .error:before {
 
 .graph svg .observed-line {
   stroke: rgba(0, 94, 165, 0.8);
-  stroke-width: 2;
+  stroke-width: 3;
   fill: none;
 }
 
@@ -2425,7 +2425,7 @@ table.table-levels tbody .error:before {
 
 .graph svg .observed-focus .observed-line {
   stroke: #005ea5;
-  stroke-width: 3;
+  stroke-width: 4;
 }
 
 .graph svg .observed-focus .observed-area {
@@ -2434,18 +2434,18 @@ table.table-levels tbody .error:before {
 
 .graph svg .forecast-line {
   stroke-dasharray: 4, 2;
-  stroke: rgba(111, 119, 123, 0.8);
-  stroke-width: 2;
+  stroke: #6f777b;
+  stroke-width: 3;
   fill: none;
 }
 
 .graph svg .forecast-area {
-  fill: rgba(111, 119, 123, 0.1);
+  fill: rgba(111, 119, 123, 0.2);
 }
 
 .graph svg .forecast-focus .forecast-line {
   stroke: #6f777b;
-  stroke-width: 3;
+  stroke-width: 4;
 }
 
 .graph svg .forecast-focus .forecast-area {
@@ -2453,7 +2453,7 @@ table.table-levels tbody .error:before {
 }
 
 .graph svg .locator-point {
-  stroke-width: 3;
+  stroke-width: 4;
   stroke: #005ea5;
   fill: white;
 }

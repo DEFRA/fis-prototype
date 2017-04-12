@@ -162,9 +162,10 @@ table.table-levels {
         stroke-width: 2;
         shape-rendering: crispEdges;
     }
+
     .observed-line { 
         stroke: rgba($govuk-blue, 0.8);
-        stroke-width: 2;
+        stroke-width: 3;
         fill: none;
     }
     .observed-area { 
@@ -172,29 +173,31 @@ table.table-levels {
     }
     .observed-focus .observed-line {
         stroke: rgba($govuk-blue, 1);
-        stroke-width: 3;
+        stroke-width: 4;
     }
     .observed-focus .observed-area {
         fill: rgba($govuk-blue, 0.3);
     }
+
     .forecast-line { 
         stroke-dasharray: 4, 2; 
-        stroke: rgba($grey-1, 0.8);
-        stroke-width: 2;
+        stroke: rgba($grey-1, 1);
+        stroke-width: 3;
         fill: none;
     }
     .forecast-area { 
-        fill: rgba($grey-1, 0.1);
+        fill: rgba($grey-1, 0.2);
     }
     .forecast-focus .forecast-line {
         stroke: rgba($grey-1, 1);
-        stroke-width: 3;
+        stroke-width: 4;
     }
     .forecast-focus .forecast-area {
         fill: rgba($grey-1, 0.4);
     }
+
     .locator-point {
-        stroke-width: 3;
+        stroke-width: 4;
         stroke: $govuk-blue;
         fill: white; 
     }
