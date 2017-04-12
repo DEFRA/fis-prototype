@@ -63,36 +63,42 @@
 
 	<script type="text/javascript">
 
-		var geoJSON = '/public/javascripts/json/features.json';
-		var selectedId = '123FWF315'; // Warning
-		//var selectedId = '123FWF308'; // Warning removed
-		//var selectedId = '123WAF963'; // Alert
+		const selectedId = '123FWF315'; // Warning
+		//const selectedId = '123WAF963'; // Alert
+		//const selectedId = '123FWF308'; // Warning removed
 
+		const opacity = 0.75;
+
+
+		var geoJSON = '/public/javascripts/json/features.json';
+		
 		var tile = new ol.layer.Tile({
 			source: new ol.source.OSM()
 		});
 
-		var styleFunction = function(feature, resolution) {
+		var tileSelected = new ol.layer.Tile({
+			source: new ol.source.OSM()
+		});
 
-			var styles = [];
+		var styleFunction = function(feature, resolution, alpha = 1) {
 
 			// Alert area colours
-			var strokeColour = 'rgba(241,135,0,1)';
-			var fillColour = 'rgba(241,135,0,1)';
-			var strokeWidth = 2;
+			var strokeColour = '#f18700';
+			var fillColour = 'rgba(241,135,0,' + alpha + ')';
+			var strokeWidth = 1;
 			var zIndex = 2;
 
 			// Warning or severe warning colours
 			if (feature.get('severity') == 1 || feature.get('severity') == 2) {
-				strokeColour = 'rgba(227,0,15,1)';
-				fillColour = 'rgba(227,0,15,1)';
+				strokeColour = '#e3000f';
+				fillColour = 'rgba(227,0,15,' + alpha + ')';
 				zIndex = 3;
 			}
 			
 			// Warning removed colours
 			else if (feature.get('severity') == -1) {
-				strokeColour = '#6F777B';
-				fillColour = '#6F777B';
+				strokeColour = '#6f777b';
+				fillColour = 'rgba(111,119,123,' + alpha + ')';
 				zIndex = 3;				
 			}
 
@@ -103,26 +109,7 @@
 				zIndex: zIndex 
 			});
 
-			// Selected area style
-			var styleSelectedGlow = new ol.style.Style({
-				stroke: new ol.style.Stroke({ color: 'rgba(255,179,31,1)', width: 10, miterLimit: 2, lineJoin: 'round' }),
-				zIndex: zIndex
-			});
-			var styleSelectedBdr = new ol.style.Style({
-				stroke: new ol.style.Stroke({ color: 'rgba(0,0,0,0.2)', width: 1, miterLimit: 2, lineJoin: 'round' }),
-				zIndex: zIndex
-			});
-
-			// Add selected style first
-			if (feature.getId() == selectedId) {
-				styles.push(styleSelectedGlow);
-				styles.push(style);
-				styles.push(styleSelectedBdr);
-			} else {
-				styles.push(style);
-			}
-
-			return styles;
+			return style;
 
 		};
 
@@ -136,9 +123,12 @@
 		var targetAreas = new ol.layer.Image({
 			source: new ol.source.ImageVector({
 				source: source,
+
+				// Use custom style function to colour feature accordingley
 				style: styleFunction
+
 			}),
-			opacity: 0.75
+			opacity: opacity
 		});
 
 		var view = new ol.View({
@@ -146,32 +136,42 @@
 			zoom: 14
 		});
 
+		// Render map
+
 		var map = new ol.Map({
 			target: 'map',
-			layers: [tile, targetAreas],
+			layers: [tile, targetAreas, tileSelected],
 			view: view
 		});
 
-		// Blend mode
+		// Draw the selected feature on top of the image layer
 
-		/*
-		map.on('precompose', function(e){
-			e.context.globalCompositeOperation = 'source-over';
-		});
-		map.on('postcompose', function(e){
-			e.context.globalCompositeOperation = 'source-over';
+		tileSelected.on('precompose', function(e){
+
+			// Save initial clipping state of canvas
+			e.context.save();
+
+			// Set feature to selected feature from geojson 
+			feature = source.getFeatureById(selectedId);
+
+			// Draw the selected border/glow first
+			e.vectorContext.drawFeature(feature, new ol.style.Style({
+				stroke: new ol.style.Stroke({ color: '#ffbf47', width: 10, miterLimit: 2, lineJoin: 'round' })
+			}));
+
+			// Set this polygon as a clipping mask for this layers tile content
+			e.context.clip();
 		});
 
-		// Iterate through features after loaded
+		tileSelected.on('postcompose', function(e) {
 
-		/*
-		var sourceListener = source.on('change', function(e) {
-			if (source.getState() == 'ready') {
-				source.unByKey(sourceListener);
-				var feature = source.getFeatureById(selectedId);
-			}
+			// Restore the canvas so no subsequent content is clipped/masked
+			e.context.restore();
+
+			// Draw the feature again using the style function to apply corrct colour and apply opacity
+			e.vectorContext.drawFeature(feature, styleFunction(feature, view.getResolution(), opacity));
+
 		});
-		*/
 
 		// Change pointer type and highlight style
 
