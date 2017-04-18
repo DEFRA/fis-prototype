@@ -323,8 +323,10 @@
 			bisectDate = d3.bisector(function(d) { return new Date(d.date); }).left;
 
 			//Initialize axis
-			xAxis = d3.svg.axis().orient('bottom').tickFormat(d3.time.format('%a, %e %b')).outerTickSize(0);
-			yAxis = d3.svg.axis().orient('left').ticks(5).tickFormat(function(d) { return parseFloat(d).toFixed(1) + 'm'; }).outerTickSize(0);
+			xAxis = d3.svg.axis().orient('bottom').outerTickSize(0);
+			yAxis = d3.svg.axis().orient('left').ticks(5).tickFormat(function(d) { 
+				return parseFloat(d).toFixed(1) + 'm'; 
+			}).outerTickSize(0);
 
 			//Area generator
 			area = d3.svg.area()
@@ -459,6 +461,13 @@
 				svg.select('.time-now').attr('x', -17).attr('y', 25);
 				now.attr('y1', 0).attr('y2', height)	
 					.attr('transform', 'translate(' + timeX + ',0)');
+				
+				// Add 'today' class to x axis tick
+				svg.selectAll('.x .tick')
+					.filter(function(d){ 
+						return new Date(d).getDay() == new Date(data.now).getDay() && new Date(d).getUTCHours() == 12
+					})
+					.attr('class', 'tick tick-today');
 			}
 
 			// Draw lines and areas

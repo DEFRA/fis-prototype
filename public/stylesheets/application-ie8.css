@@ -1996,6 +1996,10 @@ table.table-levels tbody .error:before {
   visibility: hidden;
 }
 
+.graph svg .axis.x .tick-today {
+  font-weight: bold;
+}
+
 .graph svg .grid line {
   fill: none;
   stroke: #dee0e2;

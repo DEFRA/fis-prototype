@@ -158,6 +158,9 @@ table.table-levels {
     .axis.x .tick line {
         visibility:hidden;
     }
+    .axis.x .tick-today {
+        font-weight:bold;
+    }
     .grid line {
         fill: none;
         stroke: $panel-colour;
