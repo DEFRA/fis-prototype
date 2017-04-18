@@ -54,7 +54,12 @@
 							<figcaption class="graph-legend">
 
 								<div class="data data-level">
-									<span class="data-item font-xsmall data-level-item-heading" id="data-type">Latest measured level</span>
+									<span class="data-item font-xsmall data-level-item-heading" id="data-type">
+										<i class="icon icon-point"></i>
+										<span class="data-item-label">
+											Latest measured level
+										</span>
+									</span>
 									<span class="data-item bold-small" id="data-details"></span>
 								</div>
 								
@@ -552,16 +557,16 @@
 				locatorPoint.classed('locator-point-forecast', true);
 				svg.select('.forecast').classed('forecast-focus', true);
 				svg.select('.observed').classed('observed-focus', false);
-				d3.select('#data-type').classed('data-level-item-heading-forecast', true).html('Forecast level');
+				d3.select('#data-type').classed('data-level-item-heading-forecast', true).select('span').html('Forecast level');
 			} else {
 				locatorPoint.classed('locator-point-forecast', false);
 				svg.select('.forecast').classed('forecast-focus', false);
 				svg.select('.observed').classed('observed-focus', true);
-				d3.select('#data-type').classed('data-level-item-heading-forecast', false).html('Measured level');
+				d3.select('#data-type').classed('data-level-item-heading-forecast', false).select('span').html('Previous measured level');
 			}
 
 			if (locatorX == latestX) {
-				d3.select('#data-type').classed('data-level-item-heading-forecast', false).html('Latest measured level');
+				d3.select('#data-type').classed('data-level-item-heading-forecast', false).select('span').html('Latest measured level');
 			}
 
 			d3.select('#data-details').html(
