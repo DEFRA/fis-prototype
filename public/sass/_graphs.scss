@@ -59,6 +59,26 @@
         line-height:1.5;
         margin-bottom:0.5em;
     }
+    .data-level-item-heading:before {
+        content: ' ';
+        display:inline-block;
+        position:relative;
+        top:1px;
+        height:3px;
+        width:3px;
+        @include media(tablet) {
+            height:4px;
+            width:4px;
+        }
+        border-radius: 100%;
+        border:1px solid $govuk-blue;
+        border-width: 4px;
+        background-color: white;
+        margin-right:0.4em;
+    }
+    .data-level-item-heading-forecast:before {
+        border-color:$grey-1;
+    }
 }
 
 table.table-levels {
@@ -204,9 +224,22 @@ table.table-levels {
     .locator-point-forecast {
         stroke: $grey-1;
     }
-    .locator-line {
+
+    .time-line {
         stroke-width: 1;
         stroke: rgba($black, 0.8);
         shape-rendering: crispEdges; 
+    }
+    .time-now {
+        @include core-16();
+        text-shadow: 
+            -2px 0 white, 
+            0 2px white, 
+            2px 0 white, 
+            0 -2px white,
+            -1px 0 white, 
+            0 1px white, 
+            1px 0 white, 
+            0 -1px white;
     }
 }

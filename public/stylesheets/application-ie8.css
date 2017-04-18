@@ -1876,6 +1876,26 @@ section.feedback {
   margin-bottom: 0.5em;
 }
 
+.graph-legend .data-level-item-heading:before {
+  content: ' ';
+  display: inline-block;
+  position: relative;
+  top: 1px;
+  height: 3px;
+  width: 3px;
+  height: 4px;
+  width: 4px;
+  border-radius: 100%;
+  border: 1px solid #005ea5;
+  border-width: 4px;
+  background-color: white;
+  margin-right: 0.4em;
+}
+
+.graph-legend .data-level-item-heading-forecast:before {
+  border-color: #6f777b;
+}
+
 table.table-levels thead th {
   font-family: "nta", Arial, sans-serif;
   font-weight: bold;
@@ -2054,10 +2074,21 @@ table.table-levels tbody .error:before {
   stroke: #6f777b;
 }
 
-.graph svg .locator-line {
+.graph svg .time-line {
   stroke-width: 1;
   stroke: rgba(11, 12, 12, 0.8);
   shape-rendering: crispEdges;
+}
+
+.graph svg .time-now {
+  font-family: "nta", Arial, sans-serif;
+  font-weight: 400;
+  text-transform: none;
+  font-size: 14px;
+  line-height: 1.1428571429;
+  font-size: 16px;
+  line-height: 1.25;
+  text-shadow: -2px 0 white,  0 2px white,  2px 0 white,  0 -2px white, -1px 0 white,  0 1px white,  1px 0 white,  0 -1px white;
 }
 
 .map {

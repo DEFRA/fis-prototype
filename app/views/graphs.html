@@ -32,7 +32,7 @@
 
 				<h2 id="levels-heading" class="heading-medium">
 					River levels at this location
-				</h2>       
+				</h2>     
 
 				<p id="visualisation-heading" class="font-xsmall">
 					<span class="visualisation-heading-measured">Measured levels</span> for the last 5 days <span class="visualisation-heading-forecast">Forecast levels</span> for the next 36 hours
@@ -55,7 +55,7 @@
 
 								<div class="data data-level">
 									<span class="data-item font-xsmall data-level-item-heading" id="data-type">Latest recorded level</span>
-									<span class="data-item bold-small" id="data-details">1.49m at 9:00am on 11 Jan 2017</span>
+									<span class="data-item bold-small" id="data-details"></span>
 								</div>
 								
 								<ul>
@@ -204,6 +204,20 @@
 
 				</div>
 
+				<details>
+
+					<summary><span class="summary">Forecast confidence is <strong class="bold-small">High</strong></span></summary>
+
+					<div class="panel panel-border-narrow">
+
+						<p>
+							What does this mean?
+						</p>
+
+					</div>
+
+				</details>
+
 			</section>
 
 		</div>
@@ -239,24 +253,19 @@
 
 		var svg,
 			data,
-			x, 
-			y, 
-			xAxis, 
-			yAxis, 
+			x, y, 
+			xAxis, yAxis, 
 			dim, 
 			chartWrapper, 
-			line,
-			area, 
-			path, 
+			line, area, path, 
 			margin = {}, 
-			locator,
-			locatorX,
-			locatorY,
-			width, height, parentWidth, parentHeight;
-			hasForecast = false;
-			hasHighest = false;
-			hasWarning = false;
-			hasAlert = false;
+			locator, locatorX, locatorY,
+			now, timeX,
+			width, height,
+			parentWidth, parentHeight,
+			hasObserved = false, hasForecast = false, hasHighest = false, hasWarning = false, hasAlert = false,
+			parseTime, parseDate,
+			startPoint;
 
 
 		d3.json('/public/javascripts/json/river-level.json', init);
@@ -264,10 +273,18 @@
 		function init(json) {
 
 			data = json;
-			lines = data.observed;
 
+			// Setup array to combine observed and forecast points
+			// and identify startPoint for locator 
+			lines = [];
+			if (data.observed) {
+				lines = lines.concat(data.observed);
+				startPoint = data.observed[data.observed.length-1];
+				hasObserved = true;
+			}
 			if (data.forecast) {
 				lines = lines.concat(data.forecast);
+				startPoint = data.forecast[0];
 				hasForecast = true;
 			}
 
@@ -275,18 +292,25 @@
 			xExtent = d3.extent(lines, function(d,i) { return new Date(d.date) });
 			yExtent = d3.extent(lines, function(d,i) { return d.level });
 
+			// Set Y range to highest and lowest values from the data
+			yRange = [yExtent[0],yExtent[1]];
+			if (data.highest) { 
+				yRange.push(data.highest); 
+				hasHighest = true; 
+			}
+			if (data.warning) { 
+				yRange.push(data.warning); 
+				hasWarning = true; 
+			}
+			if (data.alert) { 
+				yRange.push(data.alert); 
+				hasAlert = true; 
+			}
+			yExtent[0] = Math.min.apply(Math,yRange);
+			yExtent[1] = Math.max.apply(Math,yRange);
+
 			// Add margin to bottom of Y Axis
 			yExtent[0] = ((yExtent[0] * 100) - (yExtension * 100))/100;
-
-			// Set Y Top to highest value thats available
-			yTop = [yExtent[1]];
-
-			if (data.highest) { yTop.push(data.highest); hasHighest = true; }
-			if (data.warning) { yTop.push(data.warning); hasWarning = true; }
-			if (data.alert) { yTop.push(data.alert); hasAlert = true; }
-			yExtent[1] = Math.max.apply(Math,yTop);
-
-			console.log(yTop);
 
 			// Add margin to top of Y Axis
 			yExtent[1] = ((yExtent[1] * 100) + (yExtension * 100))/100;
@@ -320,14 +344,16 @@
 			chartWrapper.append('g').classed('x grid', true);
 			chartWrapper.append('g').classed('x axis', true);
 			chartWrapper.append('g').classed('y axis', true);
-			chartWrapper.append('g').classed('forecast', true);
-			chartWrapper.append('g').classed('observed observed-focus', true);
+			if (hasObserved) {
+				chartWrapper.append('g').classed('observed observed-focus', true);
+				observedArea = svg.select('.observed').append('path').datum(data.observed).classed('observed-area', true);
+				observed = svg.select('.observed').append('path').datum(data.observed).classed('observed-line', true);
+			}
 			if (hasForecast) {
+				chartWrapper.append('g').classed('forecast', true);
 				forecastArea = svg.select('.forecast').append('path').datum(data.forecast).classed('forecast-area', true);
 				forecast = svg.select('.forecast').append('path').datum(data.forecast).classed('forecast-line', true);
 			}
-			observedArea = svg.select('.observed').append('path').datum(data.observed).classed('observed-area', true);
-			observed = svg.select('.observed').append('path').datum(data.observed).classed('observed-line', true);
 			chartWrapper.append('g').classed('thresholds', true);
 			if (hasHighest) {
 				svg.select('.thresholds').append('line').classed('highest', true);
@@ -339,17 +365,23 @@
 				svg.select('.thresholds').append('line').classed('alert', true);
 			}
 			chartWrapper.on('mousemove', mousemove);
+			
+			// Add timeline
+			if(data.now) {
+				chartWrapper.append('g').classed('time', true);
+				now = svg.select('.time');
+				svg.select('.time').append('line').classed('time-line', true);
+				svg.select('.time').append('text').classed('time-now', true).text('Now');
+			}
 
 			// Add locator
 			chartWrapper.append('g').classed('locator', true);
-			locatorLine = svg.select('.locator').append('line').classed('locator-line', true);
 			locatorPoint = svg.select('.locator').append('circle').attr('r', 4).classed('locator-point', true);
 			
 			//Render the chart
 			render();
 
 		}
-
 
 		function render() {
 
@@ -415,21 +447,39 @@
 			}
 
 			// Update locator
-			locatorX = Math.floor(x(new Date(data.observed[data.observed.length-1].date)));
-			locatorY = Math.floor(y(data.observed[data.observed.length-1].level));
-			svg.select('.locator-line')		
-				.attr('y1', 0).attr('y2', height)	
-				.attr('transform', 'translate(' + locatorX + ',0)');
+			locatorX = Math.floor(x(new Date(startPoint.date)));
+			locatorY = Math.floor(y(startPoint.level));
 			svg.select('.locator-point')			
 				.attr('transform', 'translate(' + locatorX + ',' + locatorY + ')');
 
+			// Update time line
+			if(data.now) {
+				timeX = Math.floor(x(new Date(data.now)));
+				svg.select('.time-line').attr('y1', 0).attr('y2', height);
+				svg.select('.time-now').attr('x', -17).attr('y', 25);
+				now.attr('y1', 0).attr('y2', height)	
+					.attr('transform', 'translate(' + timeX + ',0)');
+			}
+
 			// Draw lines and areas
-			observedArea.attr('d', area);
-			observed.attr('d', line);
+			if (hasObserved) {
+				observedArea.attr('d', area);
+				observed.attr('d', line);
+			}
 			if (hasForecast) {
 				forecastArea.attr('d', area);
 				forecast.attr('d', line);
 			}
+
+			// Update legend
+			parseTime = d3.time.format('%-I:%M%p');
+			parseDate = d3.time.format('%e %b %Y');
+			d3.select('#data-details').html(
+				+ startPoint.level + 'm at '
+				+ parseTime(new Date(startPoint.date)).toLowerCase()
+				+ ' on '
+				+ parseDate(new Date(startPoint.date))
+			);
 
 		}
 
@@ -474,18 +524,18 @@
 
 		}
 
-
 		function mousemove() {
 
 			var x0 = x.invert(d3.mouse(this)[0]),
 			i = bisectDate(lines, x0, 1);
-			d0 = lines[i - 1],
-			d1 = lines[i],
+			d0 = lines[i - 1];
+			d1 = lines[i];
+
 			d = x0 - new Date(d0.date) > new Date(d1.date) - x0 ? d1 : d0;
 
 			locatorX = Math.floor(x(new Date(d.date)));
 			locatorY = Math.floor(y(d.level));
-			latestX = Math.floor(x(new Date(data.observed[data.observed.length-1].date)));
+			latestX = Math.floor(x(new Date(startPoint.date)));
 
 			// Update figcaption data
 
@@ -493,20 +543,18 @@
 				locatorPoint.classed('locator-point-forecast', true);
 				svg.select('.forecast').classed('forecast-focus', true);
 				svg.select('.observed').classed('observed-focus', false);
-				d3.select('#data-type').html('Forecast level');
+				d3.select('#data-type').classed('data-level-item-heading-forecast', true).html('Forecast level');
 			} else {
 				locatorPoint.classed('locator-point-forecast', false);
 				svg.select('.forecast').classed('forecast-focus', false);
 				svg.select('.observed').classed('observed-focus', true);
-				d3.select('#data-type').html('Recorded level');
+				d3.select('#data-type').classed('data-level-item-heading-forecast', false).html('Recorded level');
 			}
 
 			if (locatorX == latestX) {
-				d3.select('#data-type').html('Latest recorded level');
+				d3.select('#data-type').classed('data-level-item-heading-forecast', false).html('Latest recorded level');
 			}
 
-			parseTime = d3.time.format('%-I:%M%p');
-			parseDate = d3.time.format('%e %b %Y');
 			d3.select('#data-details').html(
 				+ d.level + 'm at '
 				+ parseTime(new Date(d.date)).toLowerCase()
@@ -514,7 +562,6 @@
 				+ parseDate(new Date(d.date)));
 
 			locatorPoint.attr('transform', 'translate(' + locatorX + ',' + locatorY + ')');
-			locatorLine.attr('transform', 'translate(' + locatorX + ',0)');
 
 		}
 

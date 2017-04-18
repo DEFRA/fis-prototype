@@ -117,9 +117,9 @@ module.exports = {
     })
 
     // Verson 6
-    app.get('/stations', function (req, res) {
+    app.get('/stations-v6', function (req, res) {
       var pageName = 'Measuring stations (v6)'
-      res.render('stations', { 'page_name': pageName })
+      res.render('stations-v6', { 'page_name': pageName })
     })
 
     //
