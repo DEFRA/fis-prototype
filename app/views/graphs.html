@@ -209,20 +209,6 @@
 
 				</div>
 
-				<details>
-
-					<summary><span class="summary">Forecast confidence is <strong class="bold-small">High</strong></span></summary>
-
-					<div class="panel panel-border-narrow">
-
-						<p>
-							A high confidence forecast means that...
-						</p>
-
-					</div>
-
-				</details>
-
 			</section>
 
 		</div>
@@ -253,7 +239,8 @@
 	var Chart = (function(window,d3) {
 
 		const yExtension = 0.4,
-			breakPoint = 640,
+			windowBreakPoint = 640,
+			svgBreakPoint = 576,
 			xCutOff = 9;
 
 		var svg,
@@ -518,9 +505,9 @@
 				}
 			});
 
-			// Greater than breakpoint
+			// Greater than window or svg breakpoint
 
-			if(window.innerWidth > breakPoint) {
+			if(window.innerWidth > windowBreakPoint && parentWidth > svgBreakPoint) {
 				xAxis.ticks(d3.time.hour.utc, 12).tickFormat(function(d) {
 					if (d.getUTCHours() == 12 & d.getTime() >= xCutOffLeft & d.getTime() <= xCutOffRight) {
 						formatter = d3.time.format('%a, %e %b');
