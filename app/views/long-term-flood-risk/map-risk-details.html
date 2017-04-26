@@ -1,0 +1,362 @@
+{% extends "layout.html" %}
+
+{% block page_title %}Long term flood risk - GOV.UK{% endblock %}
+
+{% block head %}
+	<link rel="stylesheet" type="text/css" href="/static/long-term-flood-risk/public/stylesheets/map/index.css">
+	<link rel="stylesheet" href="/static/long-term-flood-risk/public/stylesheets/style.css">
+	{% include "partials/head.html" %}  
+	{% include "partials/snippets_head.html" %}
+{% endblock %}
+
+{% block content %}
+<div id="content" class="wrapper">
+
+	<div class="phase-banner-beta">
+		<p>
+			<strong class="phase-tag">beta</strong>
+			<span>
+				This is a new service – your <a href="/long-term-flood-risk/feedback">feedback</a> will help us to improve it.
+			</span>
+		</p>
+	</div>
+
+	<link rel="stylesheet" type="text/css" href="/static/long-term-flood-risk/public/stylesheets/ol.css">
+
+  	<main id="map-page">
+
+    	<div class="grid-row"> 
+
+      		<div class="column-two-thirds">
+
+        		<h1 class="heading-xlarge">
+					{% if national %}
+					Learn more about flood risk
+					{% else %}
+					Learn more about this area's flood risk
+					{% endif %}
+				</h1>
+
+				<div class="nojs-hide ie-hide">
+
+					<p class="hidden-mobile">
+						From the list on the left, select the information you're interested in. The map view will then update.
+					</p>
+					<p>
+						Find out how we define risk bands by selecting a feature from the map or an item form the legend.
+					</p>
+					<p>
+						'Detailed view' shows more options.
+					</p>
+					<p></p>
+					<p class="visible-mobile">
+						From the list below, select the information you're interested in. The map view will then update.
+					</p>
+				</div>
+
+			</div>
+
+		</div>
+
+		<div class="map-container nojs-hide ie-hide">
+
+			<div class="map-controls clearfix">
+
+				<div class="map-switch hidden-mobile">
+					<a href="#" class="toggle-view">
+						Basic view&nbsp;
+						<img src="/static/long-term-flood-risk/public/images/icon-detailed-off.png" alt="basic" class="basic">
+						<img src="/static/long-term-flood-risk/public/images/icon-detailed-on.png" alt="detailed" class="detailed">
+						&nbsp;Detailed view
+					</a>
+				</div>
+
+				<div class="map-search">
+					<form class="clearfix">
+						<label class="form-label" for="txtSearch">Location</label>
+						<div class="map-search-input">
+							<input id="txtSearch" name="location" title="Enter a place" placeholder="Enter a place" type="text">
+						</div>
+						<button id="mapSearch" title="Search Location" class="button">
+							<i class="fa fa-search" title="Search Location"></i>
+						</button>
+					</form>
+					<!--<div id="error-message">No results match your search term.</div>-->
+				</div>
+
+			</div>
+
+			<!--
+			<div class="local-details">
+				<div class="inner-content">
+					<p>Search results for <em class="bold-small">Carlisle</em></p>
+					<ul>
+						<li><a href="">Carlisle</a></li>
+					</ul>
+				</div>
+			</div>   
+			-->   
+
+			<div class="visible-mobile">
+				<select>
+					<optgroup label="Flood risk from rivers or the sea">
+						<option value="RiversOrSea_1-ROFRS" title="Extent of flooding from rivers or the sea">Extent of flooding</option>
+						<option value="RiversOrSea_2-FWLRSF" title="Estimated depth and flow of water at river and sea level monitoring stations">Depth and flow estimates at monitoring stations</option>
+					</optgroup>
+					<optgroup label="Flood risk from surface water">
+						<option value="SurfaceWater_6-SW-Extent" title="Extent of flooding from surface water">Extent of flooding</option>
+						<option value="SurfaceWater_9-SWDH" title="Surface water flood risk: water depth in a high risk scenario">High risk: depth</option>
+						<option value="SurfaceWater_12-SWVH" title="Surface water flood risk: water velocity in a high risk scenario">High risk: velocity</option>
+						<option value="SurfaceWater_8-SWDM" title="Surface water flood risk: water depth in a medium risk scenario">Medium risk: depth</option>
+						<option value="SurfaceWater_11-SWVM" title="Surface water flood risk: water velocity in a medium risk scenario">Medium risk: velocity</option>
+						<option value="SurfaceWater_7-SWDL" title="Surface water flood risk: water depth in a low risk scenario">Low risk: depth</option>
+						<option value="SurfaceWater_10-SWVL" title="Surface water flood risk: water velocity in a low risk scenario">Low risk: velocity</option>
+					</optgroup>
+					<optgroup label="Flood risk from reservoirs">
+						<option value="Reservoirs_3-ROFR" title="Extent of flooding from rerservoirs">Extent of flooding</option>
+						<option value="Reservoirs_4-DOFR" title="Reservoir flood risk: flood water depth">Flood depth</option>
+						<option value="Reservoirs_5-SOFR" title="Reservoir flood risk: flood water speed">Flood speed</option>
+					</optgroup>
+				</select>
+			</div>
+
+			<div class="clearfix">
+
+				<div class="lhs">
+
+					<ul class="nav">
+
+						<li id="RiversOrSea" title="Flood risk from rivers or the sea" class="category selected">
+							<h2>
+								<img src="/static/long-term-flood-risk/public/images/icon-rivers-sea.png" class="icon">
+								<span>Flood risk from rivers or the sea</span>
+							</h2>
+							<ul>
+								<li id="RiversOrSea_1-ROFRS" class="selected">
+									<a href="#RiversOrSea_1-ROFRS" title="Extent of flooding from rivers or the sea">Extent of flooding</a>
+								</li>
+								<li id="RiversOrSea_2-FWLRSF">
+									<a href="#RiversOrSea_2-FWLRSF" title="Estimated depth and flow of water at river and sea level monitoring stations">Depth and flow estimates at monitoring stations</a>
+								</li>
+							</ul>
+						</li>
+
+						<li id="SurfaceWater" title="Flood risk from surface water" class="category">
+							<h2>
+								<img src="/static/long-term-flood-risk/public/images/icon-surface-water.png" class="icon">
+								<span>Flood risk from surface water</span>
+							</h2>
+							<ul>
+								<li id="SurfaceWater_6-SW-Extent">
+									<a href="#SurfaceWater_6-SW-Extent" title="Extent of flooding from surface water">Extent of flooding</a>
+								</li>
+								<li id="SurfaceWater_9-SWDH">
+									<a href="#SurfaceWater_9-SWDH" title="Surface water flood risk: water depth in a high risk scenario">High risk: depth</a>
+								</li>
+								<li id="SurfaceWater_12-SWVH">
+									<a href="#SurfaceWater_12-SWVH" title="Surface water flood risk: water velocity in a high risk scenario">High risk: velocity</a>
+								</li>
+								<li id="SurfaceWater_8-SWDM">
+									<a href="#SurfaceWater_8-SWDM" title="Surface water flood risk: water depth in a medium risk scenario">Medium risk: depth</a>
+								</li>
+								<li id="SurfaceWater_11-SWVM">
+									<a href="#SurfaceWater_11-SWVM" title="Surface water flood risk: water velocity in a medium risk scenario">Medium risk: velocity</a>
+								</li>
+								<li id="SurfaceWater_7-SWDL">
+									<a href="#SurfaceWater_7-SWDL" title="Surface water flood risk: water depth in a low risk scenario">Low risk: depth</a>
+								</li>
+								<li id="SurfaceWater_10-SWVL">
+									<a href="#SurfaceWater_10-SWVL" title="Surface water flood risk: water velocity in a low risk scenario">Low risk: velocity</a>
+								</li>
+							</ul>
+						</li>
+
+						<li id="Reservoirs" title="Flood risk from reservoirs" class="category">
+							<h2>
+								<img src="/static/long-term-flood-risk/public/images/icon-reservoir.png" class="icon">
+								<span>Flood risk from reservoirs</span>
+							</h2>
+							<ul>
+								<li id="Reservoirs_3-ROFR">
+									<a href="#Reservoirs_3-ROFR" title="Extent of flooding from rerservoirs">Extent of flooding</a>
+								</li>
+								<li id="Reservoirs_4-DOFR">
+									<a href="#Reservoirs_4-DOFR" title="Reservoir flood risk: flood water depth">Flood depth</a>
+								</li>
+								<li id="Reservoirs_5-SOFR">
+									<a href="#Reservoirs_5-SOFR" title="Reservoir flood risk: flood water speed">Flood speed</a>
+								</li>
+							</ul>
+						</li>
+
+					</ul>
+
+				</div>
+
+				<div class="rhs">
+
+					<div id="progress" style="visibility: hidden; width: 0px;"></div>
+
+						<div class="enter-fullscreen toggle-fullscreen ol-full-screen ol-control">
+							<button class="ol-full-screen-false" type="button" title="Full screen"><span>Full screen</span> <i class="fa fa-expand"></i></button>
+						</div>
+						<div class="exit-fullscreen toggle-fullscreen ol-full-screen ol-control">
+							<button class="ol-full-screen-true" type="button" title="Exit full screen"><span>Exit full screen</span> <i class="fa fa-compress"></i></button>
+						</div>
+						<div id="map" class="map">
+							<div class="ol-viewport" style="position: relative; overflow: hidden; width: 100%; height: 100%; touch-action: none; background-image:url('/static/long-term-flood-risk/public/images/{{ "map-national" if national else "map-m3-6aq" }}.png');"><canvas class="ol-unselectable" width="703" height="700" style="width: 100%; height: 100%;"></canvas><div class="ol-overlaycontainer"></div><div class="ol-overlaycontainer-stopevent"><div class="ol-zoom ol-unselectable ol-control"><button class="ol-zoom-in" type="button" title="Zoom in">+</button><button class="ol-zoom-out" type="button" title="Zoom out">−</button></div><div class="ol-rotate ol-unselectable ol-control ol-hidden"><button class="ol-rotate-reset" type="button" title="Reset rotation"><span class="ol-compass" style="transform: rotate(0rad);">⇧</span></button></div><div class="ol-attribution ol-unselectable ol-control ol-collapsed"><ul><li style=""><a href="http://openlayers.org/"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAAAA3NCSVQICAjb4U/gAAAACXBIWXMAAAHGAAABxgEXwfpGAAAAGXRFWHRTb2Z0d2FyZQB3d3cuaW5rc2NhcGUub3Jnm+48GgAAAhNQTFRF////AP//AICAgP//AFVVQECA////K1VVSbbbYL/fJ05idsTYJFtbbcjbJllmZszWWMTOIFhoHlNiZszTa9DdUcHNHlNlV8XRIVdiasrUHlZjIVZjaMnVH1RlIFRkH1RkH1ZlasvYasvXVsPQH1VkacnVa8vWIVZjIFRjVMPQa8rXIVVkXsXRsNveIFVkIFZlIVVj3eDeh6GmbMvXH1ZkIFRka8rWbMvXIFVkIFVjIFVkbMvWH1VjbMvWIFVlbcvWIFVla8vVIFVkbMvWbMvVH1VkbMvWIFVlbcvWIFVkbcvVbMvWjNPbIFVkU8LPwMzNIFVkbczWIFVkbsvWbMvXIFVkRnB8bcvW2+TkW8XRIFVkIlZlJVloJlpoKlxrLl9tMmJwOWd0Omh1RXF8TneCT3iDUHiDU8LPVMLPVcLPVcPQVsPPVsPQV8PQWMTQWsTQW8TQXMXSXsXRX4SNX8bSYMfTYcfTYsfTY8jUZcfSZsnUaIqTacrVasrVa8jTa8rWbI2VbMvWbcvWdJObdcvUdszUd8vVeJaee87Yfc3WgJyjhqGnitDYjaarldPZnrK2oNbborW5o9bbo9fbpLa6q9ndrL3ArtndscDDutzfu8fJwN7gwt7gxc/QyuHhy+HizeHi0NfX0+Pj19zb1+Tj2uXk29/e3uLg3+Lh3+bl4uXj4ufl4+fl5Ofl5ufl5ujm5+jmySDnBAAAAFp0Uk5TAAECAgMEBAYHCA0NDg4UGRogIiMmKSssLzU7PkJJT1JTVFliY2hrdHZ3foSFhYeJjY2QkpugqbG1tre5w8zQ09XY3uXn6+zx8vT09vf4+Pj5+fr6/P39/f3+gz7SsAAAAVVJREFUOMtjYKA7EBDnwCPLrObS1BRiLoJLnte6CQy8FLHLCzs2QUG4FjZ5GbcmBDDjxJBXDWxCBrb8aM4zbkIDzpLYnAcE9VXlJSWlZRU13koIeW57mGx5XjoMZEUqwxWYQaQbSzLSkYGfKFSe0QMsX5WbjgY0YS4MBplemI4BdGBW+DQ11eZiymfqQuXZIjqwyadPNoSZ4L+0FVM6e+oGI6g8a9iKNT3o8kVzNkzRg5lgl7p4wyRUL9Yt2jAxVh6mQCogae6GmflI8p0r13VFWTHBQ0rWPW7ahgWVcPm+9cuLoyy4kCJDzCm6d8PSFoh0zvQNC5OjDJhQopPPJqph1doJBUD5tnkbZiUEqaCnB3bTqLTFG1bPn71kw4b+GFdpLElKIzRxxgYgWNYc5SCENVHKeUaltHdXx0dZ8uBI1hJ2UUDgq82CM2MwKeibqAvSO7MCABq0wXEPiqWEAAAAAElFTkSuQmCC"></a></li><li>© Crown copyright and database rights 2017 <a href="http://www.ordnancesurvey.co.uk">OS</a> 100024198. Use of this mapping data is subject to terms and conditions</li></ul><button type="button" title="Attributions"><span>i</span></button></div><div class="ol-scale-line ol-unselectable"><div class="ol-scale-line-inner" style="width: 286px;">500 m</div></div></div></div>
+						</div>
+			
+						<aside class="controls">
+							<div class="legend">  
+								<h3 class="heading-small">Flood risk</h3>
+								<br>
+								<ul class="legend-list">
+									<li class="legend-item">
+										<a href="" class="overlay-toggle">
+											<span class="icon icon-high"></span>
+											High
+										</a>
+									</li>
+									<li class="round dark-blue">
+										<div>Medium</div>
+									</li>
+									<li class="round blue">
+										<div>Low</div>
+									</li>
+									<li class="round light-blue">
+										<div>Very low</div>
+									</li>
+									{% if not national %}
+									<li class="crosshair">
+										<div>Location of the postcode you entered</div>
+									</li>
+									{% endif %}
+								</ul>
+							</div>
+						</aside>
+
+						<div id="map-overlay" hidden style="display:none">
+							<div class="map-overlay-container">
+								<a class="map-overlay-close overlay-toggle"></a>
+								<div class="map-overlay-content">
+									<h3 class="heading-large">Heading</h3>
+									<a href="#" class="map-overlay-close-link overlay-toggle">Back to map</a>
+								</div>
+							</div>
+						</div>
+
+					</div>
+
+				</div>
+
+			</div>
+
+			<div class="nojs-show">
+				<p><strong>You're missing out. A map should be visible here.</strong></p>
+				<p>Javascript must be enabled.</p>
+			</div>
+
+			<div class="ie-show">
+				<p><strong>You're missing out. A map should be visible here.</strong></p>
+				<p><a href="https://www.gov.uk/help/browsers" rel="external">Upgrade your browser to see and use all the features of this service.</a></p>
+			</div>
+		
+			<div class="grid-row"> 
+				<div class="column-two-thirds">
+
+				{% if not national %}
+				<p><a href="/long-term-flood-risk/risk?address=100011423922" data-id="risk-address" onclick="return false;">View the flood risk information for the location you originally searched for</a></p>
+				<p><a href="/long-term-flood-risk/" onclick="return false;">View the long term flood risk information for another location</a></p>
+				{% else %}
+				<p><a href="/long-term-flood-risk/">View the long term flood risk information for a property</a></p>
+				{% endif %}
+				<p><a href="https://flood-warning-information.service.gov.uk" onclick="return false;">Go to the national flood information service</a></p>
+				<details>
+					<summary aria-expanded="false" role="button">
+						<span class="summary">Other ways of getting this information</span>
+					</summary>
+					<div class="panel panel-border-narrow" aria-hidden="true">
+						<ul class="contact-numbers">
+							<li><span class="contact-type">Call Floodline:</span> 0345 988 1188</li>
+							<li><span class="contact-type">Type talk:</span> 0345 602 6340 <em>(for the hard of hearing)</em></li>
+						</ul>
+						<br>
+						<div class="call-charges">
+							<p>
+								<a href="https://www.gov.uk/call-charges" rel="external" title="Find out more about call charges">Find out more about call charges</a>
+							</p>
+						</div>
+					</div>
+				</details>
+				<datetime class="date" datetime="1488275420158">28 February 2017</datetime>
+				<br>
+				<p class="eu-directive">
+					This information meets the requirements of the EU Floods Directive 2007/60/EC
+				</p>
+
+			</div>
+
+		</div>
+
+	</main>
+    
+	<script src="/static/long-term-flood-risk/public/javascripts/map.js"></script>
+	
+	<div class="grid-row">
+		<div class="column-half feedback-footer">
+			Your <a href="/long-term-flood-risk/feedback" onclick="return false;">feedback</a> will help us improve this service
+		</div>
+	</div>
+
+</div>
+
+{% endblock %}
+
+{% block footer_support_links %}
+<h2 class="visuallyhidden">Support links</h2>
+<ul>
+    <li><a href="https://www.gov.uk/help">Help</a></li>
+    <li><a href="https://www.gov.uk/help/cookies">Cookies</a></li>
+    <li><a href="https://www.gov.uk/contact">Contact</a></li>
+    <li><a href="https://www.gov.uk/cymraeg">Cymraeg</a></li>
+    <li>Built by the <a href="https://www.gov.uk/government/organisations/environment-agency">Environment Agency</a>
+    </li>
+</ul>
+<p class="font-xsmall">&#169; Crown copyright and database rights 2017 <a href='http://www.ordnancesurvey.co.uk'>OS</a> 100024198. Use of this addressing  data is subject to the <a href="/long-term-flood-risk/os-terms">terms and conditions</a>.</p>
+{% endblock %}
+
+{% block body_end %}
+
+<!-- GOV.UK elements redirect -->
+<!--<script src="/public/javascripts/redirect.js"></script>-->
+{% include "partials/scripts.html" %}
+
+<!-- Simulate modal window controls -->
+
+<script type="text/javascript">
+
+	var overlay = document.getElementById('map-overlay');
+	var buttons = document.querySelectorAll('.overlay-toggle');
+
+	// Add click even to all overlay toggle buttons
+	for (var i = 0; i < buttons.length; i++) {
+		buttons[i].addEventListener('click', overlayToggle, false);
+	}
+
+	// Click even listener to hide/show overlay
+	function overlayToggle(e) {
+		e.preventDefault();
+		if (overlay.style.display === 'none') {
+			overlay.style.display = 'block';
+			overlay.setAttribute('hidden','');
+		} else {
+			overlay.style.display = 'none';
+			overlay.removeAttribute('hidden');
+		}
+	}
+
+</script>
+
+{% endblock %}
+

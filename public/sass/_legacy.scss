@@ -10,3 +10,29 @@ section.feedback {
         margin-top:em(30,19);
     }
 }
+
+// Maps
+
+// Legend
+
+.legend-item {
+    text-align:center;
+    margin-bottom:10px;
+
+}
+.legend-item .icon {
+    display:block;
+    width:50px;
+    height:50px;
+    border-radius: 100%;
+    margin-bottom:0.4em;
+}
+.icon-high {
+    background-color:#3D4489;
+}
+
+// Legacy overide
+.legend-item:before {
+    display:none !important;
+}
+
