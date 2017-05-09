@@ -260,7 +260,7 @@
 			startPoint;
 
 
-		d3.json('/public/javascripts/json/river-level.json', init);
+		d3.json('/public/javascripts/json/shrewsbury.json', init);
 
 		function init(json) {
 
@@ -322,12 +322,14 @@
 
 			//Area generator
 			area = d3.svg.area()
+			.interpolate('basis')
 			.x(function(d) { return x(new Date(d.date)) })
 			.y0(function(d) { return height })
 			.y1(function(d) { return y(d.level) });
 
 			//Line generator
 			line = d3.svg.line()
+			.interpolate('basis')
 			.x(function(d) { return x(new Date(d.date)) })
 			.y(function(d) { return y(d.level) });
 
