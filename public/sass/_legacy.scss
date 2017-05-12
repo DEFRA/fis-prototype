@@ -21,14 +21,33 @@ section.feedback {
 
 }
 .legend-item .icon {
-    display:block;
-    width:50px;
-    height:50px;
+    position:relative;
+    width: 20px;
+    height: 20px;
     border-radius: 100%;
-    margin-bottom:0.4em;
+    vertical-align: middle;
+    margin-right:0.3em;
+    @include media(tablet) {
+        margin-left:50%;
+        left:-25px;
+        display:block;
+        width:50px;
+        height:50px;
+        border-radius: 100%;
+        margin-bottom:0.4em;
+    }
 }
 .icon-high {
     background-color:#3D4489;
+}
+.icon-medium {
+    background-color:#6699CD;
+}
+.icon-low {
+    background-color:#A2CFFF;
+}
+.icon-very-low {
+    background-color:#C4E1FF;
 }
 
 // Legacy overide
@@ -36,3 +55,10 @@ section.feedback {
     display:none !important;
 }
 
+// Overlay
+#map-overlay .map-overlay-container .map-overlay-content {
+    top:20px;
+    @include media(tablet) {
+        top:30px;
+    }
+}

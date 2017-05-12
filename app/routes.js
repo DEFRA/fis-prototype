@@ -27,17 +27,17 @@ module.exports = {
     })
 
     // Map - Long term flood risk
-    app.get('/long-term-flood-risk/map-risk-details', function (req, res) {
-      var pageName = 'Long term flood risk'
-      var national = req.query.address > 0 ? false : true;
-      res.render('long-term-flood-risk/map-risk-details', { 'page_name': pageName, 'national': national })
-    })
-
-    // Map with risk band details - Long term flood risk
-    app.get('/long-term-flood-risk/map-risk-details', function (req, res) {
+    app.get('/long-term-flood-risk/map', function (req, res) {
       var pageName = 'Long term flood risk'
       var national = req.query.address > 0 ? false : true;
       res.render('long-term-flood-risk/map', { 'page_name': pageName, 'national': national })
+    })
+
+    // Map - Long term flood risk
+    app.get('/long-term-flood-risk/risk-bands', function (req, res) {
+      var pageName = 'Long term flood risk'
+      var national = req.query.address > 0 ? false : true;
+      res.render('long-term-flood-risk/risk-bands', { 'page_name': pageName })
     })
 
     //
