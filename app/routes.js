@@ -138,6 +138,14 @@ module.exports = {
       var pageName = 'Graphs'
       res.render('graphs', { 'page_name': pageName })
     })
+    app.get('/graph-probalistic', function (req, res) {
+      var pageName = 'Graphs'
+      res.render('graph-probalistic', { 'page_name': pageName })
+    })
+    app.get('/graph-best-worst', function (req, res) {
+      var pageName = 'Graphs'
+      res.render('graph-best-worst', { 'page_name': pageName })
+    })
 
     // Maps
     app.get('/maps', function (req, res) {
