@@ -56,55 +56,6 @@ module.exports = {
       res.render('terms-conditions', { 'page_name': pageName })
     })
 
-    // Example station: Normal range
-    app.get('/station/5034', function (req, res) {
-      var section = 'station'
-      var sectionName = 'Station'
-      var pageName = 'Irk at Collyhurst Weir'
-      res.render('station/5034', { 'section': section, 'section_name': sectionName, 'page_name': pageName })
-    })
-
-    // Example station: Flooding is possible
-    app.get('/station/5034-flooding-possible', function (req, res) {
-      var section = 'station'
-      var sectionName = 'Station'
-      var pageName = 'Irk at Collyhurst Weir'
-      res.render('station/5034-flooding-possible', { 'section': section, 'section_name': sectionName, 'page_name': pageName })
-    })
-
-    // Example station: Below normal range
-    app.get('/station/5034-below-normal-range', function (req, res) {
-      var section = 'station'
-      var sectionName = 'Station'
-      var pageName = 'Irk at Collyhurst Weir'
-      res.render('station/5034-below-normal-range', { 'section': section, 'section_name': sectionName, 'page_name': pageName })
-    })
-
-    // Example station: No forecast data
-    app.get('/station/5034-no-forecast-data', function (req, res) {
-      var section = 'station'
-      var sectionName = 'Station'
-      var pageName = 'Irk at Collyhurst Weir'
-      res.render('station/5034-no-forecast-data', { 'section': section, 'section_name': sectionName, 'page_name': pageName })
-    })
-
-    // Example station: No forecast data
-    app.get('/station/5034-no-forecast-data', function (req, res) {
-      var section = 'station'
-      var sectionName = 'Station'
-      var pageName = 'Irk at Collyhurst Weir'
-      res.render('station/5034-no-forecast-data', { 'section': section, 'section_name': sectionName, 'page_name': pageName })
-    })
-
-    // Example station: No data
-    app.get('/station/5034-no-data', function (req, res) {
-      var section = 'station'
-      var sectionName = 'Station'
-      var pageName = 'Irk at Collyhurst Weir'
-      res.render('station/5034-no-data', { 'section': section, 'section_name': sectionName, 'page_name': pageName })
-    })
-
-
     // Version 3
     app.get('/stations-v3', function (req, res) {
       var pageName = 'Measuring stations (v3)'
@@ -129,23 +80,64 @@ module.exports = {
       res.render('stations-v6', { 'page_name': pageName })
     })
 
+    // Verson 7
+    app.get('/stations-v8', function (req, res) {
+      var pageName = 'Measuring stations (v8)'
+      res.render('stations-v8', { 'page_name': pageName })
+    })
+
+    // Example station: Probabalistic above the red line
+    app.get('/station/5034-probabilistic-a', function (req, res) {
+      var section = 'station'
+      var sectionName = 'Station'
+      var pageName = 'Irk at Collyhurst Weir'
+      res.render('station/5034-probabilistic-a', { 'section': section, 'section_name': sectionName, 'page_name': pageName })
+    })
+
+    // Example station: Best and worst case above the red line
+    app.get('/station/5034-best-worst-a', function (req, res) {
+      var section = 'station'
+      var sectionName = 'Station'
+      var pageName = 'Irk at Collyhurst Weir'
+      res.render('station/5034-best-worst-a', { 'section': section, 'section_name': sectionName, 'page_name': pageName })
+    })
+
+    // Example station: Probabalistic between orange and red
+    app.get('/station/5034-probabilistic-b', function (req, res) {
+      var section = 'station'
+      var sectionName = 'Station'
+      var pageName = 'Irk at Collyhurst Weir'
+      res.render('station/5034-probabilistic-b', { 'section': section, 'section_name': sectionName, 'page_name': pageName })
+    })
+
+    // Example station: Best and worst between orange and red
+    app.get('/station/5034-best-worst-b', function (req, res) {
+      var section = 'station'
+      var sectionName = 'Station'
+      var pageName = 'Irk at Collyhurst Weir'
+      res.render('station/5034-best-worst-b', { 'section': section, 'section_name': sectionName, 'page_name': pageName })
+    })
+
+
+    // Example station: Probabalistic below orange
+    app.get('/station/5034-probabilistic-c', function (req, res) {
+      var section = 'station'
+      var sectionName = 'Station'
+      var pageName = 'Irk at Collyhurst Weir'
+      res.render('station/5034-probabilistic-c', { 'section': section, 'section_name': sectionName, 'page_name': pageName })
+    })
+
+    // Example station: Best and worst below orange
+    app.get('/station/5034-best-worst-c', function (req, res) {
+      var section = 'station'
+      var sectionName = 'Station'
+      var pageName = 'Irk at Collyhurst Weir'
+      res.render('station/5034-best-worst-c', { 'section': section, 'section_name': sectionName, 'page_name': pageName })
+    })
+
     //
     // Paterns pages
     //
-
-    // Graphs
-    app.get('/graphs', function (req, res) {
-      var pageName = 'Graphs'
-      res.render('graphs', { 'page_name': pageName })
-    })
-    app.get('/graph-probalistic', function (req, res) {
-      var pageName = 'Graphs'
-      res.render('graph-probalistic', { 'page_name': pageName })
-    })
-    app.get('/graph-best-worst', function (req, res) {
-      var pageName = 'Graphs'
-      res.render('graph-best-worst', { 'page_name': pageName })
-    })
 
     // Maps
     app.get('/maps', function (req, res) {

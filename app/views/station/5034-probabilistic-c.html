@@ -1,234 +1,250 @@
-{% extends "layout.html" %}
+{% extends "station.html" %}
 
-{% block page_title %}Graphs - FIS Prototype - GOV.UK{% endblock %}
 
-{% block content %}
+{% block page_title %}
+Irk at Collyhurst Weir - Latest river level information - GOV.UK
+{% endblock %}
 
-<main id="content" role="main" tabindex="-1">
 
-	{% include "partials/phase_banner.html" %}
-	{% include "partials/breadcrumb.html" %}
+{% block heading %}
+<span class="heading-secondary">Latest river level information for</span>
+Irk at Collyhurst Weir
+{% endblock %}
 
-	<div class="grid-row">
 
-		<div class="column-two-thirds">
+{% block message %}
+<p class="lede lede-station">
+	River levels here are forecast to stay within this river's normal range during the next 36 hours.
+</p>
+{% endblock %}
 
-			<h1 class="heading-xlarge">
-				<span class="heading-secondary">FIS Prototype</span>
-				Graphs
-			</h1>
+{% block riverLevels %}
 
-			<p class="lede">Measuring station graph</p>
+<div class="grid-row">
 
-		</div>
+	<div class="column-two-thirds">
 
-	</div>
+		<section aria-labelledby="levels-heading" role="region">
 
-	<div class="grid-row">
+			<h2 id="levels-heading" class="heading-medium">
+				River levels at this location
+			</h2>     
 
-		<div class="column-two-thirds">
-
-			<section aria-labelledby="levels-heading" role="region">
-
-				<h2 id="levels-heading" class="heading-medium">
-					River levels at this location
-				</h2>     
-
-				<p id="visualisation-heading" class="font-xsmall">
-					<span class="visualisation-heading-measured">Measured levels</span> for the last 5 days <span class="visualisation-heading-forecast">Forecast levels</span> for the next 36 hours
+			<div class="panel panel-border-narrow">
+				<p class="font-xsmall">
+					We have <strong class="bold-xsmall">high confidence</strong> in this forecast
 				</p>
+			</div>
 
-				<div class="visualisation" role="presentation" aria-hidden="true">
+			<p id="visualisation-heading" class="font-xsmall">
+				<span class="visualisation-heading-measured">Measured levels</span> for the last 5 days <span class="visualisation-heading-forecast">Forecast levels</span> for the next 36 hours
+			</p>
 
-					<!--
-						If Google Charts available (Javascript, SVG or VML)
-						remove hidden class and hidden attribute
-					-->
+			<div class="visualisation" role="presentation" aria-hidden="true">
 
-					<div class="visualisation-inner hidden" hidden>
+				<!--
+					If Google Charts available (Javascript, SVG or VML)
+					remove hidden class and hidden attribute
+				-->
 
-						<figure class="graph" role="presentation" aria-hidden="true">
+				<div class="visualisation-inner hidden" hidden>
 
-							<div id="graph"></div>
+					<figure class="graph" role="presentation" aria-hidden="true">
 
-							<figcaption class="graph-legend">
+						<div id="graph"></div>
 
-								<div class="data data-level">
-									<span class="data-item font-xsmall data-level-item-heading" id="data-type">
-										<i class="icon icon-point"></i>
-										<span class="data-item-label">
-											Latest measured level
-										</span>
+						<figcaption class="graph-legend">
+
+							<div class="data data-level">
+								<span class="data-item font-xsmall data-level-item-heading" id="data-type">
+									<i class="icon icon-point"></i>
+									<span class="data-item-label">
+										Latest measured level
 									</span>
-									<span class="data-item bold-small" id="data-details"></span>
-								</div>
-								
-								<ul>
+								</span>
+								<span class="data-item bold-small" id="data-details"></span>
+							</div>
+							
+							<ul>
 
-									<li class="max">
-										<span>3.10<abbr title="Metres">m</abbr> on 6 Dec 2015 is the highest level on record at this location
-											<a href="#">Hide from the graph</a>
-										</span>
-									</li>
-									<li class="property">
-										<span>At 1.60<abbr title="Metres">m</abbr> some property flooding is possible here and in
-											<a class="scroll" href="#flood-warning">nearby areas</a>
-										</span>
-									</li>
-									<li class="land">
-										<span>At 1.10<abbr title="Metres">m</abbr> flooding of low-lying land is possible here and in
-											<a class="scroll" href="#flood-alert">nearby areas</a>
-										</span>
-									</li>
+								<li class="max">
+									<span>5.10<abbr title="Metres">m</abbr> on 6 Dec 2015 is the highest level on record at this location
+										<a href="#">Show on the graph</a>
+									</span>
+								</li>
+								<li class="property">
+									<span>At 4.20<abbr title="Metres">m</abbr> some property flooding is possible here and in nearby areas</a>
+									</span>
+								</li>
+								<li class="land">
+									<span>At 2.70<abbr title="Metres">m</abbr> flooding of low-lying land is possible here and in nearby areas</a>
+									</span>
+								</li>
 
-								</ul>
+							</ul>
 
-							</figcaption>
+						</figcaption>
 
-						</figure>
-
-					</div>
-
-					<!-- End dynamic render -->
-
-					<!--
-						If Google Charts available add class visuallyhidden
-					-->
-
-					<div class="visualisation-table">
-
-						<div class="panel panel-border-narrow" aria-hidden="true">
-							<p>
-								A graph is available with JavaScript enabled and a modern browser
-							</p>
-						</div>
-
-						<table class="table-levels" aria-labelledby="visualisation-heading">
-							<thead>
-								<tr>
-									<th scope="col">Time</th> <!-- role="columnheader" ? -->
-									<th scope="col" class="numeric">
-										Level (<abbr title="Metres">m</abbr>)
-									</th>
-								</tr>
-							</thead>
-							<tbody>
-								<tr>
-									<th scope="col" colspan="2">
-										<time datetime="2017-01-06T09:00+00:00">
-											Friday 6 January	
-										</time>
-									</th>
-								</tr>
-								<tr>
-									<td scope="row">
-										<time datetime="2017-01-06T09:00+00:00">
-											9:00am	
-										</time>
-									</td>
-									<td class="numeric">
-										0.43
-										<span class="error">
-											Error
-										</span>
-									</td>
-								</tr>
-							</tbody>
-							<tbody>
-								<tr>
-									<td scope="row">
-										<time datetime="2017-01-06T09:15+00:00">
-											9:15am	
-										</time>
-									</td>
-									<td class="numeric">
-										0.48
-									</td>
-								</tr>	
-							</tbody>
-							<tbody>
-								<tr>
-									<th scope="col" colspan="2">
-										<time datetime="2017-01-06T09:00+00:00">
-											Saturday 7 January	
-										</time>
-									</th>
-								</tr>
-								<tr>
-									<td scope="row">
-										<time datetime="2017-01-06T09:00+00:00">
-											9:00am
-											<em class="forecast">
-												(Latest recorded)
-											</em>		
-										</time>
-									</td>
-									<td class="numeric">
-										0.59
-										<span class="error">
-											Error
-										</span>
-									</td>
-								</tr>
-							</tbody>
-							<tbody>
-								<tr>
-									<td scope="row">
-										<time datetime="2017-01-06T09:30+00:00">
-											9:30am
-											<em class="forecast">
-												(Forecast)
-											</em>	
-										</time>
-									</td>
-									<td class="numeric">
-										0.65
-									</td>
-								</tr>	
-								<tr>
-									<td scope="row">
-										<time datetime="2017-01-06T09:45+00:00">
-											9:45am
-											<em class="forecast">
-												(Highest forecast)
-											</em>	
-										</time>
-									</td>
-									<td class="numeric">
-										0.63
-									</td>
-								</tr>
-							</tbody>
-						</table>
-
-					</div>
-
-					<!--
-						End Google charts available
-					-->
+					</figure>
 
 				</div>
 
-			</section>
+				<!-- End dynamic render -->
 
-		</div>
+				<!--
+					If Google Charts available add class visuallyhidden
+				-->
+
+				<div class="visualisation-table">
+
+					<div class="panel panel-border-narrow" aria-hidden="true">
+						<p>
+							A graph is available with JavaScript enabled and a modern browser
+						</p>
+					</div>
+
+					<table class="table-levels" aria-labelledby="visualisation-heading">
+						<thead>
+							<tr>
+								<th scope="col">Time</th> <!-- role="columnheader" ? -->
+								<th scope="col" class="numeric">
+									Level (<abbr title="Metres">m</abbr>)
+								</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<th scope="col" colspan="2">
+									<time datetime="2017-01-06T09:00+00:00">
+										Friday 6 January	
+									</time>
+								</th>
+							</tr>
+							<tr>
+								<td scope="row">
+									<time datetime="2017-01-06T09:00+00:00">
+										9:00am	
+									</time>
+								</td>
+								<td class="numeric">
+									0.43
+									<span class="error">
+										Error
+									</span>
+								</td>
+							</tr>
+						</tbody>
+						<tbody>
+							<tr>
+								<td scope="row">
+									<time datetime="2017-01-06T09:15+00:00">
+										9:15am	
+									</time>
+								</td>
+								<td class="numeric">
+									0.48
+								</td>
+							</tr>	
+						</tbody>
+						<tbody>
+							<tr>
+								<th scope="col" colspan="2">
+									<time datetime="2017-01-06T09:00+00:00">
+										Saturday 7 January	
+									</time>
+								</th>
+							</tr>
+							<tr>
+								<td scope="row">
+									<time datetime="2017-01-06T09:00+00:00">
+										9:00am
+										<em class="forecast">
+											(Latest recorded)
+										</em>		
+									</time>
+								</td>
+								<td class="numeric">
+									0.59
+									<span class="error">
+										Error
+									</span>
+								</td>
+							</tr>
+						</tbody>
+						<tbody>
+							<tr>
+								<td scope="row">
+									<time datetime="2017-01-06T09:30+00:00">
+										9:30am
+										<em class="forecast">
+											(Forecast)
+										</em>	
+									</time>
+								</td>
+								<td class="numeric">
+									0.65
+								</td>
+							</tr>	
+							<tr>
+								<td scope="row">
+									<time datetime="2017-01-06T09:45+00:00">
+										9:45am
+										<em class="forecast">
+											(Highest forecast)
+										</em>	
+									</time>
+								</td>
+								<td class="numeric">
+									0.63
+								</td>
+							</tr>
+						</tbody>
+					</table>
+
+				</div>
+
+				<!--
+					End Google charts available
+				-->
+
+			</div>
+
+		</section>
 
 	</div>
 
-	<!-- Remove -->
-	<script>
-		var visualisation = document.getElementsByClassName('visualisation')
-		for (i=0; i<visualisation.length; i++){
-			var table = visualisation[i].getElementsByClassName('visualisation-table')[0]
-			var inner = visualisation[i].getElementsByClassName('visualisation-inner')[0]
-			table.className += ' visuallyhidden'
-			inner.className = 'visualisation-inner'
-			inner.removeAttribute('hidden')
-		}
-	</script>
-	<!-- End remove -->
+</div>
 
-</main><!-- / #content -->
+<!-- Remove -->
+<script>
+	var visualisation = document.getElementsByClassName('visualisation')
+	for (i=0; i<visualisation.length; i++){
+		var table = visualisation[i].getElementsByClassName('visualisation-table')[0]
+		var inner = visualisation[i].getElementsByClassName('visualisation-inner')[0]
+		table.className += ' visuallyhidden'
+		inner.className = 'visualisation-inner'
+		inner.removeAttribute('hidden')
+	}
+</script>
+<!-- End remove -->
+
+{% endblock %}
+
+{% block nearby_areas %}
+<p class="font-xsmall">The normal range at this location is 0.75m to 2.70m.</p>
+<!--
+<p>The latest level recorded is 0.90m at 9.00am on Wednesday 11 Jan 2017.</p>
+<p>The highest level forecast in the next 36 hours is 0.91m at 9.00pm on Thursday 12 Jan 2017.</p>
+-->
+<h2 class="heading-medium" id="nearby-areas">What effect could these levels have on nearby areas?</h2>
+<ul class="list">
+	<li><p><strong class="bold-small">5.1m</strong> – highest level ever recorded here - during Dec 2015 flooding – <a href="#" onclick="return false">see map of area that flooded</a></p></li>
+	<li><p><strong class="bold-small">5.0m</strong> – Sep 2007 flood level – <a href="#" onclick="return false">see map of area that flooded</a></p></li>
+	<li><p><strong class="bold-small">4.8m</strong> – flooding of property possible at River Irk at Cheetham Hill – <a href="#" onclick="return false">see map of area that could flood</a></p></li>
+	<li><p><strong class="bold-small">4.2m</strong> – flooding of property possible at River Irk at Kendall Road – <a href="#" onclick="return false">see map of area that could flood</a></p></li>
+	<li><p><strong class="bold-small">2.9m</strong> – A26 crossroads floods</p></li>
+	<li><p><strong class="bold-small">2.7m</strong> – flooding of low lying land starts</p></li>
+</ul>
 {% endblock %}
 
 {% block body_end %}
@@ -260,7 +276,7 @@
 			startPoint;
 
 
-		d3.json('/public/javascripts/json/shrewsbury.json', init);
+		d3.json('/public/javascripts/json/shrewsbury-probabilistic-c.json', init);
 
 		function init(json) {
 
@@ -342,12 +358,12 @@
 			chartWrapper.append('g').classed('y axis', true);
 			if (hasObserved) {
 				chartWrapper.append('g').classed('observed observed-focus', true);
-				observedArea = svg.select('.observed').append('path').datum(data.observed).classed('observed-area', true);
+				//observedArea = svg.select('.observed').append('path').datum(data.observed).classed('observed-area', true);
 				observed = svg.select('.observed').append('path').datum(data.observed).classed('observed-line', true);
 			}
 			if (hasForecast) {
 				chartWrapper.append('g').classed('forecast', true);
-				forecastArea = svg.select('.forecast').append('path').datum(data.forecast).classed('forecast-area', true);
+				forecastArea = svg.select('.forecast').append('path').datum(data.forecastArea).classed('forecast-area', true);
 				forecast = svg.select('.forecast').append('path').datum(data.forecast).classed('forecast-line', true);
 			}
 			chartWrapper.append('g').classed('thresholds', true);
@@ -466,7 +482,7 @@
 
 			// Draw lines and areas
 			if (hasObserved) {
-				observedArea.attr('d', area);
+				//observedArea.attr('d', area);
 				observed.attr('d', line);
 			}
 			if (hasForecast) {
@@ -475,8 +491,8 @@
 			}
 
 			// Update legend
-			parseTime = d3.time.format('%-I:%M%p');
-			parseDate = d3.time.format('%e %b %Y');
+			parseTime = d3.time.format.utc('%-I:%M%p');
+			parseDate = d3.time.format.utc('%e %b %Y');
 			d3.select('#data-details').html(
 				+ startPoint.level + 'm at '
 				+ parseTime(new Date(startPoint.date)).toLowerCase()

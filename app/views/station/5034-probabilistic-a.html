@@ -1,0 +1,596 @@
+{% extends "station.html" %}
+
+
+{% block page_title %}
+Irk at Collyhurst Weir - Latest river level information - GOV.UK
+{% endblock %}
+
+
+{% block heading %}
+<span class="heading-secondary">Latest river level information for</span>
+Irk at Collyhurst Weir
+{% endblock %}
+
+
+{% block message %}
+<div class="notice notice-flood-alert">
+	<img class="notice-image" src="/public/images/flood-warnings-icon.gif" alt="Flood alert"/>
+	<p class="lede">
+		<a href="#" class="scroll">View nearby flood warnings</a>
+	</p>
+</div>
+{% endblock %}
+
+{% block riverLevels %}
+
+<div class="grid-row">
+
+	<div class="column-two-thirds">
+
+		<section aria-labelledby="levels-heading" role="region">
+
+			<h2 id="levels-heading" class="heading-medium">
+				River levels at this location
+			</h2>     
+
+			<p id="visualisation-heading" class="font-xsmall">
+				<span class="visualisation-heading-measured">Measured levels</span> for the last 5 days <span class="visualisation-heading-forecast">Forecast levels</span> for the next 36 hours
+			</p>
+
+			<div class="visualisation" role="presentation" aria-hidden="true">
+
+				<!--
+					If Google Charts available (Javascript, SVG or VML)
+					remove hidden class and hidden attribute
+				-->
+
+				<div class="visualisation-inner hidden" hidden>
+
+					<figure class="graph" role="presentation" aria-hidden="true">
+
+						<div id="graph"></div>
+
+						<figcaption class="graph-legend">
+
+							<div class="data data-level">
+								<span class="data-item font-xsmall data-level-item-heading" id="data-type">
+									<i class="icon icon-point"></i>
+									<span class="data-item-label">
+										Latest measured level
+									</span>
+								</span>
+								<span class="data-item bold-small" id="data-details"></span>
+							</div>
+							
+							<ul>
+
+								<li class="max">
+									<span>5.10<abbr title="Metres">m</abbr> on 6 Dec 2015 is the highest level on record at this location
+										<a href="#">Show on the graph</a>
+									</span>
+								</li>
+								<li class="property">
+									<span>At 4.20<abbr title="Metres">m</abbr> some property flooding is possible here and in nearby areas</a>
+									</span>
+								</li>
+								<li class="land">
+									<span>At 2.70<abbr title="Metres">m</abbr> flooding of low-lying land is possible here and in nearby areas</a>
+									</span>
+								</li>
+
+							</ul>
+
+						</figcaption>
+
+					</figure>
+
+				</div>
+
+				<!-- End dynamic render -->
+
+				<!--
+					If Google Charts available add class visuallyhidden
+				-->
+
+				<div class="visualisation-table">
+
+					<div class="panel panel-border-narrow" aria-hidden="true">
+						<p>
+							A graph is available with JavaScript enabled and a modern browser
+						</p>
+					</div>
+
+					<table class="table-levels" aria-labelledby="visualisation-heading">
+						<thead>
+							<tr>
+								<th scope="col">Time</th> <!-- role="columnheader" ? -->
+								<th scope="col" class="numeric">
+									Level (<abbr title="Metres">m</abbr>)
+								</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<th scope="col" colspan="2">
+									<time datetime="2017-01-06T09:00+00:00">
+										Friday 6 January	
+									</time>
+								</th>
+							</tr>
+							<tr>
+								<td scope="row">
+									<time datetime="2017-01-06T09:00+00:00">
+										9:00am	
+									</time>
+								</td>
+								<td class="numeric">
+									0.43
+									<span class="error">
+										Error
+									</span>
+								</td>
+							</tr>
+						</tbody>
+						<tbody>
+							<tr>
+								<td scope="row">
+									<time datetime="2017-01-06T09:15+00:00">
+										9:15am	
+									</time>
+								</td>
+								<td class="numeric">
+									0.48
+								</td>
+							</tr>	
+						</tbody>
+						<tbody>
+							<tr>
+								<th scope="col" colspan="2">
+									<time datetime="2017-01-06T09:00+00:00">
+										Saturday 7 January	
+									</time>
+								</th>
+							</tr>
+							<tr>
+								<td scope="row">
+									<time datetime="2017-01-06T09:00+00:00">
+										9:00am
+										<em class="forecast">
+											(Latest recorded)
+										</em>		
+									</time>
+								</td>
+								<td class="numeric">
+									0.59
+									<span class="error">
+										Error
+									</span>
+								</td>
+							</tr>
+						</tbody>
+						<tbody>
+							<tr>
+								<td scope="row">
+									<time datetime="2017-01-06T09:30+00:00">
+										9:30am
+										<em class="forecast">
+											(Forecast)
+										</em>	
+									</time>
+								</td>
+								<td class="numeric">
+									0.65
+								</td>
+							</tr>	
+							<tr>
+								<td scope="row">
+									<time datetime="2017-01-06T09:45+00:00">
+										9:45am
+										<em class="forecast">
+											(Highest forecast)
+										</em>	
+									</time>
+								</td>
+								<td class="numeric">
+									0.63
+								</td>
+							</tr>
+						</tbody>
+					</table>
+
+				</div>
+
+				<!--
+					End Google charts available
+				-->
+
+			</div>
+
+		</section>
+
+	</div>
+
+</div>
+
+<!-- Remove -->
+<script>
+	var visualisation = document.getElementsByClassName('visualisation')
+	for (i=0; i<visualisation.length; i++){
+		var table = visualisation[i].getElementsByClassName('visualisation-table')[0]
+		var inner = visualisation[i].getElementsByClassName('visualisation-inner')[0]
+		table.className += ' visuallyhidden'
+		inner.className = 'visualisation-inner'
+		inner.removeAttribute('hidden')
+	}
+</script>
+<!-- End remove -->
+
+{% endblock %}
+
+{% block nearby_areas %}
+<p class="font-xsmall">The normal range at this location is 0.75m to 2.70m.</p>
+<!--
+<p>The latest level recorded is 0.90m at 9.00am on Wednesday 11 Jan 2017.</p>
+<p>The highest level forecast in the next 36 hours is 0.91m at 9.00pm on Thursday 12 Jan 2017.</p>
+-->
+<h2 class="heading-medium" id="nearby-areas">What effect could these levels have on nearby areas?</h2>
+<ul class="list">
+	<li><p><strong class="bold-small">5.1m</strong> – highest level ever recorded here - during Dec 2015 flooding – <a href="#" onclick="return false">see map of area that flooded</a></p></li>
+	<li><p><strong class="bold-small">5.0m</strong> – Sep 2007 flood level – <a href="#" onclick="return false">see map of area that flooded</a></p></li>
+	<li><p><strong class="bold-small">4.8m</strong> – flooding of property possible at River Irk at Cheetham Hill – <a href="#" onclick="return false">see map of area that could flood</a></p></li>
+	<li><p><strong class="bold-small">4.2m</strong> – flooding of property possible at River Irk at Kendall Road – <a href="#" onclick="return false">see map of area that could flood</a></p></li>
+	<li><p><strong class="bold-small">2.9m</strong> – A26 crossroads floods</p></li>
+	<li><p><strong class="bold-small">2.7m</strong> – flooding of low lying land starts</p></li>
+</ul>
+{% endblock %}
+
+{% block body_end %}
+<!-- GOV.UK elements redirect -->
+<script src="http://d3js.org/d3.v3.min.js"></script>
+<script>
+
+	var Chart = (function(window,d3) {
+
+		const yExtension = 0.4,
+			windowBreakPoint = 640,
+			svgBreakPoint = 576,
+			xCutOff = 9;
+
+		var svg,
+			data,
+			x, y, 
+			xAxis, yAxis, 
+			dim, 
+			chartWrapper, 
+			line, area, path, 
+			margin = {}, 
+			locator, locatorX, locatorY,
+			now, timeX,
+			width, height,
+			parentWidth, parentHeight,
+			hasObserved = false, hasForecast = false, hasHighest = false, hasWarning = false, hasAlert = false,
+			parseTime, parseDate,
+			startPoint;
+
+
+		d3.json('/public/javascripts/json/shrewsbury-probabilistic-a.json', init);
+
+		function init(json) {
+
+			data = json;
+
+			// Setup array to combine observed and forecast points
+			// and identify startPoint for locator 
+			lines = [];
+			if (data.observed) {
+				lines = lines.concat(data.observed);
+				startPoint = data.observed[data.observed.length-1];
+				hasObserved = true;
+			}
+			if (data.forecast) {
+				lines = lines.concat(data.forecast);
+				startPoint = data.forecast[0];
+				hasForecast = true;
+			}
+
+			//Initialize scales
+			xExtent = d3.extent(lines, function(d,i) { return new Date(d.date) });
+			yExtent = d3.extent(lines, function(d,i) { return d.level });
+
+			// Set Y range to highest and lowest values from the data
+			yRange = [yExtent[0],yExtent[1]];
+			if (data.highest) { 
+				yRange.push(data.highest); 
+				hasHighest = true; 
+			}
+			if (data.warning) { 
+				yRange.push(data.warning); 
+				hasWarning = true; 
+			}
+			if (data.alert) { 
+				yRange.push(data.alert); 
+				hasAlert = true; 
+			}
+			yExtent[0] = Math.min.apply(Math,yRange);
+			yExtent[1] = Math.max.apply(Math,yRange);
+
+			// Add margin to bottom of Y Axis
+			yExtent[0] = ((yExtent[0] * 100) - (yExtension * 100))/100;
+
+			// Add margin to top of Y Axis
+			yExtent[1] = ((yExtent[1] * 100) + (yExtension * 100))/100;
+
+			// Setup scales
+			x = d3.time.scale().domain(xExtent);
+			y = d3.scale.linear().domain(yExtent);
+
+			// Bisect date
+			bisectDate = d3.bisector(function(d) { return new Date(d.date); }).left;
+
+			//Initialize axis
+			xAxis = d3.svg.axis().orient('bottom').outerTickSize(0);
+			yAxis = d3.svg.axis().orient('left').ticks(5).tickFormat(function(d) { 
+				return parseFloat(d).toFixed(1) + 'm'; 
+			}).outerTickSize(0);
+
+			//Area generator
+			area = d3.svg.area()
+			.interpolate('basis')
+			.x(function(d) { return x(new Date(d.date)) })
+			.y0(function(d) { return height })
+			.y1(function(d) { return y(d.level) });
+
+			//Line generator
+			line = d3.svg.line()
+			.interpolate('basis')
+			.x(function(d) { return x(new Date(d.date)) })
+			.y(function(d) { return y(d.level) });
+
+			//Initialize svg
+			svg = d3.select('#graph').append('svg').style('pointer-events', 'none');
+			chartWrapper = svg.append('g').style('pointer-events', 'all');
+			chartWrapper.append('g').classed('y grid', true);
+			chartWrapper.append('g').classed('x grid', true);
+			chartWrapper.append('g').classed('x axis', true);
+			chartWrapper.append('g').classed('y axis', true);
+			if (hasObserved) {
+				chartWrapper.append('g').classed('observed observed-focus', true);
+				//observedArea = svg.select('.observed').append('path').datum(data.observed).classed('observed-area', true);
+				observed = svg.select('.observed').append('path').datum(data.observed).classed('observed-line', true);
+			}
+			if (hasForecast) {
+				chartWrapper.append('g').classed('forecast', true);
+				forecastArea = svg.select('.forecast').append('path').datum(data.forecastArea).classed('forecast-area', true);
+				forecast = svg.select('.forecast').append('path').datum(data.forecast).classed('forecast-line', true);
+			}
+			chartWrapper.append('g').classed('thresholds', true);
+			if (hasHighest) {
+				svg.select('.thresholds').append('line').classed('highest', true);
+			}
+			if (hasWarning) {
+				svg.select('.thresholds').append('line').classed('warning', true);
+			}
+			if (hasAlert) {
+				svg.select('.thresholds').append('line').classed('alert', true);
+			}
+			chartWrapper.on('mousemove', mousemove);
+			
+			// Add timeline
+			if(data.now) {
+				chartWrapper.append('g').classed('time', true);
+				now = svg.select('.time');
+				svg.select('.time').append('line').classed('time-line', true);
+				svg.select('.time').append('text').classed('time-now', true).text('Now');
+			}
+
+			// Add locator
+			chartWrapper.append('g').classed('locator', true);
+			locatorPoint = svg.select('.locator').append('circle').attr('r', 4).classed('locator-point', true);
+			
+			//Render the chart
+			render();
+
+		}
+
+		function render() {
+
+			//Get dimensions based on parent size
+			parentWidth = Math.floor(d3.select('#graph').node().getBoundingClientRect().width);
+			parentHeight = Math.floor(d3.select('#graph').node().getBoundingClientRect().height);
+			updateDimensions(parentWidth, parentHeight);
+
+			//Update x and y scales to new dimensions
+			x.range([0, width]);
+			y.range([height, 0]);
+
+			//Update svg elements to new dimensions
+			chartWrapper.attr('transform', 'translate(' + (margin.left + margin.right) + ',' + 0 + ')');
+
+			//Update the axis and line
+			xAxis.scale(x);
+			yAxis.scale(y);
+			svg.select('.x.axis')
+			.attr('transform', 'translate(0,' + height + ')')
+			.call(xAxis);
+			svg.select('.y.axis')
+			.call(yAxis);
+
+			// Update grid lines
+			svg.select('.x.grid')
+			.attr('transform', 'translate(0,' + height + ')')
+			.call(d3.svg.axis()
+				.scale(x)
+				.orient('bottom')
+				.ticks(d3.time.day,1)
+				.tickSize(-height, 0, 0)
+				.tickFormat('')
+			);
+			svg.select('.y.grid')
+			.attr('transform', 'translate(0,' + 0 + ')')
+			.call(d3.svg.axis()
+				.scale(y)
+				.orient('left')
+				.ticks(5)
+				.tickSize(-width, 0, 0)
+				.tickFormat('')
+			);
+
+			// Update thresholds
+			if (hasHighest) {
+				svg.select('.highest')
+					.attr('transform', 'translate(0,' + y(data.highest) + ')')
+					.attr('x2', x(xExtent[1]))
+					.attr('y2', 0);
+			}
+			if (hasWarning) {
+				svg.select('.warning')
+					.attr('transform', 'translate(0,' + y(data.warning) + ')')
+					.attr('x2', x(xExtent[1]))
+					.attr('y2', 0);
+			}
+			if (hasAlert) {
+				svg.select('.alert')
+					.attr('transform', 'translate(0,' + y(data.alert) + ')')
+					.attr('x2', x(xExtent[1]))
+					.attr('y2', 0);
+			}
+
+			// Update locator
+			locatorX = Math.floor(x(new Date(startPoint.date)));
+			locatorY = Math.floor(y(startPoint.level));
+			svg.select('.locator-point')			
+				.attr('transform', 'translate(' + locatorX + ',' + locatorY + ')');
+
+			// Update time line
+			if(data.now) {
+				timeX = Math.floor(x(new Date(data.now)));
+				svg.select('.time-line').attr('y1', 0).attr('y2', height);
+				svg.select('.time-now').attr('x', -17).attr('y', 25);
+				now.attr('y1', 0).attr('y2', height)	
+					.attr('transform', 'translate(' + timeX + ',0)');
+				
+				// Add 'today' class to x axis tick
+				svg.selectAll('.x .tick')
+					.filter(function(d){ 
+						return new Date(d).getDay() == new Date(data.now).getDay() && new Date(d).getUTCHours() == 12
+					})
+					.attr('class', 'tick tick-today');
+			}
+
+			// Draw lines and areas
+			if (hasObserved) {
+				//observedArea.attr('d', area);
+				observed.attr('d', line);
+			}
+			if (hasForecast) {
+				forecastArea.attr('d', area);
+				forecast.attr('d', line);
+			}
+
+			// Update legend
+			parseTime = d3.time.format.utc('%-I:%M%p');
+			parseDate = d3.time.format.utc('%e %b %Y');
+			d3.select('#data-details').html(
+				+ startPoint.level + 'm at '
+				+ parseTime(new Date(startPoint.date)).toLowerCase()
+				+ ' on '
+				+ parseDate(new Date(startPoint.date))
+			);
+
+		}
+
+		function updateDimensions(parentWidth, parentHeight) {
+
+			margin.top = 25;
+			margin.bottom = 25;
+			margin.left = 18;
+			margin.right = 18;
+
+			xCutOffLeft = d3.time.hour.offset(xExtent[0], + xCutOff).getTime();
+			xCutOffRight = d3.time.hour.offset(xExtent[1], - xCutOff).getTime();
+
+			// Mobile first
+
+			xAxis.ticks(d3.time.hour.utc, 12).tickFormat(function(d) {
+				if (d.getUTCHours() == 12 & d >= xCutOffLeft & d <= xCutOffRight) {
+					formatter = d3.time.format('%e %b');
+					return formatter(d);
+				} else {
+					return null
+				}
+			});
+
+			// Greater than window or svg breakpoint
+
+			if(window.innerWidth > windowBreakPoint && parentWidth > svgBreakPoint) {
+				xAxis.ticks(d3.time.hour.utc, 12).tickFormat(function(d) {
+					if (d.getUTCHours() == 12 & d.getTime() >= xCutOffLeft & d.getTime() <= xCutOffRight) {
+						formatter = d3.time.format('%a, %e %b');
+						return formatter(d);
+					} else {
+						return null
+					}
+				});
+				margin.left = 21;
+				margin.right = 21;
+			}
+
+			width = parentWidth - margin.left - margin.right;
+			height = parentHeight - margin.top - margin.bottom;
+
+		}
+
+		function mousemove() {
+
+			var x0 = x.invert(d3.mouse(this)[0]),
+			i = bisectDate(lines, x0, 1);
+			d0 = lines[i - 1];
+			d1 = lines[i];
+
+			d = x0 - new Date(d0.date) > new Date(d1.date) - x0 ? d1 : d0;
+
+			locatorX = Math.floor(x(new Date(d.date)));
+			locatorY = Math.floor(y(d.level));
+			latestX = Math.floor(x(new Date(startPoint.date)));
+
+			// Update figcaption data
+
+			if (locatorX > latestX) {
+				locatorPoint.classed('locator-point-forecast', true);
+				svg.select('.forecast').classed('forecast-focus', true);
+				svg.select('.observed').classed('observed-focus', false);
+				d3.select('#data-type').classed('data-level-item-heading-forecast', true).select('span').html('Forecast level');
+			} else {
+				locatorPoint.classed('locator-point-forecast', false);
+				svg.select('.forecast').classed('forecast-focus', false);
+				svg.select('.observed').classed('observed-focus', true);
+				d3.select('#data-type').classed('data-level-item-heading-forecast', false).select('span').html('Previously measured level');
+			}
+
+			if (locatorX == latestX) {
+				d3.select('#data-type').classed('data-level-item-heading-forecast', false).select('span').html('Latest measured level');
+			}
+
+			d3.select('#data-details').html(
+				+ d.level + 'm at '
+				+ parseTime(new Date(d.date)).toLowerCase()
+				+ ' on '
+				+ parseDate(new Date(d.date)));
+
+			locatorPoint.attr('transform', 'translate(' + locatorX + ',' + locatorY + ')');
+
+		}
+
+		return {
+
+			render : render
+
+		}
+
+	})(window,d3);
+
+	window.addEventListener('resize', Chart.render);
+
+</script>
+{% include "partials/scripts.html" %}
+{% endblock %}

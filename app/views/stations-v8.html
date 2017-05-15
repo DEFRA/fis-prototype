@@ -1,0 +1,57 @@
+{% extends "layout.html" %}
+
+{% block page_title %}Measuring stations - FIS Prototype - GOV.UK{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main" tabindex="-1">
+
+  {% include "partials/breadcrumb.html" %}
+
+  <div class="grid-row">
+    <div class="column-two-thirds">
+
+      <h1 class="heading-xlarge">
+        <span class="heading-secondary">FIS Prototype</span>
+        Measuring stations
+      </h1>
+      <p class="lede">Pages showing probabilistic forecast and best estimate and worst case forecast in multiple sceanrios.</p>
+
+    </div>
+  </div>
+
+  <div class="grid-row">
+    <div class="column-two-thirds">
+
+      <h3 class="heading-medium">Scenarios</h3>
+
+      <p>(a) Forecast above flood warning</p>
+      <ul class="list list-bullet">
+        <li><a href="/station/5034-probabilistic-a">Probabilistic</a></li>
+        <li><a href="/station/5034-best-worst-a">Best estimate and worst case</a></li>
+      </ul>
+
+      <p>(b) Forecast above flood alert but below flood warning</p>
+      <ul class="list list-bullet">
+        <li><a href="/station/5034-probabilistic-b">Probabilistic</a></li>
+        <li><a href="/station/5034-best-worst-b">Best estimate and worst case</a></li>
+      </ul>
+
+      <p>(c) Forecast below flood alert</p>
+      <ul class="list list-bullet">
+        <li><a href="/station/5034-probabilistic-c">Probabilistic</a></li>
+        <li><a href="/station/5034-best-worst-c">Best estimate and worst case</a></li>
+      </ul>
+
+    </div>
+  </div>
+
+</main><!-- / #content -->
+{% endblock %}
+
+{% block body_end %}
+  <!-- GOV.UK elements redirect -->
+  <!--<script src="/public/javascripts/redirect.js"></script>-->
+  {% include "partials/scripts.html" %}
+{% endblock %}
+
