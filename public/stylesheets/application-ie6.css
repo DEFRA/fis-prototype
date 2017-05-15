@@ -1957,20 +1957,17 @@ section.feedback {
   background-color: #f47738;
 }
 
-.graph-legend li.measured {
-  display: inline-block;
-}
-
 .graph-legend li.measured:before {
   background-color: #005ea5;
 }
 
-.graph-legend li.forecast {
-  display: inline-block;
-}
-
 .graph-legend li.forecast:before {
   background-color: #52585a;
+}
+
+.graph-legend .list-graph-labels li {
+  display: inline-block;
+  display: block;
 }
 
 .graph-legend .data-level {

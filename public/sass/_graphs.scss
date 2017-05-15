@@ -50,18 +50,17 @@
     li.land:before {
         background-color:$orange;
     }
-
-    li.measured {
-        display:inline-block;
-    }
     li.measured:before {
         background-color:$govuk-blue;
     }
-    li.forecast {
-        display:inline-block;
-    }
     li.forecast:before {
         background-color:#52585a;
+    }
+    .list-graph-labels li {
+        display: inline-block;
+        @include media(tablet) {
+            display:block;
+        }
     }
     .data-level {
         margin-top:0;

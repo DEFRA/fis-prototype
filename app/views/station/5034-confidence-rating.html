@@ -30,8 +30,8 @@ Irk at Collyhurst Weir
 				River levels at this location
 			</h2>     
 
-			<p id="visualisation-heading" class="font-xsmall">
-				<span class="visualisation-heading-measured">Measured levels</span> for the last 5 days <span class="visualisation-heading-forecast">Forecast levels</span> for the next 36 hours
+			<p>
+				We have <strong class="bold-small">high confidence</strong> in this forecast
 			</p>
 
 			<div class="visualisation" role="presentation" aria-hidden="true">
@@ -59,23 +59,28 @@ Irk at Collyhurst Weir
 								<span class="data-item bold-small" id="data-details"></span>
 							</div>
 							
-							<ul>
+							<ul class="list-graph-labels">
 
-								<li class="max">
-									<span>5.10<abbr title="Metres">m</abbr> on 6 Dec 2015 is the highest level on record at this location
-										<a href="#">Show on the graph</a>
-									</span>
+								<li class="measured">
+									<span>Measured level</span>
+								</li>
+								<li class="forecast">
+									<span>Forecast level</span>
 								</li>
 								<li class="property">
-									<span>At 4.20<abbr title="Metres">m</abbr> some property flooding is possible here and in nearby areas</a>
-									</span>
+									<span>4.2m</span>
 								</li>
 								<li class="land">
-									<span>At 2.70<abbr title="Metres">m</abbr> flooding of low-lying land is possible here and in nearby areas</a>
-									</span>
+									<span>2.7m</span>
 								</li>
 
 							</ul>
+
+							<div class="graph-legend-normal-level">
+
+								<p class="font-xsmall">The normal level at this location is 0.75m to 2.70m.</p>
+
+							</div>
 
 						</figcaption>
 
@@ -225,19 +230,42 @@ Irk at Collyhurst Weir
 {% endblock %}
 
 {% block nearby_areas %}
-<p class="font-xsmall">The normal range at this location is 0.75m to 2.70m.</p>
 <!--
 <p>The latest level recorded is 0.90m at 9.00am on Wednesday 11 Jan 2017.</p>
 <p>The highest level forecast in the next 36 hours is 0.91m at 9.00pm on Thursday 12 Jan 2017.</p>
 -->
 <h2 class="heading-medium" id="nearby-areas">What effect could these levels have on nearby areas?</h2>
 <ul class="list">
-	<li><p><strong class="bold-small">5.1m</strong> – highest level ever recorded here - during Dec 2015 flooding – <a href="#" onclick="return false">see map of area that flooded</a></p></li>
-	<li><p><strong class="bold-small">5.0m</strong> – Sep 2007 flood level – <a href="#" onclick="return false">see map of area that flooded</a></p></li>
-	<li><p><strong class="bold-small">4.8m</strong> – flooding of property possible at River Irk at Cheetham Hill – <a href="#" onclick="return false">see map of area that could flood</a></p></li>
-	<li><p><strong class="bold-small">4.2m</strong> – flooding of property possible at River Irk at Kendall Road – <a href="#" onclick="return false">see map of area that could flood</a></p></li>
-	<li><p><strong class="bold-small">2.9m</strong> – A26 crossroads floods</p></li>
-	<li><p><strong class="bold-small">2.7m</strong> – flooding of low lying land starts</p></li>
+	<li>
+		<p>
+			<strong class="bold-small">5.1m</strong> Highest level ever recorded here during Dec 2015 flooding.<br/><a href="#" onclick="return false">Show on the graph</a>. <a href="#" onclick="return false">See map of area that flooded</a>
+		</p>
+	</li>
+	<li>
+		<p>
+			<strong class="bold-small">5.0m</strong> Sep 2007 flood level.<br/><a href="#" onclick="return false">Show on the graph</a>. <a href="#" onclick="return false">See map of area that flooded</a>
+		</p>
+	</li>
+	<li>
+		<p>
+			<strong class="bold-small">4.8m</strong> Flooding of property possible at River Irk at Cheetham Hill.<br/><a href="#" onclick="return false">Show on the graph</a>. <a href="#" onclick="return false">See map of area that could flood</a>
+		</p>
+	</li>
+	<li>
+		<p>
+			<strong class="bold-small">4.2m</strong> Flooding of property possible at River Irk at Kendall Road.<br/><a href="#" onclick="return false">Hide from the graph</a>. <a href="#" onclick="return false">See map of area that could flood</a>
+		</p>
+	</li>
+	<li>
+		<p>
+			<strong class="bold-small">2.9m</strong> A26 crossroads floods.<br/><a href="#" onclick="return false">Show on the graph</a>
+		</p>
+	</li>
+	<li>
+		<p>
+			<strong class="bold-small">2.7m</strong> Flooding of low lying land starts.<br/><a href="#" onclick="return false">Hide from the graph</a>
+		</p>
+	</li>
 </ul>
 {% endblock %}
 

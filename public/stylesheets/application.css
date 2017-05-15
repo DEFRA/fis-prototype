@@ -2309,20 +2309,22 @@ section.feedback {
   background-color: #f47738;
 }
 
-.graph-legend li.measured {
-  display: inline-block;
-}
-
 .graph-legend li.measured:before {
   background-color: #005ea5;
 }
 
-.graph-legend li.forecast {
+.graph-legend li.forecast:before {
+  background-color: #52585a;
+}
+
+.graph-legend .list-graph-labels li {
   display: inline-block;
 }
 
-.graph-legend li.forecast:before {
-  background-color: #52585a;
+@media (min-width: 641px) {
+  .graph-legend .list-graph-labels li {
+    display: block;
+  }
 }
 
 .graph-legend .data-level {

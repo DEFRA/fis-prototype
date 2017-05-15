@@ -135,6 +135,14 @@ module.exports = {
       res.render('station/5034-best-worst-c', { 'section': section, 'section_name': sectionName, 'page_name': pageName })
     })
 
+    // Example station: Confidence rating
+    app.get('/station/5034-confidence-rating', function (req, res) {
+      var section = 'station'
+      var sectionName = 'Station'
+      var pageName = 'Irk at Collyhurst Weir'
+      res.render('station/5034-confidence-rating', { 'section': section, 'section_name': sectionName, 'page_name': pageName })
+    })
+
     //
     // Paterns pages
     //
