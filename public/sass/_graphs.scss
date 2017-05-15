@@ -50,6 +50,19 @@
     li.land:before {
         background-color:$orange;
     }
+
+    li.measured {
+        display:inline-block;
+    }
+    li.measured:before {
+        background-color:$govuk-blue;
+    }
+    li.forecast {
+        display:inline-block;
+    }
+    li.forecast:before {
+        background-color:#52585a;
+    }
     .data-level {
         margin-top:0;
         margin-bottom: em(30, 19);
@@ -91,7 +104,13 @@
     }
     .data-level-item-heading-forecast .icon-point:before {
         border-color:$grey-1;
-    }}
+    }
+    .graph-legend-normal-level {
+        @include media(tablet) {
+            max-width:14em;
+        }
+    }
+}
 
 table.table-levels {
     thead {
