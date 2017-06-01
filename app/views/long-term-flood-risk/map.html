@@ -43,7 +43,7 @@
 						Select the type of flood risk information you're interested in. The map will then update.
 					</p>
 					<p>
-						You can <a href="/long-term-flood-risk/risk-bands">learn more about the ways we describe flood risk</a>.
+						You can <a href="/long-term-flood-risk/flood-risk-types">learn more about the ways we describe flood risk</a>.
 					</p>
 					<p>
 						'Detailed view' shows more options.
@@ -358,7 +358,7 @@
 			// Load content into overlay
 			var fragment = $(e.target).closest('li').data('id');
 			var heading = $('.lhs .category.selected').attr('title');
-			$('#overlay-copy').load('/long-term-flood-risk/risk-bands #' + fragment, function(){
+			$('#overlay-copy').load('/long-term-flood-risk/flood-risk-types #' + fragment, function(){
 				$(this).prepend('<h2 class="heading-medium">' + heading + '</h2>');
 			});
 			// Show overlay

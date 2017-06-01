@@ -34,10 +34,10 @@ module.exports = {
     })
 
     // Map - Long term flood risk
-    app.get('/long-term-flood-risk/risk-bands', function (req, res) {
-      var pageName = 'Long term flood risk'
+    app.get('/long-term-flood-risk/flood-risk-types', function (req, res) {
+      var pageName = 'Learn more about the ways we describe flood risk'
       var national = req.query.address > 0 ? false : true;
-      res.render('long-term-flood-risk/risk-bands', { 'page_name': pageName })
+      res.render('long-term-flood-risk/flood-risk-types', { 'page_name': pageName })
     })
 
     //
