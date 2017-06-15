@@ -63,12 +63,12 @@
 
 	<script type="text/javascript">
 
-		const selectedId = '123FWF315'; // Warning
-		//const selectedId = '123WAF963'; // Alert
-		//const selectedId = '123FWF308'; // Warning removed
+		var selectedId = -1;
+		//selectedId = '123FWF315'; // Warning
+		selectedId = '123WAF963'; // Alert
+		//selectedId = '123FWF308'; // Warning removed
 
-		const opacity = 0.8;
-
+		var opacity = 1;
 
 		var geoJSON = '/public/javascripts/json/features.json';
 		
@@ -140,36 +140,91 @@
 
 		var map = new ol.Map({
 			target: 'map',
-			layers: [tile, targetAreas, tileSelected],
+			layers: [tile, targetAreas],
 			view: view
-		});
+		})
+
+		// Add slected layer if exists
+		if (selectedId) {
+			map.addLayer(tileSelected);
+		}
+
+		// Set blend mode for target areas and reset after composition
+
+		targetAreas.on('precompose', function(e){
+
+			//e.context.globalCompositeOperation = 'darken';
+
+		})
+
+		targetAreas.on('postcompose', function(e) {
+
+			//e.context.globalCompositeOperation = 'source-over';
+
+		})
 
 		// Draw the selected feature on top of the image layer
 
-		tileSelected.on('precompose', function(e){
+		if (selectedId) {
 
-			// Save initial clipping state of canvas
-			e.context.save();
+			tileSelected.on('precompose', function(e){
 
-			// Set feature to selected feature from geojson 
-			feature = source.getFeatureById(selectedId);
+				// Save initial clipping state of canvas
+				e.context.save();
 
-			// Draw the selected border/glow first
-			e.vectorContext.drawFeature(feature, new ol.style.Style({
-				stroke: new ol.style.Stroke({ color: '#ffbf47', width: 10, miterLimit: 2, lineJoin: 'round' })
-			}));
+				// Set feature to selected feature from geojson 
+				selectedFeature = source.getFeatureById(selectedId);
 
-			// Set this polygon as a clipping mask for this layers tile content
-			e.context.clip();
-		});
+				// Draw the selected border/glow first
+				e.vectorContext.drawFeature(selectedFeature, new ol.style.Style({
+					stroke: new ol.style.Stroke({ color: '#ffbf47', width: 10, miterLimit: 2, lineJoin: 'round' })
+				}));
 
-		tileSelected.on('postcompose', function(e) {
+				// Set this polygon as a clipping mask for this layers tile content
+				e.context.clip();
 
-			// Restore the canvas so no subsequent content is clipped/masked
-			e.context.restore();
+			});
 
-			// Draw the feature again using the style function to apply corrct colour and apply opacity
-			e.vectorContext.drawFeature(feature, styleFunction(feature, view.getResolution(), opacity));
+			tileSelected.on('postcompose', function(e) {
+
+				var extent = selectedFeature.getGeometry().getExtent();
+
+				// Draw features that are inside the selected feature
+				source.forEachFeatureIntersectingExtent(extent, function(feature) {
+					e.vectorContext.drawFeature(feature, styleFunction(feature, view.getResolution(), opacity));
+				});
+
+				// Restore the canvas so no subsequent content is clipped/masked
+				e.context.restore();
+
+				// Draw the feature again using the style function to apply correct colour and apply opacity
+				e.vectorContext.drawFeature(selectedFeature, styleFunction(selectedFeature, view.getResolution(), opacity));
+
+				//forEachFeatureIntersectingExtent
+
+
+
+			});
+		
+		}
+
+		// Update opacity at different map resolutions
+
+		map.on('moveend', function(){
+			
+			resolution = map.getView().getResolution();
+			
+			if (resolution > 19) { 
+				opacity = 1
+			} else if (resolution > 9) {
+				opacity = 0.85
+			} else if (resolution > 4) {
+				opacity = 0.7
+			} else {
+				opacity = 0.55
+			}	
+
+			targetAreas.setOpacity(opacity);
 
 		});
 
