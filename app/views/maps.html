@@ -65,12 +65,12 @@
 
 		// Set selected feature Id
 		var selectedId = ''; // No features selected
-		//selectedId = '123FWF315'; // Warning
-		selectedId = '123WAF963'; // Alert
+		selectedId = '123FWF315'; // Warning
+		//selectedId = '123WAF963'; // Alert
 		//selectedId = '123FWF308'; // Warning removed
 
-		// Opacity setting for all image layers
-		var opacity = 1;
+		// layerOpacity setting for all image layers
+		var layerOpacity = 1, selectedBdrWidth = 10, resolution;
 
 		// Source of features
 		var geoJSON = '/public/javascripts/json/features.json';
@@ -81,7 +81,7 @@
 			var strokeColour = '#f18700';
 			var fillColour = '#f18700';
 			// Stroke width used to improve display when target areas are small
-			var strokeWidth = 3;
+			var strokeWidth = 2;
 			var zIndex = 2;
 			// Warning or severe warning colours
 			if (feature.get('severity') == 1 || feature.get('severity') == 2) {
@@ -106,8 +106,9 @@
 
 		// Style: Selected feature border
 		var styleSelected = new ol.style.Style({
-			stroke: new ol.style.Stroke({ color: '#ffbf47', width: 10, miterLimit: 2, lineJoin: 'round' })
-		})
+			stroke: new ol.style.Stroke({ color: '#ffbf47', width: selectedBdrWidth, miterLimit: 2, lineJoin: 'round' })
+			//stroke: new ol.style.Stroke({ color: '#005ea5', width: selectedBdrWidth, miterLimit: 2, lineJoin: 'round' })
+		});
 
 		// Source for features
 		var source = new ol.source.Vector({
@@ -130,7 +131,7 @@
 				// Use custom style function to colour individual features accordingley
 				style: styleFunction
 			}),
-			opacity: opacity
+			opacity: layerOpacity
 		});
 
 		// Layer: Only target areas that intersect with selected target area
@@ -140,7 +141,7 @@
 				// Use custom style function to colour individual features accordingley
 				style: styleFunction
 			}),
-			opacity: opacity
+			opacity: layerOpacity
 		});
 
 		// Layer: Background map
@@ -182,6 +183,9 @@
 				e.context.save();
 				// Draw the selected border
 				e.vectorContext.drawFeature(featureSelected, styleSelected);
+				if (resolution > 19) {
+					e.vectorContext.drawFeature(featureSelected, styleFunction(featureSelected,resolution));
+				}
 				// Set this polygon as a clipping mask for this layers background map
 				e.context.clip();
 			}	
@@ -211,15 +215,15 @@
 			e.context.restore();
 		});
 
-		// Update opacity setting for different map resolutions
+		// Update layer opacity setting for different map resolutions
 		map.on('moveend', function(){
 			resolution = map.getView().getResolution();
-			if (resolution > 19) { opacity = 1 }
-			else if (resolution > 9) { opacity = 0.85 } 
-			else if (resolution > 4) { opacity = 0.7 }
-			else { opacity = 0.55 }	
-			targetAreas.setOpacity(opacity);
-			targetAreasIntersecting.setOpacity(opacity);
+			if (resolution > 19) { layerOpacity = 1 }
+			else if (resolution > 9) { layerOpacity = 0.85 } 
+			else if (resolution > 4) { layerOpacity = 0.7 }
+			else { layerOpacity = 0.55 }	
+			targetAreas.setOpacity(layerOpacity);
+			targetAreasIntersecting.setOpacity(layerOpacity);
 		});
 
 		// Change pointer type and highlight style
@@ -232,6 +236,7 @@
 		// When main source has loaded if there is a selected feature
 		// generate intersecting features source and
 		// add OSM background map to tileSelected source
+		// set extent to features
 		source.on('change', function(e){
 			if (selectedId) {
 				if(e.target.getState() === 'ready'){
@@ -244,7 +249,10 @@
 							sourceIntersect.addFeature(feature);
 						}
 					});
+					map.getView().fit(featureSelectedExtent);
 				}
+			} else {
+				map.getView().fit(source.getExtent());
 			}
 		});
 
