@@ -1,0 +1,68 @@
+{% extends "layout.html" %}
+
+{% block page_title %}Graphs - FIS Prototype - GOV.UK{% endblock %}
+
+{% block head %}
+  {% include "partials/head.html" %}
+  {% include "partials/snippets_head.html" %}
+  <!--<link rel="stylesheet" href="https://openlayers.org/en/v3.19.1/css/ol.css" type="text/css">-->
+  <link rel="stylesheet" href="https://openlayers.org/en/v4.2.0/css/ol.css" type="text/css">
+  <script src="https://openlayers.org/en/v4.2.0/build/ol.js" type="text/javascript"></script>
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main" tabindex="-1">
+
+	{% include "partials/phase_banner.html" %}
+	{% include "partials/breadcrumb.html" %}
+
+	<div class="grid-row">
+
+		<div class="column-two-thirds">
+
+			<h1 class="heading-xlarge">
+				<span class="heading-secondary">FIS Prototype</span>
+				Maps: locator
+			</h1>
+
+		</div>
+
+	</div>
+
+	<div class="grid-row">
+
+		<div class="column-two-thirds">
+
+			<section aria-labelledby="flood-warning-area" role="region">
+
+				<div class="map" id="map"></div>
+
+			</section>
+
+		</div>
+
+	</div>
+
+</main>
+
+{% endblock %}
+
+{% block body_end %}
+  <!-- GOV.UK elements redirect -->
+  <!--<script src="/public/javascripts/redirect.js"></script>-->
+  {% include "partials/scripts.html" %}
+
+  <!-- Open layers -->
+  <!-- Below is for visual and interaction reference only -->
+  <!-- Will need to be converted to production code -->
+
+	<script type="text/javascript">
+
+		
+
+	</script>
+
+	<!-- / Visual and interaction reference -->
+	<!-- / Open layers -->
+{% endblock %}

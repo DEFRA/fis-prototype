@@ -147,10 +147,16 @@ module.exports = {
     // Paterns pages
     //
 
-    // Maps
-    app.get('/maps', function (req, res) {
-      var pageName = 'Maps'
-      res.render('maps', { 'page_name': pageName })
+    // Map: Warnings
+    app.get('/map-warnings', function (req, res) {
+      var pageName = 'Maps: warnings'
+      res.render('maps/warnings', { 'page_name': pageName })
+    })
+
+    // Map: Locator
+    app.get('/map-locator', function (req, res) {
+      var pageName = 'Maps: locator'
+      res.render('maps/locator', { 'page_name': pageName })
     })
 
     //
