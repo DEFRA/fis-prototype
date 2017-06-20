@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en" hc="a0" hcx="0"><!--<![endif]--><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <title>Flood map for planning</title>
+
+    <!--[if gt IE 8]><!--><link href="assets/govuk-template.css" media="screen" rel="stylesheet"><!--<![endif]-->
+    <!--[if IE 6]><link href="/public/stylesheets/govuk-template-ie6.css?0.19.1" media="screen" rel="stylesheet" /><![endif]-->
+    <!--[if IE 7]><link href="/public/stylesheets/govuk-template-ie7.css?0.19.1" media="screen" rel="stylesheet" /><![endif]-->
+    <!--[if IE 8]><link href="/public/stylesheets/govuk-template-ie8.css?0.19.1" media="screen" rel="stylesheet" /><![endif]-->
+    <link href="assets/govuk-template-print.css" media="print" rel="stylesheet">
+
+    <!--[if IE 8]><link href="/public/stylesheets/fonts-ie8.css?0.19.1" media="all" rel="stylesheet" /><![endif]-->
+    <!--[if gte IE 9]><!--><link href="assets/fonts.css" media="all" rel="stylesheet"><!--<![endif]-->
+    <!--[if lt IE 9]><script src="/public/javascripts/ie.js?0.19.1"></script><![endif]-->
+
+    <link rel="shortcut icon" href="https://flood-map-for-planning.service.gov.uk/public/images/favicon.ico?0.19.1" type="image/x-icon">
+    <link rel="mask-icon" href="https://flood-map-for-planning.service.gov.uk/public/images/gov.uk_logotype_crown.svg?0.19.1" color="#0b0c0c">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="https://flood-map-for-planning.service.gov.uk/public/images/apple-touch-icon-152x152.png?0.19.1">
+    <link rel="apple-touch-icon-precomposed" sizes="120x120" href="https://flood-map-for-planning.service.gov.uk/public/images/apple-touch-icon-120x120.png?0.19.1">
+    <link rel="apple-touch-icon-precomposed" sizes="76x76" href="https://flood-map-for-planning.service.gov.uk/public/images/apple-touch-icon-76x76.png?0.19.1">
+    <link rel="apple-touch-icon-precomposed" href="https://flood-map-for-planning.service.gov.uk/public/images/apple-touch-icon-60x60.png?0.19.1">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta property="og:image" content="/public/images/opengraph-image.png?0.19.1">
+
+    <meta http-equiv="refresh" content="">
+    <link rel="stylesheet" href="assets/application.css">
+    <!--[if IE 6]><link href="/public/stylesheets/application-ie6.css" media="screen" rel="stylesheet" type="text/css" /><![endif]-->
+    <!--[if IE 7]><link href="/public/stylesheets/application-ie7.css" media="screen" rel="stylesheet" type="text/css" /><![endif]-->
+    <!--[if IE 8]><link href="/public/stylesheets/application-ie8.css" media="screen" rel="stylesheet" type="text/css" /><![endif]-->
+    <!-- Application version: 0.0.1 -->
+    <link rel="stylesheet" href="assets/style.css">
+    <script type="text/javascript" async="" src="assets/ga.js"></script><script src="assets/jquery.min.js"></script>
+    <script src="assets/core.js"></script>
+  
+    <!-- Prototype only -->
+    <style>
+      li.image.pin:before {
+        display:none !important;
+      }
+      li.image.pin a {
+        cursor:pointer;
+      }
+    </style>
+    <!-- end -->
+
+  <body class="js-enabled">
+    <script>document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');</script>
+
+
+    <div id="skiplink-container">
+      <div>
+        <a href="https://flood-map-for-planning.service.gov.uk/summary/362119/387177#content" class="skiplink">Skip to main content</a>
+      </div>
+    </div>
+
+    <div id="global-cookie-message">
+      
+        <div>
+          <p>GOV.UK uses cookies to make the site simpler. <a href="https://www.gov.uk/help/cookies">Find out more about cookies</a></p>
+        </div>
+      
+    </div>
+
+    
+    <header role="banner" id="global-header" class="with-proposition">
+      <div class="header-wrapper">
+        <div class="header-global">
+          <div class="header-logo">
+            <a href="https://www.gov.uk/" title="Go to the GOV.UK homepage" id="logo" class="content">
+              <img src="assets/gov.uk_logotype_crown_invert_trans.png" width="36" height="32" alt=""> GOV.UK
+            </a>
+          </div>
+        </div>
+        <div class="header-proposition">
+          <div class="content">
+            <nav id="proposition-menu">
+              <a href="https://flood-map-for-planning.service.gov.uk/" id="proposition-name">Flood map for planning</a>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </header>
+    
+
+
+    <div id="global-header-bar"></div>
+
+    <div id="content" class="wrapper">
+			<div class="phase-banner-beta">
+  <p>
+    <strong class="phase-tag">beta</strong>
+    <span>
+      This is a new service – your <a href="https://flood-map-for-planning.service.gov.uk/feedback">feedback</a> will help us to improve it.
+    </span>
+  </p>
+</div>
+
+				<link rel="stylesheet" type="text/css" href="assets/ol.css">
+<link rel="stylesheet" type="text/css" href="assets/index.css">
+<main class="fullscreen" id="summary-page" data-test-info="{&quot;point_in_england&quot;:true,&quot;buffer_in_england&quot;:true,&quot;england_error&quot;:false,&quot;floodzone_3&quot;:false,&quot;floodzone_3_error&quot;:false,&quot;areas_benefiting&quot;:false,&quot;areas_benefiting_error&quot;:false,&quot;floodzone_2&quot;:true,&quot;floodzone_2_error&quot;:false}">
+  <h1 class="heading-xlarge">Flood probability</h1>
+  <div class="ie-hide nojs-show">
+    <div class="grid-row">
+      <div class="column-full">
+        <div class="panel panel-device-requirements">
+          <p>
+            It looks like your computer or device isn’t giving you the best version of this service
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="grid-row">
+      <div class="column-two-thirds">
+        <p>This could be because you’re using an older version of your browser (for example Chrome, Internet Explorer, Firefox or Safari).</p>
+        <p>You can try <a href="https://www.gov.uk/help/browsers">updating your browser</a>.</p>
+        <details>
+          <summary>
+            <span class="summary">Alternatively you can contact the Environment Agency</span>
+          </summary>
+          <div class="panel panel-border-narrow">
+            <p>You can get general advice and information about flood probability in your area.</p>
+            <p>Email: <a href="mailto:enquiries@environment-agency.gov.uk">enquiries@environment-agency.gov.uk</a></p>
+            <p>Telephone: 0370 8506 506<br>
+            Telephone (from outside the UK): +44 1709 389 201<br>
+            Monday to Friday, 8am to 6pm</p>
+            <p><a href="https://www.gov.uk/call-charges">Find out more about call charges</a></p>
+          </div>
+        </details>
+      </div>
+    </div>
+  </div>  <div class="ie-show">
+    <div class="grid-row">
+      <div class="column-full">
+        <div class="panel panel-device-requirements">
+          <p>
+            It looks like your computer or device isn’t giving you the best version of this service
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="grid-row">
+      <div class="column-two-thirds">
+        <p>This could be because you’re using an older version of your browser (for example Chrome, Internet Explorer, Firefox or Safari).</p>
+        <p>You can try <a href="https://www.gov.uk/help/browsers">updating your browser</a>.</p>
+        <details>
+          <summary>
+            <span class="summary">Alternatively you can contact the Environment Agency</span>
+          </summary>
+          <div class="panel panel-border-narrow">
+            <p>You can get general advice and information about flood probability in your area.</p>
+            <p>Email: <a href="mailto:enquiries@environment-agency.gov.uk">enquiries@environment-agency.gov.uk</a></p>
+            <p>Telephone: 0370 8506 506<br>
+            Telephone (from outside the UK): +44 1709 389 201<br>
+            Monday to Friday, 8am to 6pm</p>
+            <p><a href="https://www.gov.uk/call-charges">Find out more about call charges</a></p>
+          </div>
+        </details>
+      </div>
+    </div>
+  </div>    <div class="nojs-hide ie-hide">
+        <p>Your proposed development is in an area with a medium probability of flooding</p>
+    </div>
+    <div class="grid-row main-container nojs-hide ie-hide">
+      <div class="column-half summary-column">
+              <div class="zone2">
+                <div class="zone">
+                  <h2 class="heading-large">Flood zone 2</h2>
+                  <p>
+                    Land and property in flood zone 2 have a medium probability of flooding
+                  </p>
+                  <a href="http://planningguidance.communities.gov.uk/blog/guidance/flood-risk-and-coastal-change/flood-zone-and-flood-risk-tables/table-1-flood-zones">More information about flood zones</a>
+                </div>
+                <div class="next">
+                  <ol class="list list-number">
+                    <li>
+                      <div class="panel panel-border-wide">
+                        You must carry out a <a href="https://www.gov.uk/guidance/flood-risk-assessment-for-planning-applications">flood risk assessment</a> for development in flood zone 2
+                      </div>
+                    </li>
+                    <li>
+                      <div class="panel panel-border-wide">
+                        For some types of development in flood zone 2 you must follow the
+                        <a href="https://www.gov.uk/guidance/flood-risk-assessment-standing-advice">Environment Agency's standing advice for carrying out a flood risk assessment</a>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="panel panel-border-wide">
+                        You can also <a href="https://www.gov.uk/guidance/flood-risk-assessment-for-planning-applications">read more about flood risk assessments for planning applications</a>
+                      </div>
+                    </li>
+                  </ol>
+                </div>
+              </div>      </div>
+<div class="map-column">
+        <div class="map-container">
+          <div class="mobile-heading">
+            <h2 class="heading-medium">Map</h2>
+            <a href="#legend">View map key</a>
+          </div>
+          <div id="map" class="map" style="height: 344px;">
+            <div class="ol-viewport" style="background:url(assets/fmfp-map.jpg) center center no-repeat;position: relative; overflow: hidden; width: 100%; height: 100%; touch-action: none;"><canvas class="ol-unselectable" width="1446" height="344" style="width: 100%; height: 100%;"></canvas><div class="ol-overlaycontainer"></div><div class="ol-overlaycontainer-stopevent"><div class="ol-zoom ol-unselectable ol-control"><button class="ol-zoom-in" type="button" title="Zoom in">+</button><button class="ol-zoom-out" type="button" title="Zoom out">−</button></div><div class="ol-rotate ol-unselectable ol-control ol-hidden"><button class="ol-rotate-reset" type="button" title="Reset rotation"><span class="ol-compass" style="transform: rotate(0rad);">⇧</span></button></div><div class="ol-attribution ol-unselectable ol-control ol-collapsed"><ul><li style=""><a href="http://openlayers.org/"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAAAA3NCSVQICAjb4U/gAAAACXBIWXMAAAHGAAABxgEXwfpGAAAAGXRFWHRTb2Z0d2FyZQB3d3cuaW5rc2NhcGUub3Jnm+48GgAAAhNQTFRF////AP//AICAgP//AFVVQECA////K1VVSbbbYL/fJ05idsTYJFtbbcjbJllmZszWWMTOIFhoHlNiZszTa9DdUcHNHlNlV8XRIVdiasrUHlZjIVZjaMnVH1RlIFRkH1RkH1ZlasvYasvXVsPQH1VkacnVa8vWIVZjIFRjVMPQa8rXIVVkXsXRsNveIFVkIFZlIVVj3eDeh6GmbMvXH1ZkIFRka8rWbMvXIFVkIFVjIFVkbMvWH1VjbMvWIFVlbcvWIFVla8vVIFVkbMvWbMvVH1VkbMvWIFVlbcvWIFVkbcvVbMvWjNPbIFVkU8LPwMzNIFVkbczWIFVkbsvWbMvXIFVkRnB8bcvW2+TkW8XRIFVkIlZlJVloJlpoKlxrLl9tMmJwOWd0Omh1RXF8TneCT3iDUHiDU8LPVMLPVcLPVcPQVsPPVsPQV8PQWMTQWsTQW8TQXMXSXsXRX4SNX8bSYMfTYcfTYsfTY8jUZcfSZsnUaIqTacrVasrVa8jTa8rWbI2VbMvWbcvWdJObdcvUdszUd8vVeJaee87Yfc3WgJyjhqGnitDYjaarldPZnrK2oNbborW5o9bbo9fbpLa6q9ndrL3ArtndscDDutzfu8fJwN7gwt7gxc/QyuHhy+HizeHi0NfX0+Pj19zb1+Tj2uXk29/e3uLg3+Lh3+bl4uXj4ufl4+fl5Ofl5ufl5ujm5+jmySDnBAAAAFp0Uk5TAAECAgMEBAYHCA0NDg4UGRogIiMmKSssLzU7PkJJT1JTVFliY2hrdHZ3foSFhYeJjY2QkpugqbG1tre5w8zQ09XY3uXn6+zx8vT09vf4+Pj5+fr6/P39/f3+gz7SsAAAAVVJREFUOMtjYKA7EBDnwCPLrObS1BRiLoJLnte6CQy8FLHLCzs2QUG4FjZ5GbcmBDDjxJBXDWxCBrb8aM4zbkIDzpLYnAcE9VXlJSWlZRU13koIeW57mGx5XjoMZEUqwxWYQaQbSzLSkYGfKFSe0QMsX5WbjgY0YS4MBplemI4BdGBW+DQ11eZiymfqQuXZIjqwyadPNoSZ4L+0FVM6e+oGI6g8a9iKNT3o8kVzNkzRg5lgl7p4wyRUL9Yt2jAxVh6mQCogae6GmflI8p0r13VFWTHBQ0rWPW7ahgWVcPm+9cuLoyy4kCJDzCm6d8PSFoh0zvQNC5OjDJhQopPPJqph1doJBUD5tnkbZiUEqaCnB3bTqLTFG1bPn71kw4b+GFdpLElKIzRxxgYgWNYc5SCENVHKeUaltHdXx0dZ8uBI1hJ2UUDgq82CM2MwKeibqAvSO7MCABq0wXEPiqWEAAAAAElFTkSuQmCC"></a></li><li>© Crown copyright and database rights 2017 <a href="http://www.ordnancesurvey.co.uk">OS</a> 0100024198</li></ul><button type="button" title="Attributions"><span>i</span></button></div><div class="ol-scale-line ol-unselectable"><div class="ol-scale-line-inner" style="width: 57px;">50 m</div></div></div></div></div>
+          <div class="enter-fullscreen toggle-fullscreen ol-full-screen ol-control hidden-mobile">
+            <button class="ol-full-screen-false" type="button" title="Full screen"><span>Full screen</span> <i class="fa fa-enlarge2"></i></button>
+          </div>
+          <div class="exit-fullscreen toggle-fullscreen ol-full-screen ol-control hidden-mobile">
+            <button class="ol-full-screen-true" type="button" title="Exit full screen"><span>Exit full screen</span> <i class="fa fa-compress"></i></button>
+          </div>        
+          <div class="rhs">
+            <aside class="controls" id="legend">
+            <div class="legend">
+              <ul>
+                <li class="image pin">
+                  <div><a href="">Show development location</a></div>
+                </li>
+                <li class="rectangle dark-blue">
+                  <div>Flood zone 3</div>
+                </li>
+                <li class="rectangle light-blue">
+                  <div>Flood zone 2</div>
+                </li>
+                <li class="rectangle black-border">
+                  <div>Flood zone 1</div>
+                </li>
+                <li class="image area-benefiting">
+                  <div>Areas benefiting from flood defences</div>
+                </li>
+                <li class="line orange">
+                  <div>Flood defence</div>
+                </li>
+                <li class="image main-river">
+                  <div>Main river</div>
+                </li>
+                <li class="image flood-holding-area">
+                  <div>Flood storage area</div>
+                </li>
+              </ul>
+            </div>            </aside>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br>
+    <div class="nojs-hide ie-hide">
+      <h3 class="heading-small">Enter another location to view the probability of it flooding</h3>
+      <div class="grid-row search-box">
+        <div class="column-half">
+          <form method="get" action="https://flood-map-for-planning.service.gov.uk/confirm-location">
+            <div class="form-group">
+              <input class="form-control" name="place" id="place" type="text" placeholder="Enter a postcode, place or NGR" title="A valid place in England is required" autocomplete="off">
+            </div>
+            <div class="form-group">
+              <button class="button button-get-started" type="submit" title="Check a location">Check a location</button>
+            </div>
+          </form>
+          <div class="clearfix"></div>
+          <details>
+            <summary aria-controls="terms-of-use" aria-expanded="false" role="button">
+              <span class="summary">Terms of use</span>
+            </summary>
+            <div id="terms-of-use" class="panel panel-border-narrow" aria-hidden="true">
+              Flood zone maps are modelled using local and national river and sea data. 
+              This information provides an indication of the likelihood of flooding and is intended for planning use only.
+            </div>
+          </details>
+        </div>
+      </div>
+    </div>
+  <div class="visible-mobile"></div>
+</main>
+<script src="assets/summary.js"></script>
+<script>
+  $(function () {
+    var page = new FMP.SummaryPage({
+      easting: '362119',
+      northing: '387177'
+    })
+  })
+</script>
+
+			
+		</div><div id="hc_extension_bkgnd" style="position: fixed; left: 0px; top: 0px; right: 0px; bottom: 0px; z-index: -1999999999; display: block; background: none 0% 0% / auto repeat scroll padding-box border-box rgb(255, 255, 255);"></div><span id="hc_extension_svg_filters" hidden=""><svg xmlns="http://www.w3.org/2000/svg" version="1.1"><defs><filter x="0" y="0" width="99999" height="99999" id="hc_extension_off"><fecomponenttransfer><fefuncr type="table" tableValues="0 1"></fefuncr><fefuncg type="table" tableValues="0 1"></fefuncg><fefuncb type="table" tableValues="0 1"></fefuncb></fecomponenttransfer></filter><filter x="0" y="0" width="99999" height="99999" id="hc_extension_highcontrast"><fecomponenttransfer><fefuncr type="gamma" exponent="3.0"></fefuncr><fefuncg type="gamma" exponent="3.0"></fefuncg><fefuncb type="gamma" exponent="3.0"></fefuncb></fecomponenttransfer></filter><filter x="0" y="0" width="99999" height="99999" id="hc_extension_highcontrast_back"><fecomponenttransfer><fefuncr type="gamma" exponent="0.33"></fefuncr><fefuncg type="gamma" exponent="0.33"></fefuncg><fefuncb type="gamma" exponent="0.33"></fefuncb></fecomponenttransfer></filter><filter x="0" y="0" width="99999" height="99999" id="hc_extension_grayscale"><fecolormatrix type="matrix" values="0.2126 0.7152 0.0722 0 0 0.2126 0.7152 0.0722 0 0 0.2126 0.7152 0.0722 0 0 0 0 0 1 0"></fecolormatrix><fecomponenttransfer><fefuncr type="gamma" exponent="3"></fefuncr><fefuncg type="gamma" exponent="3"></fefuncg><fefuncb type="gamma" exponent="3"></fefuncb></fecomponenttransfer></filter><filter x="0" y="0" width="99999" height="99999" id="hc_extension_grayscale_back"><fecomponenttransfer><fefuncr type="gamma" exponent="0.33"></fefuncr><fefuncg type="gamma" exponent="0.33"></fefuncg><fefuncb type="gamma" exponent="0.33"></fefuncb></fecomponenttransfer></filter><filter x="0" y="0" width="99999" height="99999" id="hc_extension_invert"><fecomponenttransfer><fefuncr type="gamma" amplitude="-1" exponent="3" offset="1"></fefuncr><fefuncg type="gamma" amplitude="-1" exponent="3" offset="1"></fefuncg><fefuncb type="gamma" amplitude="-1" exponent="3" offset="1"></fefuncb></fecomponenttransfer></filter><filter x="0" y="0" width="99999" height="99999" id="hc_extension_invert_back"><fecomponenttransfer><fefuncr type="table" tableValues="1 0"></fefuncr><fefuncg type="table" tableValues="1 0"></fefuncg><fefuncb type="table" tableValues="1 0"></fefuncb></fecomponenttransfer><fecomponenttransfer><fefuncr type="gamma" exponent="1.7"></fefuncr><fefuncg type="gamma" exponent="1.7"></fefuncg><fefuncb type="gamma" exponent="1.7"></fefuncb></fecomponenttransfer></filter><filter x="0" y="0" width="99999" height="99999" id="hc_extension_invert_grayscale"><fecolormatrix type="matrix" values="0.2126 0.7152 0.0722 0 0 0.2126 0.7152 0.0722 0 0 0.2126 0.7152 0.0722 0 0 0 0 0 1 0"></fecolormatrix><fecomponenttransfer><fefuncr type="gamma" amplitude="-1" exponent="3" offset="1"></fefuncr><fefuncg type="gamma" amplitude="-1" exponent="3" offset="1"></fefuncg><fefuncb type="gamma" amplitude="-1" exponent="3" offset="1"></fefuncb></fecomponenttransfer></filter><filter x="0" y="0" width="99999" height="99999" id="hc_extension_yellow_on_black"><fecomponenttransfer><fefuncr type="gamma" amplitude="-1" exponent="3" offset="1"></fefuncr><fefuncg type="gamma" amplitude="-1" exponent="3" offset="1"></fefuncg><fefuncb type="gamma" amplitude="-1" exponent="3" offset="1"></fefuncb></fecomponenttransfer><fecolormatrix type="matrix" values="0.3 0.5 0.2 0 0 0.3 0.5 0.2 0 0 0 0 0 0 0 0 0 0 1 0"></fecolormatrix></filter><filter x="0" y="0" width="99999" height="99999" id="hc_extension_yellow_on_black_back"><fecomponenttransfer><fefuncr type="table" tableValues="1 0"></fefuncr><fefuncg type="table" tableValues="1 0"></fefuncg><fefuncb type="table" tableValues="1 0"></fefuncb></fecomponenttransfer><fecomponenttransfer><fefuncr type="gamma" exponent="0.33"></fefuncr><fefuncg type="gamma" exponent="0.33"></fefuncg><fefuncb type="gamma" exponent="0.33"></fefuncb></fecomponenttransfer></filter></defs></svg></span>
+
+    <footer class="group js-footer" id="footer" role="contentinfo">
+
+      <div class="footer-wrapper">
+
+        <div class="footer-meta">
+          <div class="footer-meta-inner">
+            <h2 class="visuallyhidden">Support links</h2>
+            <ul>
+              <li><a href="https://www.gov.uk/help">Help</a></li>
+              <li><a href="https://www.gov.uk/help/cookies">Cookies</a></li>
+              <li><a href="https://www.gov.uk/contact">Contact</a></li>
+              <li><a href="https://www.gov.uk/cymraeg">Cymraeg</a></li>
+              <li>Built by the <a href="https://www.gov.uk/government/organisations/environment-agency">Environment Agency</a></li>
+              <li>© Crown copyright and database rights 2017 <a href="http://www.ordnancesurvey.co.uk/">OS</a> 100024198. Use of the addressing and mapping data is subject to the <a href="https://flood-map-for-planning.service.gov.uk/os-terms">terms and conditions</a>.</li>
+            </ul>
+
+            <div class="open-government-licence">
+              <p class="logo"><a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/" rel="license">Open Government Licence</a></p>
+              
+                <p>All other content is available under the <a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/" rel="license">Open Government Licence v3.0</a>, except where otherwise stated</p>
+              
+            </div>
+          </div>
+
+          <div class="copyright">
+            <a href="http://www.nationalarchives.gov.uk/information-management/re-using-public-sector-information/copyright-and-re-use/crown-copyright/">© Crown copyright</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <div id="global-app-error" class="app-error hidden"></div>
+
+    <script src="assets/govuk-template.js"></script>
+
+      <script src="assets/stageprompt.js"></script>
+      <script type="text/javascript">
+        var analyticsAccount = 'UA-86307035-1'
+    
+        if (analyticsAccount) {
+          var _gaq = _gaq || [];
+          _gaq.push(['_setAccount', analyticsAccount]);
+          _gaq.push(['_trackPageview']);
+          (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+          })();
+    
+          $(function() {
+            GOVUK.performance.stageprompt.setupForGoogleAnalytics()
+          })
+        }
+      </script>
+
+    
+    <script>if (typeof window.GOVUK === 'undefined') document.body.className = document.body.className.replace('js-enabled', '');</script>
+  
+
+</body></html>

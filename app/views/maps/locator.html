@@ -59,29 +59,29 @@
 
 	<script type="text/javascript">
 
-		var markerFeature = new ol.Feature({
+		var iconFeature = new ol.Feature({
 			geometry: new ol.geom.Point(
 				ol.proj.fromLonLat([-1.98221629139491,53.7296721399487])
 			)
 		});
 
-		var markerStyle = new ol.style.Style({
+		var iconStyle = new ol.style.Style({
 			image: new ol.style.Icon({
-				src: '/public/images/icon-locator-2x.png',
+				src: '/public/images/icon-locator-blue-2x.png',
 				size: [57, 71],
 				anchor: [0.5, 1],
 				scale: 0.5
 			})
 		});
 
-      	markerFeature.setStyle(markerStyle);
+      	iconFeature.setStyle(iconStyle);
 
-		var markerSource = new ol.source.Vector({
-			features: [markerFeature]
+		var iconSource = new ol.source.Vector({
+			features: [iconFeature]
 		});
 
-		var marker = new ol.layer.Vector({
-			source: markerSource,
+		var iconLayer = new ol.layer.Vector({
+			source: iconSource,
 			defaultProjection :'EPSG:4326', 
 			projection: 'EPSG:3857'
 		});
@@ -92,10 +92,10 @@
 		});
 
 		var map = new ol.Map({
-			layers: [tile, marker],
+			layers: [tile, iconLayer],
 			target: document.getElementById('map'),
 			view: new ol.View({
-				center: markerFeature.getGeometry().getCoordinates(),
+				center: iconFeature.getGeometry().getCoordinates(),
 				zoom: 14
 			})
 		});
