@@ -9,7 +9,7 @@ lib/govuk_template.html
 app/config.js
 
 # Ignore compiled stylesheets
-# public/stylesheets/
+public/stylesheets
 
 # Folder view configuration files
 .DS_Store
