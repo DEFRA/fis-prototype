@@ -19,7 +19,7 @@
   "main": "views/layouts/govuk_template.html",
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/alphagov/govuk_template_jinja.git"
+    "url": "http://github.com/alphagov/govuk_template_jinja.git"
   },
   "gitHead": "d08e325640eff93bb44233649dec04c85534f7ef",
   "homepage": "https://github.com/alphagov/govuk_template_jinja",
@@ -47,6 +47,5 @@
     "tmp": "tmp/govuk_template_jinja-0.19.1.tgz_1478882258178_0.8164155725389719"
   },
   "directories": {},
-  "_resolved": "https://registry.npmjs.org/govuk_template_jinja/-/govuk_template_jinja-0.19.1.tgz",
-  "readme": "ERROR: No README data found!"
+  "_resolved": "https://registry.npmjs.org/govuk_template_jinja/-/govuk_template_jinja-0.19.1.tgz"
 }

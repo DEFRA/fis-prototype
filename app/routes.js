@@ -26,6 +26,12 @@ module.exports = {
       res.render('long-term-flood-risk/risk', { 'page_name': pageName })
     })
 
+    // Detail - Long term flood risk
+    app.get('/long-term-flood-risk/risk-detail', function (req, res) {
+      var pageName = 'Long term flood risk'
+      res.render('long-term-flood-risk/risk-detail', { 'page_name': pageName })
+    })
+
     // Map - Long term flood risk
     app.get('/long-term-flood-risk/map', function (req, res) {
       var pageName = 'Long term flood risk'

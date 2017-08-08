@@ -1,0 +1,411 @@
+{% extends "layout.html" %}
+
+{% block page_title %}Long term flood risk - GOV.UK{% endblock %}
+
+{% block head %}
+  {% include "partials/head.html" %}  
+  <link rel="stylesheet" type="text/css" href="/static/long-term-flood-risk/public/stylesheets/application.css">
+  {% include "partials/snippets_head.html" %}
+{% endblock %}
+
+{% block content %}
+<div id="content" class="wrapper">
+	<div class="phase-banner-beta">
+    <p>
+      <strong class="phase-tag">beta</strong>
+      <span>
+        This is a new service – your <a href="/long-term-flood-risk/feedback">feedback</a> will help us to improve it.
+      </span>
+    </p>
+  </div>
+
+  <link rel="stylesheet" type="text/css" href="/static/long-term-flood-risk/public/stylesheets/risk/index.css">
+
+  <main id="risk-page" data-test-info="{&quot;status&quot;:1,&quot;riverAndSeaRisk&quot;:&quot;High&quot;,&quot;surfaceWaterRisk&quot;:&quot;Low&quot;,&quot;reservoirRisk&quot;:true}">
+    <section class="risk at-risk">
+    <header>
+        <img class="visible-mobile" src="/public/images/at-risk-icon.png" alt="At risk of flooding">
+      <address>
+          6<br>
+          NEW ROAD<br>
+          MYTHOLMROYD<br>
+          HEBDEN BRIDGE<br>
+          HX7 5DZ<br>
+      </address>
+    </header>
+    <article>
+        <div class="print" style="display:none">
+          <div class="at-risk">
+            <div class="grid-row">
+              <div class="column-quarter">
+                <img class="hidden-mobile" src="/public/images/at-risk-icon.png" alt="At risk of flooding graphic">
+              </div>
+              <div class="column-three-quarters">
+                <div class="panel panel-border-wide hidden-mobile">
+                  <h1 class="heading-large">This address is in or near a flood risk area</h1>
+                  <h2 class="heading-medium">Be prepared: things you should do</h2>
+                </div>
+                <div class="visible-mobile">
+                  <h1 class="heading-large">This address is in or near a flood risk area</h1>
+                  <h2 class="heading-medium">Be prepared: things you should do</h2>
+                </div>
+              </div>
+            </div>
+            <div class="grid-row">
+              <div class="column-quarter">
+                &nbsp;
+              </div>
+              <div class="column-three-quarters">
+                <ol class="list list-number">
+                  <li>
+                    <div class="panel panel-border-wide">
+                        <h3 class="heading-small"><a href="https://www.gov.uk/sign-up-for-flood-warnings" data-journey-click="ltfri:summary:sign-up-for-flood-warnings">Sign up for flood warnings</a></h3>
+                        <span>This service is free. You can get warnings by phone, email or text message.</span>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="panel panel-border-wide">
+                      <h3 class="heading-small"><a href="https://www.gov.uk/prepare-for-flooding/future-flooding" data-journey-click="ltfri:summary:learn-about-flood-planning">Learn about flood planning</a></h3>
+                      <span>Know how you'll respond to a flood if:</span>
+                      <ul class="list list-bullet">
+                        <li>your home is at risk, for example how to get sandbags</li>
+                        <li>you're responsible for a school, hospital, care home or other community group</li>
+                        <li>you run a local business</li>
+                      </ul>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="panel panel-border-wide">
+                      <h3 class="heading-small"><a href="https://www.gov.uk/prepare-for-flooding/future-flooding" data-journey-click="ltfri:summary:protect-your-property">Protect your property</a></h3>
+                      <p>Get organised now and improve your property's flood resilience.</p>
+                      <p>Being at risk of flooding can affect your <a href="https://www.gov.uk/prepare-for-a-flood/get-insurance">insurance</a>. Check if your buildings and contents policies cover flood risk.</p>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="panel panel-border-wide">
+                      <h3 class="heading-small"><a href="https://www.gov.uk/help-during-flood" data-journey-click="ltfri:summary:help-during-flood">Know what to do during a flood</a> or <a href="https://www.gov.uk/after-flood" data-journey-click="ltfri:summary:help-after-flood">get help after a flood</a></h3>
+                      <ul class="list list-bullet">
+                        <li>Flooding can affect transport networks and disrupt your travel plans</li>
+                        <li>Flooding can impact your gas, electricity and water supplies</li>
+                        <li>Even if flooding hasn't affected you directly, check on friends, family and the wider community</li>
+                      </ul>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="panel panel-border-wide">
+                      <p>
+                        This address is in or near  a flood risk area.<br>
+                      </p>
+                      <p>
+                        The flood risk from rivers or the sea is high
+                        <br>
+                        <a href="/long-term-flood-risk/map?easting=401243&amp;northing=425939&amp;address=100051349026&amp;map=RiversOrSea" data-journey-click="ltfri:summary:view-map-river-or-sea">View map of river and sea flood risk</a>
+                      </p>
+                      <p>
+                        The flood risk from surface water is high
+                        <br>
+                        <a href="/long-term-flood-risk/map?easting=401243&amp;northing=425939&amp;address=100051349026&amp;map=SurfaceWater" data-journey-click="ltfri:summary:view-map-surface-water">View map of surface water flood risk</a>
+                      </p>
+                        <p>
+                          There's a risk of flooding in this area from reservoirs
+                          <br>
+                          <a href="/long-term-flood-risk/map?easting=401243&amp;northing=425939&amp;address=100051349026&amp;map=Reservoirs" data-journey-click="ltfri:summary:view-map-reservoir">View map of reservoir flood risk</a>
+                        </p>
+                      <p class="no-print">
+                        <a href="/long-term-flood-risk/risk-detail?address=100051349026" data-id="risk-detail" data-journey-click="ltfri:summary:detailed-report">View detailed flood risk information for this area</a>
+                      </p>
+                    </div>
+                    <div class="no-print" data-journey-click="ltfri:summary:other-ways-to-get-this-info">
+                      <details>
+                        <summary aria-expanded="false" role="button">
+                          <span class="summary">Other ways of getting this information</span>
+                        </summary>
+                        <div class="panel panel-border-narrow" aria-hidden="true">
+                          <ul class="contact-numbers">
+                            <li><span class="contact-type">Call Floodline:</span> 0345 988 1188</li>
+                            <li><span class="contact-type">Type talk:</span> 0345 602 6340 <em>(for the hard of hearing)</em></li>
+                          </ul>
+                          <br>
+                          <div class="call-charges">
+                            <p>
+                              <a href="https://www.gov.uk/call-charges" rel="external" title="Find out more about call charges">Find out more about call charges</a>
+                            </p>
+                        </div>
+                      </div></details>
+                    </div>
+                    <br>
+                    <p>
+                      <a href="/long-term-flood-risk/" data-journey-click="ltfri:summary:view-another-location">View the flood risk information for another location</a>
+                    </p>
+                    <datetime class="date" datetime="1502182650200">08 August 2017</datetime>
+                    <div class="print-link pull-right no-print nojs-hide">
+                      <a rel="nofollow" href="javascript:window.print()" data-journey-click="ltfri:summary:print">Print</a>
+                    </div>
+                  </li>
+                </ol>
+              </div>
+            </div>
+          </div>        </div>
+        <div class="at-risk-detail">
+          <div class="grid-row">
+            <div class="column-quarter">
+              &nbsp;
+            </div>
+            <div class="column-three-quarters">
+              <div class="panel panel-border-wide">
+                <h1 class="heading-large">Detailed flood risk information for this area</h1>
+              </div>
+            </div>
+          </div>
+        
+          <div class="grid-row">
+            <div class="column-quarter">
+              <img src="/public/images/icon-rivers-sea-inverse.png" alt="Rivers and sea icon">
+            </div>
+            <div class="column-three-quarters">
+              <div id="river-and-sea-panel" class="panel panel-border-wide">
+                <!-- Rivers and the sea -->
+                <h2 class="heading-medium">The flood risk from rivers or the sea is high</h2>
+                <h3 class="heading-small">What this means</h3>
+                <p>
+                    High risk means that each year this area has a chance of flooding of greater than 3.3%.
+                  This takes into account the effect of any flood defences in the area.
+                  These defences reduce, but do not completely stop the chance of flooding as they can be overtopped, or fail.
+                </p>
+        
+                <h3 class="heading-small">How to use this information</h3>
+                <p>
+                  You can use this information to <a href="/long-term-flood-risk/map?easting=401243&amp;northing=425939&amp;address=100051349026&amp;map=RiversOrSea">see which areas are more likely to flood first,
+                  deepest, or most often.</a>
+                </p>
+        
+                  <p>
+                    This information is suitable for identifying which parts of counties or towns are at risk, or have the most risk. It's also suitable for identifying the approximate extent of flooding and the shallower and deeper areas of flooding. It's unlikely to be reliable for a local area and very unlikely to be reliable for identifying individual properties at risk.
+                  </p>
+        
+                <h3 class="heading-small">Planning a development</h3>
+                <p>
+                  This information is not suitable for use in land-use planning.
+                  If you’re planning a development, you must use the <a href="https://flood-map-for-planning.service.gov.uk">Risk of Flooding for Land-Use Planning (Rivers and Sea)
+                  for England</a> or <a href="https://naturalresources.wales/evidence-and-data/maps/long-term-flood-risk/?lang=en">Development Advisory Map for Wales.</a>
+                  This is information based on flooding without defences.
+                </p>
+              </div>
+            </div>
+          </div>
+        
+          <div class="grid-row">
+            <div class="column-quarter">
+              <img src="/public/images/icon-surface-water-inverse.png" alt="Surface water icon">
+            </div>
+            <div class="column-three-quarters">
+              <div id="surface-water-panel" class="panel panel-border-wide">
+                <!-- Surface water -->
+                <h2 class="heading-medium">The flood risk from surface water is high</h2>
+                <h3 class="heading-small">What this means</h3>
+                <p>
+                    High risk means that each year this area has a chance of flooding of greater than 3.3%. Flooding from surface water is difficult to predict because local features can greatly affect the chance and severity of flooding. Because of this, we report the highest risk within 20m of the selected property. This means reports for neighbouring properties may show different levels of risk.
+                </p>
+        
+                <h3 class="heading-small">How to use this information</h3>
+                <p>
+                  You can use this information to <a href="/long-term-flood-risk/map?easting=401243&amp;northing=425939&amp;address=100051349026&amp;map=SurfaceWater">see the approximate areas that would flood,
+                  and which parts would be shallower or deeper.</a>
+                </p>
+        
+                  <p>
+                    This information is suitable for identifying which parts of towns or streets are at risk, or have the most risk. It's also suitable for identifying the approximate extent and depth of flooding. It's likely to be reliable for a local area but not for identifying individual properties at risk.
+                  </p>
+              </div>
+            </div>
+          </div>
+            <div class="grid-row">
+              <div class="column-quarter">
+                <img src="/public/images/icon-reservoir-inverse.png" alt="Reservoir icon">
+              </div>
+              <div class="column-three-quarters">
+                <div id="reservoir-panel" class="panel panel-border-wide">
+                  <!-- Reservoirs -->
+                  <h2 class="heading-medium">There's a risk of flooding in this area from reservoirs</h2>
+                  <h3 class="heading-small">What this means</h3>
+                  <p>
+                    While there is a risk in this area, flooding from reservoirs is extremely unlikely. There has been no loss of life in the UK from reservoir flooding since 1925.
+                  </p>
+                  <p>
+                    An area is considered at risk if peoples' lives could be threatened by an uncontrolled release of water from a reservoir. You can <a href="/long-term-flood-risk/map?easting=401243&amp;northing=425939&amp;address=100051349026&amp;map=Reservoirs">see a map of the potential extent of flooding</a> if this happened.
+                  </p>
+        
+                  <h3 class="heading-small">Reservoirs that could affect this area</h3>
+                    <p>
+                      <strong class="bold-small">Walshaw Dean Upper</strong> (grid reference SD9677734174)<br>
+                      Owner: Yorkshire Water Services<br>
+                      Lead Local Flood Authority: Calderdale<br>
+                      Risk designation: High Risk<br>
+                      Comments: If you have questions about local emergency plans for this reservoir you should contact the named Local Authority<br>
+                    </p>
+                    <p>
+                      <strong class="bold-small">Withens Clough</strong> (grid reference SD9855123138)<br>
+                      Owner: Yorkshire Water Services<br>
+                      Lead Local Flood Authority: Calderdale<br>
+                      Risk designation: High Risk<br>
+                      Comments: If you have questions about local emergency plans for this reservoir you should contact the named Local Authority<br>
+                    </p>
+                    <p>
+                      <strong class="bold-small">Gorple Lower</strong> (grid reference SD9451331418)<br>
+                      Owner: Yorkshire Water Services<br>
+                      Lead Local Flood Authority: Calderdale<br>
+                      Risk designation: High Risk<br>
+                      Comments: If you have questions about local emergency plans for this reservoir you should contact the named Local Authority<br>
+                    </p>
+                    <p>
+                      <strong class="bold-small">Gorple Upper</strong> (grid reference SD9257134384)<br>
+                      Owner: Yorkshire Water Services<br>
+                      Lead Local Flood Authority: Calderdale<br>
+                      Risk designation: High Risk<br>
+                      Comments: If you have questions about local emergency plans for this reservoir you should contact the named Local Authority<br>
+                    </p>
+                    <p>
+                      <strong class="bold-small">Walshaw Dean Middle</strong> (grid reference SD9642333383)<br>
+                      Owner: Yorkshire Water Services<br>
+                      Lead Local Flood Authority: Calderdale<br>
+                      Risk designation: High Risk<br>
+                      Comments: If you have questions about local emergency plans for this reservoir you should contact the named Local Authority<br>
+                    </p>
+                    <p>
+                      <strong class="bold-small">Warland</strong> (grid reference SD9544021273)<br>
+                      Owner: United Utilities Water plc<br>
+                      Lead Local Flood Authority: Calderdale<br>
+                      Risk designation: High Risk<br>
+                      Comments: If you have questions about local emergency plans for this reservoir you should contact the named Local Authority<br>
+                    </p>
+                    <p>
+                      <strong class="bold-small">Walshaw Dean Lower</strong> (grid reference SD9580632871)<br>
+                      Owner: Yorkshire Water Services<br>
+                      Lead Local Flood Authority: Calderdale<br>
+                      Risk designation: High Risk<br>
+                      Comments: If you have questions about local emergency plans for this reservoir you should contact the named Local Authority<br>
+                    </p>
+                    <p>
+                      <strong class="bold-small">Widdop</strong> (grid reference SD9362632729)<br>
+                      Owner: Yorkshire Water Services<br>
+                      Lead Local Flood Authority: Calderdale<br>
+                      Risk designation: High Risk<br>
+                      Comments: If you have questions about local emergency plans for this reservoir you should contact the named Local Authority<br>
+                    </p>
+                    <p>
+                      <strong class="bold-small">Whiteholme</strong> (grid reference SD9766020222)<br>
+                      Owner: United Utilities Water plc<br>
+                      Lead Local Flood Authority: Calderdale<br>
+                      Risk designation: High Risk<br>
+                      Comments: If you have questions about local emergency plans for this reservoir you should contact the named Local Authority<br>
+                    </p>
+                    <p>
+                      <strong class="bold-small">Gorpley</strong> (grid reference SD9117323046)<br>
+                      Owner: Yorkshire Water Services<br>
+                      Lead Local Flood Authority: Calderdale<br>
+                      Risk designation: High Risk<br>
+                      Comments: If you have questions about local emergency plans for this reservoir you should contact the named Local Authority<br>
+                    </p>
+                    <p>
+                      <strong class="bold-small">Ramsden Clough (Ramsden Wood)</strong> (grid reference SD9173221377)<br>
+                      Owner: United Utilities Water plc<br>
+                      Lead Local Flood Authority: Calderdale<br>
+                      Risk designation: High Risk<br>
+                      Comments: If you have questions about local emergency plans for this reservoir you should contact the named Local Authority<br>
+                    </p>
+                </div>
+              </div>
+            </div>
+        
+          <div class="grid-row">
+            <div class="column-quarter">
+              &nbsp;
+            </div>
+            <div id="additional-information" class="column-three-quarters">
+              <h3 class="heading-medium">Additional information</h3>
+              <h3 class="heading-small">Lead Local Flood Authority</h3>
+              <p>
+                Calderdale
+              </p>
+              <p>
+                
+              </p>
+              <div class="no-print">
+                <p>
+                  <a href="/long-term-flood-risk/">View the flood risk information for another location</a>
+                </p>
+                <p>
+                  <a href="/long-term-flood-risk/risk?address=100051349026">Back to flood risk summary</a>
+                </p>
+              </div>
+              <datetime class="date" datetime="1502182650200"><span class="print">Created</span> 08 August 2017</datetime>
+              <div class="print-link pull-right no-print nojs-hide">
+                <a rel="nofollow" href="javascript:window.print()" data-journey-click="ltfri:summary:print">Print</a>
+              </div>
+            </div>
+          </div>
+        </div>    
+      </article>
+  </section>
+    <br>
+    <div class="grid-row">
+      <div class="column-two-thirds">
+        <section class="secondary-links">
+          <div class="grid-row">
+            <div class="column-half">
+              <a class="media" href="https://flood-warning-information.service.gov.uk/warnings?location=M3 6AQ" onclick="return false;">
+                <img class="img" src="/public/images/ball-warnings.png" alt="Are there any current flood warnings here?">
+                <span class="content">Are there any current flood warnings here?</span>
+              </a>
+            </div>
+            <div class="column-half">
+              <a class="media" href="https://flood-warning-information.service.gov.uk" onclick="return false;">
+                <img class="img" src="/public/images/ball-home.png" alt="National flood information service">
+                <span class="content">National flood information service</span>
+              </a>
+            </div>
+          </div>
+          <div class="grid-row">
+            <div class="column-half">
+              <a class="media" href="https://flood-warning-information.service.gov.uk/river-and-sea-levels" onclick="return false;">
+                <img class="img" src="/public/images/ball-river-sea-level.png" alt="View the latest river and sea levels near you">
+                <span class="content">View the latest river and sea levels near you</span>
+              </a>
+            </div>
+            <div class="column-half">
+              <a class="media" href="https://flood-warning-information.service.gov.uk/map" onclick="return false;">
+                <img class="img" src="/public/images/ball-map.png" alt="View the current national flood situation">
+                <span class="content">View the current national flood situation</span>
+              </a>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </main>
+
+</div>
+
+{% endblock %}
+
+{% block footer_support_links %}
+<h2 class="visuallyhidden">Support links</h2>
+<ul>
+    <li><a href="https://www.gov.uk/help">Help</a></li>
+    <li><a href="https://www.gov.uk/help/cookies">Cookies</a></li>
+    <li><a href="https://www.gov.uk/contact">Contact</a></li>
+    <li><a href="https://www.gov.uk/cymraeg">Cymraeg</a></li>
+    <li>Built by the <a href="https://www.gov.uk/government/organisations/environment-agency">Environment Agency</a>
+    </li>
+</ul>
+<p class="font-xsmall">&#169; Crown copyright and database rights 2017 <a href='http://www.ordnancesurvey.co.uk'>OS</a> 100024198. Use of this addressing  data is subject to the <a href="/long-term-flood-risk/os-terms">terms and conditions</a>.</p>
+{% endblock %}
+
+{% block body_end %}
+
+  <!-- GOV.UK elements redirect -->
+  <!--<script src="/public/javascripts/redirect.js"></script>-->
+  {% include "partials/scripts.html" %}
+
+{% endblock %}
+

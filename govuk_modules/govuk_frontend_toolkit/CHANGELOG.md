@@ -1,3 +1,31 @@
+# 5.2.0
+
+- Deprecate selection-buttons.js. Add a deprecation warning: Custom radio buttons and checkboxes (released in GOV.UK Elements 3.0.0) no longer require this JavaScript.
+
+# 5.1.3
+
+- Add an experimental GOV.UK analytics tracker. Given the URL to a single pixel GIF, it will encode analytics data as query string parameters on the call to the GIF ([PR #387](https://github.com/alphagov/govuk_frontend_toolkit/pull/387))
+
+# 5.1.2
+
+- Update show-hide-content.js to work with new `.multiple-choice` custom radio buttons and checkboxes, released in GOV.UK elements 3.0.0 ([PR #390](https://github.com/alphagov/govuk_frontend_toolkit/pull/390))
+- Fix buttons not having an outer edge when colours are changed via browser settings - add an outline so they look like buttons. ([PR #377](https://github.com/alphagov/govuk_frontend_toolkit/pull/377))
+
+# 5.1.1
+
+- Update the alpha, beta and discovery colours to $govuk-blue to match the updated phase banner ([PR #370](https://github.com/alphagov/govuk_frontend_toolkit/pull/370))
+- Fix radio button show/hide behaviour when used outside a form ([PR #375](https://github.com/alphagov/govuk_frontend_toolkit/pull/375))
+- Fix a "Stick at top when scrolling" component bug related to scroll anchoring in Chrome 56+ ([PR #376](https://github.com/alphagov/govuk_frontend_toolkit/pull/376))
+- Minor travis fixes ([PR #373](https://github.com/alphagov/govuk_frontend_toolkit/pull/373))
+
+# 5.1.0
+
+- Allow custom options when tracking events ([PR #365](https://github.com/alphagov/govuk_frontend_toolkit/pull/365))
+
+# 5.0.3
+
+- Change HMRC and DEFRA text colours for improved contrast ([PR #368](https://github.com/alphagov/govuk_frontend_toolkit/pull/368))
+
 # 5.0.2
 
 - Change colour used in phase tags to govuk-blue ([PR #353](https://github.com/alphagov/govuk_frontend_toolkit/pull/353))

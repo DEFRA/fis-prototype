@@ -272,6 +272,15 @@
 			<div class="grid-row"> 
 				<div class="column-two-thirds">
 
+				<details style="margin-top:0.2631578947em;margin-bottom:0.8em">
+					<summary aria-expanded="false" role="button">
+						<span class="summary">Accuracy of surface water flood risk information</span>
+					</summary>
+					<div class="panel panel-border-narrow" aria-hidden="true">
+						<p>Flooding from surface water is difficult to predict because local features can greatly affect the chance and severity of flooding. Because of this, we report the highest risk within 20m	of a specific location, such as an individual property. This means reports for neighbouring properties may show different levels of risk.</p>
+					</div>
+				</details>
+
 				{% if not national %}
 				<p><a href="/long-term-flood-risk/risk?address=100011423922" data-id="risk-address" onclick="return false;">View the flood risk information for the location you originally searched for</a></p>
 				<p><a href="/long-term-flood-risk/" onclick="return false;">View the long term flood risk information for another location</a></p>
@@ -279,6 +288,7 @@
 				<p><a href="/long-term-flood-risk/">View the long term flood risk information for a property</a></p>
 				{% endif %}
 				<p><a href="https://flood-warning-information.service.gov.uk" onclick="return false;">Go to the national flood information service</a></p>
+				
 				<details>
 					<summary aria-expanded="false" role="button">
 						<span class="summary">Other ways of getting this information</span>
@@ -296,7 +306,9 @@
 						</div>
 					</div>
 				</details>
+
 				<datetime class="date" datetime="1488275420158">28 February 2017</datetime>
+
 				<br>
 				<p class="eu-directive">
 					This information meets the requirements of the EU Floods Directive 2007/60/EC
