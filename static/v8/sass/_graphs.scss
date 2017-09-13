@@ -241,20 +241,12 @@ table.table-levels {
     .forecast-area { 
         fill: rgba($grey-1, 0.2);
     }
-    .forecast-buffer { 
-        stroke: rgba($grey-1, 0.2);
-        stroke-width: 30;
-        fill: none;
-    }
     .forecast-focus .forecast-line {
         stroke: rgba($grey-1, 1);
         stroke-width: 4;
     }
     .forecast-focus .forecast-area {
         fill: rgba($grey-1, 0.4);
-    }
-    .forecast-focus .forecast-buffer {
-        stroke: rgba($grey-1, 0.4);
     }
 
     .locator-point {

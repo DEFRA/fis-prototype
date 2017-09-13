@@ -1,0 +1,45 @@
+{% extends "layout.html" %}
+
+{% block page_title %}Measuring stations - FIS Prototype - GOV.UK{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main" tabindex="-1">
+
+  {% include "partials/breadcrumb.html" %}
+
+  <div class="grid-row">
+    <div class="column-two-thirds">
+
+      <h1 class="heading-xlarge">
+        <span class="heading-secondary">FIS Prototype</span>
+        Measuring stations
+      </h1>
+      <p class="lede">Fixed error band and buffer</p>
+
+    </div>
+  </div>
+
+  <div class="grid-row">
+    <div class="column-two-thirds">
+
+      <h3 class="heading-medium">Scenarios</h3>
+
+      <p>Forecast above flood warning</p>
+      <ul class="list list-bullet">
+        <li><a href="/station/5034-fixed-error-band">Fixed error band</a></li>
+        <li><a href="/station/5034-error-buffer">Error buffer</a></li>
+      </ul>
+
+    </div>
+  </div>
+
+</main><!-- / #content -->
+{% endblock %}
+
+{% block body_end %}
+  <!-- GOV.UK elements redirect -->
+  <!--<script src="/public/javascripts/redirect.js"></script>-->
+  {% include "partials/scripts.html" %}
+{% endblock %}
+

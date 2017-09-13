@@ -2569,6 +2569,12 @@ table.table-levels tbody .error:before {
   fill: rgba(111, 119, 123, 0.2);
 }
 
+.graph svg .forecast-buffer {
+  stroke: rgba(111, 119, 123, 0.2);
+  stroke-width: 30;
+  fill: none;
+}
+
 .graph svg .forecast-focus .forecast-line {
   stroke: #6f777b;
   stroke-width: 4;
@@ -2576,6 +2582,10 @@ table.table-levels tbody .error:before {
 
 .graph svg .forecast-focus .forecast-area {
   fill: rgba(111, 119, 123, 0.4);
+}
+
+.graph svg .forecast-focus .forecast-buffer {
+  stroke: rgba(111, 119, 123, 0.4);
 }
 
 .graph svg .locator-point {

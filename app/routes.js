@@ -86,67 +86,32 @@ module.exports = {
       res.render('stations-v6', { 'page_name': pageName })
     })
 
-    // Verson 7
+    // Verson 8
     app.get('/stations-v8', function (req, res) {
       var pageName = 'Measuring stations (v8)'
       res.render('stations-v8', { 'page_name': pageName })
     })
 
-    // Example station: Probabalistic above the red line
-    app.get('/station/5034-probabilistic-a', function (req, res) {
-      var section = 'station'
-      var sectionName = 'Station'
-      var pageName = 'Irk at Collyhurst Weir'
-      res.render('station/5034-probabilistic-a', { 'section': section, 'section_name': sectionName, 'page_name': pageName })
+    // Verson 8
+    app.get('/stations-v9', function (req, res) {
+      var pageName = 'Measuring stations (v9)'
+      res.render('stations-v9', { 'page_name': pageName })
     })
 
-    // Example station: Best and worst case above the red line
-    app.get('/station/5034-best-worst-a', function (req, res) {
+    // Example station: Fixed error band above the red line
+    app.get('/station/5034-fixed-error-band', function (req, res) {
       var section = 'station'
       var sectionName = 'Station'
       var pageName = 'Irk at Collyhurst Weir'
-      res.render('station/5034-best-worst-a', { 'section': section, 'section_name': sectionName, 'page_name': pageName })
+      res.render('station/5034-fixed-error-band', { 'section': section, 'section_name': sectionName, 'page_name': pageName })
     })
 
-    // Example station: Probabalistic between orange and red
-    app.get('/station/5034-probabilistic-b', function (req, res) {
+    // Example station: Error buffer above the red line
+    app.get('/station/5034-error-buffer', function (req, res) {
       var section = 'station'
       var sectionName = 'Station'
       var pageName = 'Irk at Collyhurst Weir'
-      res.render('station/5034-probabilistic-b', { 'section': section, 'section_name': sectionName, 'page_name': pageName })
-    })
-
-    // Example station: Best and worst between orange and red
-    app.get('/station/5034-best-worst-b', function (req, res) {
-      var section = 'station'
-      var sectionName = 'Station'
-      var pageName = 'Irk at Collyhurst Weir'
-      res.render('station/5034-best-worst-b', { 'section': section, 'section_name': sectionName, 'page_name': pageName })
-    })
-
-
-    // Example station: Probabalistic below orange
-    app.get('/station/5034-probabilistic-c', function (req, res) {
-      var section = 'station'
-      var sectionName = 'Station'
-      var pageName = 'Irk at Collyhurst Weir'
-      res.render('station/5034-probabilistic-c', { 'section': section, 'section_name': sectionName, 'page_name': pageName })
-    })
-
-    // Example station: Best and worst below orange
-    app.get('/station/5034-best-worst-c', function (req, res) {
-      var section = 'station'
-      var sectionName = 'Station'
-      var pageName = 'Irk at Collyhurst Weir'
-      res.render('station/5034-best-worst-c', { 'section': section, 'section_name': sectionName, 'page_name': pageName })
-    })
-
-    // Example station: Confidence rating
-    app.get('/station/5034-confidence-rating', function (req, res) {
-      var section = 'station'
-      var sectionName = 'Station'
-      var pageName = 'Irk at Collyhurst Weir'
-      res.render('station/5034-confidence-rating', { 'section': section, 'section_name': sectionName, 'page_name': pageName })
+      res.render('station/5034-error-buffer', { 'section': section, 'section_name': sectionName, 'page_name': pageName })
     })
 
     //

@@ -13,9 +13,12 @@ Irk at Collyhurst Weir
 
 
 {% block message %}
-<p class="lede lede-station">
-	River levels here are forecast to stay within this river's normal range during the next 36 hours.
-</p>
+<div class="notice notice-flood-alert">
+	<img class="notice-image" src="/public/images/flood-warnings-icon.gif" alt="Flood alert"/>
+	<p class="lede">
+		<a href="#" class="scroll">View nearby flood warnings</a>
+	</p>
+</div>
 {% endblock %}
 
 {% block riverLevels %}
@@ -29,13 +32,9 @@ Irk at Collyhurst Weir
 			<h2 id="levels-heading" class="heading-medium">
 				River levels at this location
 			</h2>     
-
-			<p>
-				We have <strong class="bold-small">low confidence</strong> in this forecast
-			</p>
-
+			
 			<p id="visualisation-heading" class="font-xsmall">
-				<span class="visualisation-heading-measured">Measured levels</span> for the last 5 days <span class="visualisation-heading-forecast">Forecast levels</span> for the next 36 hours
+				<span class="visualisation-heading-measured">Measured levels</span> <span>for the last 5 days</span> <span class="visualisation-heading-forecast">Forecast levels</span> <span>for the next 36 hours
 			</p>
 
 			<div class="visualisation" role="presentation" aria-hidden="true">
@@ -274,7 +273,7 @@ Irk at Collyhurst Weir
 			startPoint;
 
 
-		d3.json('/public/javascripts/json/shrewsbury-best-worst-c.json', init);
+		d3.json('/public/javascripts/json/shrewsbury-fixed-error-band.json', init);
 
 		function init(json) {
 
@@ -361,7 +360,7 @@ Irk at Collyhurst Weir
 			}
 			if (hasForecast) {
 				chartWrapper.append('g').classed('forecast', true);
-				forecastArea = svg.select('.forecast').append('path').datum(data.forecastArea).classed('forecast-area', true);
+				forecastBuffer = svg.select('.forecast').append('path').datum(data.forecast).classed('forecast-buffer', true);
 				forecast = svg.select('.forecast').append('path').datum(data.forecast).classed('forecast-line', true);
 			}
 			chartWrapper.append('g').classed('thresholds', true);
@@ -484,7 +483,7 @@ Irk at Collyhurst Weir
 				observed.attr('d', line);
 			}
 			if (hasForecast) {
-				forecastArea.attr('d', area);
+				forecastBuffer.attr('d', line);
 				forecast.attr('d', line);
 			}
 
