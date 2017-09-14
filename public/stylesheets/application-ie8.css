@@ -1963,7 +1963,7 @@ section.feedback {
 }
 
 .data {
-  margin-left: 1.25em;
+  margin-left: 1.5em;
 }
 
 .data .icon-point:before {
@@ -1977,18 +1977,18 @@ section.feedback {
   border: 1px solid #005ea5;
   border-width: 4px;
   background-color: white;
-  margin-left: 3px;
+  margin-left: 5px;
 }
 
 .data .icon-point {
   float: left;
   position: relative;
-  margin-left: -1.25em;
+  margin-left: -1.5em;
   top: 7px;
   top: 9px;
   left: 0;
   height: 4px;
-  width: 18px;
+  width: 22px;
   background-color: #005ea5;
 }
 
