@@ -21,7 +21,9 @@
         {% block heading %}{% endblock %}
       </h1>
 
+      <!--
       <p class="time-stamp">at 1.30pm on Tuesday 16 May 2017</p>
+      -->
 
       {% block message %}{% endblock %}
 
@@ -72,84 +74,6 @@
         {% block nearby_areas %}{% endblock %}
 
       </section>
-
-    </div>
-
-  </div>
-
-  <div class="grid-row">
-
-    <div class="column-two-thirds">
-
-        <section class="nearby-measuring-stations">
-
-          <h2 class="heading-medium" id="nearby-measuring-stations">View a nearby measuring station</h2>
-
-          <p>Select a marker on the map to view measuring station.</p>
-
-          <div id="map-levels" class="map-container">
-
-            {% include "partials/map-nearby-measuring-stations.html" %}
-            
-          </div>
-
-        </section>
-
-        <details>
-
-          <summary><span class="summary">How might river levels affect flood risk?</span></summary>
-
-          <div class="panel panel-border-narrow">
-
-            <h3 class="heading-small">Within normal range</h3>
-            <p>This is the usual range of river levels at this station, based on historical data.</p>
-
-            <h3 class="heading-small">Above normal range</h3>
-            <p>This means that flooding is possible because river levels at this station are currently higher than usual.</p>
-            <p>Many factors can influence the possibility of flooding - river levels are only one indicator. Always check if there's a flood warning in place at a particular location.</p>
-
-            <h3 class="heading-small">Below normal range</h3>
-            <p>This means that river levels at this station are currently lower than usual.</p>
-            <p>Drought or water management measures may be in place. Please check for the latest information on water resources and restrictions in your area.</p>
-
-          </div>
-
-        </details>
-
-        <details>
-
-          <summary><span class="summary">How are river levels measured?</span></summary>
-
-          <div class="panel panel-border-narrow">
-
-            <p>The Environment agency uses a network of monitoring stations across the country. Each one has its own datum - a height in metres fixed relative to mean sea level. This height is expressed as metres above ordnance datum (mAOD). The river levels we provide for each monitoring station are all relative to its site datum.</p>
-
-            <p>If we didn't do this, we'd show some very high measurements, which could cause confusion. By using a local site datum, the river levels are easier to understand, especially by users familiar with the data from a particular monitoring station.</p>
-
-            <p>A river's height above ordnance datum can be seen by adding the site datum to the river level.</p>
-
-            <p>The data we collect is fed into this service once or twice a day under typical conditions. We increase this frequency whenever there's a greater risk of flooding.</p>
-
-          </div>
-
-        </details>
-
-        <details>
-
-          <summary><span class="summary">How are forecast levels produced?</span></summary>
-
-          <div class="panel panel-border-narrow">
-
-            <p>The forecast levels shown here are computer model predictions based on data and information including the Met Office’s rainfall forecasts and observed river levels. The coastal forecast levels are also based on predicted tide and wind information from the Met Office and other organisations.</p>
-
-            <h3 class="heading-small">What's behind our forecasts?</h3>
-            <p>The Environment Agency considers many things when producing its forecasts. These include the amount of rain that's fallen in the last few days and whether more is expected.</p><p>
-            </p><p>It also looks at likely ground conditions, together with wind, tides and wave height.</p>
-            <p>When the predicted conditions and river or sea levels combine to threaten flooding, forecasters issue flood alerts or, much more seriously, flood warnings.</p>
-
-          </div>
-
-        </details>
 
     </div>
 

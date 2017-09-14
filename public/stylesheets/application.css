@@ -2238,6 +2238,7 @@ section.feedback {
 .graph {
   position: relative;
   margin-top: 1.5789473684em;
+  width: 80%;
 }
 
 .graph-legend {
@@ -2261,15 +2262,15 @@ section.feedback {
     position: absolute;
     left: 100%;
     top: 0;
-    width: 50%;
+    width: 20%;
     margin-left: 30px;
     margin-right: 15px;
   }
 }
 
 .graph-legend li {
-  padding-left: 1.5em;
-  padding-right: 2em;
+  padding-left: 1.75em;
+  padding-right: 0em;
   margin-bottom: 1.5em;
   box-sizing: border-box;
 }
@@ -2285,30 +2286,37 @@ section.feedback {
   content: ' ';
   float: left;
   display: block;
-  width: 14px;
-  height: 6px;
-  margin-left: -1.5em;
+  width: 18px;
+  height: 4px;
+  margin-left: -1.75em;
   border: 0;
   top: 4px;
   left: 1px;
-  width: 11px;
   background-color: #0b0c0c;
 }
 
 @media (min-width: 641px) {
   .graph-legend li:before {
-    left: 2px;
     top: 6px;
-    width: 12px;
   }
 }
 
 .graph-legend li.property:before {
-  background-color: #b10e1e;
+  background-color: rgba(177, 14, 30, 0.3);
+  height: 16px;
+  top: 2px;
 }
 
 .graph-legend li.land:before {
-  background-color: #f47738;
+  background-color: rgba(244, 119, 56, 0.3);
+  height: 16px;
+  top: 2px;
+}
+
+.graph-legend li.normal:before {
+  background-color: rgba(0, 94, 165, 0.3);
+  height: 16px;
+  top: 2px;
 }
 
 .graph-legend li.measured:before {
@@ -2317,6 +2325,14 @@ section.feedback {
 
 .graph-legend li.forecast:before {
   background-color: #52585a;
+}
+
+.graph-legend li.max {
+  padding-left: 0;
+}
+
+.graph-legend li.max:before {
+  display: none;
 }
 
 .graph-legend .list-graph-labels li {
@@ -2460,7 +2476,7 @@ table.table-levels tbody .error:before {
 
 @media (min-width: 769px) {
   .graph svg {
-    height: 400px;
+    height: 450px;
   }
 }
 
@@ -2533,10 +2549,25 @@ table.table-levels tbody .error:before {
   shape-rendering: crispEdges;
 }
 
+.graph svg .warning-area {
+  stroke-width: 0;
+  fill: rgba(177, 14, 30, 0.2);
+}
+
 .graph svg .alert {
   stroke: #f47738;
   stroke-width: 2;
   shape-rendering: crispEdges;
+}
+
+.graph svg .alert-area {
+  stroke-width: 0;
+  fill: rgba(244, 119, 56, 0.2);
+}
+
+.graph svg .normal-area {
+  stroke-width: 0;
+  fill: rgba(0, 94, 165, 0.2);
 }
 
 .graph svg .observed-line {
@@ -2570,7 +2601,7 @@ table.table-levels tbody .error:before {
 }
 
 .graph svg .forecast-buffer {
-  stroke: rgba(111, 119, 123, 0.2);
+  stroke: #bfc1c3;
   stroke-width: 30;
   fill: none;
 }
@@ -2599,7 +2630,7 @@ table.table-levels tbody .error:before {
 }
 
 .graph svg .time-line {
-  stroke-width: 1;
+  stroke-width: 2;
   stroke: rgba(11, 12, 12, 0.8);
   shape-rendering: crispEdges;
 }
@@ -2610,7 +2641,7 @@ table.table-levels tbody .error:before {
   text-transform: none;
   font-size: 14px;
   line-height: 1.1428571429;
-  text-shadow: -2px 0 white,  0 2px white,  2px 0 white,  0 -2px white, -1px 0 white,  0 1px white,  1px 0 white,  0 -1px white;
+  text-shadow: -5px 0 white,  0 5px white,  5px 0 white,  0 -5px white, -3px 0 white,  0 3px white,  3px 0 white,  0 -3px white;
 }
 
 @media (min-width: 641px) {
