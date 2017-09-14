@@ -1922,11 +1922,15 @@ section.feedback {
 }
 
 .graph-legend li.measured:before {
-  background-color: #005ea5;
+  background-color: transparent;
+  top: 3px;
+  border-bottom: #005ea5 4px solid;
 }
 
 .graph-legend li.forecast:before {
-  background-color: #52585a;
+  background-color: transparent;
+  top: 3px;
+  border-bottom: #52585a 4px dotted;
 }
 
 .graph-legend li.max {
@@ -1954,7 +1958,15 @@ section.feedback {
   padding-left: 1.5em;
 }
 
-.graph-legend .icon-point:before {
+.graph-legend .graph-legend-normal-level {
+  max-width: 14em;
+}
+
+.data {
+  margin-left: 1.25em;
+}
+
+.data .icon-point:before {
   content: ' ';
   float: left;
   position: absolute;
@@ -1968,10 +1980,10 @@ section.feedback {
   margin-left: 3px;
 }
 
-.graph-legend .icon-point {
+.data .icon-point {
   float: left;
   position: relative;
-  margin-left: -1.5em;
+  margin-left: -1.25em;
   top: 7px;
   top: 9px;
   left: 0;
@@ -1980,16 +1992,12 @@ section.feedback {
   background-color: #005ea5;
 }
 
-.graph-legend .data-level-item-heading-forecast .icon-point {
+.data.data-forecast .icon-point {
   background-color: #6f777b;
 }
 
-.graph-legend .data-level-item-heading-forecast .icon-point:before {
+.data.data-forecast .icon-point:before {
   border-color: #6f777b;
-}
-
-.graph-legend .graph-legend-normal-level {
-  max-width: 14em;
 }
 
 table.table-levels thead th {
@@ -2213,7 +2221,7 @@ table.table-levels tbody .error:before {
   line-height: 1.1428571429;
   font-size: 16px;
   line-height: 1.25;
-  text-shadow: -5px 0 white,  0 5px white,  5px 0 white,  0 -5px white, -3px 0 white,  0 3px white,  3px 0 white,  0 -3px white;
+  text-shadow: -5px 0 #EFCFD2, 0 5px #EFCFD2, 5px 0 #EFCFD2, 0 -5px #EFCFD2, -3px 0 #EFCFD2, 0 3px #EFCFD2, 3px 0 #EFCFD2, 0 -3px #EFCFD2;
 }
 
 .map {

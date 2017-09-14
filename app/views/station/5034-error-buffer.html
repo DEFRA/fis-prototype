@@ -33,7 +33,10 @@ River level
 				Levels for the last 5 days and forecast for 36 hours
 			</h2>     
 
-			<p>Latest measured level <strong class="bold-small">2.42m</strong> at <strong class="bold-small">12:00pm on 16 May 2017</strong>.</p>
+			<p class="data">
+				<i class="icon icon-point"></i>
+				<span id="data-type">Latest measured level</span> <strong class="bold-small" id="data-level">2.42m</strong> at <strong class="bold-small" id="data-time">12:00pm on 16 May 2017</strong>.
+			</p>
 
 			<!--
 			<p id="visualisation-heading" class="font-xsmall">
@@ -581,23 +584,28 @@ River level
 				locatorPoint.classed('locator-point-forecast', true);
 				svg.select('.forecast').classed('forecast-focus', true);
 				svg.select('.observed').classed('observed-focus', false);
-				d3.select('#data-type').classed('data-level-item-heading-forecast', true).select('span').html('Forecast level');
+				d3.select('#data-type').html('Forecast level');
+				d3.select('.data').classed('data-forecast', true);
 			} else {
 				locatorPoint.classed('locator-point-forecast', false);
 				svg.select('.forecast').classed('forecast-focus', false);
 				svg.select('.observed').classed('observed-focus', true);
-				d3.select('#data-type').classed('data-level-item-heading-forecast', false).select('span').html('Previously measured level');
+				d3.select('#data-type').html('Previously measured level');
+				d3.select('.data').classed('data-forecast', false);
 			}
 
 			if (locatorX == latestX) {
-				d3.select('#data-type').classed('data-level-item-heading-forecast', false).select('span').html('Latest measured level');
+				d3.select('#data-type').html('Latest measured level');
 			}
 
-			d3.select('#data-details').html(
-				+ d.level + 'm at '
-				+ parseTime(new Date(d.date)).toLowerCase()
+			d3.select('#data-time').html(
+				parseTime(new Date(d.date)).toLowerCase()
 				+ ' on '
 				+ parseDate(new Date(d.date)));
+
+			d3.select('#data-level').html(
+				d.level + 'm');
+
 
 			locatorPoint.attr('transform', 'translate(' + locatorX + ',' + locatorY + ')');
 

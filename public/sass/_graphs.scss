@@ -58,10 +58,14 @@
         top:2px;
     }
     li.measured:before {
-        background-color:$govuk-blue;
+        background-color:transparent;
+        top:3px;
+        border-bottom:$govuk-blue 4px solid;
     }
     li.forecast:before {
-        background-color:#52585a;
+        background-color:transparent;
+        top:3px;
+        border-bottom:#52585a 4px dotted;
     }
     li.max {
         padding-left:0;
@@ -85,6 +89,14 @@
         margin-bottom:0.5em;
         padding-left:1.5em;
     }
+    .graph-legend-normal-level {
+        @include media(tablet) {
+            max-width:14em;
+        }
+    }
+}
+.data {
+    margin-left:1.25em;
     .icon-point:before {
         content:' ';
         float:left;
@@ -101,7 +113,7 @@
     .icon-point {
         float:left;
         position:relative;
-        margin-left:-1.5em;
+        margin-left:-1.25em;
         top:7px;
         @include media(tablet) {
             top:9px;
@@ -111,17 +123,12 @@
         width:18px;
         background-color: $govuk-blue;
     }
-    .data-level-item-heading-forecast .icon-point {
-        background-color:$grey-1;
-    }
-    .data-level-item-heading-forecast .icon-point:before {
-        border-color:$grey-1;
-    }
-    .graph-legend-normal-level {
-        @include media(tablet) {
-            max-width:14em;
-        }
-    }
+}
+.data.data-forecast .icon-point {
+    background-color:$grey-1;
+}
+.data.data-forecast .icon-point:before {
+    border-color:$grey-1;
 }
 
 table.table-levels {
@@ -298,13 +305,13 @@ table.table-levels {
     .time-now {
         @include core-16();
         text-shadow: 
-            -5px 0 white, 
-            0 5px white, 
-            5px 0 white, 
-            0 -5px white,
-            -3px 0 white, 
-            0 3px white, 
-            3px 0 white, 
-            0 -3px white;
+            -5px 0 #EFCFD2, 
+            0 5px#EFCFD2, 
+            5px 0 #EFCFD2, 
+            0 -5px #EFCFD2,
+            -3px 0 #EFCFD2, 
+            0 3px #EFCFD2, 
+            3px 0 #EFCFD2, 
+            0 -3px #EFCFD2;
     }
 }
