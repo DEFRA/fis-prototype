@@ -2217,7 +2217,7 @@ table.table-levels tbody .error:before {
 }
 
 .graph svg .forecast-area {
-  fill: rgba(111, 119, 123, 0.2);
+  fill: #bfc1c3;
 }
 
 .graph svg .forecast-buffer {

@@ -2,13 +2,13 @@
 
 
 {% block page_title %}
-Irk at Collyhurst Weir - Latest river level information - GOV.UK
+Irk at Collyhurst Weir - River level - GOV.UK
 {% endblock %}
 
 
 {% block heading %}
-<span class="heading-secondary">Latest river level information for</span>
-Irk at Collyhurst Weir
+River level
+<span class="heading-secondary">Irk at Collyhurst Weir</span>
 {% endblock %}
 
 
@@ -23,23 +23,26 @@ Irk at Collyhurst Weir
 
 {% block riverLevels %}
 
-<div class="grid-row">
+<section aria-labelledby="levels-heading" role="region">
 
-	<div class="column-two-thirds">
+	<div class="grid-row">
 
-		<section aria-labelledby="levels-heading" role="region">
+		<div class="column-full">
 
 			<h2 id="levels-heading" class="heading-medium">
-				River levels at this location
+				Levels for the last 5 days and forecast for 36 hours
 			</h2>     
 
-			<p>
-				We have <strong class="bold-small">high confidence</strong> in this forecast
+			<p class="data">
+				<i class="icon icon-point"></i>
+				<span id="data-type">Latest measured level</span> <strong class="bold-small" id="data-level">2.42m</strong> at <strong class="bold-small" id="data-time">12:00pm on 16 May 2017</strong>.
 			</p>
-			
+
+			<!--
 			<p id="visualisation-heading" class="font-xsmall">
-				<span class="visualisation-heading-measured">Measured levels</span> for the last 5 days <span class="visualisation-heading-forecast">Forecast levels</span> for the next 36 hours
+				<span class="visualisation-heading-measured">Measured levels</span> <span>for the last 5 days</span> <span class="visualisation-heading-forecast">Forecast levels</span> <span>for the next 36 hours
 			</p>
+			-->
 
 			<div class="visualisation" role="presentation" aria-hidden="true">
 
@@ -56,6 +59,7 @@ Irk at Collyhurst Weir
 
 						<figcaption class="graph-legend">
 
+							<!--
 							<div class="data data-level">
 								<span class="data-item font-xsmall data-level-item-heading" id="data-type">
 									<i class="icon icon-point"></i>
@@ -65,21 +69,27 @@ Irk at Collyhurst Weir
 								</span>
 								<span class="data-item bold-small" id="data-details"></span>
 							</div>
+							-->
 							
 							<ul>
 
 								<li class="max">
-									<span>5.10<abbr title="Metres">m</abbr> on 6 Dec 2015 is the highest level on record at this location
-										<a href="#">Show on the graph</a>
-									</span>
+									<span><a href="">Show highest recorded level</a></span>
+								</li>
+								<li class="measured">
+									<span>Measured level</span>
+								</li>
+								<li class="forecast">
+									<span>Forecast level</span>
 								</li>
 								<li class="property">
-									<span>At 4.20<abbr title="Metres">m</abbr> some property flooding is possible here and in nearby areas</a>
-									</span>
+									<span><a href="">Property flooding possible</a></span>
 								</li>
 								<li class="land">
-									<span>At 2.70<abbr title="Metres">m</abbr> flooding of low-lying land is possible here and in nearby areas</a>
-									</span>
+									<span><a href="">Low-lying land may flood</a></span>
+								</li>
+								<li class="normal">
+									<span>Normal range</span>
 								</li>
 
 							</ul>
@@ -210,11 +220,12 @@ Irk at Collyhurst Weir
 
 			</div>
 
-		</section>
+		</div>
 
 	</div>
 
-</div>
+</section>
+
 
 <!-- Remove -->
 <script>
@@ -232,20 +243,13 @@ Irk at Collyhurst Weir
 {% endblock %}
 
 {% block nearby_areas %}
-<p class="font-xsmall">The normal range at this location is 0.75m to 2.70m.</p>
-<!--
-<p>The latest level recorded is 0.90m at 9.00am on Wednesday 11 Jan 2017.</p>
-<p>The highest level forecast in the next 36 hours is 0.91m at 9.00pm on Thursday 12 Jan 2017.</p>
--->
 <h2 class="heading-medium" id="nearby-areas">What effect could these levels have on nearby areas?</h2>
-<ul class="list">
-	<li><p><strong class="bold-small">5.1m</strong> – highest level ever recorded here - during Dec 2015 flooding – <a href="#" onclick="return false">see map of area that flooded</a></p></li>
-	<li><p><strong class="bold-small">5.0m</strong> – Sep 2007 flood level – <a href="#" onclick="return false">see map of area that flooded</a></p></li>
-	<li><p><strong class="bold-small">4.8m</strong> – flooding of property possible at River Irk at Cheetham Hill – <a href="#" onclick="return false">see map of area that could flood</a></p></li>
-	<li><p><strong class="bold-small">4.2m</strong> – flooding of property possible at River Irk at Kendall Road – <a href="#" onclick="return false">see map of area that could flood</a></p></li>
-	<li><p><strong class="bold-small">2.9m</strong> – A26 crossroads floods</p></li>
-	<li><p><strong class="bold-small">2.7m</strong> – flooding of low lying land starts</p></li>
-</ul>
+<h3 class="heading-small">Normal range</h3>
+<p>Levels</p>
+<h3 class="heading-small">Low-lying land may flood</h3>
+<p>Levels and target areas</p>
+<h3 class="heading-small">Property flooding possible</h3>
+<p>Levels and target areas</p>
 {% endblock %}
 
 {% block body_end %}
@@ -339,6 +343,13 @@ Irk at Collyhurst Weir
 
 			//Area generator
 			area = d3.svg.area()
+			//.interpolate('basis')
+			.x(function(d) { return x(new Date(d.date)) })
+			.y0(function(d) { return height })
+			.y1(function(d) { return y(d.level) });
+
+			//Area generator
+			areaSmooth = d3.svg.area()
 			.interpolate('basis')
 			.x(function(d) { return x(new Date(d.date)) })
 			.y0(function(d) { return height })
@@ -353,6 +364,7 @@ Irk at Collyhurst Weir
 			//Initialize svg
 			svg = d3.select('#graph').append('svg').style('pointer-events', 'none');
 			chartWrapper = svg.append('g').style('pointer-events', 'all');
+			chartWrapper.append('g').classed('thresholds', true);
 			chartWrapper.append('g').classed('y grid', true);
 			chartWrapper.append('g').classed('x grid', true);
 			chartWrapper.append('g').classed('x axis', true);
@@ -364,19 +376,22 @@ Irk at Collyhurst Weir
 			}
 			if (hasForecast) {
 				chartWrapper.append('g').classed('forecast', true);
+				//forecastBuffer = svg.select('.forecast').append('path').datum(data.forecast).classed('forecast-buffer', true);
 				forecastArea = svg.select('.forecast').append('path').datum(data.forecastArea).classed('forecast-area', true);
 				forecast = svg.select('.forecast').append('path').datum(data.forecast).classed('forecast-line', true);
 			}
-			chartWrapper.append('g').classed('thresholds', true);
 			if (hasHighest) {
 				svg.select('.thresholds').append('line').classed('highest', true);
 			}
 			if (hasWarning) {
-				svg.select('.thresholds').append('line').classed('warning', true);
+				warningArea = svg.select('.thresholds').append('path').datum(data.warningArea).classed('warning-area', true);
+				//svg.select('.thresholds').append('line').classed('warning', true);
 			}
 			if (hasAlert) {
-				svg.select('.thresholds').append('line').classed('alert', true);
+				alertArea = svg.select('.thresholds').append('path').datum(data.alertArea).classed('alert-area', true);
+				//svg.select('.thresholds').append('line').classed('alert', true);
 			}
+			normalArea = svg.select('.thresholds').append('path').datum(data.normalArea).classed('normal-area', true);
 			chartWrapper.on('mousemove', mousemove);
 			
 			// Add timeline
@@ -420,6 +435,7 @@ Irk at Collyhurst Weir
 			.call(yAxis);
 
 			// Update grid lines
+			/*
 			svg.select('.x.grid')
 			.attr('transform', 'translate(0,' + height + ')')
 			.call(d3.svg.axis()
@@ -438,6 +454,7 @@ Irk at Collyhurst Weir
 				.tickSize(-width, 0, 0)
 				.tickFormat('')
 			);
+			*/
 
 			// Update thresholds
 			if (hasHighest) {
@@ -447,17 +464,29 @@ Irk at Collyhurst Weir
 					.attr('y2', 0);
 			}
 			if (hasWarning) {
+				/*
 				svg.select('.warning')
 					.attr('transform', 'translate(0,' + y(data.warning) + ')')
 					.attr('x2', x(xExtent[1]))
 					.attr('y2', 0);
+				svg.select('.warning-area')
+					.attr('transform', 'translate(0,' + y(data.warning) + ')')
+					.attr('x2', x(xExtent[1]))
+					.attr('y2', 0);
+				*/
+				warningArea.attr('d', area);
 			}
 			if (hasAlert) {
+				/*
 				svg.select('.alert')
 					.attr('transform', 'translate(0,' + y(data.alert) + ')')
 					.attr('x2', x(xExtent[1]))
 					.attr('y2', 0);
+				*/
+				alertArea.attr('d', area);
 			}
+
+			normalArea.attr('d', area);
 
 			// Update locator
 			locatorX = Math.floor(x(new Date(startPoint.date)));
@@ -487,7 +516,7 @@ Irk at Collyhurst Weir
 				observed.attr('d', line);
 			}
 			if (hasForecast) {
-				forecastArea.attr('d', area);
+				forecastArea.attr('d', areaSmooth);
 				forecast.attr('d', line);
 			}
 
@@ -563,23 +592,28 @@ Irk at Collyhurst Weir
 				locatorPoint.classed('locator-point-forecast', true);
 				svg.select('.forecast').classed('forecast-focus', true);
 				svg.select('.observed').classed('observed-focus', false);
-				d3.select('#data-type').classed('data-level-item-heading-forecast', true).select('span').html('Forecast level');
+				d3.select('#data-type').html('Forecast level');
+				d3.select('.data').classed('data-forecast', true);
 			} else {
 				locatorPoint.classed('locator-point-forecast', false);
 				svg.select('.forecast').classed('forecast-focus', false);
 				svg.select('.observed').classed('observed-focus', true);
-				d3.select('#data-type').classed('data-level-item-heading-forecast', false).select('span').html('Previously measured level');
+				d3.select('#data-type').html('Previously measured level');
+				d3.select('.data').classed('data-forecast', false);
 			}
 
 			if (locatorX == latestX) {
-				d3.select('#data-type').classed('data-level-item-heading-forecast', false).select('span').html('Latest measured level');
+				d3.select('#data-type').html('Latest measured level');
 			}
 
-			d3.select('#data-details').html(
-				+ d.level + 'm at '
-				+ parseTime(new Date(d.date)).toLowerCase()
+			d3.select('#data-time').html(
+				parseTime(new Date(d.date)).toLowerCase()
 				+ ' on '
 				+ parseDate(new Date(d.date)));
+
+			d3.select('#data-level').html(
+				d.level + 'm');
+
 
 			locatorPoint.attr('transform', 'translate(' + locatorX + ',' + locatorY + ')');
 
