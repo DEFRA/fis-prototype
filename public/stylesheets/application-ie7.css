@@ -2263,7 +2263,7 @@ table.table-levels tbody .error:before {
   line-height: 1.1428571429;
   font-size: 16px;
   line-height: 1.25;
-  text-shadow: -5px 0 #EFCFD2, 0 5px #EFCFD2, 5px 0 #EFCFD2, 0 -5px #EFCFD2, -3px 0 #EFCFD2, 0 3px #EFCFD2, 3px 0 #EFCFD2, 0 -3px #EFCFD2;
+  text-shadow: -5px 0 white,  0 5px white,  5px 0 white,  0 -5px white, -3px 0 white,  0 3px white,  3px 0 white,  0 -3px white;
 }
 
 .map {

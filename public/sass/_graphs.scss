@@ -305,13 +305,13 @@ table.table-levels {
     .time-now {
         @include core-16();
         text-shadow: 
-            -5px 0 #EFCFD2, 
-            0 5px#EFCFD2, 
-            5px 0 #EFCFD2, 
-            0 -5px #EFCFD2,
-            -3px 0 #EFCFD2, 
-            0 3px #EFCFD2, 
-            3px 0 #EFCFD2, 
-            0 -3px #EFCFD2;
+            -5px 0 white, 
+            0 5px white, 
+            5px 0 white, 
+            0 -5px white,
+            -3px 0 white, 
+            0 3px white, 
+            3px 0 white, 
+            0 -3px white;
     }
 }

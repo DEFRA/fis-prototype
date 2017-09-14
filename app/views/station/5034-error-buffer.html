@@ -490,7 +490,7 @@ River level
 			if(data.now) {
 				timeX = Math.floor(x(new Date(data.now)));
 				svg.select('.time-line').attr('y1', 0).attr('y2', height);
-				svg.select('.time-now').attr('x', -17).attr('y', 25);
+				svg.select('.time-now').attr('x', -17).attr('y', -6);
 				now.attr('y1', 0).attr('y2', height)	
 					.attr('transform', 'translate(' + timeX + ',0)');
 				
