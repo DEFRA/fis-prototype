@@ -101,7 +101,7 @@
         content:' ';
         float:left;
         position:absolute;
-        top:-4px;
+        top:-4.5px;
         height:4px;
         width:4px;
         border-radius: 100%;
@@ -119,7 +119,7 @@
             top:9px;
         }
         left:0;
-        height:4px;
+        height:3px;
         width:22px;
         background-color: $govuk-blue;
     }
@@ -248,13 +248,14 @@ table.table-levels {
         fill: rgba($govuk-blue, 0.2);
     }
     .observed-line { 
-        stroke: rgba($govuk-blue, 0.8);
+        stroke: $govuk-blue;
         stroke-width: 3;
         fill: none;
     }
     .observed-area { 
         fill: rgba($govuk-blue, 0.1);
     }
+    /*
     .observed-focus .observed-line {
         stroke: rgba($govuk-blue, 1);
         stroke-width: 4;
@@ -262,10 +263,11 @@ table.table-levels {
     .observed-focus .observed-area {
         fill: rgba($govuk-blue, 0.3);
     }
+    */
 
     .forecast-line { 
         stroke-dasharray: 4, 2; 
-        stroke: rgba($grey-1, 1);
+        stroke: #52585a;
         stroke-width: 3;
         fill: none;
     }
@@ -277,6 +279,7 @@ table.table-levels {
         stroke-width: 30;
         fill: none;
     }
+    /*
     .forecast-focus .forecast-line {
         stroke: rgba($grey-1, 1);
         stroke-width: 4;
@@ -287,6 +290,7 @@ table.table-levels {
     .forecast-focus .forecast-buffer {
         stroke: rgba($grey-1, 0.4);
     }
+    */
 
     .locator-point {
         stroke-width: 4;
