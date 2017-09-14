@@ -98,6 +98,14 @@ module.exports = {
       res.render('stations-v9', { 'page_name': pageName })
     })
 
+    // Example station: Forecast line only
+    app.get('/station/5034-forecast', function (req, res) {
+      var section = 'station'
+      var sectionName = 'Station'
+      var pageName = 'Irk at Collyhurst Weir'
+      res.render('station/5034-forecast', { 'section': section, 'section_name': sectionName, 'page_name': pageName })
+    })
+
     // Example station: Fixed error band above the red line
     app.get('/station/5034-fixed-error-band', function (req, res) {
       var section = 'station'
