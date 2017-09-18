@@ -1903,6 +1903,11 @@ section.feedback {
   top: 30px;
 }
 
+.column-full {
+  display: inline-block;
+  width: 100%;
+}
+
 .graph {
   position: relative;
   margin-top: 1.5789473684em;
@@ -1927,7 +1932,10 @@ section.feedback {
 }
 
 .graph-legend li {
+  display: inline-block;
+  margin-right: 1.5em;
   max-width: 16em;
+  margin-right: 0;
   padding-left: 1.75em;
   padding-right: 0em;
   margin-bottom: 1.5em;
@@ -1943,40 +1951,39 @@ section.feedback {
   height: 4px;
   margin-left: -1.75em;
   border: 0;
-  top: 4px;
+  top: -1px;
   left: 1px;
-  top: 6px;
+  top: 2px;
   background-color: #0b0c0c;
 }
 
 .graph-legend li.property:before {
   background-color: rgba(177, 14, 30, 0.3);
   height: 16px;
-  top: 2px;
 }
 
 .graph-legend li.land:before {
   background-color: rgba(244, 119, 56, 0.3);
   height: 16px;
-  top: 2px;
 }
 
 .graph-legend li.normal:before {
   background-color: rgba(0, 94, 165, 0.3);
   height: 16px;
-  top: 2px;
 }
 
 .graph-legend li.measured:before {
   background-color: transparent;
-  top: 3px;
   border-bottom: #005ea5 4px solid;
+  top: 1px;
+  top: 3px;
 }
 
 .graph-legend li.forecast:before {
   background-color: transparent;
-  top: 3px;
   border-bottom: #52585a 4px dotted;
+  top: 1px;
+  top: 3px;
 }
 
 .graph-legend li.max {
@@ -1984,7 +1991,11 @@ section.feedback {
 }
 
 .graph-legend li.max:before {
+  background-color: transparent;
+  border-bottom: #0b0c0c 4px solid;
+  top: 1px;
   display: none;
+  top: 3px;
 }
 
 .graph-legend .list-graph-labels li {
@@ -2227,7 +2238,7 @@ table.table-levels tbody .error:before {
 
 .graph svg .forecast-line {
   stroke-dasharray: 4, 2;
-  stroke: #52585a;
+  stroke: #6f777b;
   stroke-width: 3;
   fill: none;
 }
@@ -2250,6 +2261,34 @@ table.table-levels tbody .error:before {
 
 .graph svg .locator-point-forecast {
   stroke: #6f777b;
+}
+
+.graph svg .tool-tip-hidden {
+  display: none;
+}
+
+.graph svg .tool-tip-bg {
+  fill: white;
+}
+
+.graph svg .tool-tip-level {
+  font-family: "nta", Arial, sans-serif;
+  font-weight: 400;
+  text-transform: none;
+  font-size: 14px;
+  line-height: 1.1428571429;
+  font-size: 16px;
+  line-height: 1.25;
+}
+
+.graph svg .tool-tip-date {
+  font-family: "nta", Arial, sans-serif;
+  font-weight: 400;
+  text-transform: none;
+  font-size: 14px;
+  line-height: 1.1428571429;
+  font-size: 16px;
+  line-height: 1.25;
 }
 
 .graph svg .time-line {

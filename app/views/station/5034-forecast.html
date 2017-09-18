@@ -72,7 +72,6 @@ River level
 							-->
 							
 							<ul>
-
 								<li class="measured">
 									<span>Measured level</span>
 								</li>
@@ -91,7 +90,6 @@ River level
 								<li class="max">
 									<span><a href="">Show highest recorded level</a></span>
 								</li>
-
 							</ul>
 
 						</figcaption>
@@ -410,7 +408,7 @@ River level
 				//svg.select('.thresholds').append('line').classed('alert', true);
 			}
 			normalArea = svg.select('.thresholds').append('path').datum(data.normalArea).classed('normal-area', true);
-			chartWrapper.on('mousemove', mousemove);
+			chartWrapper.on('click', click);
 			
 			// Add timeline
 			if(data.now) {
@@ -424,6 +422,12 @@ River level
 			chartWrapper.append('g').classed('locator', true);
 			locatorPoint = svg.select('.locator').append('circle').attr('r', 4).classed('locator-point', true);
 			
+			// Add tooltip
+			toolTip = chartWrapper.append('g').classed('tool-tip', true).classed('tool-tip tool-tip-hidden', true);
+			toolTipBg = toolTip.append('rect').attr({'width': 120,'height':75}).classed('tool-tip-bg', true);
+			toolTipLevel = toolTip.append('text').attr({'x': 5,'y':20}).classed('tool-tip-level', true).text('Level');
+			toolTipDate = toolTip.append('text').classed('tool-tip-date', true).text('Date');
+
 			//Render the chart
 			render();
 
@@ -563,7 +567,7 @@ River level
 
 			xAxis.ticks(d3.time.hour.utc, 12).tickFormat(function(d) {
 				if (d.getUTCHours() == 12 & d >= xCutOffLeft & d <= xCutOffRight) {
-					formatter = d3.time.format('%e %b');
+					formatter = d3.time.format('%-e/%-m');
 					return formatter(d);
 				} else {
 					return null
@@ -588,9 +592,17 @@ River level
 			width = parentWidth - margin.left - margin.right;
 			height = parentHeight - margin.top - margin.bottom;
 
+			// Reset locator to observed
+			locatorPoint.classed('locator-point-forecast', false);
+			toolTip.classed('tool-tip-hidden', true);
+			svg.select('.forecast').classed('forecast-focus', false);
+			svg.select('.observed').classed('observed-focus', true);
+			d3.select('#data-type').html('Latest measure');
+			d3.select('.data').classed('data-forecast', false);
+
 		}
 
-		function mousemove() {
+		function click() {
 
 			var x0 = x.invert(d3.mouse(this)[0]),
 			i = bisectDate(lines, x0, 1);
@@ -633,6 +645,7 @@ River level
 
 
 			locatorPoint.attr('transform', 'translate(' + locatorX + ',' + locatorY + ')');
+			toolTip.attr('transform', 'translate(' + locatorX + ',' + locatorY + ')').classed('tool-tip-hidden', false);
 
 		}
 
