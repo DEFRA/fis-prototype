@@ -299,12 +299,14 @@ River level
 			line, area, path, 
 			margin = {}, 
 			locator, locatorX, locatorY,
+			toolTip, toolTipX, toolTipY,
 			now, timeX,
 			width, height,
 			parentWidth, parentHeight,
 			hasObserved = false, hasForecast = false, hasHighest = false, hasWarning = false, hasAlert = false,
 			parseTime, parseDate,
-			startPoint;
+			latestLevel, latestDate,
+			dataPoint;
 
 
 		d3.json('/public/javascripts/json/shrewsbury-fixed-error-band.json', init);
@@ -318,16 +320,16 @@ River level
 			lines = [];
 			if (data.observed) {
 				lines = lines.concat(data.observed);
-				startPoint = data.observed[data.observed.length-1];
+				dataPoint = data.observed[data.observed.length-1];
 				hasObserved = true;
 			}
 			if (data.forecast) {
 				lines = lines.concat(data.forecast);
-				startPoint = data.forecast[0];
+				dataPoint = data.forecast[0];
 				hasForecast = true;
 			}
 
-			//Initialize scales
+			// Initialize scales
 			xExtent = d3.extent(lines, function(d,i) { return new Date(d.date) });
 			yExtent = d3.extent(lines, function(d,i) { return d.level });
 
@@ -361,26 +363,26 @@ River level
 			// Bisect date
 			bisectDate = d3.bisector(function(d) { return new Date(d.date); }).left;
 
-			//Initialize axis
+			// Initialize axis
 			xAxis = d3.svg.axis().orient('bottom').outerTickSize(0);
 			yAxis = d3.svg.axis().orient('left').ticks(5).tickFormat(function(d) { 
 				return parseFloat(d).toFixed(1) + 'm'; 
 			}).outerTickSize(0);
 
-			//Area generator
+			// Area generator
 			area = d3.svg.area()
-			//.interpolate('basis')
+			.interpolate('basis')
 			.x(function(d) { return x(new Date(d.date)) })
 			.y0(function(d) { return height })
 			.y1(function(d) { return y(d.level) });
 
-			//Line generator
+			// Line generator
 			line = d3.svg.line()
 			.interpolate('basis')
 			.x(function(d) { return x(new Date(d.date)) })
 			.y(function(d) { return y(d.level) });
 
-			//Initialize svg
+			// Initialize svg
 			svg = d3.select('#graph').append('svg').style('pointer-events', 'none');
 			chartWrapper = svg.append('g').style('pointer-events', 'all');
 			chartWrapper.append('g').classed('thresholds', true);
@@ -408,7 +410,6 @@ River level
 			if (hasHighest) {
 				svg.select('.thresholds').append('line').classed('highest', true);
 			}
-			chartWrapper.on('click', click)
 			
 			// Add timeline
 			if(data.now) {
@@ -419,8 +420,8 @@ River level
 			}
 
 			// Add locator
-			chartWrapper.append('g').classed('locator', true);
-			locatorPoint = svg.select('.locator').append('circle').attr('r', 4.5).classed('locator-point', true);
+			locator = chartWrapper.append('g').classed('locator', true);
+			locatorPoint = locator.append('circle').attr('r', 4.5).classed('locator-point', true);
 			
 			// Add tooltip
 			toolTip = chartWrapper.append('g').classed('tool-tip', true).classed('tool-tip tool-tip-hidden', true);
@@ -428,26 +429,28 @@ River level
 			toolTipLevel = toolTip.append('text').attr({'x': 10,'y':27}).classed('tool-tip-level', true).text('Level');
 			toolTipDate = toolTip.append('text').attr({'x': 10,'y':47}).classed('tool-tip-date', true).text('Date');
 
-			//Render the chart
+			console.log(x(new Date(dataPoint.date)))
+
+			// Add click event
+			chartWrapper.on('click', click)
+
+			// Render the chart
 			render();
 
 		}
 
 		function render() {
 
-			//Get dimensions based on parent size
-			parentWidth = Math.floor(d3.select('#graph').node().getBoundingClientRect().width);
-			parentHeight = Math.floor(d3.select('#graph').node().getBoundingClientRect().height);
-			updateDimensions(parentWidth, parentHeight);
+			updateDimensions();
 
-			//Update x and y scales to new dimensions
+			// Update x and y scales to new dimensions
 			x.range([0, width]);
 			y.range([height, 0]);
 
-			//Update svg elements to new dimensions
+			// Update svg elements to new dimensions
 			chartWrapper.attr('transform', 'translate(' + (margin.left + margin.right) + ',' + 0 + ')');
 
-			//Update the axis and line
+			// Update the axis and line
 			xAxis.scale(x);
 			yAxis.scale(y);
 			svg.select('.x.axis')
@@ -510,13 +513,8 @@ River level
 
 			normalBand.attr({'x':x(xExtent[0]),'y':y(yExtent[1]),'width':x(xExtent[1]),'height':y(yExtent[0])})
 
-			// Update locator
-			locatorX = Math.floor(x(new Date(startPoint.date)));
-			locatorY = Math.floor(y(startPoint.level));
-			svg.select('.locator-point')			
-				.attr('transform', 'translate(' + locatorX + ',' + locatorY + ')');
-
 			// Update time line
+
 			if(data.now) {
 				timeX = Math.floor(x(new Date(data.now)));
 				svg.select('.time-line').attr('y1', 0).attr('y2', height);
@@ -533,28 +531,31 @@ River level
 			}
 
 			// Draw lines and areas
+			
 			if (hasObserved) {
-				//observedArea.attr('d', area);
 				observed.attr('d', line)
 			}
 			if (hasForecast) {
 				forecast.attr('d', line)
 			}
 
-			// Update legend
+			// Set level and date formats
+
 			parseTime = d3.time.format.utc('%-I:%M%p')
 			parseDate = d3.time.format.utc('%e %b %Y')
 			parseDateShort = d3.time.format.utc('%e %b')
-			d3.select('#data-details').html(
-				+ startPoint.level + 'm at '
-				+ parseTime(new Date(startPoint.date)).toLowerCase()
-				+ ' on '
-				+ parseDate(new Date(startPoint.date))
-			);
+
+			// Set locator position
+
+			locator.attr('transform', 'translate(' + locatorX + ',' + locatorY + ')');
+
+			// Set tooltip position 
+			
+			toolTip.attr('transform', 'translate(' + toolTipX + ',' + toolTipY + ')')
 
 		}
 
-		function updateDimensions(parentWidth, parentHeight) {
+		function updateDimensions() {
 
 			margin.top = 25;
 			margin.bottom = 25;
@@ -563,6 +564,11 @@ River level
 
 			xCutOffLeft = d3.time.hour.offset(xExtent[0], + xCutOff).getTime();
 			xCutOffRight = d3.time.hour.offset(xExtent[1], - xCutOff).getTime();
+
+			// Get dimensions based on parent size
+
+			parentWidth = Math.floor(d3.select('#graph').node().getBoundingClientRect().width);
+			parentHeight = Math.floor(d3.select('#graph').node().getBoundingClientRect().height);
 
 			// Mobile first
 
@@ -590,17 +596,20 @@ River level
 				margin.right = 21;
 			}
 
-			width = parentWidth - margin.left - margin.right;
-			height = parentHeight - margin.top - margin.bottom;
+			width = parentWidth - margin.left - margin.right
+			height = parentHeight - margin.top - margin.bottom
 
-			// Reset locator to observed
+			// Update locator position
 
-			locatorPoint.classed('locator-point-forecast', false);
-			toolTip.classed('tool-tip-hidden', true);
-			svg.select('.forecast').classed('forecast-focus', false);
-			svg.select('.observed').classed('observed-focus', true);
-			d3.select('#data-type').html('Latest measure');
-			d3.select('.data').classed('data-forecast', false);
+			console.log(x(new Date(dataPoint.date)))
+
+			locatorX = Math.floor(x(new Date(dataPoint.date)))
+			locatorY = Math.floor(y(dataPoint.level))
+
+			// Update tooltip position
+
+			toolTipX = locatorX - toolTipBg.node().getBBox().width / 2
+			toolTipY = locatorY - toolTipBg.node().getBBox().height - 8
 
 		}
 
@@ -613,9 +622,12 @@ River level
 
 			d = x0 - new Date(d0.date) > new Date(d1.date) - x0 ? d1 : d0;
 
-			locatorX = Math.floor(x(new Date(d.date)));
+			locatorX = Math.floor(x(new Date(d.date)))
+			
+			console.log(x(new Date(dataPoint.date)))
+
 			locatorY = Math.floor(y(d.level));
-			latestX = Math.floor(x(new Date(startPoint.date)));
+			latestX = Math.floor(x(new Date(dataPoint.date)));
 
 			// Update figcaption data
 
@@ -645,9 +657,11 @@ River level
 			d3.select('#data-level').html(
 				d.level + 'm');
 
-			// pdate locator point and tooltip
+			// Update locator point
 
-			locatorPoint.attr('transform', 'translate(' + locatorX + ',' + locatorY + ')');
+			locator.attr('transform', 'translate(' + locatorX + ',' + locatorY + ')');
+
+			// Update tooltip content, position and visibiliy
 
 			toolTipX = locatorX - toolTipBg.node().getBBox().width / 2
 			toolTipY = locatorY - toolTipBg.node().getBBox().height - 8
@@ -659,7 +673,7 @@ River level
 			))
 			toolTip.attr('transform', 'translate(' + toolTipX + ',' + toolTipY + ')').classed('tool-tip-hidden', false);
 
-			console.log(toolTipX)
+			console.log('toolTipX: ' + toolTipX + ' locatorX: ' + toolTipX)
 
 		}
 
