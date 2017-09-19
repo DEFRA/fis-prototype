@@ -35,7 +35,7 @@ River level
 
 			<p class="data">
 				<i class="icon icon-point"></i>
-				<span id="data-type">Latest measure</span> <strong class="bold-small" id="data-level">2.42m</strong> at <strong class="bold-small" id="data-time">12:00pm on 16 May 2017</strong>.
+				<span id="data-type">Latest measure</span> <strong id="data-level">2.42m</strong> at <strong id="data-time">12:00pm on 16 May 2017</strong>.
 			</p>
 
 			<!--
@@ -288,6 +288,7 @@ River level
 			windowBreakPoint = 640,
 			svgBreakPoint = 576,
 			xCutOff = 9;
+			toolTipBgPath = 'm0,0 l124,0 l0,62 l-52,0 l-10,15 l-10,-15 l-52,0 l0,-62';
 
 		var svg,
 			data,
@@ -392,6 +393,14 @@ River level
 				//observedArea = svg.select('.observed').append('path').datum(data.observed).classed('observed-area', true);
 				observed = svg.select('.observed').append('path').datum(data.observed).classed('observed-line', true);
 			}
+			normalBand = svg.select('.thresholds').append('rect').classed('normal-band', true)
+			if (hasAlert) {
+				alertBand = svg.select('.thresholds').append('rect').classed('alert-band', true);
+			}
+			if (hasWarning) {
+				warningBand = svg.select('.thresholds').append('rect').classed('warning-band', true);
+				//svg.select('.thresholds').append('line').classed('warning', true);
+			}
 			if (hasForecast) {
 				chartWrapper.append('g').classed('forecast', true);
 				forecast = svg.select('.forecast').append('path').datum(data.forecast).classed('forecast-line', true);
@@ -399,16 +408,7 @@ River level
 			if (hasHighest) {
 				svg.select('.thresholds').append('line').classed('highest', true);
 			}
-			if (hasWarning) {
-				warningArea = svg.select('.thresholds').append('path').datum(data.warningArea).classed('warning-area', true);
-				//svg.select('.thresholds').append('line').classed('warning', true);
-			}
-			if (hasAlert) {
-				alertArea = svg.select('.thresholds').append('path').datum(data.alertArea).classed('alert-area', true);
-				//svg.select('.thresholds').append('line').classed('alert', true);
-			}
-			normalArea = svg.select('.thresholds').append('path').datum(data.normalArea).classed('normal-area', true);
-			chartWrapper.on('click', click);
+			chartWrapper.on('click', click)
 			
 			// Add timeline
 			if(data.now) {
@@ -420,13 +420,13 @@ River level
 
 			// Add locator
 			chartWrapper.append('g').classed('locator', true);
-			locatorPoint = svg.select('.locator').append('circle').attr('r', 4).classed('locator-point', true);
+			locatorPoint = svg.select('.locator').append('circle').attr('r', 4.5).classed('locator-point', true);
 			
 			// Add tooltip
 			toolTip = chartWrapper.append('g').classed('tool-tip', true).classed('tool-tip tool-tip-hidden', true);
-			toolTipBg = toolTip.append('rect').attr({'width': 120,'height':75}).classed('tool-tip-bg', true);
-			toolTipLevel = toolTip.append('text').attr({'x': 5,'y':20}).classed('tool-tip-level', true).text('Level');
-			toolTipDate = toolTip.append('text').classed('tool-tip-date', true).text('Date');
+			toolTipBg = toolTip.append('path').attr('d',toolTipBgPath).classed('tool-tip-bg', true);
+			toolTipLevel = toolTip.append('text').attr({'x': 10,'y':27}).classed('tool-tip-level', true).text('Level');
+			toolTipDate = toolTip.append('text').attr({'x': 10,'y':47}).classed('tool-tip-date', true).text('Date');
 
 			//Render the chart
 			render();
@@ -496,7 +496,7 @@ River level
 					.attr('x2', x(xExtent[1]))
 					.attr('y2', 0);
 				*/
-				warningArea.attr('d', area);
+				warningBand.attr({'x':x(xExtent[0]),'y':y(yExtent[1]),'width':x(xExtent[1]),'height':y(data.warning)})
 			}
 			if (hasAlert) {
 				/*
@@ -505,10 +505,10 @@ River level
 					.attr('x2', x(xExtent[1]))
 					.attr('y2', 0);
 				*/
-				alertArea.attr('d', area);
+				alertBand.attr({'x':x(xExtent[0]),'y':y(yExtent[1]),'width':x(xExtent[1]),'height':y(data.alert)})
 			}
 
-			normalArea.attr('d', area);
+			normalBand.attr({'x':x(xExtent[0]),'y':y(yExtent[1]),'width':x(xExtent[1]),'height':y(yExtent[0])})
 
 			// Update locator
 			locatorX = Math.floor(x(new Date(startPoint.date)));
@@ -535,15 +535,16 @@ River level
 			// Draw lines and areas
 			if (hasObserved) {
 				//observedArea.attr('d', area);
-				observed.attr('d', line);
+				observed.attr('d', line)
 			}
 			if (hasForecast) {
-				forecast.attr('d', line);
+				forecast.attr('d', line)
 			}
 
 			// Update legend
-			parseTime = d3.time.format.utc('%-I:%M%p');
-			parseDate = d3.time.format.utc('%e %b %Y');
+			parseTime = d3.time.format.utc('%-I:%M%p')
+			parseDate = d3.time.format.utc('%e %b %Y')
+			parseDateShort = d3.time.format.utc('%e %b')
 			d3.select('#data-details').html(
 				+ startPoint.level + 'm at '
 				+ parseTime(new Date(startPoint.date)).toLowerCase()
@@ -593,6 +594,7 @@ River level
 			height = parentHeight - margin.top - margin.bottom;
 
 			// Reset locator to observed
+
 			locatorPoint.classed('locator-point-forecast', false);
 			toolTip.classed('tool-tip-hidden', true);
 			svg.select('.forecast').classed('forecast-focus', false);
@@ -638,14 +640,26 @@ River level
 			d3.select('#data-time').html(
 				parseTime(new Date(d.date)).toLowerCase()
 				+ ' on '
-				+ parseDate(new Date(d.date)));
+				+ parseDate(new Date(d.date)))
 
 			d3.select('#data-level').html(
 				d.level + 'm');
 
+			// pdate locator point and tooltip
 
 			locatorPoint.attr('transform', 'translate(' + locatorX + ',' + locatorY + ')');
-			toolTip.attr('transform', 'translate(' + locatorX + ',' + locatorY + ')').classed('tool-tip-hidden', false);
+
+			toolTipX = locatorX - toolTipBg.node().getBBox().width / 2
+			toolTipY = locatorY - toolTipBg.node().getBBox().height - 8
+			toolTipLevel.html(d.level + 'm')
+			toolTipDate.html(
+				parseTime(new Date(d.date)).toLowerCase()
+				+ ', '
+				+ parseDateShort(new Date(d.date)
+			))
+			toolTip.attr('transform', 'translate(' + toolTipX + ',' + toolTipY + ')').classed('tool-tip-hidden', false);
+
+			console.log(toolTipX)
 
 		}
 

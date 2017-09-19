@@ -2243,10 +2243,18 @@ section.feedback {
 .graph {
   position: relative;
   margin-top: 1.5789473684em;
+  margin-bottom: 2em;
+}
+
+@media (min-width: 641px) {
+  .graph {
+    margin-bottom: 1em;
+  }
 }
 
 @media (min-width: 769px) {
   .graph {
+    margin-bottom: 0.5em;
     width: 80%;
   }
 }
@@ -2404,27 +2412,58 @@ section.feedback {
 }
 
 .data {
-  margin-left: 1.5em;
+  font-family: "nta", Arial, sans-serif;
+  font-weight: 400;
+  text-transform: none;
+  font-size: 14px;
+  line-height: 1.1428571429;
+  margin-left: 2em;
+  margin-top: 1.25em;
+}
+
+@media (min-width: 641px) {
+  .data {
+    font-size: 16px;
+    line-height: 1.25;
+  }
+}
+
+@media (min-width: 641px) {
+  .data {
+    font-family: "nta", Arial, sans-serif;
+    font-weight: 400;
+    text-transform: none;
+    font-size: 16px;
+    line-height: 1.25;
+    margin-left: 1.5em;
+  }
+}
+
+@media (min-width: 641px) and (min-width: 641px) {
+  .data {
+    font-size: 19px;
+    line-height: 1.3157894737;
+  }
 }
 
 .data .icon-point:before {
   content: ' ';
   float: left;
   position: absolute;
-  top: -4.5px;
-  height: 4px;
-  width: 4px;
+  top: -4px;
+  height: 5px;
+  width: 5px;
   border-radius: 100%;
   border: 1px solid #005ea5;
-  border-width: 4px;
+  border-width: 3px;
   background-color: white;
-  margin-left: 5px;
+  margin-left: 5.5px;
 }
 
 .data .icon-point {
   float: left;
   position: relative;
-  margin-left: -1.5em;
+  margin-left: -2em;
   top: 7px;
   left: 0;
   height: 3px;
@@ -2434,8 +2473,18 @@ section.feedback {
 
 @media (min-width: 641px) {
   .data .icon-point {
+    margin-left: -1.5em;
+  }
+}
+
+@media (min-width: 641px) {
+  .data .icon-point {
     top: 9px;
   }
+}
+
+.data strong {
+  font-weight: bold;
 }
 
 .data.data-forecast .icon-point {
@@ -2614,9 +2663,9 @@ table.table-levels tbody .error:before {
   shape-rendering: crispEdges;
 }
 
-.graph svg .warning-area {
+.graph svg .warning-band {
   stroke-width: 0;
-  fill: rgba(177, 14, 30, 0.2);
+  fill: #EFCFD2;
 }
 
 .graph svg .alert {
@@ -2625,14 +2674,14 @@ table.table-levels tbody .error:before {
   shape-rendering: crispEdges;
 }
 
-.graph svg .alert-area {
+.graph svg .alert-band {
   stroke-width: 0;
-  fill: rgba(244, 119, 56, 0.2);
+  fill: #FDE4D7;
 }
 
-.graph svg .normal-area {
+.graph svg .normal-band {
   stroke-width: 0;
-  fill: rgba(0, 94, 165, 0.2);
+  fill: #CCDFED;
 }
 
 .graph svg .observed-line {
@@ -2663,7 +2712,7 @@ table.table-levels tbody .error:before {
 }
 
 .graph svg .locator-point {
-  stroke-width: 4;
+  stroke-width: 3;
   stroke: #005ea5;
   fill: white;
 }
@@ -2678,20 +2727,22 @@ table.table-levels tbody .error:before {
 
 .graph svg .tool-tip-bg {
   fill: white;
+  stroke-width: 1;
+  stroke: rgba(11, 12, 12, 0.1);
 }
 
 .graph svg .tool-tip-level {
   font-family: "nta", Arial, sans-serif;
-  font-weight: 400;
+  font-weight: bold;
   text-transform: none;
-  font-size: 14px;
-  line-height: 1.1428571429;
+  font-size: 16px;
+  line-height: 1.25;
 }
 
 @media (min-width: 641px) {
   .graph svg .tool-tip-level {
-    font-size: 16px;
-    line-height: 1.25;
+    font-size: 19px;
+    line-height: 1.3157894737;
   }
 }
 
@@ -2699,14 +2750,14 @@ table.table-levels tbody .error:before {
   font-family: "nta", Arial, sans-serif;
   font-weight: 400;
   text-transform: none;
-  font-size: 14px;
-  line-height: 1.1428571429;
+  font-size: 12px;
+  line-height: 1.25;
 }
 
 @media (min-width: 641px) {
   .graph svg .tool-tip-date {
-    font-size: 16px;
-    line-height: 1.25;
+    font-size: 14px;
+    line-height: 1.4285714286;
   }
 }
 
@@ -2722,7 +2773,6 @@ table.table-levels tbody .error:before {
   text-transform: none;
   font-size: 14px;
   line-height: 1.1428571429;
-  text-shadow: -5px 0 white,  0 5px white,  5px 0 white,  0 -5px white, -3px 0 white,  0 3px white,  3px 0 white,  0 -3px white;
 }
 
 @media (min-width: 641px) {

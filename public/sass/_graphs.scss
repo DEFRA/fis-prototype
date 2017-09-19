@@ -7,7 +7,12 @@
 .graph {
     position:relative;
     margin-top: em(30, 19);
+    margin-bottom: 2em;
+    @include media(tablet) {
+        margin-bottom: 1em;
+    }
     @include media(desktop) {
+        margin-bottom: 0.5em;
         width:80%;
     }
 }
@@ -116,24 +121,33 @@
     }
 }
 .data {
-    margin-left:1.5em;
+    @include core-16();
+    margin-left:2em;
+    margin-top:1.25em;
+    @include media(tablet) {
+        @include core-19();
+        margin-left:1.5em;
+    }
     .icon-point:before {
         content:' ';
         float:left;
         position:absolute;
-        top:-4.5px;
-        height:4px;
-        width:4px;
+        top:-4px;
+        height:5px;
+        width:5px;
         border-radius: 100%;
         border:1px solid $govuk-blue;
-        border-width: 4px;
+        border-width: 3px;
         background-color: white;
-        margin-left:5px;
+        margin-left:5.5px;
     }
     .icon-point {
         float:left;
         position:relative;
-        margin-left:-1.5em;
+        margin-left:-2em;
+        @include media(tablet) {
+            margin-left:-1.5em;
+        }
         top:7px;
         @include media(tablet) {
             top:9px;
@@ -142,6 +156,9 @@
         height:3px;
         width:22px;
         background-color: $govuk-blue;
+    }
+    strong {
+        font-weight:bold;
     }
 }
 .data.data-forecast .icon-point {
@@ -203,7 +220,6 @@ table.table-levels {
 }
 
 .graph svg {
-    
     position:relative;
     overflow:visible;
     height:300px;
@@ -250,22 +266,22 @@ table.table-levels {
         stroke-width: 2;
         shape-rendering: crispEdges;
     }
-    .warning-area {
+    .warning-band {
         stroke-width: 0;
-        fill: rgba(#b10e1e, 0.2);
+        fill: #EFCFD2; // 20%
     }
     .alert {
         stroke: #f47738;
         stroke-width: 2;
         shape-rendering: crispEdges;
     }
-    .alert-area {
+    .alert-band {
         stroke-width: 0;
-        fill: rgba(#f47738, 0.2);
+        fill: #FDE4D7; // 20%
     }
-    .normal-area {
+    .normal-band {
         stroke-width: 0;
-        fill: rgba($govuk-blue, 0.2);
+        fill: #CCDFED; // 20% #005EA5
     }
     .observed-line { 
         stroke: $govuk-blue;
@@ -313,7 +329,7 @@ table.table-levels {
     */
 
     .locator-point {
-        stroke-width: 4;
+        stroke-width: 3;
         stroke: $govuk-blue;
         fill: white; 
     }
@@ -326,12 +342,14 @@ table.table-levels {
     }
     .tool-tip-bg {
         fill:white;
+        stroke-width: 1;
+        stroke: rgba($black, 0.1);
     }
     .tool-tip-level {
-        @include core-16();
+        @include core-19($font-weight:bold);
     }
     .tool-tip-date {
-        @include core-16();
+        @include core-14();
     }
     .time-line {
         stroke-width: 2;
@@ -340,14 +358,5 @@ table.table-levels {
     }
     .time-now {
         @include core-16();
-        text-shadow: 
-            -5px 0 white, 
-            0 5px white, 
-            5px 0 white, 
-            0 -5px white,
-            -3px 0 white, 
-            0 3px white, 
-            3px 0 white, 
-            0 -3px white;
     }
 }
