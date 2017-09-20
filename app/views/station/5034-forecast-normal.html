@@ -1,0 +1,293 @@
+{% extends "station.html" %}
+
+
+{% block page_title %}
+Irk at Collyhurst Weir - River level - GOV.UK
+{% endblock %}
+
+
+{% block heading %}
+River level
+<span class="heading-secondary">Irk at Collyhurst Weir</span>
+{% endblock %}
+
+
+{% block message %}
+<div class="notice notice-flood-alert">
+	<img class="notice-image" src="/public/images/flood-warnings-icon.gif" alt="Flood alert"/>
+	<p class="lede">
+		<a href="#" class="scroll">View nearby flood warnings</a>
+	</p>
+</div>
+{% endblock %}
+
+{% block riverLevels %}
+
+<section aria-labelledby="levels-heading" role="region">
+
+	<div class="grid-row">
+
+		<div class="column-full">
+
+			<h2 id="levels-heading" class="heading-medium">
+				Levels: last 5 days and next 36 hours
+			</h2>     
+
+			<p class="data">
+				<i class="icon icon-point"></i>
+				<span id="data-type">Latest measure</span> <strong id="data-level">2.42m</strong> at <strong id="data-time">12:00pm on 16 May 2017</strong>.
+			</p>
+
+			<!--
+			<p id="visualisation-heading" class="font-xsmall">
+				<span class="visualisation-heading-measured">Measured levels</span> <span>for the last 5 days</span> <span class="visualisation-heading-forecast">Forecast levels</span> <span>for the next 36 hours
+			</p>
+			-->
+
+			<div class="visualisation" role="presentation" aria-hidden="true">
+
+				<!--
+					If Google Charts available (Javascript, SVG or VML)
+					remove hidden class and hidden attribute
+				-->
+
+				<div class="visualisation-inner hidden" hidden>
+
+					<figure class="graph" role="presentation" aria-hidden="true">
+
+						<div id="graph"></div>
+
+						<figcaption class="graph-legend">
+
+							<!--
+							<div class="data data-level">
+								<span class="data-item font-xsmall data-level-item-heading" id="data-type">
+									<i class="icon icon-point"></i>
+									<span class="data-item-label">
+										Latest measured level
+									</span>
+								</span>
+								<span class="data-item bold-small" id="data-details"></span>
+							</div>
+							-->
+							
+							<ul>
+								<li class="measured">
+									<span>Measured level</span>
+								</li>
+								<li class="forecast">
+									<span>Forecast level</span>
+								</li>
+								<li class="property">
+									<span><a href="#property">Property flooding possible</a></span>
+								</li>
+								<li class="land">
+									<span><a href="#low-lying-land">Low lying land may flood</a></span>
+								</li>
+								<li class="normal">
+									<span>Typical range</span>
+								</li>
+								<li class="max max-off">
+									<span><a href="">Show highest recorded level</a></span>
+								</li>
+								<!--
+								<li class="max">
+									<span>Highest recorded level. <a href="">Hide</a></span>
+								</li>
+								-->
+							</ul>
+
+						</figcaption>
+
+					</figure>
+
+				</div>
+
+				<!-- End dynamic render -->
+
+				<!--
+					If Google Charts available add class visuallyhidden
+				-->
+
+				<div class="visualisation-table">
+
+					<div class="panel panel-border-narrow" aria-hidden="true">
+						<p>
+							A graph is available with JavaScript enabled and a modern browser
+						</p>
+					</div>
+
+					<table class="table-levels" aria-labelledby="visualisation-heading">
+						<thead>
+							<tr>
+								<th scope="col">Time</th> <!-- role="columnheader" ? -->
+								<th scope="col" class="numeric">
+									Level (<abbr title="Metres">m</abbr>)
+								</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<th scope="col" colspan="2">
+									<time datetime="2017-01-06T09:00+00:00">
+										Friday 6 January	
+									</time>
+								</th>
+							</tr>
+							<tr>
+								<td scope="row">
+									<time datetime="2017-01-06T09:00+00:00">
+										9:00am	
+									</time>
+								</td>
+								<td class="numeric">
+									0.43
+									<span class="error">
+										Error
+									</span>
+								</td>
+							</tr>
+						</tbody>
+						<tbody>
+							<tr>
+								<td scope="row">
+									<time datetime="2017-01-06T09:15+00:00">
+										9:15am	
+									</time>
+								</td>
+								<td class="numeric">
+									0.48
+								</td>
+							</tr>	
+						</tbody>
+						<tbody>
+							<tr>
+								<th scope="col" colspan="2">
+									<time datetime="2017-01-06T09:00+00:00">
+										Saturday 7 January	
+									</time>
+								</th>
+							</tr>
+							<tr>
+								<td scope="row">
+									<time datetime="2017-01-06T09:00+00:00">
+										9:00am
+										<em class="forecast">
+											(Latest recorded)
+										</em>		
+									</time>
+								</td>
+								<td class="numeric">
+									0.59
+									<span class="error">
+										Error
+									</span>
+								</td>
+							</tr>
+						</tbody>
+						<tbody>
+							<tr>
+								<td scope="row">
+									<time datetime="2017-01-06T09:30+00:00">
+										9:30am
+										<em class="forecast">
+											(Forecast)
+										</em>	
+									</time>
+								</td>
+								<td class="numeric">
+									0.65
+								</td>
+							</tr>	
+							<tr>
+								<td scope="row">
+									<time datetime="2017-01-06T09:45+00:00">
+										9:45am
+										<em class="forecast">
+											(Highest forecast)
+										</em>	
+									</time>
+								</td>
+								<td class="numeric">
+									0.63
+								</td>
+							</tr>
+						</tbody>
+					</table>
+
+				</div>
+
+				<!--
+					End Google charts available
+				-->
+
+			</div>
+
+		</div>
+
+	</div>
+
+	<div class="grid-row">
+		
+		<div class="column-two-thirds">
+			
+			<details>
+				
+				  <summary><span class="summary">How river levels are measured and forecast</span></summary>
+				
+				  <div class="panel panel-border-narrow">
+				
+					<p>For most river levels the data we collect is fed into this service once or twice a day. We often increase this frequency whenever there is a greater risk of flooding.</p>
+					<p>Forecast levels are derived from automated models. These are most accurate for the next 6 hours.</p>
+						
+				  </div>
+				
+			</details>
+			
+		</div>
+
+	</div>
+	
+
+</section>
+
+
+<!-- Remove -->
+<script>
+	var visualisation = document.getElementsByClassName('visualisation')
+	for (i=0; i<visualisation.length; i++){
+		var table = visualisation[i].getElementsByClassName('visualisation-table')[0]
+		var inner = visualisation[i].getElementsByClassName('visualisation-inner')[0]
+		table.className += ' visuallyhidden'
+		inner.className = 'visualisation-inner'
+		inner.removeAttribute('hidden')
+	}
+</script>
+<!-- End remove -->
+
+{% endblock %}
+
+{% block nearby_areas %}
+<h2 class="heading-medium" id="nearby-areas">What effect could these levels have on nearby areas?</h2>
+<h3 class="heading-small">Typical range at this location</h3>
+<p>0.75m to 2.70m</p>
+<h3 id="low-lying-land" class="heading-small">Low lying land may flood above</h3>
+<p>2.70m <a href="">target area name</a></p>
+<h3 id="property" class="heading-small">Property flooding possible above</h3>
+<ul class="list">
+<li>4.20m <a href="">target area name</a></li>
+<li>4.35m <a href="">target area name</a></li>
+</ul>
+<h3 class="heading-small">Highest level recorded at this location</h3>
+<p>5.10m on 6 December 2015</p>
+{% endblock %}
+
+{% block body_end %}
+<!-- GOV.UK elements redirect -->
+<script src="http://d3js.org/d3.v3.min.js"></script>
+<script>
+	var jsonSource = '/public/javascripts/json/shrewsbury-probabilistic-c.json'
+</script>
+<script src="/public/javascripts/graph.js"></script>
+{% include "partials/scripts.html" %}
+{% endblock %}

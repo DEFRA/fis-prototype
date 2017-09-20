@@ -98,13 +98,52 @@ module.exports = {
       res.render('stations-v9', { 'page_name': pageName })
     })
 
-    // Example station: Forecast line only
-    app.get('/station/5034-forecast', function (req, res) {
+    //
+    // Forecast line only
+    //
+
+    // Example station: Forecast with warning
+    app.get('/station/5034-forecast-warning', function (req, res) {
       var section = 'station'
       var sectionName = 'Station'
       var pageName = 'Irk at Collyhurst Weir'
-      res.render('station/5034-forecast', { 'section': section, 'section_name': sectionName, 'page_name': pageName })
+      res.render('station/5034-forecast-warning', { 'section': section, 'section_name': sectionName, 'page_name': pageName })
     })
+    // Example station: Forecast with warning and highest
+    app.get('/station/5034-forecast-warning-highest', function (req, res) {
+      var section = 'station'
+      var sectionName = 'Station'
+      var pageName = 'Irk at Collyhurst Weir'
+      res.render('station/5034-forecast-warning-highest', { 'section': section, 'section_name': sectionName, 'page_name': pageName })
+    })
+    // Example station: Forecast with low-laying land flooding possible
+    app.get('/station/5034-forecast-low-laying-flooding-possible', function (req, res) {
+      var section = 'station'
+      var sectionName = 'Station'
+      var pageName = 'Irk at Collyhurst Weir'
+      res.render('station/5034-forecast-low-laying-flooding-possible', { 'section': section, 'section_name': sectionName, 'page_name': pageName })
+    })
+    // Example station: Forecast normal
+    app.get('/station/5034-forecast-normal', function (req, res) {
+      var section = 'station'
+      var sectionName = 'Station'
+      var pageName = 'Irk at Collyhurst Weir'
+      res.render('station/5034-forecast-normal', { 'section': section, 'section_name': sectionName, 'page_name': pageName })
+    })
+    // Example station: No forecast
+    app.get('/station/5034-no-forecast', function (req, res) {
+      var section = 'station'
+      var sectionName = 'Station'
+      var pageName = 'Irk at Collyhurst Weir'
+      res.render('station/5034-no-forecast', { 'section': section, 'section_name': sectionName, 'page_name': pageName })
+    })
+
+    //
+    // End
+    //
+
+
+    // Forecast error band and buffer
 
     // Example station: Fixed error band above the red line
     app.get('/station/5034-fixed-error-band', function (req, res) {
