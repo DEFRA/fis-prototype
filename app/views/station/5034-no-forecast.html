@@ -73,7 +73,7 @@ River level
 									<span>Measured level</span>
 								</li>
 								<li class="land">
-									<span>Flooding possible</span>
+									<span><a href="#low-lying-land">Flooding possible</a></span>
 								</li>
 								<li class="normal">
 									<span>Typical range</span>
@@ -258,6 +258,13 @@ River level
 {% endblock %}
 
 {% block nearby_areas %}
+<h2 class="heading-medium" id="nearby-areas">What effect could these levels have on nearby areas?</h2>
+<h3 class="heading-small">Typical range at this location</h3>
+<p>0.75m to 2.70m</p>
+<h3 id="low-lying-land" class="heading-small">Flooding is possible above</h3>
+<p>2.70m <a href="">target area name</a></p>
+<h3 class="heading-small">Highest level recorded at this location</h3>
+<p>5.10m on 6 December 2015</p>
 {% endblock %}
 
 {% block body_end %}

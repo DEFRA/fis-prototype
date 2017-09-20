@@ -117,11 +117,11 @@ module.exports = {
       res.render('station/5034-forecast-warning-highest', { 'section': section, 'section_name': sectionName, 'page_name': pageName })
     })
     // Example station: Forecast with low-laying land flooding possible
-    app.get('/station/5034-forecast-low-laying-flooding-possible', function (req, res) {
+    app.get('/station/5034-forecast-low-lying-flooding-possible', function (req, res) {
       var section = 'station'
       var sectionName = 'Station'
       var pageName = 'Irk at Collyhurst Weir'
-      res.render('station/5034-forecast-low-laying-flooding-possible', { 'section': section, 'section_name': sectionName, 'page_name': pageName })
+      res.render('station/5034-forecast-low-lying-flooding-possible', { 'section': section, 'section_name': sectionName, 'page_name': pageName })
     })
     // Example station: Forecast normal
     app.get('/station/5034-forecast-normal', function (req, res) {
