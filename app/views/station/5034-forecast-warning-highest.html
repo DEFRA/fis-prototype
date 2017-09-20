@@ -13,11 +13,16 @@ River level
 
 
 {% block message %}
-<div class="notice notice-flood-alert">
-	<img class="notice-image" src="/public/images/flood-warnings-icon.gif" alt="Flood alert"/>
-	<p class="lede">
-		<a href="#" class="scroll">View nearby flood warnings</a>
-	</p>
+<div class="panel panel-border-narrow">
+	<div class="notice notice-warning">
+		<i class="icon icon-warning">
+			<span class="visually-hidden">Warning</span>
+		</i>
+		<strong class="font-small">
+			<a href="#nearby-areas">Flood warnings inforce nearby</a>		
+		</strong>
+	</div>
+	<p>Laboris nisi ut aliquip ex ea commodo consequat sint.</p>
 </div>
 {% endblock %}
 

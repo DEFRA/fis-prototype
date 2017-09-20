@@ -13,11 +13,16 @@ River level
 
 
 {% block message %}
-<div class="notice notice-flood-alert">
-	<img class="notice-image" src="/public/images/flood-warnings-icon.gif" alt="Flood alert"/>
-	<p class="lede">
-		<a href="#" class="scroll">View nearby flood warnings</a>
-	</p>
+<div class="panel panel-border-narrow">
+	<div class="notice">
+		<i class="icon icon-important">
+			<span class="visually-hidden">Warning</span>
+		</i>
+		<strong class="bold-small">
+			Flood warnings inforce nearby
+		</strong>
+	</div>
+	<p>Laboris nisi ut aliquip ex ea commodo consequat sint.</p>
 </div>
 {% endblock %}
 
@@ -274,9 +279,25 @@ River level
 <h3 id="low-lying-land" class="heading-small">Low lying land may flood above</h3>
 <p>2.70m <a href="">target area name</a></p>
 <h3 id="property" class="heading-small">Property flooding possible above</h3>
-<ul class="list">
-<li>4.20m <a href="">target area name</a></li>
-<li>4.35m <a href="">target area name</a></li>
+<ul class="list list-target-areas">
+	<li>
+		4.20m <a href="">target area name</a> 
+		<span class="alert-inline">
+			<i class="icon alert-inline-icon">
+				<span class="visually-hidden">Warning</span>
+			</i>
+			Flood warning
+		</span>
+	</li>
+	<li>
+		4.35m <a href="">target area name</a>
+		<span class="alert-inline">
+			<i class="icon alert-inline-icon">
+				<span class="visually-hidden">Warning</span>
+			</i>
+			Flood warning
+		</span>
+	</li>
 </ul>
 <h3 class="heading-small">Highest level recorded at this location</h3>
 <p>5.10m on 6 December 2015</p>
