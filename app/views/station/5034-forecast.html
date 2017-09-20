@@ -87,9 +87,14 @@ River level
 								<li class="normal">
 									<span>Typical range</span>
 								</li>
-								<li class="max">
+								<li class="max max-off">
 									<span><a href="">Show highest recorded level</a></span>
 								</li>
+								<!--
+								<li class="max">
+									<span>Highest recorded level. <a href="">Hide</a></span>
+								</li>
+								-->
 							</ul>
 
 						</figcaption>
@@ -390,7 +395,7 @@ River level
 			// Initialize svg
 			svg = d3.select('#graph').append('svg').style('pointer-events', 'none')
 			chartWrapper = svg.append('g').style('pointer-events', 'all')
-			chartWrapper.append('g').classed('thresholds', true)
+			chartWrapper.append('g').classed('bands', true)
 			chartWrapper.append('g').classed('y grid', true)
 			chartWrapper.append('g').classed('x grid', true)
 			chartWrapper.append('g').classed('x axis', true)
@@ -400,20 +405,17 @@ River level
 				//observedArea = svg.select('.observed').append('path').datum(data.observed).classed('observed-area', true)
 				observed = svg.select('.observed').append('path').datum(data.observed).classed('observed-line', true)
 			}
-			normalBand = svg.select('.thresholds').append('rect').classed('normal-band', true)
+			normalBand = svg.select('.bands').append('rect').classed('normal-band', true)
 			if (hasAlert) {
-				alertBand = svg.select('.thresholds').append('rect').classed('alert-band', true)
+				alertBand = svg.select('.bands').append('rect').classed('alert-band', true)
 			}
 			if (hasWarning) {
-				warningBand = svg.select('.thresholds').append('rect').classed('warning-band', true)
-				//svg.select('.thresholds').append('line').classed('warning', true);
+				warningBand = svg.select('.bands').append('rect').classed('warning-band', true)
+				//svg.select('.bands').append('line').classed('warning', true);
 			}
 			if (hasForecast) {
 				chartWrapper.append('g').classed('forecast', true)
 				forecast = svg.select('.forecast').append('path').datum(data.forecast).classed('forecast-line', true)
-			}
-			if (hasHighest) {
-				svg.select('.thresholds').append('line').classed('highest', true)
 			}
 			
 			// Add timeline
@@ -422,6 +424,12 @@ River level
 				now = svg.select('.time')
 				svg.select('.time').append('line').classed('time-line', true)
 				svg.select('.time').append('text').classed('time-now', true).text('Now')
+			}
+
+			// Add thresholds
+			if(hasHighest) {
+				chartWrapper.append('g').classed('thresholds', true)
+				svg.select('.thresholds').append('line').classed('highest', true)
 			}
 
 			// Add locator
@@ -477,7 +485,7 @@ River level
 			)
 			*/
 
-			// Update thresholds
+			// Update bands and thresholds
 			if (hasHighest) {
 				svg.select('.highest').attr('transform', 'translate(0,' + y(data.highest) + ')').attr('x2', x(xExtent[1])).attr('y2', 0)
 			}

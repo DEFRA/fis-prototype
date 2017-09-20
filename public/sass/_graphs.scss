@@ -86,14 +86,16 @@
             top:3px;
         }
     }
-    li.max {
+    li.max.max-off {
         padding-left:0;
+    }
+    li.max.max-off:before {
+        display:none;
     }
     li.max:before {
         background-color:transparent;
-        border-bottom:$black 4px solid;
+        border-bottom:#b10e1e 4px solid;
         top:1px;
-        display:none;
         @include media(tablet) {
             top:3px;
         }
@@ -257,7 +259,7 @@ table.table-levels {
         visibility: hidden;
     }
     .highest {
-        stroke: $black;
+        stroke: #b10e1e;
         stroke-width: 2;
         shape-rendering: crispEdges;
     }
@@ -336,7 +338,6 @@ table.table-levels {
     .locator-point-forecast {
         stroke: $grey-1;
     }
-
     .tool-tip-hidden {
         display:none;
     }
@@ -353,7 +354,7 @@ table.table-levels {
     }
     .time-line {
         stroke-width: 2;
-        stroke: rgba($black, 0.8);
+        stroke: $black;
         shape-rendering: crispEdges; 
     }
     .time-now {

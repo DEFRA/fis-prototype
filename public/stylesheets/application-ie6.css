@@ -1989,15 +1989,18 @@ section.feedback {
   top: 3px;
 }
 
-.graph-legend li.max {
+.graph-legend li.max.max-off {
   padding-left: 0;
+}
+
+.graph-legend li.max.max-off:before {
+  display: none;
 }
 
 .graph-legend li.max:before {
   background-color: transparent;
-  border-bottom: #0b0c0c 4px solid;
+  border-bottom: #b10e1e 4px solid;
   top: 1px;
-  display: none;
   top: 3px;
 }
 
@@ -2218,7 +2221,7 @@ table.table-levels tbody .error:before {
 }
 
 .graph svg .highest {
-  stroke: #0b0c0c;
+  stroke: #b10e1e;
   stroke-width: 2;
   shape-rendering: crispEdges;
 }
@@ -2319,7 +2322,7 @@ table.table-levels tbody .error:before {
 
 .graph svg .time-line {
   stroke-width: 2;
-  stroke: rgba(11, 12, 12, 0.8);
+  stroke: #0b0c0c;
   shape-rendering: crispEdges;
 }
 
