@@ -71,6 +71,14 @@ var Chart = (function(window,d3) {
         yExtent[0] = Math.min.apply(Math,yRange)
         yExtent[1] = Math.max.apply(Math,yRange)
 
+        // Increase X range when ther is no forecast data and a now value
+        if (!hasForecast && data.now) {
+            xRange = [xExtent[0],xExtent[1]]
+            xRange.push(new Date(data.now))
+            xExtent[0] = Math.min.apply(Math,xRange)
+            xExtent[1] = Math.max.apply(Math,xRange)
+        }
+
         // Add margin to bottom of Y Axis
         yExtent[0] = ((yExtent[0] * 100) - (yExtension * 100))/100
 
