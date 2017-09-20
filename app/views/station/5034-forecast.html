@@ -287,8 +287,10 @@ River level
 		const yExtension = 0.4,
 			windowBreakPoint = 640,
 			svgBreakPoint = 576,
-			xCutOff = 9;
-			toolTipBgPath = 'm0,0 l124,0 l0,62 l-52,0 l-10,15 l-10,-15 l-52,0 l0,-62';
+			xCutOff = 9,
+			toolTipBgPath = 'm0,0 l124,0 l0,62 l-52,0 l-10,15 l-10,-15 l-52,0 l0,-62',
+			toolTipBgPathLeft = 'm0,0 l124,0 l0,62 l-94,0 l-25,15 l5,-15 l-10,0 l0,-62',
+			toolTipBgPathRight = 'm0,0 l124,0 l0,62 l-10,0 l5,15 l-25,-15 l-94,0 l0,-62'
 
 		var svg,
 			data,
@@ -306,158 +308,152 @@ River level
 			hasObserved = false, hasForecast = false, hasHighest = false, hasWarning = false, hasAlert = false,
 			parseTime, parseDate,
 			latestLevel, latestDate,
-			dataPoint;
+			dataPoint, dataPointLatest
 
 
-		d3.json('/public/javascripts/json/shrewsbury-fixed-error-band.json', init);
+		d3.json('/public/javascripts/json/shrewsbury-fixed-error-band.json', init)
 
 		function init(json) {
 
-			data = json;
+			data = json
 
 			// Setup array to combine observed and forecast points
 			// and identify startPoint for locator 
-			lines = [];
+			lines = []
 			if (data.observed) {
-				lines = lines.concat(data.observed);
-				dataPoint = data.observed[data.observed.length-1];
-				hasObserved = true;
+				lines = lines.concat(data.observed)
+				dataPoint = JSON.parse(JSON.stringify(data.observed[data.observed.length-1]))
+				hasObserved = true
 			}
 			if (data.forecast) {
-				lines = lines.concat(data.forecast);
-				dataPoint = data.forecast[0];
-				hasForecast = true;
+				lines = lines.concat(data.forecast)
+				dataPoint = JSON.parse(JSON.stringify(data.forecast[0]))
+				hasForecast = true
 			}
 
+			// Set dataPointLatest
+			dataPointLatest = JSON.parse(JSON.stringify(dataPoint))
+		
 			// Initialize scales
-			xExtent = d3.extent(lines, function(d,i) { return new Date(d.date) });
-			yExtent = d3.extent(lines, function(d,i) { return d.level });
+			xExtent = d3.extent(lines, function(d,i) { return new Date(d.date) })
+			yExtent = d3.extent(lines, function(d,i) { return d.level })
 
 			// Set Y range to highest and lowest values from the data
-			yRange = [yExtent[0],yExtent[1]];
+			yRange = [yExtent[0],yExtent[1]]
 			if (data.highest) { 
-				yRange.push(data.highest); 
-				hasHighest = true; 
+				yRange.push(data.highest)
+				hasHighest = true
 			}
 			if (data.warning) { 
-				yRange.push(data.warning); 
-				hasWarning = true; 
+				yRange.push(data.warning)
+				hasWarning = true
 			}
 			if (data.alert) { 
-				yRange.push(data.alert); 
-				hasAlert = true; 
+				yRange.push(data.alert)
+				hasAlert = true
 			}
-			yExtent[0] = Math.min.apply(Math,yRange);
-			yExtent[1] = Math.max.apply(Math,yRange);
+			yExtent[0] = Math.min.apply(Math,yRange)
+			yExtent[1] = Math.max.apply(Math,yRange)
 
 			// Add margin to bottom of Y Axis
-			yExtent[0] = ((yExtent[0] * 100) - (yExtension * 100))/100;
+			yExtent[0] = ((yExtent[0] * 100) - (yExtension * 100))/100
 
 			// Add margin to top of Y Axis
-			yExtent[1] = ((yExtent[1] * 100) + (yExtension * 100))/100;
+			yExtent[1] = ((yExtent[1] * 100) + (yExtension * 100))/100
 
 			// Setup scales
-			x = d3.time.scale().domain(xExtent);
-			y = d3.scale.linear().domain(yExtent);
+			x = d3.time.scale().domain(xExtent)
+			y = d3.scale.linear().domain(yExtent)
 
 			// Bisect date
-			bisectDate = d3.bisector(function(d) { return new Date(d.date); }).left;
+			bisectDate = d3.bisector(function(d) { return new Date(d.date) }).left
 
 			// Initialize axis
-			xAxis = d3.svg.axis().orient('bottom').outerTickSize(0);
+			xAxis = d3.svg.axis().orient('bottom').outerTickSize(0)
 			yAxis = d3.svg.axis().orient('left').ticks(5).tickFormat(function(d) { 
-				return parseFloat(d).toFixed(1) + 'm'; 
-			}).outerTickSize(0);
+				return parseFloat(d).toFixed(1) + 'm'
+			}).outerTickSize(0)
 
 			// Area generator
 			area = d3.svg.area()
 			.interpolate('basis')
 			.x(function(d) { return x(new Date(d.date)) })
 			.y0(function(d) { return height })
-			.y1(function(d) { return y(d.level) });
+			.y1(function(d) { return y(d.level) })
 
 			// Line generator
 			line = d3.svg.line()
 			.interpolate('basis')
 			.x(function(d) { return x(new Date(d.date)) })
-			.y(function(d) { return y(d.level) });
+			.y(function(d) { return y(d.level) })
 
 			// Initialize svg
-			svg = d3.select('#graph').append('svg').style('pointer-events', 'none');
-			chartWrapper = svg.append('g').style('pointer-events', 'all');
-			chartWrapper.append('g').classed('thresholds', true);
-			chartWrapper.append('g').classed('y grid', true);
-			chartWrapper.append('g').classed('x grid', true);
-			chartWrapper.append('g').classed('x axis', true);
-			chartWrapper.append('g').classed('y axis', true);
+			svg = d3.select('#graph').append('svg').style('pointer-events', 'none')
+			chartWrapper = svg.append('g').style('pointer-events', 'all')
+			chartWrapper.append('g').classed('thresholds', true)
+			chartWrapper.append('g').classed('y grid', true)
+			chartWrapper.append('g').classed('x grid', true)
+			chartWrapper.append('g').classed('x axis', true)
+			chartWrapper.append('g').classed('y axis', true)
 			if (hasObserved) {
-				chartWrapper.append('g').classed('observed observed-focus', true);
-				//observedArea = svg.select('.observed').append('path').datum(data.observed).classed('observed-area', true);
-				observed = svg.select('.observed').append('path').datum(data.observed).classed('observed-line', true);
+				chartWrapper.append('g').classed('observed observed-focus', true)
+				//observedArea = svg.select('.observed').append('path').datum(data.observed).classed('observed-area', true)
+				observed = svg.select('.observed').append('path').datum(data.observed).classed('observed-line', true)
 			}
 			normalBand = svg.select('.thresholds').append('rect').classed('normal-band', true)
 			if (hasAlert) {
-				alertBand = svg.select('.thresholds').append('rect').classed('alert-band', true);
+				alertBand = svg.select('.thresholds').append('rect').classed('alert-band', true)
 			}
 			if (hasWarning) {
-				warningBand = svg.select('.thresholds').append('rect').classed('warning-band', true);
+				warningBand = svg.select('.thresholds').append('rect').classed('warning-band', true)
 				//svg.select('.thresholds').append('line').classed('warning', true);
 			}
 			if (hasForecast) {
-				chartWrapper.append('g').classed('forecast', true);
-				forecast = svg.select('.forecast').append('path').datum(data.forecast).classed('forecast-line', true);
+				chartWrapper.append('g').classed('forecast', true)
+				forecast = svg.select('.forecast').append('path').datum(data.forecast).classed('forecast-line', true)
 			}
 			if (hasHighest) {
-				svg.select('.thresholds').append('line').classed('highest', true);
+				svg.select('.thresholds').append('line').classed('highest', true)
 			}
 			
 			// Add timeline
 			if(data.now) {
-				chartWrapper.append('g').classed('time', true);
-				now = svg.select('.time');
-				svg.select('.time').append('line').classed('time-line', true);
-				svg.select('.time').append('text').classed('time-now', true).text('Now');
+				chartWrapper.append('g').classed('time', true)
+				now = svg.select('.time')
+				svg.select('.time').append('line').classed('time-line', true)
+				svg.select('.time').append('text').classed('time-now', true).text('Now')
 			}
 
 			// Add locator
-			locator = chartWrapper.append('g').classed('locator', true);
-			locatorPoint = locator.append('circle').attr('r', 4.5).classed('locator-point', true);
+			locator = chartWrapper.append('g').classed('locator', true)
+			locatorPoint = locator.append('circle').attr('r', 4.5).classed('locator-point', true)
 			
 			// Add tooltip
-			toolTip = chartWrapper.append('g').classed('tool-tip', true).classed('tool-tip tool-tip-hidden', true);
-			toolTipBg = toolTip.append('path').attr('d',toolTipBgPath).classed('tool-tip-bg', true);
-			toolTipLevel = toolTip.append('text').attr({'x': 10,'y':27}).classed('tool-tip-level', true).text('Level');
-			toolTipDate = toolTip.append('text').attr({'x': 10,'y':47}).classed('tool-tip-date', true).text('Date');
-
-			console.log(x(new Date(dataPoint.date)))
+			toolTip = chartWrapper.append('g').classed('tool-tip', true).classed('tool-tip tool-tip-hidden', true)
+			toolTipBg = toolTip.append('path').attr('d',toolTipBgPath).classed('tool-tip-bg', true)
+			toolTipLevel = toolTip.append('text').attr({'x': 10,'y':27}).classed('tool-tip-level', true).text('Level')
+			toolTipDate = toolTip.append('text').attr({'x': 10,'y':47}).classed('tool-tip-date', true).text('Date')
 
 			// Add click event
 			chartWrapper.on('click', click)
 
 			// Render the chart
-			render();
+			render()
 
 		}
 
 		function render() {
 
-			updateDimensions();
-
-			// Update x and y scales to new dimensions
-			x.range([0, width]);
-			y.range([height, 0]);
+			updateDimensions()
 
 			// Update svg elements to new dimensions
-			chartWrapper.attr('transform', 'translate(' + (margin.left + margin.right) + ',' + 0 + ')');
+			chartWrapper.attr('transform', 'translate(' + (margin.left + margin.right) + ',' + 0 + ')')
 
 			// Update the axis and line
-			xAxis.scale(x);
-			yAxis.scale(y);
-			svg.select('.x.axis')
-			.attr('transform', 'translate(0,' + height + ')')
-			.call(xAxis);
-			svg.select('.y.axis')
-			.call(yAxis);
+			xAxis.scale(x)
+			yAxis.scale(y)
+			svg.select('.x.axis').attr('transform', 'translate(0,' + height + ')').call(xAxis)
+			svg.select('.y.axis').call(yAxis)
 
 			// Update grid lines
 			/*
@@ -469,7 +465,7 @@ River level
 				.ticks(d3.time.day,1)
 				.tickSize(-height, 0, 0)
 				.tickFormat('')
-			);
+			)
 			svg.select('.y.grid')
 			.attr('transform', 'translate(0,' + 0 + ')')
 			.call(d3.svg.axis()
@@ -478,60 +474,37 @@ River level
 				.ticks(5)
 				.tickSize(-width, 0, 0)
 				.tickFormat('')
-			);
+			)
 			*/
 
 			// Update thresholds
 			if (hasHighest) {
-				svg.select('.highest')
-					.attr('transform', 'translate(0,' + y(data.highest) + ')')
-					.attr('x2', x(xExtent[1]))
-					.attr('y2', 0);
+				svg.select('.highest').attr('transform', 'translate(0,' + y(data.highest) + ')').attr('x2', x(xExtent[1])).attr('y2', 0)
 			}
 			if (hasWarning) {
-				/*
-				svg.select('.warning')
-					.attr('transform', 'translate(0,' + y(data.warning) + ')')
-					.attr('x2', x(xExtent[1]))
-					.attr('y2', 0);
-				svg.select('.warning-area')
-					.attr('transform', 'translate(0,' + y(data.warning) + ')')
-					.attr('x2', x(xExtent[1]))
-					.attr('y2', 0);
-				*/
 				warningBand.attr({'x':x(xExtent[0]),'y':y(yExtent[1]),'width':x(xExtent[1]),'height':y(data.warning)})
 			}
 			if (hasAlert) {
-				/*
-				svg.select('.alert')
-					.attr('transform', 'translate(0,' + y(data.alert) + ')')
-					.attr('x2', x(xExtent[1]))
-					.attr('y2', 0);
-				*/
 				alertBand.attr({'x':x(xExtent[0]),'y':y(yExtent[1]),'width':x(xExtent[1]),'height':y(data.alert)})
 			}
-
 			normalBand.attr({'x':x(xExtent[0]),'y':y(yExtent[1]),'width':x(xExtent[1]),'height':y(yExtent[0])})
 
 			// Update time line
-
-			if(data.now) {
-				timeX = Math.floor(x(new Date(data.now)));
-				svg.select('.time-line').attr('y1', 0).attr('y2', height);
-				svg.select('.time-now').attr('x', -17).attr('y', -6);
+			if (data.now) {
+				timeX = Math.floor(x(new Date(data.now)))
+				svg.select('.time-line').attr('y1', 0).attr('y2', height)
+				svg.select('.time-now').attr('x', -17).attr('y', -6)
 				now.attr('y1', 0).attr('y2', height)	
-					.attr('transform', 'translate(' + timeX + ',0)');
-				
+					.attr('transform', 'translate(' + timeX + ',0)')				
 				// Add 'today' class to x axis tick
 				svg.selectAll('.x .tick')
 					.filter(function(d){ 
 						return new Date(d).getDay() == new Date(data.now).getDay() && new Date(d).getUTCHours() == 12
 					})
-					.attr('class', 'tick tick-today');
+					.attr('class', 'tick tick-today')
 			}
 
 			// Draw lines and areas
-			
 			if (hasObserved) {
 				observed.attr('d', line)
 			}
@@ -540,75 +513,86 @@ River level
 			}
 
 			// Set level and date formats
-
 			parseTime = d3.time.format.utc('%-I:%M%p')
 			parseDate = d3.time.format.utc('%e %b %Y')
 			parseDateShort = d3.time.format.utc('%e %b')
 
 			// Set locator position
-
-			locator.attr('transform', 'translate(' + locatorX + ',' + locatorY + ')');
+			locator.attr('transform', 'translate(' + locatorX + ',' + locatorY + ')')
 
 			// Set tooltip position 
-			
 			toolTip.attr('transform', 'translate(' + toolTipX + ',' + toolTipY + ')')
 
 		}
 
 		function updateDimensions() {
 
-			margin.top = 25;
-			margin.bottom = 25;
-			margin.left = 18;
-			margin.right = 18;
+			margin.top = 25
+			margin.bottom = 25
+			margin.left = 18
+			margin.right = 18
 
-			xCutOffLeft = d3.time.hour.offset(xExtent[0], + xCutOff).getTime();
-			xCutOffRight = d3.time.hour.offset(xExtent[1], - xCutOff).getTime();
+			xCutOffLeft = d3.time.hour.offset(xExtent[0], + xCutOff).getTime()
+			xCutOffRight = d3.time.hour.offset(xExtent[1], - xCutOff).getTime()
 
 			// Get dimensions based on parent size
-
-			parentWidth = Math.floor(d3.select('#graph').node().getBoundingClientRect().width);
-			parentHeight = Math.floor(d3.select('#graph').node().getBoundingClientRect().height);
+			parentWidth = Math.floor(d3.select('#graph').node().getBoundingClientRect().width)
+			parentHeight = Math.floor(d3.select('#graph').node().getBoundingClientRect().height)
 
 			// Mobile first
-
 			xAxis.ticks(d3.time.hour.utc, 12).tickFormat(function(d) {
 				if (d.getUTCHours() == 12 & d >= xCutOffLeft & d <= xCutOffRight) {
-					formatter = d3.time.format('%-e/%-m');
-					return formatter(d);
+					formatter = d3.time.format('%-e/%-m')
+					return formatter(d)
 				} else {
 					return null
 				}
-			});
+			})
 
 			// Greater than window or svg breakpoint
-
 			if(window.innerWidth > windowBreakPoint && parentWidth > svgBreakPoint) {
 				xAxis.ticks(d3.time.hour.utc, 12).tickFormat(function(d) {
 					if (d.getUTCHours() == 12 & d.getTime() >= xCutOffLeft & d.getTime() <= xCutOffRight) {
-						formatter = d3.time.format('%a, %e %b');
-						return formatter(d);
+						formatter = d3.time.format('%a, %e %b')
+						return formatter(d)
 					} else {
 						return null
 					}
-				});
-				margin.left = 21;
-				margin.right = 21;
+				})
+				margin.left = 21
+				margin.right = 21
 			}
-
 			width = parentWidth - margin.left - margin.right
 			height = parentHeight - margin.top - margin.bottom
 
+			// Update x and y scales to new dimensions
+			x.range([0, width])
+			y.range([height, 0])
+
 			// Update locator position
-
-			console.log(x(new Date(dataPoint.date)))
-
 			locatorX = Math.floor(x(new Date(dataPoint.date)))
 			locatorY = Math.floor(y(dataPoint.level))
 
 			// Update tooltip position
+			updateToolTipPosition()
 
-			toolTipX = locatorX - toolTipBg.node().getBBox().width / 2
+		}
+
+		function updateToolTipPosition() {
+
+			if (locatorX - toolTipBg.node().getBBox().width < 0) {
+				// Tool tip on the left
+				toolTipX = locatorX + 5
+				toolTipBg.attr('d',toolTipBgPathLeft)
+			} else if (locatorX + toolTipBg.node().getBBox().width > width) {
+				// Tool tip on the right			
+				toolTipX = locatorX - toolTipBg.node().getBBox().width - 5
+				toolTipBg.attr('d',toolTipBgPathRight)
+			} else {
+				// Tool tip in the middle
+				toolTipX = locatorX - toolTipBg.node().getBBox().width / 2
+				toolTipBg.attr('d',toolTipBgPath)
+			}
 			toolTipY = locatorY - toolTipBg.node().getBBox().height - 8
 
 		}
@@ -616,64 +600,58 @@ River level
 		function click() {
 
 			var x0 = x.invert(d3.mouse(this)[0]),
-			i = bisectDate(lines, x0, 1);
-			d0 = lines[i - 1];
-			d1 = lines[i];
+			i = bisectDate(lines, x0, 1)
+			d0 = lines[i - 1]
+			d1 = lines[i]
 
-			d = x0 - new Date(d0.date) > new Date(d1.date) - x0 ? d1 : d0;
+			d = x0 - new Date(d0.date) > new Date(d1.date) - x0 ? d1 : d0
+			dataPoint.date = d.date
+			dataPoint.level = d.level
 
-			locatorX = Math.floor(x(new Date(d.date)))
-			
-			console.log(x(new Date(dataPoint.date)))
-
-			locatorY = Math.floor(y(d.level));
-			latestX = Math.floor(x(new Date(dataPoint.date)));
+			locatorX = Math.floor(x(new Date(dataPoint.date)))
+			locatorY = Math.floor(y(dataPoint.level))
+			latestX = Math.floor(x(new Date(dataPointLatest.date)))
 
 			// Update figcaption data
-
 			if (locatorX > latestX) {
-				locatorPoint.classed('locator-point-forecast', true);
-				svg.select('.forecast').classed('forecast-focus', true);
-				svg.select('.observed').classed('observed-focus', false);
-				d3.select('#data-type').html('Forecast level');
-				d3.select('.data').classed('data-forecast', true);
+				locatorPoint.classed('locator-point-forecast', true)
+				svg.select('.forecast').classed('forecast-focus', true)
+				svg.select('.observed').classed('observed-focus', false)
+				d3.select('#data-type').html('Forecast level')
+				d3.select('.data').classed('data-forecast', true)
 			} else {
-				locatorPoint.classed('locator-point-forecast', false);
-				svg.select('.forecast').classed('forecast-focus', false);
-				svg.select('.observed').classed('observed-focus', true);
-				d3.select('#data-type').html('Previous level');
-				d3.select('.data').classed('data-forecast', false);
+				locatorPoint.classed('locator-point-forecast', false)
+				svg.select('.forecast').classed('forecast-focus', false)
+				svg.select('.observed').classed('observed-focus', true)
+				d3.select('#data-type').html('Previous level')
+				d3.select('.data').classed('data-forecast', false)
 			}
-
 			if (locatorX == latestX) {
-				d3.select('#data-type').html('Latest measure');
+				d3.select('#data-type').html('Latest measure')
 			}
 
+			// Update graph caption
 			d3.select('#data-time').html(
-				parseTime(new Date(d.date)).toLowerCase()
+				parseTime(new Date(dataPoint.date)).toLowerCase()
 				+ ' on '
-				+ parseDate(new Date(d.date)))
-
+				+ parseDate(new Date(dataPoint.date)))
 			d3.select('#data-level').html(
-				d.level + 'm');
+				dataPoint.level + 'm')
 
 			// Update locator point
-
-			locator.attr('transform', 'translate(' + locatorX + ',' + locatorY + ')');
+			locator.attr('transform', 'translate(' + locatorX + ',' + locatorY + ')')
 
 			// Update tooltip content, position and visibiliy
+			updateToolTipPosition()
 
-			toolTipX = locatorX - toolTipBg.node().getBBox().width / 2
-			toolTipY = locatorY - toolTipBg.node().getBBox().height - 8
-			toolTipLevel.html(d.level + 'm')
+			toolTipY = locatorY - toolTipBg.node().getBBox().height - 10
+			toolTipLevel.html(dataPoint.level + 'm')
 			toolTipDate.html(
-				parseTime(new Date(d.date)).toLowerCase()
+				parseTime(new Date(dataPoint.date)).toLowerCase()
 				+ ', '
-				+ parseDateShort(new Date(d.date)
+				+ parseDateShort(new Date(dataPoint.date)
 			))
-			toolTip.attr('transform', 'translate(' + toolTipX + ',' + toolTipY + ')').classed('tool-tip-hidden', false);
-
-			console.log('toolTipX: ' + toolTipX + ' locatorX: ' + toolTipX)
+			toolTip.attr('transform', 'translate(' + toolTipX + ',' + toolTipY + ')').classed('tool-tip-hidden', false)
 
 		}
 
@@ -683,9 +661,9 @@ River level
 
 		}
 
-	})(window,d3);
+	})(window,d3)
 
-	window.addEventListener('resize', Chart.render);
+	window.addEventListener('resize', Chart.render)
 
 </script>
 {% include "partials/scripts.html" %}
