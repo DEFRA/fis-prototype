@@ -1979,6 +1979,10 @@ section.feedback {
   max-width: 14em;
 }
 
+table.table-levels {
+  margin-bottom: 1.5em;
+}
+
 table.table-levels thead th {
   font-family: "nta", Arial, sans-serif;
   font-weight: bold;

@@ -26,7 +26,7 @@ River level
 
 		<div class="column-full">
 
-			<h2 id="levels-heading" class="heading-medium">
+			<h2 class="heading-medium medium-river-level">
 				Levels: last 5 days and next 36 hours
 			</h2>     
 
@@ -270,6 +270,7 @@ River level
 
 {% block body_end %}
 <!-- GOV.UK elements redirect -->
+<!--[if lte IE 9]><script src="/public/javascripts/aight.d3.min.js"></script><![endif]-->
 <script src="http://d3js.org/d3.v3.min.js"></script>
 <script>
 	var jsonSource = '/public/javascripts/json/shrewsbury-probabilistic-c.json'
