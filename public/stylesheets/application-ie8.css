@@ -1987,7 +1987,6 @@ section.feedback {
   line-height: 1.1428571429;
   font-size: 16px;
   line-height: 1.25;
-  margin-left: 2em;
   margin-top: 1.25em;
   font-family: "nta", Arial, sans-serif;
   font-weight: 400;
@@ -1996,7 +1995,6 @@ section.feedback {
   line-height: 1.25;
   font-size: 19px;
   line-height: 1.3157894737;
-  margin-left: 1.5em;
 }
 
 .data .icon-point:before {
@@ -2556,8 +2554,12 @@ table.table-levels tbody .error:before {
   line-height: 1.25;
 }
 
-h1.heading-xlarge {
-  margin-bottom: 20px;
+.xlarge-river-level {
+  margin-bottom: 0.75em;
+}
+
+.medium-river-level {
+  margin-top: 1.25em;
 }
 
 .heading-nearby {

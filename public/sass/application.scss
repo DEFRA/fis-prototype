@@ -81,10 +81,13 @@ $path: "/public/images/";
     }
 }
 
-// Page headings
+// River level margin ovderides
 
-h1.heading-xlarge {
-  margin-bottom: 20px;
+.xlarge-river-level {
+  margin-bottom: 0.75em;
+}
+.medium-river-level {
+  margin-top: 1.25em;
 }
 
 .heading-nearby {

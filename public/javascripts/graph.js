@@ -340,6 +340,8 @@ var Chart = (function(window,d3) {
         latestX = Math.floor(x(new Date(dataPointLatest.date)))
 
         // Update figcaption data
+
+        /*
         if (locatorX > latestX) {
             locatorPoint.classed('locator-point-forecast', true)
             svg.select('.forecast').classed('forecast-focus', true)
@@ -356,14 +358,13 @@ var Chart = (function(window,d3) {
         if (locatorX == latestX) {
             d3.select('#data-type').html('Latest measure')
         }
-
-        // Update graph caption
         d3.select('#data-time').html(
             parseTime(new Date(dataPoint.date)).toLowerCase()
             + ' on '
             + parseDate(new Date(dataPoint.date)))
         d3.select('#data-level').html(
             Number(dataPoint.level).toFixed(2) + 'm')
+        */
 
         // Update locator point
         locator.attr('transform', 'translate(' + locatorX + ',' + locatorY + ')')

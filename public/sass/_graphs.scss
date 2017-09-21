@@ -124,11 +124,11 @@
 }
 .data {
     @include core-16();
-    margin-left:2em;
+    //margin-left:2em;
     margin-top:1.25em;
     @include media(tablet) {
         @include core-19();
-        margin-left:1.5em;
+        //margin-left:1.5em;
     }
     .icon-point:before {
         content:' ';

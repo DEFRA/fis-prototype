@@ -2420,7 +2420,6 @@ section.feedback {
   text-transform: none;
   font-size: 14px;
   line-height: 1.1428571429;
-  margin-left: 2em;
   margin-top: 1.25em;
 }
 
@@ -2438,7 +2437,6 @@ section.feedback {
     text-transform: none;
     font-size: 16px;
     line-height: 1.25;
-    margin-left: 1.5em;
   }
 }
 
@@ -3078,8 +3076,12 @@ table.table-levels tbody .error:before {
   }
 }
 
-h1.heading-xlarge {
-  margin-bottom: 20px;
+.xlarge-river-level {
+  margin-bottom: 0.75em;
+}
+
+.medium-river-level {
+  margin-top: 1.25em;
 }
 
 .heading-nearby {
