@@ -26,14 +26,14 @@ River level
 
 		<div class="column-full">
 
-			<h2 class="heading-medium medium-river-level">
+			<h2 id="visualisation-heading" class="heading-medium medium-river-level">
 				Levels: last 5 days and next 36 hours
 			</h2>     
 
 			<div class="visualisation" role="presentation" aria-hidden="true">
 
 				<!--
-					If Google Charts available (Javascript, SVG or VML)
+					If D3 available (Javascript, SVG or VML)
 					remove hidden class and hidden attribute
 				-->
 
@@ -45,18 +45,6 @@ River level
 
 						<figcaption class="graph-legend">
 
-							<!--
-							<div class="data data-level">
-								<span class="data-item font-xsmall data-level-item-heading" id="data-type">
-									<i class="icon icon-point"></i>
-									<span class="data-item-label">
-										Latest measured level
-									</span>
-								</span>
-								<span class="data-item bold-small" id="data-details"></span>
-							</div>
-							-->
-							
 							<ul>
 								<li class="measured">
 									<span>Measured level</span>
@@ -76,11 +64,6 @@ River level
 								<li class="max max-off">
 									<span><a href="">Show highest recorded level</a></span>
 								</li>
-								<!--
-								<li class="max">
-									<span>Highest recorded level. <a href="">Hide</a></span>
-								</li>
-								-->
 							</ul>
 
 						</figcaption>
@@ -92,7 +75,7 @@ River level
 				<!-- End dynamic render -->
 
 				<!--
-					If Google Charts available add class visuallyhidden
+					If D3 available add class visuallyhidden
 				-->
 
 				<div class="visualisation-table">
@@ -133,8 +116,6 @@ River level
 									</span>
 								</td>
 							</tr>
-						</tbody>
-						<tbody>
 							<tr>
 								<td scope="row">
 									<time datetime="2017-01-06T09:15+00:00">
@@ -170,8 +151,6 @@ River level
 									</span>
 								</td>
 							</tr>
-						</tbody>
-						<tbody>
 							<tr>
 								<td scope="row">
 									<time datetime="2017-01-06T09:30+00:00">
@@ -204,7 +183,7 @@ River level
 				</div>
 
 				<!--
-					End Google charts available
+					End D3 available
 				-->
 
 			</div>

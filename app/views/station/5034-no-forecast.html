@@ -26,14 +26,14 @@ River level
 
 		<div class="column-full">
 
-			<h2 class="heading-medium medium-river-level">
+			<h2 id="visualisation-heading" class="heading-medium medium-river-level">
 				Levels during the last 5 days
 			</h2>     
 
-			<div class="visualisation" role="presentation" aria-hidden="true">
+			<div class="visualisation" role="presentation">
 
 				<!--
-					If Google Charts available (Javascript, SVG or VML)
+					If D3 available (Javascript, SVG or VML)
 					remove hidden class and hidden attribute
 				-->
 
@@ -86,7 +86,7 @@ River level
 				<!-- End dynamic render -->
 
 				<!--
-					If Google Charts available add class visuallyhidden
+					If D3 available add class visuallyhidden
 				-->
 
 				<div class="visualisation-table">
@@ -97,10 +97,10 @@ River level
 						</p>
 					</div>
 
-					<table class="table-levels" aria-labelledby="visualisation-heading">
+					<table class="table-levels" aria-labelledby="data-heading">
 						<thead>
 							<tr>
-								<th scope="col">Time</th> <!-- role="columnheader" ? -->
+								<th scope="col">Time</th>
 								<th scope="col" class="numeric">
 									Level (<abbr title="Metres">m</abbr>)
 								</th>
@@ -127,8 +127,6 @@ River level
 									</span>
 								</td>
 							</tr>
-						</tbody>
-						<tbody>
 							<tr>
 								<td scope="row">
 									<time datetime="2017-01-06T09:15+00:00">
@@ -164,8 +162,6 @@ River level
 									</span>
 								</td>
 							</tr>
-						</tbody>
-						<tbody>
 							<tr>
 								<td scope="row">
 									<time datetime="2017-01-06T09:30+00:00">
@@ -198,7 +194,7 @@ River level
 				</div>
 
 				<!--
-					End Google charts available
+					End D3 available
 				-->
 
 			</div>
