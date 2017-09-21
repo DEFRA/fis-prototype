@@ -5,8 +5,8 @@ var Chart = (function(window,d3) {
         svgBreakPoint = 576,
         xCutOff = 9,
         toolTipBgPath = 'm0,0 l124,0 l0,62 l-52,0 l-10,15 l-10,-15 l-52,0 l0,-62',
-        toolTipBgPathLeft = 'm0,0 l124,0 l0,62 l-94,0 l-25,15 l5,-15 l-10,0 l0,-62',
-        toolTipBgPathRight = 'm0,0 l124,0 l0,62 l-10,0 l5,15 l-25,-15 l-94,0 l0,-62'
+        toolTipBgPathLeft = 'm0,0 l124,0 l0,62 l-94,0 l-25,12 l5,-12 l-10,0 l0,-62',
+        toolTipBgPathRight = 'm0,0 l124,0 l0,62 l-10,0 l5,12 l-25,-12 l-94,0 l0,-62'
 
     var svg,
         data,
@@ -100,14 +100,14 @@ var Chart = (function(window,d3) {
 
         // Area generator
         area = d3.svg.area()
-        .interpolate('basis')
+        .interpolate('cardinal')
         .x(function(d) { return x(new Date(d.date)) })
         .y0(function(d) { return height })
         .y1(function(d) { return y(d.level) })
 
         // Line generator
         line = d3.svg.line()
-        .interpolate('basis')
+        .interpolate('cardinal')
         .x(function(d) { return x(new Date(d.date)) })
         .y(function(d) { return y(d.level) })
 
@@ -155,11 +155,23 @@ var Chart = (function(window,d3) {
         locator = chartWrapper.append('g').classed('locator', true)
         locatorPoint = locator.append('circle').attr('r', 4.5).classed('locator-point', true)
         
+        // Set level and date formats
+        parseTime = d3.time.format.utc('%-I:%M%p')
+        parseDate = d3.time.format.utc('%e %b %Y')
+        parseDateShort = d3.time.format.utc('%e %b')
+
         // Add tooltip
-        toolTip = chartWrapper.append('g').classed('tool-tip', true).classed('tool-tip tool-tip-hidden', true)
+        toolTip = chartWrapper.append('g').classed('tool-tip', true)
         toolTipBg = toolTip.append('path').attr('d',toolTipBgPath).classed('tool-tip-bg', true)
-        toolTipLevel = toolTip.append('text').attr({'x': 10,'y':27}).classed('tool-tip-level', true).text('Level')
-        toolTipDate = toolTip.append('text').attr({'x': 10,'y':47}).classed('tool-tip-date', true).text('Date')
+        toolTipLevel = toolTip.append('text').attr({'x': 10,'y':27}).classed('tool-tip-level', true).text(
+            Number(dataPoint.level).toFixed(2) + 'm'
+        )
+        toolTipDate = toolTip.append('text').attr({'x': 10,'y':47}).classed('tool-tip-date', true).text(
+            parseTime(new Date(dataPoint.date)).toLowerCase()
+                + ', '
+                + parseDateShort(new Date(dataPoint.date)
+            )
+        )
 
         // Add click event
         chartWrapper.on('click', click)
@@ -239,11 +251,6 @@ var Chart = (function(window,d3) {
             forecast.attr('d', line)
         }
 
-        // Set level and date formats
-        parseTime = d3.time.format.utc('%-I:%M%p')
-        parseDate = d3.time.format.utc('%e %b %Y')
-        parseDateShort = d3.time.format.utc('%e %b')
-
         // Set locator position
         locator.attr('transform', 'translate(' + locatorX + ',' + locatorY + ')')
 
@@ -307,18 +314,14 @@ var Chart = (function(window,d3) {
 
     function updateToolTipPosition() {
 
-        if (locatorX - toolTipBg.node().getBBox().width < 0) {
+        if (locatorX - toolTipBg.node().getBBox().width < 10) {
             // Tool tip on the left
             toolTipX = locatorX + 5
             toolTipBg.attr('d',toolTipBgPathLeft)
-        } else if (locatorX + toolTipBg.node().getBBox().width > width) {
-            // Tool tip on the right			
+        } else {
+            // Tool tip on the right
             toolTipX = locatorX - toolTipBg.node().getBBox().width - 5
             toolTipBg.attr('d',toolTipBgPathRight)
-        } else {
-            // Tool tip in the middle
-            toolTipX = locatorX - toolTipBg.node().getBBox().width / 2
-            toolTipBg.attr('d',toolTipBgPath)
         }
         toolTipY = locatorY - toolTipBg.node().getBBox().height - 8
 
@@ -341,30 +344,11 @@ var Chart = (function(window,d3) {
 
         // Update figcaption data
 
-        /*
         if (locatorX > latestX) {
             locatorPoint.classed('locator-point-forecast', true)
-            svg.select('.forecast').classed('forecast-focus', true)
-            svg.select('.observed').classed('observed-focus', false)
-            d3.select('#data-type').html('Forecast level')
-            d3.select('.data').classed('data-forecast', true)
         } else {
             locatorPoint.classed('locator-point-forecast', false)
-            svg.select('.forecast').classed('forecast-focus', false)
-            svg.select('.observed').classed('observed-focus', true)
-            d3.select('#data-type').html('Previous level')
-            d3.select('.data').classed('data-forecast', false)
         }
-        if (locatorX == latestX) {
-            d3.select('#data-type').html('Latest measure')
-        }
-        d3.select('#data-time').html(
-            parseTime(new Date(dataPoint.date)).toLowerCase()
-            + ' on '
-            + parseDate(new Date(dataPoint.date)))
-        d3.select('#data-level').html(
-            Number(dataPoint.level).toFixed(2) + 'm')
-        */
 
         // Update locator point
         locator.attr('transform', 'translate(' + locatorX + ',' + locatorY + ')')
@@ -379,7 +363,7 @@ var Chart = (function(window,d3) {
             + ', '
             + parseDateShort(new Date(dataPoint.date)
         ))
-        toolTip.attr('transform', 'translate(' + toolTipX + ',' + toolTipY + ')').classed('tool-tip-hidden', false)
+        toolTip.attr('transform', 'translate(' + toolTipX + ',' + toolTipY + ')')
 
     }
 

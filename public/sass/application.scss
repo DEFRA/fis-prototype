@@ -232,47 +232,24 @@ $path: "/public/images/";
   }
 }
 
-// Icons
+// Notice inline
 
-.icon-warning {
-  width:24px;
-  height:24px;
-  background-image:url('/public/images/icon-flood-warning.png');
-  background-position:center center;
-  background-size:100%;
-  margin-top:-14px !important;
-  @include media(tablet) {
-    width:28px;
-    height:28px;
-    margin-top:-17px !important;
-  }
-}
-
-
-// Inline alert
-
-.alert-inline {
+.warning-inline {
+  display:inline-block;
   white-space: nowrap;
   position:relative;
-  padding-left:1.7em;
-  margin-top:0px;
-  .alert-inline-icon {
-    position:absolute;
-    width:24px;
-    height:24px;
-    margin-top:-5px;
-    margin-left:-1.7em;
-    background-image:url('/public/images/icon-flood-warning.png');
+  .icon-warning {
+    float:left;
+    margin-right:0.25em;
+    width:20px;
+    height:20px;
+    background-image:url('/public/images/icon-important.png');
+    background-position:center center;
     background-size:100%;
     @include media(tablet) {
-      margin-top:-5px;
-      width:28px;
-      height:28px;
+      width:22px;
+      height:22px;
     }
-  }
-  &.alert-inline--warning-removed {
-    white-space: normal;
-    padding-left:0;
   }
 }
 

@@ -13,17 +13,18 @@ River level
 
 
 {% block message %}
-<div class="panel panel-border-narrow">
-	<div class="notice notice-warning">
-		<i class="icon icon-warning">
-			<span class="visually-hidden">Warning</span>
-		</i>
-		<strong class="font-small">
-			<a href="#nearby-areas">Flood warnings inforce nearby</a>		
-		</strong>
-	</div>
-	<p>Laboris nisi ut aliquip ex ea commodo consequat sint.</p>
+<div class="notice" style="margin-bottom:1.5em">
+	<i class="icon icon-important">
+		<span class="visually-hidden">Warning</span>
+	</i>
+	<strong class="bold-small">
+		<a href="#nearby-areas">Flood warnings inforce nearby</a>
+	</strong>
 </div>
+<p>Flooding of property in this area is possible in the next 36 hours. Check this page regularly to get the latest information.</p>
+<p class="font-small">
+	Latest recorded level <strong class="bold-small">2.42m</strong> at <strong class="bold-small">12:00pm on 16 May 2017</strong>
+</p>
 {% endblock %}
 
 {% block riverLevels %}
@@ -37,17 +38,6 @@ River level
 			<h2 id="levels-heading" class="heading-medium">
 				Levels: last 5 days and next 36 hours
 			</h2>     
-
-			<p class="data">
-				<i class="icon icon-point"></i>
-				<span id="data-type">Latest measure</span> <strong id="data-level">2.42m</strong> at <strong id="data-time">12:00pm on 16 May 2017</strong>.
-			</p>
-
-			<!--
-			<p id="visualisation-heading" class="font-xsmall">
-				<span class="visualisation-heading-measured">Measured levels</span> <span>for the last 5 days</span> <span class="visualisation-heading-forecast">Forecast levels</span> <span>for the next 36 hours
-			</p>
-			-->
 
 			<div class="visualisation" role="presentation" aria-hidden="true">
 
@@ -276,12 +266,22 @@ River level
 <h2 class="heading-medium" id="nearby-areas">What effect could these levels have on nearby areas?</h2>
 <h3 class="heading-small">Typical range at this location</h3>
 <p>0.75m to 2.70m</p>
-<h3 id="low-lying-land" class="heading-small">Low-lying land may flood above</h3>
+<h3 id="low-lying-land" class="heading-small">Low lying land may flood above</h3>
 <p>2.70m <a href="">target area name</a></p>
 <h3 id="property" class="heading-small">Property flooding possible above</h3>
-<ul class="list">
-<li>4.20m <a href="">target area name</a></li>
-<li>4.35m <a href="">target area name</a></li>
+<ul class="list list-target-areas">
+	<li>
+		4.20m <a href="">target area name</a> 
+		<span class="warning-inline">
+			<i class="icon icon-warning">
+				<span class="visually-hidden">Warning</span>
+			</i>
+			Flood warning
+		</span>
+	</li>
+	<li>
+		4.35m <a href="">target area name</a>
+	</li>
 </ul>
 <h3 class="heading-small">Highest level recorded at this location</h3>
 <p>5.10m on 6 December 2015</p>

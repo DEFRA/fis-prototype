@@ -13,13 +13,9 @@ River level
 
 
 {% block message %}
-<div class="panel panel-border-narrow">
-	<p>There are no flood warnings or alerts currently issued for nearby areas.</p>
-	<p>The water level here is forecast to stay within this river's typical range for the next 36 hours. The likelihood of flooding in nearby areas is low.</p>
-	<p class="font-xsmall">
-		Latest recorded level <strong class="bold-xsmall">1.90m</strong> at <strong class="bold-xsmall">12:00pm on 16 May 2017</strong>
-	</p>
-</div>
+<p>There are no flood warnings or alerts currently issued for nearby areas.</p>
+<p>The water level here is currently within this river's typical range. The likelihood of flooding in nearby areas is low.</p>
+<p>Latest recorded level <strong class="bold-small">1.90m</strong> at <strong class="bold-small">12:00pm on 16 May 2017</strong></p>
 {% endblock %}
 
 {% block riverLevels %}
@@ -33,13 +29,6 @@ River level
 			<h2 class="heading-medium  medium-river-level">
 				Levels during the last 5 days
 			</h2>     
-
-			<!--
-			<p class="data">
-				<i class="icon icon-point"></i>
-				<span id="data-type">Latest recorded level</span> <strong id="data-level">2.42m</strong> at <strong id="data-time">12:00pm on 16 May 2017</strong>.
-			</p>
-			-->
 
 			<div class="visualisation" role="presentation" aria-hidden="true">
 
@@ -73,7 +62,7 @@ River level
 									<span>Measured level</span>
 								</li>
 								<li class="land">
-									<span><a href="#low-lying-land">Flooding possible</a></span>
+									<span>Flooding possible</span>
 								</li>
 								<li class="normal">
 									<span>Typical range</span>
@@ -261,8 +250,6 @@ River level
 <h2 class="heading-medium" id="nearby-areas">What effect could these levels have on nearby areas?</h2>
 <h3 class="heading-small">Typical range at this location</h3>
 <p>0.75m to 2.70m</p>
-<h3 id="low-lying-land" class="heading-small">Flooding is possible above</h3>
-<p>2.70m <a href="">target area name</a></p>
 <h3 class="heading-small">Highest level recorded at this location</h3>
 <p>5.10m on 6 December 2015</p>
 {% endblock %}

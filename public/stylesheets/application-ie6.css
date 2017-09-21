@@ -1999,7 +1999,7 @@ section.feedback {
 
 .graph-legend li.max:before {
   background-color: transparent;
-  border-bottom: #b10e1e 4px solid;
+  border-bottom: #0b0c0c 4px solid;
   top: 1px;
   top: 3px;
 }
@@ -2023,63 +2023,6 @@ section.feedback {
 
 .graph-legend .graph-legend-normal-level {
   max-width: 14em;
-}
-
-.data {
-  font-family: "nta", Arial, sans-serif;
-  font-weight: 400;
-  text-transform: none;
-  font-size: 14px;
-  line-height: 1.1428571429;
-  font-size: 16px;
-  line-height: 1.25;
-  margin-top: 1.25em;
-  font-family: "nta", Arial, sans-serif;
-  font-weight: 400;
-  text-transform: none;
-  font-size: 16px;
-  line-height: 1.25;
-  font-size: 19px;
-  line-height: 1.3157894737;
-}
-
-.data .icon-point:before {
-  content: ' ';
-  float: left;
-  position: absolute;
-  top: -4px;
-  height: 5px;
-  width: 5px;
-  border-radius: 100%;
-  border: 1px solid #005ea5;
-  border-width: 3px;
-  background-color: white;
-  margin-left: 5.5px;
-}
-
-.data .icon-point {
-  float: left;
-  position: relative;
-  margin-left: -2em;
-  margin-left: -1.5em;
-  top: 7px;
-  top: 9px;
-  left: 0;
-  height: 3px;
-  width: 22px;
-  background-color: #005ea5;
-}
-
-.data strong {
-  font-weight: bold;
-}
-
-.data.data-forecast .icon-point {
-  background-color: #6f777b;
-}
-
-.data.data-forecast .icon-point:before {
-  border-color: #6f777b;
 }
 
 table.table-levels thead th {
@@ -2219,7 +2162,7 @@ table.table-levels tbody .error:before {
 }
 
 .graph svg .highest {
-  stroke: #b10e1e;
+  stroke: #0b0c0c;
   stroke-width: 2;
   shape-rendering: crispEdges;
 }
@@ -2319,8 +2262,8 @@ table.table-levels tbody .error:before {
 }
 
 .graph svg .time-line {
-  stroke-width: 2;
-  stroke: #0b0c0c;
+  stroke-width: 1;
+  stroke: rgba(11, 12, 12, 0.5);
   shape-rendering: crispEdges;
 }
 
@@ -2722,41 +2665,22 @@ table.table-levels tbody .error:before {
   padding-left: 48px;
 }
 
-.icon-warning {
-  width: 24px;
-  height: 24px;
-  background-image: url("/public/images/icon-flood-warning.png");
-  background-position: center center;
-  background-size: 100%;
-  margin-top: -14px !important;
-  width: 28px;
-  height: 28px;
-  margin-top: -17px !important;
-}
-
-.alert-inline {
+.warning-inline {
+  display: inline-block;
   white-space: nowrap;
   position: relative;
-  padding-left: 1.7em;
-  margin-top: 0px;
 }
 
-.alert-inline .alert-inline-icon {
-  position: absolute;
-  width: 24px;
-  height: 24px;
-  margin-top: -5px;
-  margin-left: -1.7em;
-  background-image: url("/public/images/icon-flood-warning.png");
+.warning-inline .icon-warning {
+  float: left;
+  margin-right: 0.25em;
+  width: 20px;
+  height: 20px;
+  background-image: url("/public/images/icon-important.png");
+  background-position: center center;
   background-size: 100%;
-  margin-top: -5px;
-  width: 28px;
-  height: 28px;
-}
-
-.alert-inline.alert-inline--warning-removed {
-  white-space: normal;
-  padding-left: 0;
+  width: 22px;
+  height: 22px;
 }
 
 .secondary-nav {

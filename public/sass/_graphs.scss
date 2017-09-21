@@ -94,7 +94,7 @@
     }
     li.max:before {
         background-color:transparent;
-        border-bottom:#b10e1e 4px solid;
+        border-bottom:$black 4px solid;
         top:1px;
         @include media(tablet) {
             top:3px;
@@ -121,53 +121,6 @@
             max-width:14em;
         }
     }
-}
-.data {
-    @include core-16();
-    //margin-left:2em;
-    margin-top:1.25em;
-    @include media(tablet) {
-        @include core-19();
-        //margin-left:1.5em;
-    }
-    .icon-point:before {
-        content:' ';
-        float:left;
-        position:absolute;
-        top:-4px;
-        height:5px;
-        width:5px;
-        border-radius: 100%;
-        border:1px solid $govuk-blue;
-        border-width: 3px;
-        background-color: white;
-        margin-left:5.5px;
-    }
-    .icon-point {
-        float:left;
-        position:relative;
-        margin-left:-2em;
-        @include media(tablet) {
-            margin-left:-1.5em;
-        }
-        top:7px;
-        @include media(tablet) {
-            top:9px;
-        }
-        left:0;
-        height:3px;
-        width:22px;
-        background-color: $govuk-blue;
-    }
-    strong {
-        font-weight:bold;
-    }
-}
-.data.data-forecast .icon-point {
-    background-color:$grey-1;
-}
-.data.data-forecast .icon-point:before {
-    border-color:$grey-1;
 }
 
 table.table-levels {
@@ -259,7 +212,7 @@ table.table-levels {
         visibility: hidden;
     }
     .highest {
-        stroke: #b10e1e;
+        stroke: $black;
         stroke-width: 2;
         shape-rendering: crispEdges;
     }
@@ -353,8 +306,8 @@ table.table-levels {
         @include core-14();
     }
     .time-line {
-        stroke-width: 2;
-        stroke: $black;
+        stroke-width: 1;
+        stroke: rgba($black, 0.5);
         shape-rendering: crispEdges; 
     }
     .time-now {
