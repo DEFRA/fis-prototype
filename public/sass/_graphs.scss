@@ -218,13 +218,13 @@ table.table-levels {
         shape-rendering: crispEdges;
     }
     .warning {
-        stroke: #b10e1e;
+        stroke: #b10e1e; 
         stroke-width: 2;
         shape-rendering: crispEdges;
     }
     .warning-band {
         stroke-width: 0;
-        fill: #EFCFD2; // 20%
+        fill: #fab8be; // 75% lightness of 30% shade (darker)
     }
     .alert {
         stroke: #f47738;
@@ -233,11 +233,11 @@ table.table-levels {
     }
     .alert-band {
         stroke-width: 0;
-        fill: #FDE4D7; // 20%
+        fill: #fbcdb6; // 85% lightness of 40% shade (darker)
     }
     .normal-band {
         stroke-width: 0;
-        fill: #CCDFED; // 20% #005EA5
+        fill: #b3deff; // 85% of 25% shade (darker) of #005EA5 (govuk-blue)
     }
     .observed-line { 
         stroke: $govuk-blue;

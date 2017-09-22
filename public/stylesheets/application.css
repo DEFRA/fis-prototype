@@ -2588,7 +2588,7 @@ table.table-levels tbody .error:before {
 
 .graph svg .warning-band {
   stroke-width: 0;
-  fill: #EFCFD2;
+  fill: #fab8be;
 }
 
 .graph svg .alert {
@@ -2599,12 +2599,12 @@ table.table-levels tbody .error:before {
 
 .graph svg .alert-band {
   stroke-width: 0;
-  fill: #FDE4D7;
+  fill: #fbcdb6;
 }
 
 .graph svg .normal-band {
   stroke-width: 0;
-  fill: #CCDFED;
+  fill: #b3deff;
 }
 
 .graph svg .observed-line {
