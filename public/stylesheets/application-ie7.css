@@ -1,8 +1,8 @@
-.grid-row, #content, .notice, .notice-flood-alert, .panel, fieldset, .form-section, .form-group, .form-block, .breadcrumbs ol {
+.grid-row, #content, .notice, .panel, fieldset, .form-section, .form-group, .form-block, .breadcrumbs ol {
   zoom: 1;
 }
 
-.grid-row:after, #content:after, .notice:after, .notice-flood-alert:after, .panel:after, fieldset:after, .form-section:after, .form-group:after, .form-block:after, .breadcrumbs ol:after {
+.grid-row:after, #content:after, .notice:after, .panel:after, fieldset:after, .form-section:after, .form-group:after, .form-block:after, .breadcrumbs ol:after {
   content: "";
   display: block;
   clear: both;
@@ -20,31 +20,31 @@
   margin: 0 -15px;
 }
 
-.grid-row, #content, .notice, .notice-flood-alert, .panel, fieldset, .form-section, .form-group, .form-block, .breadcrumbs ol {
+.grid-row, #content, .notice, .panel, fieldset, .form-section, .form-group, .form-block, .breadcrumbs ol {
   zoom: 1;
 }
 
-.grid-row:after, #content:after, .notice:after, .notice-flood-alert:after, .panel:after, fieldset:after, .form-section:after, .form-group:after, .form-block:after, .breadcrumbs ol:after {
+.grid-row:after, #content:after, .notice:after, .panel:after, fieldset:after, .form-section:after, .form-group:after, .form-block:after, .breadcrumbs ol:after {
   content: "";
   display: block;
   clear: both;
 }
 
-.grid-row, #content, .notice, .notice-flood-alert, .panel, fieldset, .form-section, .form-group, .form-block, .breadcrumbs ol {
+.grid-row, #content, .notice, .panel, fieldset, .form-section, .form-group, .form-block, .breadcrumbs ol {
   zoom: 1;
 }
 
-.grid-row:after, #content:after, .notice:after, .notice-flood-alert:after, .panel:after, fieldset:after, .form-section:after, .form-group:after, .form-block:after, .breadcrumbs ol:after {
+.grid-row:after, #content:after, .notice:after, .panel:after, fieldset:after, .form-section:after, .form-group:after, .form-block:after, .breadcrumbs ol:after {
   content: "";
   display: block;
   clear: both;
 }
 
-.grid-row, #content, .notice, .notice-flood-alert, .panel, fieldset, .form-section, .form-group, .form-block, .breadcrumbs ol {
+.grid-row, #content, .notice, .panel, fieldset, .form-section, .form-group, .form-block, .breadcrumbs ol {
   zoom: 1;
 }
 
-.grid-row:after, #content:after, .notice:after, .notice-flood-alert:after, .panel:after, fieldset:after, .form-section:after, .form-group:after, .form-block:after, .breadcrumbs ol:after {
+.grid-row:after, #content:after, .notice:after, .panel:after, fieldset:after, .form-section:after, .form-group:after, .form-block:after, .breadcrumbs ol:after {
   content: "";
   display: block;
   clear: both;
@@ -62,21 +62,21 @@
   margin: 0 -15px;
 }
 
-.grid-row, #content, .notice, .notice-flood-alert, .panel, fieldset, .form-section, .form-group, .form-block, .breadcrumbs ol {
+.grid-row, #content, .notice, .panel, fieldset, .form-section, .form-group, .form-block, .breadcrumbs ol {
   zoom: 1;
 }
 
-.grid-row:after, #content:after, .notice:after, .notice-flood-alert:after, .panel:after, fieldset:after, .form-section:after, .form-group:after, .form-block:after, .breadcrumbs ol:after {
+.grid-row:after, #content:after, .notice:after, .panel:after, fieldset:after, .form-section:after, .form-group:after, .form-block:after, .breadcrumbs ol:after {
   content: "";
   display: block;
   clear: both;
 }
 
-.grid-row, #content, .notice, .notice-flood-alert, .panel, fieldset, .form-section, .form-group, .form-block, .breadcrumbs ol {
+.grid-row, #content, .notice, .panel, fieldset, .form-section, .form-group, .form-block, .breadcrumbs ol {
   zoom: 1;
 }
 
-.grid-row:after, #content:after, .notice:after, .notice-flood-alert:after, .panel:after, fieldset:after, .form-section:after, .form-group:after, .form-block:after, .breadcrumbs ol:after {
+.grid-row:after, #content:after, .notice:after, .panel:after, fieldset:after, .form-section:after, .form-group:after, .form-block:after, .breadcrumbs ol:after {
   content: "";
   display: block;
   clear: both;
@@ -628,18 +628,18 @@ hr {
   color: #bfc1c3;
 }
 
-.notice, .notice-flood-alert {
+.notice {
   position: relative;
 }
 
-.notice .icon, .notice-flood-alert .icon {
+.notice .icon {
   position: absolute;
   left: 0;
   top: 50%;
   margin-top: -17px;
 }
 
-.notice strong, .notice-flood-alert strong {
+.notice strong {
   display: block;
   padding-left: 65px;
   margin-left: -15px;
@@ -822,14 +822,14 @@ hr {
   }
 }
 
-.icon-important {
+.icon-important, .icon.icon-warning {
   width: 35px;
   height: 35px;
   background-image: url("/public/images/icon-important.png");
 }
 
 @media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 20 / 10), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
-  .icon-important {
+  .icon-important, .icon.icon-warning {
     background-image: url("/public/images/icon-important-2x.png");
     background-size: 100%;
   }
@@ -2582,6 +2582,11 @@ table.table-levels tbody .error:before {
   outline: 0;
 }
 
+.list-target-areas li {
+  margin-top: 0.75em;
+  margin-top: 0;
+}
+
 .list-target-areas li a {
   margin-right: 0.5em;
 }
@@ -2634,38 +2639,52 @@ table.table-levels tbody .error:before {
   margin-top: 0.9375em;
 }
 
+/*
 .notice-flood-alert {
-  position: relative;
-  margin-top: 1.5625em;
-  margin-bottom: 1.5625em;
-  margin-top: 1.3157894737em;
-  margin-bottom: 1.3157894737em;
+  position:relative;
+  @extend .notice;
+  margin-top: em(25, 16);
+  margin-bottom: em(25, 16);
+  @include media(tablet) {
+    margin-top: em(25, 19);
+    margin-bottom: em(25, 19);
+  }
+  .lede {
+    margin-left:3em;
+    @include media(tablet) {
+      margin-left:2.75em;
+    }
+  }
+  .notice-image {
+    position:absolute;
+    width:auto;
+    height:42px;
+    margin-top:-0.75em;
+    @include media(tablet) {
+      margin-top:-0.6em;
+      height:51px;
+    }
+  }
 }
-
-.notice-flood-alert .lede {
-  margin-left: 3em;
-  margin-left: 2.75em;
-}
-
-.notice-flood-alert .notice-image {
-  position: absolute;
-  width: auto;
-  height: 42px;
-  margin-top: -0.75em;
-  margin-top: -0.6em;
-  height: 51px;
-}
-
 .notice-warning {
-  margin-bottom: 1.25em;
+  margin-bottom:1.25em;
+  strong {
+    padding-left:45px;
+    @include media(tablet) {
+      padding-left:48px;
+    }
+  }
 }
-
-.notice-warning strong {
-  padding-left: 45px;
-  padding-left: 48px;
+*/
+.icon.icon-warning {
+  background-image: url("/public/images/icon-flood-warning-2x.png");
+  margin-top: -20px;
+  margin-left: 2px;
 }
 
 .warning-inline {
+  display: block;
+  margin-top: 2px;
   display: inline-block;
   white-space: nowrap;
   position: relative;
@@ -2673,14 +2692,15 @@ table.table-levels tbody .error:before {
 
 .warning-inline .icon-warning {
   float: left;
+  margin-top: -3px;
+  margin-left: 0;
   margin-right: 0.25em;
-  width: 20px;
-  height: 20px;
-  background-image: url("/public/images/icon-important.png");
-  background-position: center center;
-  background-size: 100%;
   width: 22px;
   height: 22px;
+  background-position: center center;
+  background-size: 100%;
+  width: 26px;
+  height: 26px;
 }
 
 .secondary-nav {

@@ -115,7 +115,7 @@ module.exports = {
       var section = 'station'
       var sectionName = 'Station'
       var pageName = 'Irk at Collyhurst Weir'
-      var levelData = '/public/javascripts/json/shrewsbury-probabilistic-a.json'
+      var levelData = '/public/javascripts/json/shrewsbury-probabilistic-a2.json'
       res.render('station/5034-forecast-warning-highest', { 'section': section, 'section_name': sectionName, 'page_name': pageName, 'level_data': levelData })
     })
     // Example station: Forecast with low-laying land flooding possible

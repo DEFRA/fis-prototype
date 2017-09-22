@@ -2,3 +2,17 @@ $is-ie: true;
 $ie-version: 8;
  
 @import "application";
+
+// Background-size fix
+
+.icon.icon-warning {
+    background-image: none;
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(
+        src='/public/images/icon-flood-warning.png',
+        sizingMethod='scale'
+    );
+    -ms-filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(
+        src='/public/images/icon-flood-warning.png',
+        sizingMethod='scale'
+    );
+}
