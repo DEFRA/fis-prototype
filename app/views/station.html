@@ -6,8 +6,8 @@
   <link rel="stylesheet" href="https://openlayers.org/en/v3.19.1/css/ol.css" type="text/css">
   <script src="https://openlayers.org/en/v3.19.1/build/ol.js" type="text/javascript"></script>
   <meta http-equiv="X-UA-Compatible" content="IE=Edge">
-  <!--[if lte IE 9]><script src="/public/javascripts/aight.min.js"></script><![endif]-->
-  <!--[if gt IE 9]><script src="http://d3js.org/d3.v3.min.js"></script><![endif]-->
+  <!--[if IE 9]><script src="/public/javascripts/aight.min.js"></script><![endif]-->
+  <script src="http://d3js.org/d3.v3.min.js"></script>
 {% endblock %}
 
 {% block content %}
@@ -136,8 +136,11 @@
 {% endblock %}
 
 {% block body_end %}
-
-  {% include "partials/scripts.html" %}
-
+<!-- GOV.UK elements redirect -->
+<script>
+	var jsonSource = '{{ level_data }}'
+</script>
+<script src="/public/javascripts/graph.js"></script>
+{% include "partials/scripts.html" %}
 {% endblock %}
 

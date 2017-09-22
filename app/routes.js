@@ -107,35 +107,40 @@ module.exports = {
       var section = 'station'
       var sectionName = 'Station'
       var pageName = 'Irk at Collyhurst Weir'
-      res.render('station/5034-forecast-warning', { 'section': section, 'section_name': sectionName, 'page_name': pageName })
+      var levelData = '/public/javascripts/json/shrewsbury-probabilistic-a.json'
+      res.render('station/5034-forecast-warning', { 'section': section, 'section_name': sectionName, 'page_name': pageName, 'level_data': levelData })
     })
     // Example station: Forecast with warning and highest
     app.get('/station/5034-forecast-warning-highest', function (req, res) {
       var section = 'station'
       var sectionName = 'Station'
       var pageName = 'Irk at Collyhurst Weir'
-      res.render('station/5034-forecast-warning-highest', { 'section': section, 'section_name': sectionName, 'page_name': pageName })
+      var levelData = '/public/javascripts/json/shrewsbury-probabilistic-a.json'
+      res.render('station/5034-forecast-warning-highest', { 'section': section, 'section_name': sectionName, 'page_name': pageName, 'level_data': levelData })
     })
     // Example station: Forecast with low-laying land flooding possible
     app.get('/station/5034-forecast-low-lying-flooding-possible', function (req, res) {
       var section = 'station'
       var sectionName = 'Station'
       var pageName = 'Irk at Collyhurst Weir'
-      res.render('station/5034-forecast-low-lying-flooding-possible', { 'section': section, 'section_name': sectionName, 'page_name': pageName })
+      var levelData = '/public/javascripts/json/shrewsbury-probabilistic-b.json'
+      res.render('station/5034-forecast-low-lying-flooding-possible', { 'section': section, 'section_name': sectionName, 'page_name': pageName, 'level_data': levelData })
     })
     // Example station: Forecast normal
     app.get('/station/5034-forecast-normal', function (req, res) {
       var section = 'station'
       var sectionName = 'Station'
       var pageName = 'Irk at Collyhurst Weir'
-      res.render('station/5034-forecast-normal', { 'section': section, 'section_name': sectionName, 'page_name': pageName })
+      var levelData = '/public/javascripts/json/shrewsbury-probabilistic-c.json'
+      res.render('station/5034-forecast-normal', { 'section': section, 'section_name': sectionName, 'page_name': pageName, 'level_data': levelData })
     })
     // Example station: No forecast
     app.get('/station/5034-no-forecast', function (req, res) {
       var section = 'station'
       var sectionName = 'Station'
       var pageName = 'Irk at Collyhurst Weir'
-      res.render('station/5034-no-forecast', { 'section': section, 'section_name': sectionName, 'page_name': pageName })
+      var levelData = '/public/javascripts/json/shrewsbury-no-forecast.json'
+      res.render('station/5034-no-forecast', { 'section': section, 'section_name': sectionName, 'page_name': pageName, 'level_data': levelData })
     })
 
     //

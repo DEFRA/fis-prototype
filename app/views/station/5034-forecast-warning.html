@@ -271,14 +271,3 @@ River level
 <h3 class="heading-small">Highest level recorded at this location</h3>
 <p>5.10m on 6 December 2015</p>
 {% endblock %}
-
-{% block body_end %}
-<!-- GOV.UK elements redirect -->
-<!--[if lte IE 9]><script src="/public/javascripts/aight.d3.min.js"></script><![endif]-->
-<script src="http://d3js.org/d3.v3.min.js"></script>
-<script>
-	var jsonSource = '/public/javascripts/json/shrewsbury-probabilistic-a.json'
-</script>
-<script src="/public/javascripts/graph.js"></script>
-{% include "partials/scripts.html" %}
-{% endblock %}

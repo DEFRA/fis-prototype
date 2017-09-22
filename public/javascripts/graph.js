@@ -1,6 +1,6 @@
 var Chart = (function(window,d3) {
     
-    const yExtension = 0.4,
+    var yExtension = 0.4,
         windowBreakPoint = 640,
         svgBreakPoint = 576,
         xCutOff = 9,

@@ -26,7 +26,7 @@ River level
 
 		<div class="column-full">
 
-			<h2x id="visualisation-heading" class="heading-medium medium-river-level">
+			<h2 id="visualisation-heading" class="heading-medium medium-river-level">
 				Levels: last 5 days and next 36 hours
 			</h2>     
 
@@ -245,15 +245,4 @@ River level
 </ul>
 <h3 class="heading-small">Highest level recorded at this location</h3>
 <p>5.10m on 6 December 2015</p>
-{% endblock %}
-
-{% block body_end %}
-<!-- GOV.UK elements redirect -->
-<!--[if lte IE 9]><script src="/public/javascripts/aight.d3.min.js"></script><![endif]-->
-<script src="http://d3js.org/d3.v3.min.js"></script>
-<script>
-	var jsonSource = '/public/javascripts/json/shrewsbury-probabilistic-c.json'
-</script>
-<script src="/public/javascripts/graph.js"></script>
-{% include "partials/scripts.html" %}
 {% endblock %}
