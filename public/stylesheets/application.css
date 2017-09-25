@@ -3163,20 +3163,8 @@ table.table-levels tbody .error:before {
   position: relative;
 }
 
-.warning-inline strong {
-  display: none;
-}
-
-@media (min-width: 641px) {
-  .warning-inline strong {
-    display: inline;
-  }
-}
-
 .warning-inline .icon-warning {
-  float: left;
   position: relative;
-  top: 4px;
   margin-left: 0;
   margin-right: 0.25em;
   width: 22px;
@@ -3187,8 +3175,6 @@ table.table-levels tbody .error:before {
 
 @media (min-width: 641px) {
   .warning-inline .icon-warning {
-    top: 0;
-    margin-top: -3px;
     width: 26px;
     height: 26px;
   }
@@ -3196,7 +3182,7 @@ table.table-levels tbody .error:before {
 
 @media (min-width: 641px) {
   .warning-inline {
-    margin-top: 2px;
+    margin-top: 0;
   }
 }
 
