@@ -136,18 +136,6 @@ $path: "/public/images/";
   }
 }
 
-.list-target-areas {
-  li {
-    margin-top:0.75em;
-    @include media(tablet) {
-      margin-top:0;
-    }
-    a {
-      margin-right:0.5em;
-    }
-  }
-}
-
 // Nearby measuring stations
 
 .nearby-measuring-stations {
@@ -238,26 +226,35 @@ $path: "/public/images/";
 }
 */
 
-// Notice inline
+// Notices
 
+.notice.notice-warning {
+  margin-bottom:1.5em;
+  strong {
+    padding-left:60px;
+  }
+}
 .icon.icon-warning {
   @extend .icon-important;
   background-image:url('/public/images/icon-flood-warning-2x.png');
+  background-size:100%;
   margin-top: -20px;
   margin-left: 2px;
 }
-
 .warning-inline {
-  display:block;
-  margin-top:2px;
-  @include media(tablet) {
-    display:inline-block;
+  display:inline-block;
+  strong {
+    display:none;
+    @include media(tablet) {
+      display:inline;
+    }      
   }
   white-space: nowrap;
   position:relative;
   .icon-warning {
     float:left;
-    margin-top: -3px;
+    position:relative;
+    top:4px;
     margin-left: 0;
     margin-right:0.25em;
     width:22px;
@@ -265,9 +262,14 @@ $path: "/public/images/";
     background-position:center center;
     background-size:100%;
     @include media(tablet) {
+      top:0;
+      margin-top: -3px;
       width:26px;
       height:26px;
     }
+  }
+  @include media(tablet) {
+    margin-top:2px;
   }
 }
 

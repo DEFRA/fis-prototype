@@ -3052,20 +3052,6 @@ table.table-levels tbody .error:before {
   outline: 0;
 }
 
-.list-target-areas li {
-  margin-top: 0.75em;
-}
-
-@media (min-width: 641px) {
-  .list-target-areas li {
-    margin-top: 0;
-  }
-}
-
-.list-target-areas li a {
-  margin-right: 0.5em;
-}
-
 .nearby-measuring-stations {
   margin-bottom: 2.1052631579em;
 }
@@ -3156,28 +3142,41 @@ table.table-levels tbody .error:before {
   }
 }
 */
+.notice.notice-warning {
+  margin-bottom: 1.5em;
+}
+
+.notice.notice-warning strong {
+  padding-left: 60px;
+}
+
 .icon.icon-warning {
   background-image: url("/public/images/icon-flood-warning-2x.png");
+  background-size: 100%;
   margin-top: -20px;
   margin-left: 2px;
 }
 
 .warning-inline {
-  display: block;
-  margin-top: 2px;
+  display: inline-block;
   white-space: nowrap;
   position: relative;
 }
 
+.warning-inline strong {
+  display: none;
+}
+
 @media (min-width: 641px) {
-  .warning-inline {
-    display: inline-block;
+  .warning-inline strong {
+    display: inline;
   }
 }
 
 .warning-inline .icon-warning {
   float: left;
-  margin-top: -3px;
+  position: relative;
+  top: 4px;
   margin-left: 0;
   margin-right: 0.25em;
   width: 22px;
@@ -3188,8 +3187,16 @@ table.table-levels tbody .error:before {
 
 @media (min-width: 641px) {
   .warning-inline .icon-warning {
+    top: 0;
+    margin-top: -3px;
     width: 26px;
     height: 26px;
+  }
+}
+
+@media (min-width: 641px) {
+  .warning-inline {
+    margin-top: 2px;
   }
 }
 

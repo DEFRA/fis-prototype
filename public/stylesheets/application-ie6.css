@@ -2586,15 +2586,6 @@ table.table-levels tbody .error:before {
   outline: 0;
 }
 
-.list-target-areas li {
-  margin-top: 0.75em;
-  margin-top: 0;
-}
-
-.list-target-areas li a {
-  margin-right: 0.5em;
-}
-
 .nearby-measuring-stations {
   margin-bottom: 2.1052631579em;
 }
@@ -2680,29 +2671,45 @@ table.table-levels tbody .error:before {
   }
 }
 */
+.notice.notice-warning {
+  margin-bottom: 1.5em;
+}
+
+.notice.notice-warning strong {
+  padding-left: 60px;
+}
+
 .icon.icon-warning {
   background-image: url("/public/images/icon-flood-warning-2x.png");
+  background-size: 100%;
   margin-top: -20px;
   margin-left: 2px;
 }
 
 .warning-inline {
-  display: block;
-  margin-top: 2px;
   display: inline-block;
   white-space: nowrap;
   position: relative;
+  margin-top: 2px;
+}
+
+.warning-inline strong {
+  display: none;
+  display: inline;
 }
 
 .warning-inline .icon-warning {
   float: left;
-  margin-top: -3px;
+  position: relative;
+  top: 4px;
   margin-left: 0;
   margin-right: 0.25em;
   width: 22px;
   height: 22px;
   background-position: center center;
   background-size: 100%;
+  top: 0;
+  margin-top: -3px;
   width: 26px;
   height: 26px;
 }
