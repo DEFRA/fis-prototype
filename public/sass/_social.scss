@@ -77,12 +77,6 @@
     text-decoration: none
 }
 
-.lte-ie8 .icons-buttons li a.twitter {
-    background-image: url(../assets/img/follow-sprite.png);
-    background-repeat: no-repeat;
-    background-position: left -25px
-}
-
 .icons-buttons li a.facebook:before {
     font-family: 'icomoon';
     speak: none;
@@ -95,12 +89,6 @@
     display: inline-block;
     margin-right: 5px;
     text-decoration: none
-}
-
-.lte-ie8 .icons-buttons li a.facebook {
-    background-image: url(../assets/img/follow-sprite.png);
-    background-repeat: no-repeat;
-    background-position: left 0
 }
 
 .icons-buttons li a.google:before {
@@ -117,12 +105,6 @@
     text-decoration: none
 }
 
-.lte-ie8 .icons-buttons li a.google {
-    background-image: url(../assets/img/follow-sprite.png);
-    background-repeat: no-repeat;
-    background-position: left -175px
-}
-
 .icons-buttons li a.linkedin:before {
     font-family: 'icomoon';
     speak: none;
@@ -137,12 +119,6 @@
     text-decoration: none
 }
 
-.lte-ie8 .icons-buttons li a.linkedin {
-    background-image: url(../assets/img/follow-sprite.png);
-    background-repeat: no-repeat;
-    background-position: left -150px
-}
-
 .icons-buttons li a.email:before {
     font-family: 'icomoon';
     speak: none;
@@ -155,19 +131,4 @@
     display: inline-block;
     margin-right: 5px;
     text-decoration: none
-}
-
-.lte-ie8 .icons-buttons li a.email {
-    background-image: url(../assets/img/follow-sprite.png);
-    background-repeat: no-repeat;
-    background-position: left -225px
-}
-
-.lte-ie8 .icons-buttons li a {
-    height: 25px;
-    padding-left: 30px
-}
-
-.lte-ie8 .icons-buttons li a:before {
-    display: none
 }

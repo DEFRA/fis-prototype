@@ -147,7 +147,6 @@ table.table-levels {
         .error {
             border:0;
             position:absolute;
-            line-height:1;
             padding-top:inherit;
             padding-bottom:inherit;
             padding-left:0;
@@ -161,13 +160,13 @@ table.table-levels {
             @include border-radius(50%);
             content: '!';
             color: #fff;
+            line-height:1;
             display:inline-block;
             font-family: arial;
             font-weight: bold;
             height: 1em;
-            line-height:1;
-            margin-left: 5px;
-            margin-right: 5px;
+            margin-left: 7px;
+            margin-right: 2px;
             padding: 2px;
             text-align: center;
             width: 1em;

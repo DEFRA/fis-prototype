@@ -3,10 +3,11 @@ $ie-version: 8;
  
 @import "application";
 
-// Background-size fix
+// Background image fixes
 
 .icon.icon-warning {
     background-image: none;
+    zoom:1;
     filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(
         src='/public/images/icon-flood-warning.png',
         sizingMethod='scale'
@@ -15,4 +16,66 @@ $ie-version: 8;
         src='/public/images/icon-flood-warning.png',
         sizingMethod='scale'
     );
+}
+.warning-inline .warning-inline-icon:before {
+    background-image:url('/public/images/icon-flood-warning-ie8.png');
+    display:inline-block;
+    width:26px;
+    height:26px;
+}
+
+// Table error
+
+table.table-levels tbody .error:before {
+    background-color:transparent;
+    color:$black;
+    font-weight:bold;
+    width:auto;
+    margin-right:0;
+    line-height:auto;
+}
+table.table-levels tbody .error {
+    vertical-align:baseline;
+}
+
+// Soical
+
+
+.icons-buttons li a.twitter {
+    background-image: url(../assets/img/follow-sprite.png);
+    background-repeat: no-repeat;
+    background-position: left -25px
+}
+
+.icons-buttons li a.facebook {
+    background-image: url(../assets/img/follow-sprite.png);
+    background-repeat: no-repeat;
+    background-position: left 0
+}
+
+.icons-buttons li a.google {
+    background-image: url(../assets/img/follow-sprite.png);
+    background-repeat: no-repeat;
+    background-position: left -175px
+}
+
+.icons-buttons li a.linkedin {
+    background-image: url(../assets/img/follow-sprite.png);
+    background-repeat: no-repeat;
+    background-position: left -150px
+}
+
+.icons-buttons li a.email {
+    background-image: url(../assets/img/follow-sprite.png);
+    background-repeat: no-repeat;
+    background-position: left -225px
+}
+
+.icons-buttons li a {
+    height: 25px;
+    padding-left: 30px
+}
+
+.icons-buttons li a:before {
+    display: none
 }
