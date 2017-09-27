@@ -249,6 +249,11 @@ River level
 		summary.className += ' visuallyhidden'
 		device.className += ' visuallyhidden'
 		inner.className = 'visualisation-inner'
+		// Remove taindex from summary links
+		summaryLinks = summary.getElementsByTagName('a')
+		for (var i=0; i < summaryLinks.length; i++) {
+			summaryLinks[i].setAttribute('tabindex', '-1');
+		}
 		inner.removeAttribute('hidden')
 	}
 </script>
