@@ -9,6 +9,14 @@ $path: "/public/images/";
 @import 'maps';
 @import 'social';
 
+// Visuallyhidden VoiceOver read order fix
+
+.warning-inline .visuallyhidden {
+  position:relative;
+  display:inline-block;
+  left:auto;
+}
+
 // Phase banner
 
 .phase-banner-disclaimer {
@@ -122,7 +130,7 @@ $path: "/public/images/";
 .warning-inline {
   text-decoration: none;
   .warning-inline-name {
-    margin-right:0.3em;
+    margin-right:0.2em;
     text-decoration: underline;
   }
   .warning-inline-icon:before {
@@ -141,16 +149,7 @@ $path: "/public/images/";
     }
   }
   .warning-inline-icon span {
-    @extend .visuallyhidden;
-    @include media(tablet) {
-      position: static;
-      overflow: visible;
-      clip: auto;
-      height: auto;
-      width: auto;
-      margin: 0;
-      color:$black;
-    }
+    color:$black;
   }
 }
 

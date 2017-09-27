@@ -4,7 +4,7 @@
 
 // Feedback
 
-section.feedback {
+.feedback {
     margin-top:em(30,16);
     @include media(tablet) {
         margin-top:em(30,19);

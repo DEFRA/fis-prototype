@@ -86,8 +86,7 @@
 }
 
 .visually-hidden,
-.visuallyhidden,
-.warning-inline .warning-inline-icon span {
+.visuallyhidden {
   position: absolute;
   overflow: hidden;
   clip: rect(0 0 0 0);
@@ -2170,12 +2169,12 @@ input[type=number] {
   white-space: nowrap;
 }
 
-section.feedback {
+.feedback {
   margin-top: 1.875em;
 }
 
 @media (min-width: 641px) {
-  section.feedback {
+  .feedback {
     margin-top: 1.5789473684em;
   }
 }
@@ -2844,6 +2843,12 @@ table.table-levels tbody .error:before {
   text-decoration: none;
 }
 
+.warning-inline .visuallyhidden {
+  position: relative;
+  display: inline-block;
+  left: auto;
+}
+
 .phase-banner-disclaimer {
   margin-top: 15px;
   border: 1px solid #bfc1c3;
@@ -2984,7 +2989,7 @@ table.table-levels tbody .error:before {
 }
 
 .warning-inline .warning-inline-name {
-  margin-right: 0.3em;
+  margin-right: 0.2em;
   text-decoration: underline;
 }
 
@@ -3007,16 +3012,8 @@ table.table-levels tbody .error:before {
   }
 }
 
-@media (min-width: 641px) {
-  .warning-inline .warning-inline-icon span {
-    position: static;
-    overflow: visible;
-    clip: auto;
-    height: auto;
-    width: auto;
-    margin: 0;
-    color: #0b0c0c;
-  }
+.warning-inline .warning-inline-icon span {
+  color: #0b0c0c;
 }
 
 .list .target-area-name {
