@@ -25,7 +25,6 @@ River level
 {% endblock %}
 
 {% block riverLevels %}
-
 <section class="visualisation" aria-labelledby="visualisation">
 
 	<div class="grid-row">
@@ -43,7 +42,7 @@ River level
 			</div>
 
 			<div class="visualisation-summary" id="visualisation-summary">
-				<p>The water level has risen from 1.50m at 2pm on 11 May to 2.42m at 12pm today (latest recording). The forecast is for the level to rise sharply to 4.65m at 5:00am on 17 May (forecast highest) and then fall to 2.95m at 2am on 18 May. <a href="#low-lying-land" rel="nofollow">Low lying land may flood</a> from 7pm on 16 May and <a href="#property" rel="nofollow">property flooding is possible</a> from 1am on the 17 May.</p>
+				<p>The water level has risen from 1.50m at <time datetime="2017-05-11T14:00:00">2pm on 11 May</time> to 2.42m at <time datetime="2017-05-16T12:00:00">12pm today</time> (latest recording). The forecast is for the level to rise sharply to 4.65m at <time datetime="2017-05-17T05:00:00">5:00am on 17 May</time> (forecast highest) and then fall to 2.95m at <time datetime="2017-05-18T02:00:00">2am on 18 May</time>. <a href="#low-lying-land" rel="nofollow">Low lying land may flood</a> from <time datetime="2017-05-16T07:00:00">7pm on 16 May</time> and <a href="#property" rel="nofollow">property flooding is possible</a> from <time datetime="2017-05-17T01:00:00">1am on 17 May</time>.</p>
 			</div>
 			
 		</div>
@@ -258,25 +257,34 @@ River level
 	}
 </script>
 <!-- End remove -->
-
 {% endblock %}
 
 {% block nearby_areas %}
 <h2 class="heading-medium" id="nearby-areas">What effect could these levels have on nearby areas?</h2>
 <h3 class="heading-small">Typical range at this location</h3>
 <p>0.75m to 2.70m</p>
-<h3 id="low-lying-land" class="heading-small">Above these levels low lying land may flood</h3>
-<p>2.70m: <a href="">River Irk lower catchment</a></p>
-<h3 id="property" class="heading-small">Above these levels property flooding is possible</h3>
+<h3 id="low-lying-land" class="heading-small">Low lying land may flood above these levels</h3>
+<p>
+	2.70m:
+	<a href="" class="warning-inline">
+		<span class="warning-inline-name">
+				River Irk lower catchment<span class="visuallyhidden">. Warning; flood alert currently in force here</span>
+		</span>
+		<i class="warning-inline-icon">
+			<span aria-hidden="true">Flood alert</span>
+		</i>
+	</a>
+</p>
+<h3 id="property" class="heading-small">Property flooding is possible above these levels</h3>
 <ul class="list">
 	<li>
 		4.35m:
 		<a href="" class="warning-inline">
 			<span class="warning-inline-name">
-				River Irk at Vale Park Industrial Estate<span class="visuallyhidden">. Warning; flood alert currently in force here</span>
+				River Irk at Vale Park Industrial Estate<span class="visuallyhidden">. Warning; flood warning currently in force here</span>
 			</span>
 			<i class="warning-inline-icon">
-				<span aria-hidden="true">Flood alert</span>
+				<span aria-hidden="true">Flood warning</span>
 			</i>
 		</a>
 	</li>

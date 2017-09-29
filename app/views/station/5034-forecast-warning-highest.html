@@ -1,16 +1,13 @@
 {% extends "station.html" %}
 
-
 {% block page_title %}
 Irk at Collyhurst Weir - River level - GOV.UK
 {% endblock %}
-
 
 {% block heading %}
 River level
 <span class="heading-secondary">Irk at Collyhurst Weir</span>
 {% endblock %}
-
 
 {% block message %}
 <div class="notice notice-warning">
@@ -21,25 +18,42 @@ River level
 		<a href="">Flood warnings in force nearby</a>
 	</strong>
 </div>
-<p>Flooding of property in this area is possible in the next 36 hours. Check this page regularly to get the latest information.</p>
+<p>Flooding of property in this area is possible in the next <time datetime="36h">36 hours</time>. Check this page regularly to get the latest information.</p>
 <p class="font-small">
-	Latest recorded level <strong class="bold-small">2.42m</strong> at <strong class="bold-small">12:00pm on 16 May 2017</strong>
+	Latest recorded level <span class="bold-small">2.42m</span> at <span class="bold-small"><time datetime="2017-05-16T12:00:00">12:00pm on 16 May 2017</time></span>.
 </p>
 {% endblock %}
 
 {% block riverLevels %}
-
-<section aria-labelledby="levels-heading" role="region">
+<section class="visualisation" aria-labelledby="visualisation">
 
 	<div class="grid-row">
 
+		<div class="column-two-thirds">
+
+			<h2 class="heading-medium medium-river-level" id="visualisation">
+				Levels: last 5 days and next 36 hours
+			</h2>   
+
+			<div class="visualisation-device panel panel-border-narrow" aria-hidden="true">
+				<p>
+					A graph is available with JavaScript enabled and a modern browser
+				</p>
+			</div>
+
+			<div class="visualisation-summary" id="visualisation-summary">
+				<p>The water level has risen from 1.50m at <time datetime="2017-05-11T14:00:00">2pm on 11 May</time> to 2.42m at <time datetime="2017-05-16T12:00:00">12pm today</time> (latest recording). The forecast is for the level to rise sharply to 4.65m at <time datetime="2017-05-17T05:00:00">5:00am on 17 May</time> (forecast highest) and then fall to 2.95m at <time datetime="2017-05-18T02:00:00">2am on 18 May</time>. <a href="#low-lying-land" rel="nofollow">Low lying land may flood</a> from <time datetime="2017-05-16T07:00:00">7pm on 16 May</time> and <a href="#property" rel="nofollow">property flooding is possible</a> from <time datetime="2017-05-17T01:00:00">1am on 17 May</time>.</p>
+			</div>
+			
+		</div>
+
+	</div>
+
+	<div class="grid-row">
+			
 		<div class="column-full">
 
-			<h2 id="visualisation-heading" class="heading-medium medium-river-level">
-				Levels: last 5 days and next 36 hours
-			</h2>     
-
-			<div class="visualisation" role="presentation" aria-hidden="true">
+			<div>
 
 				<!--
 					If D3 available (Javascript, SVG or VML)
@@ -53,7 +67,7 @@ River level
 						<div id="graph"></div>
 
 						<figcaption class="graph-legend">
-							
+					
 							<ul>
 								<li class="measured">
 									<span>Measured level</span>
@@ -70,8 +84,8 @@ River level
 								<li class="normal">
 									<span>Typical range</span>
 								</li>
-								<li class="max">
-									<span>Highest recorded level. <a href="">Hide</a></span>
+								<li class="max max-off">
+									<span><a href="">Show highest recorded level</a></span>
 								</li>
 							</ul>
 
@@ -87,18 +101,13 @@ River level
 					If D3 available add class visuallyhidden
 				-->
 
+				<!--
 				<div class="visualisation-table">
 
-					<div class="panel panel-border-narrow" aria-hidden="true">
-						<p>
-							A graph is available with JavaScript enabled and a modern browser
-						</p>
-					</div>
-
-					<table class="table-levels" aria-labelledby="visualisation-heading">
+					<table class="table-levels" aria-labelledby="visualisation-summary">
 						<thead>
 							<tr>
-								<th scope="col">Time</th> <!-- role="columnheader" ? -->
+								<th scope="col">Time</th>
 								<th scope="col" class="numeric">
 									Level (<abbr title="Metres">m</abbr>)
 								</th>
@@ -107,19 +116,19 @@ River level
 						<tbody>
 							<tr>
 								<th scope="col" colspan="2">
-									<time datetime="2017-01-06T09:00+00:00">
-										Friday 6 January	
+									<time datetime="2017-05-11">
+										Saturday 11 May	
 									</time>
 								</th>
 							</tr>
 							<tr>
 								<td scope="row">
-									<time datetime="2017-01-06T09:00+00:00">
-										9:00am	
+									<time datetime="2017-05-11T14:00+00:00">
+										2pm	
 									</time>
 								</td>
 								<td class="numeric">
-									0.43
+									1.50
 									<span class="error">
 										Error
 									</span>
@@ -127,34 +136,34 @@ River level
 							</tr>
 							<tr>
 								<td scope="row">
-									<time datetime="2017-01-06T09:15+00:00">
-										9:15am	
+									<time datetime="2017-05-11T16:30+00:00">
+										4.30pm	
 									</time>
 								</td>
 								<td class="numeric">
-									0.48
+									1.46
 								</td>
 							</tr>	
 						</tbody>
 						<tbody>
 							<tr>
 								<th scope="col" colspan="2">
-									<time datetime="2017-01-06T09:00+00:00">
-										Saturday 7 January	
+									<time datetime="2017-05-12">
+										Friday 12 May	
 									</time>
 								</th>
 							</tr>
 							<tr>
 								<td scope="row">
-									<time datetime="2017-01-06T09:00+00:00">
-										9:00am
+									<time datetime="2017-05-12T00:00+00:00">
+										12am
 										<em class="forecast">
 											(Latest recorded)
 										</em>		
 									</time>
 								</td>
 								<td class="numeric">
-									0.59
+									1.40
 									<span class="error">
 										Error
 									</span>
@@ -162,34 +171,35 @@ River level
 							</tr>
 							<tr>
 								<td scope="row">
-									<time datetime="2017-01-06T09:30+00:00">
-										9:30am
+									<time datetime="2017-05-12T03:00+00:00">
+										3am
 										<em class="forecast">
 											(Forecast)
 										</em>	
 									</time>
 								</td>
 								<td class="numeric">
-									0.65
+									1.38
 								</td>
 							</tr>	
 							<tr>
 								<td scope="row">
-									<time datetime="2017-01-06T09:45+00:00">
-										9:45am
+									<time datetime="2017-05-12T06:00+00:00">
+										6am
 										<em class="forecast">
 											(Highest forecast)
 										</em>	
 									</time>
 								</td>
 								<td class="numeric">
-									0.63
+									1.39
 								</td>
 							</tr>
 						</tbody>
 					</table>
 
 				</div>
+				-->
 
 				<!--
 					End D3 available
@@ -230,51 +240,73 @@ River level
 <script>
 	var visualisation = document.getElementsByClassName('visualisation')
 	for (i=0; i<visualisation.length; i++){
-		var table = visualisation[i].getElementsByClassName('visualisation-table')[0]
+		//var table = visualisation[i].getElementsByClassName('visualisation-table')[0]
 		var inner = visualisation[i].getElementsByClassName('visualisation-inner')[0]
-		table.className += ' visuallyhidden'
+		var summary = visualisation[i].getElementsByClassName('visualisation-summary')[0]
+		var device = visualisation[i].getElementsByClassName('visualisation-device')[0]
+		//table.className += ' visuallyhidden'
+		summary.className += ' visuallyhidden'
+		device.className += ' visuallyhidden'
 		inner.className = 'visualisation-inner'
+		// Remove taindex from summary links
+		summaryLinks = summary.getElementsByTagName('a')
+		for (var i=0; i < summaryLinks.length; i++) {
+			summaryLinks[i].setAttribute('tabindex', '-1');
+		}
 		inner.removeAttribute('hidden')
 	}
 </script>
 <!-- End remove -->
-
 {% endblock %}
 
 {% block nearby_areas %}
 <h2 class="heading-medium" id="nearby-areas">What effect could these levels have on nearby areas?</h2>
 <h3 class="heading-small">Typical range at this location</h3>
 <p>0.75m to 2.70m</p>
-<h3 id="low-lying-land" class="heading-small">Low lying land may flood above</h3>
-<p>2.70m <a href="">River Irk lower catchment</a></p>
-<h3 id="property" class="heading-small">Property flooding possible above</h3>
+<h3 id="low-lying-land" class="heading-small">Low lying land may flood above these levels</h3>
+<p>
+	2.70m:
+	<a href="" class="warning-inline">
+		<span class="warning-inline-name">
+				River Irk lower catchment<span class="visuallyhidden">. Warning; flood alert currently in force here</span>
+		</span>
+		<i class="warning-inline-icon">
+			<span aria-hidden="true">Flood alert</span>
+		</i>
+	</a>
+</p>
+<h3 id="property" class="heading-small">Property flooding is possible above these levels</h3>
 <ul class="list">
 	<li>
-		4.35m
-		<a href="" title="Flood alert inforce now" class="warning-inline">
+		4.35m:
+		<a href="" class="warning-inline">
 			<span class="warning-inline-name">
-				River Irk at Vale Park Industrial Estate</span><i class="warning-inline-icon">
-				<span>Flood alert</span>
+				River Irk at Vale Park Industrial Estate<span class="visuallyhidden">. Warning; flood warning currently in force here</span>
+			</span>
+			<i class="warning-inline-icon">
+				<span aria-hidden="true">Flood warning</span>
 			</i>
 		</a>
 	</li>
 	<li>
-		4.37m
-		<a href="" title="Flood warning inforce now" class="warning-inline">
+		4.37m:
+		<a href="" class="warning-inline">
 			<span class="warning-inline-name">
-			River Irk at Cheetham Hill</span><i class="warning-inline-icon">
-				<span>Flood warning</span>
+				River Irk at Cheetham Hill<span class="visuallyhidden">. Warning; flood warning currently in force here</span>
+			</span>
+			<i class="warning-inline-icon">
+				<span aria-hidden="true">Flood warning</span>
 			</i>
 		</a>
 	</li>
 	<li>
-		4.50m
+		4.50m:
 		<a href="">
 			<span class="target-area-name">River Irk at Vale Park Industrial Estate (Flood warning no longer in force)</span>
 		</a>
 	</li>
 	<li>
-		4.65m 
+		4.65m: 
 		<a href="">
 			Another target area
 		</a>

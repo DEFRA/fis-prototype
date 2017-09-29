@@ -35,6 +35,9 @@ $path: "/public/images/";
 
 // Data visualisation
 
+.visualisation-device {
+  margin-top:1.25em;
+}
 .visualisation-table {
     max-height:30em;
     overflow:auto;
@@ -57,8 +60,8 @@ $path: "/public/images/";
 }
 .medium-river-level {
   margin-top: 1.25em;
+  margin-bottom: 0;
 }
-
 .heading-nearby {
   margin-top: em(5, 16);
   margin-bottom: em(20, 16);

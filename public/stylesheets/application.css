@@ -2865,6 +2865,10 @@ table.table-levels tbody .error:before {
   }
 }
 
+.visualisation-device {
+  margin-top: 1.25em;
+}
+
 .visualisation-table {
   max-height: 30em;
   overflow: auto;
@@ -2922,6 +2926,7 @@ table.table-levels tbody .error:before {
 
 .medium-river-level {
   margin-top: 1.25em;
+  margin-bottom: 0;
 }
 
 .heading-nearby {
