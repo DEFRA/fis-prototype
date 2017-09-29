@@ -1,13 +1,16 @@
 {% extends "station.html" %}
 
+
 {% block page_title %}
 Irk at Collyhurst Weir - River level - GOV.UK
 {% endblock %}
+
 
 {% block heading %}
 River level
 <span class="heading-secondary">Irk at Collyhurst Weir</span>
 {% endblock %}
+
 
 {% block message %}
 <p>There are no flood warnings or alerts currently issued for nearby areas.</p>
@@ -16,113 +19,65 @@ River level
 	Latest recorded level <span class="bold-small">1.90m</span> at <span class="bold-small"><time datetime="2017-05-16T12:00:00">12:00pm on 16 May 2017</time></span>.
 </p>{% endblock %}
 
+
 {% block riverLevels %}
-<section class="visualisation" aria-labelledby="visualisation">
-
-	<div class="grid-row">
-
-		<div class="column-two-thirds">
-
-			<h2 class="heading-medium medium-river-level" id="visualisation">
-				Levels: last 5 days and next 36 hours
-			</h2>   
-
-			<div class="visualisation-device panel panel-border-narrow" aria-hidden="true">
-				<p>
-					A graph is available with JavaScript enabled and a modern browser
-				</p>
-			</div>
-
-			<div class="visualisation-summary" id="visualisation-summary">
-				<p>The water level has risen from 1.50m at <time datetime="2017-05-11T14:00:00">2pm on 11 May</time> to 2.42m at <time datetime="2017-05-16T12:00:00">12pm today</time> (latest recording). The forecast is for the level to rise sharply to 4.65m at <time datetime="2017-05-17T05:00:00">5:00am on 17 May</time> (forecast highest) and then fall to 2.95m at <time datetime="2017-05-18T02:00:00">2am on 18 May</time>. <a href="#low-lying-land" rel="nofollow">Low lying land may flood</a> from <time datetime="2017-05-16T07:00:00">7pm on 16 May</time> and <a href="#property" rel="nofollow">property flooding is possible</a> from <time datetime="2017-05-17T01:00:00">1am on 17 May</time>.</p>
-			</div>
-			
+<div class="grid-row">
+	<div class="column-two-thirds">
+		<h2 id="visualisation-heading" class="heading-medium medium-river-level">
+			Levels: last 5 days and next 36 hours
+		</h2>   
+		<div class="visualisation-device panel panel-border-narrow" aria-hidden="true">
+			<p>
+				A graph is available with JavaScript enabled and a modern browser
+			</p>
 		</div>
-
+		<div class="visualisation-summary" id="visualisation-summary">
+			<p>The water level has risen from 1.50m at <time datetime="2017-05-11T14:00:00">2pm on 11 May</time> to 2.42m at <time datetime="2017-05-16T12:00:00">12pm today</time> (latest recording). The forecast is for the level to rise sharply to 4.65m at <time datetime="2017-05-17T05:00:00">5:00am on 17 May</time> (forecast highest) and then fall to 2.95m at <time datetime="2017-05-18T02:00:00">2am on 18 May</time>. <a href="#low-lying-land" rel="nofollow">Low lying land may flood</a> from <time datetime="2017-05-16T07:00:00">7pm on 16 May</time> and <a href="#property" rel="nofollow">property flooding is possible</a> from <time datetime="2017-05-17T01:00:00">1am on 17 May</time>.</p>
+		</div>
 	</div>
-
-	<div class="grid-row">
-			
-		<div class="column-full">
-
-			<div>
-
-				<!--
-					If D3 available (Javascript, SVG or VML)
-					remove hidden class and hidden attribute
-				-->
-
-				<div class="visualisation-inner hidden" hidden>
-
-					<figure class="graph" role="presentation" aria-hidden="true">
-
-						<div id="graph"></div>
-
-						<figcaption class="graph-legend">
-					
-							<ul>
-								<li class="measured">
-									<span>Measured level</span>
-								</li>
-								<li class="forecast">
-									<span>Forecast level</span>
-								</li>
-								<li class="property">
-									<span><a href="#property">Property flooding possible</a></span>
-								</li>
-								<li class="land">
-									<span><a href="#low-lying-land">Low lying land may flood</a></span>
-								</li>
-								<li class="normal">
-									<span>Typical range</span>
-								</li>
-								<li class="max max-off">
-									<span>
-										<a href="" role="button" aria-controls="graph" onclick="return false">
-											Show highest recorded level
-										</a>
-									</span>
-								</li>
-							</ul>
-
-						</figcaption>
-
-					</figure>
-
-				</div>
-
-				<!-- End D3 available -->
-
+</div>
+<div class="grid-row">	
+	<div class="column-full">
+		<div>
+			<!--
+				If D3 available (Javascript, SVG or VML)
+				remove hidden class and hidden attribute
+			-->
+			<div class="visualisation-inner hidden" hidden>
+				<figure class="graph" aria-hidden="true">
+					<div id="graph"></div>
+					<figcaption class="graph-legend">
+						<ul>
+							<li class="measured">
+								<span>Measured level</span>
+							</li>
+							<li class="forecast">
+								<span>Forecast level</span>
+							</li>
+							<li class="property">
+								<span><a href="#property">Property flooding possible</a></span>
+							</li>
+							<li class="land">
+								<span><a href="#low-lying-land">Low lying land may flood</a></span>
+							</li>
+							<li class="normal">
+								<span>Typical range</span>
+							</li>
+							<li class="max max-off">
+								<span>
+									<a href="" role="button" aria-controls="graph" onclick="return false">
+										Show highest recorded level
+									</a>
+								</span>
+							</li>
+						</ul>
+					</figcaption>
+				</figure>
 			</div>
-
+			<!-- End D3 available -->
 		</div>
-
 	</div>
-
-	<div class="grid-row">
-		
-		<div class="column-two-thirds">
-			
-			<details>
-				
-				  <summary><span class="summary">How river levels are measured and forecast</span></summary>
-				
-				  <div class="panel panel-border-narrow">
-				
-					<p>For most river levels the data we collect is fed into this service once or twice a day. We often increase this frequency whenever there is a greater risk of flooding.</p>
-					<p>Forecast levels are derived from automated models. These are most accurate within the first 6 hours.</p>
-						
-				  </div>
-				
-			</details>
-			
-		</div>
-
-	</div>
-	
-
-</section>
-
+</div>
 
 <!-- Remove -->
 <script>
@@ -147,8 +102,8 @@ River level
 <!-- End remove -->
 {% endblock %}
 
+
 {% block nearby_areas %}
-<h2 class="heading-medium" id="nearby-areas">What effect could these levels have on nearby areas?</h2>
 <h3 class="heading-small">Typical range at this location</h3>
 <p>0.75m to 2.70m</p>
 <h3 id="low-lying-land" class="heading-small">Low lying land may flood above these levels</h3>
