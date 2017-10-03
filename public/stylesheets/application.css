@@ -3238,6 +3238,11 @@ table.table-levels tbody .error:before {
   padding: 0.5em 0 0.5em 28px;
 }
 
+.flood-icon {
+  display: block;
+  margin-bottom: 0.75em;
+}
+
 /*
 .ol-viewport {
   background-image:url('/static/long-term-flood-risk/public/images/map-national.png');

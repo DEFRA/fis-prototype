@@ -233,6 +233,15 @@ module.exports = {
       res.render('journey/step-4', { 'page_name': pageName, 'location': location })
     })
 
+    //
+    // SMS
+    //
+
+    app.get('/sms-auto-opt-in', function (req, res) {
+      var pageName = 'Flood Information Service'
+      res.render('sms-auto-opt-in', { 'page_name': pageName })
+    })
+
   }
 }
 

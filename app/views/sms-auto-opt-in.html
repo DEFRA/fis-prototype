@@ -1,0 +1,128 @@
+{% extends "layout.html" %}
+
+{% block page_title %}SMS opt-in to flood warnings by phone information - GOV.UK{% endblock %}
+
+
+{% block head %}
+  {% include "partials/head.html" %}
+  {% include "partials/snippets_head.html" %}
+  <meta name="description" content="Meta description placeholder">
+{% endblock %}
+
+
+{% block content %}
+<main id="content" role="main" tabindex="-1">
+
+  {% include "partials/phase_banner.html" %}
+
+  <div class="grid-row">
+    <div class="column-two-thirds">
+
+      <h1 class="heading-xlarge">
+        Your phone number has been automatically opted-in to receive flood warnings
+      </h1>
+
+      <p class="lede">In England, the Environment Agency sends flood warnings to phone numbers registered in areas at risk of flooding from rivers or the sea. This service is free.</p>
+      
+      <h2 class="heading-medium">Why was my phone number opted-in?</h2>
+      <p>Your phone number has been automatically opted-in to the flood warning service because your address is at risk of flooding in the future.</p>
+      <p>This service allows people at risk to be better informed and take action to protect themselves, their family and their property.</p>
+      <p>We have a duty to warn and inform those at risk of flooding. By working with mobile and landline phone providers,we reach people at risk even if they haven’t registered for updates, or their number is ex-directory.</p>
+      
+      <h2 class="heading-medium">Is my personal data secure?</h2>
+      <p>If you’ve received a message we’ve only used it for this purpose. We do not know your name or address. Your personal data is collected and stored in line with our <a href="https://www.gov.uk/government/organisations/environment-agency/about/personal-information-charter" data-journey-click="lfw:sms:dpa">data protection policy</a>.</p>
+      
+      <h2 class="heading-medium">Do I need to do anything?</h2>
+      <p>You can fully register, or opt out of the service. If you opt out, you won’t get any automatic flood warnings.</p>
+      
+      <h2 class="heading-medium">If you do nothing</h2>
+      <p>Your phone will automatically receive local flood warnings whenever they are issued.</p>
+      
+      <h2 class="heading-medium">Fully register your details</h2>
+      <p><a href="https://www.fws.environment-agency.gov.uk/app/olr/register" data-journey-click="lfw:sms:register">Fully register your details</a> now to get the best experience of the flood warnings service. The service is free.</p>
+      <p>You can register more than one telephone number. You can also choose to be sent:</p>
+      <ul class="list list-bullet">
+        <li>flood warnings, which indicate that flooding is expected</li>
+        <li>flood alerts, which indicate that flooding is possible</li>
+        <li>warnings and alerts by text message, recorded voice message, or email</li>
+        <li>warnings and alerts about more than one location</li>
+      </ul>
+      
+      <h2 class="heading-medium">Opting out of the flood warning service</h2>
+      <p>You can opt out of this service by following the instruction in the text message you received. If you no longer have the message please contact us using the details below.</p>
+      
+      <h2 class="heading-medium">If you receive a flood warning or alert</h2>
+
+      <img class="flood-icon" src="/public/images/flood-alerts-icon.gif" alt="Flood alert" height="80">
+      <strong class="heading-small">Flood Alert - Prepare</strong>
+      <ul class="list list-bullet">
+        <li>Prepare a bag that contains medicines and insurance documents</li>
+        <li>Get information and advice from the flood information service</li>
+      </ul>
+      
+      <img class="flood-icon" src="/public/images/flood-warnings-icon.gif" alt="Flood warning" height="80">
+      <strong class="bold-small">Flood Warning - Act</strong>
+      <ul class="list list-bullet">
+        <li>Turn off gas, water and electricity</li>
+        <li>Move things upstairs or to safety</li>
+        <li>Move family, pets and cars to safety</li>
+      </ul>
+
+      <img class="flood-icon" src="/public/images/severe-flood-warnings-icon.gif" alt="Severe Flood Warning" height="80">
+      <strong class="bold-small">Severe Flood Warning - Survive</strong>    
+      <ul class="list list-bullet">
+        <li>Call 999 if in immediate danger</li>
+        <li>Listen to emergency services and evacuate if told to do so</li>
+      </ul>
+
+      <h2 class="heading-medium">Flooding can happen anywhere</h2>
+      <p>Flooding puts lives at risk and causes millions of pounds worth of damage every year. Even if you haven’t seen it at your home or business premises, this doesn’t mean flooding won’t happen.</p>
+      <p>You can <a href="/long-term-flood-risk" data-journey-click="lfw:sms:ltfri">find out the likelihood of a property flooding in the future</a>.</p>
+      
+      <h2 class="heading-medium">Learn about your local flood risk</h2>
+      <p>Get more information about the flood risk in your area, including:</p>
+      <ul class="list list-bullet">
+        <li>details of any <a href="/warnings" data-journey-click="lfw:sms:warnings">current flood alerts or warnings</a></li>
+        <li>advice about <a href="https://www.gov.uk/prepare-for-flooding" data-journey-click="lfw:sms:prepare-for-flood">preparing for a flood</a> and <a href="https://www.gov.uk/help-during-flood" data-journey-click="lfw:sms:help-during-flood">help during or after a flood</a></li>
+        <li>the latest <a href="/river-and-sea-levels" data-journey-click="lfw:sms:river-levels">river and sea levels</a></li>
+       <li>how to get <a href="https://www.gov.uk/prepare-for-flooding/get-insurance" data-journey-click="lfw:sms:insurance">insurance</a>, even if you’ve been flooded before</li>
+      </ul>
+
+      <details style="margin-top:2em">
+        <summary>
+          <span class="summary">Contact the Environment Agency</span>
+        </summary>
+        <div class="panel panel-border-narrow">
+          <p>For current flood warnings in force please call our 24-hour Floodline on:</p>
+          <ul>
+            <li>Telephone: 0345 988 1188</li>
+            <li>Type talk: 0345 602 6340 <em>(for the hard of hearing)</em></li>
+          </ul>
+          <p>
+            <a href="https://www.gov.uk/call-charges" rel="external">Find out more about call charges</a>
+          </p>
+        </div>
+      </details>
+
+    </div>
+  </div>
+
+  <div class="feedback">
+    <div class="grid-row">
+      <div class="column-two-thirds">
+        <h2 class="heading-medium visuallyhidden">Give feedback</h2>      
+        <p class="font-xsmall">Your <a href="" onclick="return false;">feedback</a> will help us improve this service.</p>
+      </div>
+    </div>
+  </div>
+
+</main><!-- / #content -->
+{% endblock %}
+
+
+{% block body_end %}
+  <!-- GOV.UK elements redirect -->
+  <!--<script src="/public/javascripts/redirect.js"></script>-->
+  {% include "partials/scripts.html" %}
+{% endblock %}
+

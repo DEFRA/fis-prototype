@@ -1,5 +1,6 @@
 {% extends "layout.html" %}
 
+
 {% block head %}
   {% include "partials/head.html" %}
   {% include "partials/snippets_head.html" %}
@@ -8,10 +9,11 @@
   <meta http-equiv="X-UA-Compatible" content="IE=Edge">
   <!--[if IE 9]><script src="/public/javascripts/aight.min.js"></script><![endif]-->
   <script src="http://d3js.org/d3.v3.min.js"></script>
+  <meta name="description" content="Dynamic meta description">
 {% endblock %}
 
-{% block content %}
 
+{% block content %}
 <main id="content" tabindex="-1">
 
   {% include "partials/phase_banner.html" %}
@@ -123,9 +125,8 @@
 
 
 </main>
-
-
 {% endblock %}
+
 
 {% block body_end %}
 <!-- GOV.UK elements redirect -->
