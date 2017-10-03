@@ -2510,6 +2510,20 @@ table.table-levels tbody .error:before {
   outline: 0;
 }
 
+.list-target-areas li {
+  margin-left: 4em;
+}
+
+.list-target-areas-level {
+  margin-left: -4em;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.list-target-areas a {
+  display: inline-block;
+}
+
 .about-river-levels {
   border-top: 1px solid #bfc1c3;
   margin-bottom: 2.1052631579em;

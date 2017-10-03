@@ -102,6 +102,21 @@ $path: "/public/images/";
   }
 }
 
+// List target areas
+
+.list-target-areas li {
+  margin-left:4em;
+}
+.list-target-areas-level {
+  margin-left:-4em;
+  display:inline-block;
+  vertical-align: top;
+
+}
+.list-target-areas a {
+  display:inline-block;
+}
+
 // About river levels
 
 .about-river-levels {
