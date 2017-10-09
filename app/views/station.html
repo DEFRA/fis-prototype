@@ -19,36 +19,22 @@
   {% include "partials/phase_banner.html" %}
 
   <div class="grid-row">
-    
     <div class="column-two-thirds">
-
       <h1 class="heading-xlarge xlarge-river-level">
         {% block heading %}{% endblock %}
       </h1>
-
       <div id="flood-situation" aria-label="Nearby flood situation" role="status" aria-live="polite">
-      
         {% block message %}{% endblock %}
-
       </div>
-
     </div>
-
   </div>
 
+  {% block riverLevels %}
+  {% endblock %}
 
-  <section class="visualisation" id="visualisation" aria-labelledby="visualisation-heading" aria-live="polite">
-      
-    {% block riverLevels %}{% endblock %}
-
-  </section>
-  
-
+  {% block uncertainty %}
   <div class="grid-row">
-      
     <div class="column-two-thirds">
-      
-      {% block uncertainty %}
       <details>
           <summary>
             <span class="summary">How river levels are measured</span>
@@ -57,36 +43,23 @@
             <p>For most river levels the data we collect is fed into this service once or twice a day. We often increase this frequency whenever there is a greater risk of flooding.</p>
           </div>
       </details>
-      {% endblock %}
-      
     </div>
-  
   </div>
-
-
+  {% endblock %}
+  
+  {% block nearby_areas %}
   <section id="nearby-areas" class="nearby-areas" aria-labelledby="nearby-areas-heading" role="status" aria-live="polite">
-    
     <div class="grid-row">
-
       <div class="column-two-thirds">
-
         <h2 class="heading-medium" id="nearby-areas-heading">What effect could these levels have on nearby areas?</h2>
-          
-        {% block nearby_areas %}{% endblock %}
-
       </div>
-
     </div>
-
   </section>
-
+  {% endblock %}
 
   <div class="icons-buttons">
-      
     <div class="grid-row">
-
       <div class="column-two-thirds">
-
         <h2 class="heading-medium" id="social" >Share this page</h2>
         <ul>
           <li>
@@ -100,29 +73,18 @@
           </li>
         </ul>
         <div class="clearfix"></div>
-
       </div>
-
     </div>
-
   </div>
-
 
   <div class="feedback">
-
     <div class="grid-row">
-
-      <div class="column-two-thirds">
-          
+      <div class="column-two-thirds">  
         <h2 class="heading-medium visuallyhidden">Give feedback</h2>      
         <p class="font-xsmall">Your <a href="" onclick="return false;">feedback</a> will help us improve this service.</p>
-
       </div>
-
     </div>
-
   </div>
-
 
 </main>
 {% endblock %}

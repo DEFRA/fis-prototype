@@ -142,6 +142,38 @@ module.exports = {
       var levelData = '/public/javascripts/json/shrewsbury-no-forecast.json'
       res.render('station/5034-no-forecast', { 'section': section, 'section_name': sectionName, 'page_name': pageName, 'level_data': levelData })
     })
+    // Example station: Closed station
+    app.get('/station/5034-closed-station', function (req, res) {
+      var section = 'station'
+      var sectionName = 'Station'
+      var pageName = 'Irk at Collyhurst Weir'
+      var levelData = '/public/javascripts/json/shrewsbury-no-forecast.json'
+      res.render('station/5034-closed-station', { 'section': section, 'section_name': sectionName, 'page_name': pageName, 'level_data': levelData })
+    })
+    // Example station: Suspended station
+    app.get('/station/5034-suspended-station', function (req, res) {
+      var section = 'station'
+      var sectionName = 'Station'
+      var pageName = 'Irk at Collyhurst Weir'
+      var levelData = '/public/javascripts/json/shrewsbury-no-forecast.json'
+      res.render('station/5034-suspended-station', { 'section': section, 'section_name': sectionName, 'page_name': pageName, 'level_data': levelData })
+    })
+    // Example station: Observed data error
+    app.get('/station/5034-observed-data-error', function (req, res) {
+      var section = 'station'
+      var sectionName = 'Station'
+      var pageName = 'Irk at Collyhurst Weir'
+      var levelData = '/public/javascripts/json/shrewsbury-no-forecast.json'
+      res.render('station/5034-observed-data-error', { 'section': section, 'section_name': sectionName, 'page_name': pageName, 'level_data': levelData })
+    })
+    // Example station: Observed data error
+    app.get('/station/5034-forecast-data-error', function (req, res) {
+      var section = 'station'
+      var sectionName = 'Station'
+      var pageName = 'Irk at Collyhurst Weir'
+      var levelData = '/public/javascripts/json/shrewsbury-no-forecast.json'
+      res.render('station/5034-forecast-data-error', { 'section': section, 'section_name': sectionName, 'page_name': pageName, 'level_data': levelData })
+    })
 
     //
     // End

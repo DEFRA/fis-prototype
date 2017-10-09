@@ -21,127 +21,136 @@ River level
 
 
 {% block riverLevels %}
-<div class="grid-row">
-	<div class="column-two-thirds">
-		<h2 id="visualisation-heading" class="heading-medium medium-river-level">
-			Levels: last 5 days and next 36 hours
-		</h2>   
-		<div class="visualisation-device panel panel-border-narrow" aria-hidden="true">
-			<p>
-				A graph is available with JavaScript enabled and a modern browser
-			</p>
-		</div>
-		<div class="visualisation-summary" id="visualisation-summary">
-			<p>The water level has risen from 1.50m at <time datetime="2017-05-11T14:00:00">2pm on 11 May</time> to 2.42m at <time datetime="2017-05-16T12:00:00">12pm today</time> (latest recording). The forecast is for the level to rise sharply to 4.65m at <time datetime="2017-05-17T05:00:00">5:00am on 17 May</time> (forecast highest) and then fall to 2.95m at <time datetime="2017-05-18T02:00:00">2am on 18 May</time>. <a href="#low-lying-land" rel="nofollow">Low lying land may flood</a> from <time datetime="2017-05-16T07:00:00">7pm on 16 May</time> and <a href="#property" rel="nofollow">property flooding is possible</a> from <time datetime="2017-05-17T01:00:00">1am on 17 May</time>.</p>
-		</div>
-	</div>
-</div>
-<div class="grid-row">	
-	<div class="column-full">
-		<div>
-			<!--
-				If D3 available (Javascript, SVG or VML)
-				remove hidden class and hidden attribute
-			-->
-			<div class="visualisation-inner hidden" hidden>
-				<figure class="graph" aria-hidden="true">
-					<div id="graph"></div>
-					<figcaption class="graph-legend">
-						<ul>
-							<li class="measured">
-								<span>Measured level</span>
-							</li>
-							<li class="forecast">
-								<span>Forecast level</span>
-							</li>
-							<li class="property">
-								<span><a href="#property">Property flooding possible</a></span>
-							</li>
-							<li class="land">
-								<span><a href="#low-lying-land">Low lying land may flood</a></span>
-							</li>
-							<li class="normal">
-								<span>Typical range</span>
-							</li>
-							<li class="max max-off">
-								<span>
-									<a href="" role="button" aria-controls="graph" onclick="return false">
-										Show highest recorded level
-									</a>
-								</span>
-							</li>
-						</ul>
-					</figcaption>
-				</figure>
+<section class="visualisation" id="visualisation" aria-labelledby="visualisation-heading" aria-live="polite">
+	<div class="grid-row">
+		<div class="column-two-thirds">
+			<h2 id="visualisation-heading" class="heading-medium medium-river-level">
+				Levels: last 5 days and next 36 hours
+			</h2>   
+			<div class="visualisation-device panel panel-border-narrow" aria-hidden="true">
+				<p>
+					A graph is available with JavaScript enabled and a modern browser
+				</p>
 			</div>
-			<!-- End D3 available -->
+			<div class="visualisation-summary" id="visualisation-summary">
+				<p>The water level has risen from 1.50m at <time datetime="2017-05-11T14:00:00">2pm on 11 May</time> to 2.42m at <time datetime="2017-05-16T12:00:00">12pm today</time> (latest recording). The forecast is for the level to rise sharply to 4.65m at <time datetime="2017-05-17T05:00:00">5:00am on 17 May</time> (forecast highest) and then fall to 2.95m at <time datetime="2017-05-18T02:00:00">2am on 18 May</time>. <a href="#low-lying-land" rel="nofollow">Low lying land may flood</a> from <time datetime="2017-05-16T07:00:00">7pm on 16 May</time> and <a href="#property" rel="nofollow">property flooding is possible</a> from <time datetime="2017-05-17T01:00:00">1am on 17 May</time>.</p>
+			</div>
 		</div>
 	</div>
-</div>
+	<div class="grid-row">	
+		<div class="column-full">
+			<div>
+				<!--
+					If D3 available (Javascript, SVG or VML)
+					remove hidden class and hidden attribute
+				-->
+				<div class="visualisation-inner hidden" hidden>
+					<figure class="graph" aria-hidden="true">
+						<div id="graph"></div>
+						<figcaption class="graph-legend">
+							<ul>
+								<li class="measured">
+									<span>Measured level</span>
+								</li>
+								<li class="forecast">
+									<span>Forecast level</span>
+								</li>
+								<li class="property">
+									<span><a href="#property">Property flooding possible</a></span>
+								</li>
+								<li class="land">
+									<span><a href="#low-lying-land">Low lying land may flood</a></span>
+								</li>
+								<li class="normal">
+									<span>Typical range</span>
+								</li>
+								<li class="max max-off">
+									<span>
+										<a href="" role="button" aria-controls="graph" onclick="return false">
+											Show highest recorded level
+										</a>
+									</span>
+								</li>
+							</ul>
+						</figcaption>
+					</figure>
+				</div>
+				<!-- End D3 available -->
+			</div>
+		</div>
+	</div>
 
-<!-- Remove -->
-<script>
-	var visualisation = document.getElementsByClassName('visualisation')
-	for (i=0; i<visualisation.length; i++){
-		//var table = visualisation[i].getElementsByClassName('visualisation-table')[0]
-		var inner = visualisation[i].getElementsByClassName('visualisation-inner')[0]
-		var summary = visualisation[i].getElementsByClassName('visualisation-summary')[0]
-		var device = visualisation[i].getElementsByClassName('visualisation-device')[0]
-		//table.className += ' visuallyhidden'
-		summary.className += ' visuallyhidden'
-		device.className += ' visuallyhidden'
-		inner.className = 'visualisation-inner'
-		// Remove taindex from summary links
-		summaryLinks = summary.getElementsByTagName('a')
-		for (var i=0; i < summaryLinks.length; i++) {
-			summaryLinks[i].setAttribute('tabindex', '-1');
+	<!-- Remove -->
+	<script>
+		var visualisation = document.getElementsByClassName('visualisation')
+		for (i=0; i<visualisation.length; i++){
+			//var table = visualisation[i].getElementsByClassName('visualisation-table')[0]
+			var inner = visualisation[i].getElementsByClassName('visualisation-inner')[0]
+			var summary = visualisation[i].getElementsByClassName('visualisation-summary')[0]
+			var device = visualisation[i].getElementsByClassName('visualisation-device')[0]
+			//table.className += ' visuallyhidden'
+			summary.className += ' visuallyhidden'
+			device.className += ' visuallyhidden'
+			inner.className = 'visualisation-inner'
+			// Remove taindex from summary links
+			summaryLinks = summary.getElementsByTagName('a')
+			for (var i=0; i < summaryLinks.length; i++) {
+				summaryLinks[i].setAttribute('tabindex', '-1');
+			}
+			inner.removeAttribute('hidden')
 		}
-		inner.removeAttribute('hidden')
-	}
-</script>
+	</script>
+</section>
 <!-- End remove -->
 {% endblock %}
 
 
 {% block nearby_areas %}
-<h3 class="heading-small">Typical range at this location</h3>
-<p>0.75m to 2.70m</p>
-<h3 id="low-lying-land" class="heading-small">Low lying land may flood above these levels</h3>
-<ul class="list list-target-areas">
-	<li>
-		<span class="list-target-areas-level">2.70m:</span>
-		<a href="">
-			River Irk lower catchment
-		</a>
-	</li>
-</ul>
-<h3 id="property" class="heading-small">Property flooding is possible above these levels</h3>
-<ul class="list list-target-areas">
-	<li>
-		<span class="list-target-areas-level">4.35m:</span>
-		<a href="">
-			River Irk at Vale Park Industrial Estate
-		</a>
-	</li>
-	<li>
-		<span class="list-target-areas-level">4.37m:</span>
-		<a href="">
-			River Irk at Cheetham Hill
-		</a>
-	</li>
-	<li>
-		<span class="list-target-areas-level">4.50m:</span>
-		<a href="">
-			River Irk at Vale Park Industrial Estate
-		</a>
-	</li>
-	<li>
-		<span class="list-target-areas-level">4.65m:</span>
-		<a href="">
-			Another target area
-		</a>
-	</li>	
-</ul>
-<h3 class="heading-small">Highest level recorded at this location</h3>
-<p>5.10m on 6 December 2015</p>
+<section id="nearby-areas" class="nearby-areas" aria-labelledby="nearby-areas-heading" role="status" aria-live="polite">
+	<div class="grid-row">
+		<div class="column-two-thirds">
+			<h2 class="heading-medium" id="nearby-areas-heading">What effect could these levels have on nearby areas?</h2>
+			<h3 class="heading-small">Typical range at this location</h3>
+			<p>0.75m to 2.70m</p>
+			<h3 id="low-lying-land" class="heading-small">Low lying land may flood above these levels</h3>
+			<ul class="list list-target-areas">
+				<li>
+					<span class="list-target-areas-level">2.70m:</span>
+					<a href="">
+						River Irk lower catchment
+					</a>
+				</li>
+			</ul>
+			<h3 id="property" class="heading-small">Property flooding is possible above these levels</h3>
+			<ul class="list list-target-areas">
+				<li>
+					<span class="list-target-areas-level">4.35m:</span>
+					<a href="">
+						River Irk at Vale Park Industrial Estate
+					</a>
+				</li>
+				<li>
+					<span class="list-target-areas-level">4.37m:</span>
+					<a href="">
+						River Irk at Cheetham Hill
+					</a>
+				</li>
+				<li>
+					<span class="list-target-areas-level">4.50m:</span>
+					<a href="">
+						River Irk at Vale Park Industrial Estate
+					</a>
+				</li>
+				<li>
+					<span class="list-target-areas-level">4.65m:</span>
+					<a href="">
+						Another target area
+					</a>
+				</li>	
+			</ul>
+			<h3 class="heading-small">Highest level recorded at this location</h3>
+			<p>5.10m on 6 December 2015</p>
+		</div>
+	</div>
+</section>
 {% endblock %}
