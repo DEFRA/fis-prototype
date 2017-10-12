@@ -2025,6 +2025,10 @@ input[type=number] {
   max-width: 14em;
 }
 
+.button-hide-threshold {
+  display: inline-block;
+}
+
 table.table-levels {
   margin-bottom: 1.5em;
 }
@@ -2495,6 +2499,10 @@ table.table-levels tbody .error:before {
   margin-bottom: 1.0526315789em;
 }
 
+.nearby-station-select {
+  margin-top: 1em;
+}
+
 .time-stamp {
   color: #6f777b;
   margin-top: -0.75em;
@@ -2542,14 +2550,16 @@ table.table-levels tbody .error:before {
 }
 
 .notice.notice-warning strong {
-  padding-left: 60px;
+  padding-left: 62px;
 }
 
 .icon.icon-warning {
   background-image: url("/public/images/icon-flood-warning-2x.png");
   background-size: 100%;
-  margin-top: -20px;
+  margin-top: -22px;
   margin-left: 2px;
+  width: 37px;
+  height: 37px;
 }
 
 .warning-inline {

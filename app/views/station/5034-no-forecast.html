@@ -60,7 +60,7 @@ River level
 							</li>
 							<li class="max max-off">
 								<span>
-									<a href="" role="button" aria-controls="visualisation" onclick="return false">
+									<a href="" class="button-hide-threshold" role="button" aria-controls="visualisation" onclick="return false">
 										Show highest recorded level
 									</a>
 								</span>
@@ -93,8 +93,21 @@ River level
 			inner.removeAttribute('hidden')
 		}
 	</script>
+	<!-- End remove -->
+
+	<div class="grid-row">
+		<div class="column-two-thirds">
+			<details>
+				<summary>
+				<span class="summary">How river levels are measured</span>
+				</summary>
+				<div class="panel panel-border-narrow">
+				<p>For most river levels the data we collect is fed into this service once or twice a day. We often increase this frequency whenever there is a greater risk of flooding.</p>
+				</div>
+			</details>
+		</div>
+	</div>
 </section>
-<!-- End remove -->
 {% endblock %}
 
 
