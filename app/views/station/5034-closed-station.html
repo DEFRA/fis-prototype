@@ -13,19 +13,23 @@ River level
 
 
 {% block message %}
-<div class="notice">
+<div class="notice notice-flood-important">
     <i class="icon icon-important">
         <span class="visually-hidden">Warning</span>
     </i>
     <strong class="bold-small">
-        No data is available for this measuring station as it is currently closed.    
+       Station currently closed    
     </strong>
 </div>
-<p style="margin-top:1.5em"><a href="">View nearby stations</a></p>
+<p>No data is available. <a href="">View nearby measuring stations</a></p>
 {% endblock %}
 
 
 {% block riverLevels %}
+{% endblock %}
+
+
+{% block nearby_stations %}
 {% endblock %}
 
 

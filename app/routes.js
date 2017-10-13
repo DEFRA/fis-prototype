@@ -166,12 +166,12 @@ module.exports = {
       var levelData = '/public/javascripts/json/shrewsbury-no-forecast.json'
       res.render('station/5034-observed-data-error', { 'section': section, 'section_name': sectionName, 'page_name': pageName, 'level_data': levelData })
     })
-    // Example station: Observed data error
+    // Example station: Forecast data error
     app.get('/station/5034-forecast-data-error', function (req, res) {
       var section = 'station'
       var sectionName = 'Station'
       var pageName = 'Irk at Collyhurst Weir'
-      var levelData = '/public/javascripts/json/shrewsbury-no-forecast.json'
+      var levelData = '/public/javascripts/json/shrewsbury-probabilistic-c2.json'
       res.render('station/5034-forecast-data-error', { 'section': section, 'section_name': sectionName, 'page_name': pageName, 'level_data': levelData })
     })
 

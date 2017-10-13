@@ -132,11 +132,14 @@ $path: "/public/images/";
 
 // Notices
 
-.notice.notice-warning {
+.notice.notice-flood-warning {
   margin-bottom:1.5em;
   strong {
-    padding-left:62px;
+      padding-left:72px;
   }
+}
+.notice.notice-flood-important {
+  margin-bottom:1.5em;
 }
 .icon.icon-warning {
   @extend .icon-important;
@@ -146,6 +149,24 @@ $path: "/public/images/";
   margin-left: 2px;
   width:37px;
   height:37px;
+}
+.icon.icon-flood-warning {
+  @extend .icon-important;
+  background-image:url('/public/images/flood-warnings-icon.gif');
+  background-size:100%;
+  margin-top: -28px;
+  margin-left: -1px;
+  width:55px;
+  height:55px;
+}
+.icon.icon-flood-alert {
+  @extend .icon-important;
+  background-image:url('/public/images/flood-alerts-icon.gif');
+  background-size:100%;
+  margin-top: -28px;
+  margin-left: -1px;
+  width:55px;
+  height:55px;
 }
 
 // Warning inline

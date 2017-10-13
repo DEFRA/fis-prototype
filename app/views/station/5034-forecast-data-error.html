@@ -13,8 +13,7 @@ River level
 
 
 {% block message %}
-<p>There are no flood warnings or alerts currently issued for nearby areas.</p>
-<p>The water level here is currently within this river's typical range. The likelihood of flooding in nearby areas is low.</p>
+<p>Unfortunately, the 36-hour forecast information for this measuring station is currently unavailable. We'll resolve this as soon as possible.</p>
 <p class="font-small">
 	Latest recorded level <span class="bold-small">1.90m</span> at <span class="bold-small"><time datetime="2017-05-16T12:00:00">12:00pm on 16 May 2017</time></span>.
 </p>
@@ -52,15 +51,18 @@ River level
 							<li class="measured">
 								<span>Measured level</span>
 							</li>
+							<li class="property">
+								<span><a href="#property">Property flooding possible</a></span>
+							</li>
 							<li class="land">
-								<span>Flooding possible</span>
+								<span><a href="#low-lying-land">Low lying land may flood</a></span>
 							</li>
 							<li class="normal">
 								<span>Typical range</span>
 							</li>
 							<li class="max max-off">
 								<span>
-									<a href="" role="button" aria-controls="visualisation" onclick="return false">
+									<a href="" class="button-hide-threshold" role="button" aria-controls="graph" onclick="return false">
 										Show highest recorded level
 									</a>
 								</span>
@@ -95,15 +97,18 @@ River level
 	</script>
 	<!-- End remove -->
 
-	<details>
-		<summary>
-			<span class="summary">How river levels are measured and forecast</span>
-		</summary>
-		<div class="panel panel-border-narrow">
-			<p>For most river levels the data we collect is fed into this service once or twice a day. We often increase this frequency whenever there is a greater risk of flooding.</p>
-			<p>Forecast levels are derived from automated models. These are most accurate within the first 6 hours.</p>
+	<div class="grid-row">
+		<div class="column-two-thirds">
+			<details>
+				<summary>
+				<span class="summary">How river levels are measured</span>
+				</summary>
+				<div class="panel panel-border-narrow">
+				<p>For most river levels the data we collect is fed into this service once or twice a day. We often increase this frequency whenever there is a greater risk of flooding.</p>
+				</div>
+			</details>
 		</div>
-	</details>
+	</div>
 </section>
 {% endblock %}
 
@@ -115,6 +120,42 @@ River level
 			<h2 class="heading-medium" id="nearby-areas-heading">What effect could these levels have on nearby areas?</h2>
 			<h3 class="heading-small">Typical range at this location</h3>
 			<p>0.75m to 2.70m</p>
+			<h3 id="low-lying-land" class="heading-small">Low lying land may flood above these levels</h3>
+			<ul class="list list-target-areas">
+				<li>
+					<span class="list-target-areas-level">2.70m:</span>
+					<a href="">
+						River Irk lower catchment
+					</a>
+				</li>
+			</ul>
+			<h3 id="property" class="heading-small">Property flooding is possible above these levels</h3>
+			<ul class="list list-target-areas">
+				<li>
+					<span class="list-target-areas-level">4.35m:</span>
+					<a href="">
+						River Irk at Vale Park Industrial Estate
+					</a>
+				</li>
+				<li>
+					<span class="list-target-areas-level">4.37m:</span>
+					<a href="">
+						River Irk at Cheetham Hill
+					</a>
+				</li>
+				<li>
+					<span class="list-target-areas-level">4.50m:</span>
+					<a href="">
+						River Irk at Vale Park Industrial Estate
+					</a>
+				</li>
+				<li>
+					<span class="list-target-areas-level">4.65m:</span>
+					<a href="">
+						Another target area
+					</a>
+				</li>	
+			</ul>
 			<h3 class="heading-small">Highest level recorded at this location</h3>
 			<p>5.10m on 6 December 2015</p>
 		</div>

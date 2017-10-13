@@ -13,8 +13,15 @@ River level
 
 
 {% block message %}
-<p>There are no flood warnings or alerts currently issued for nearby areas.</p>
-<p>However, some flooding of low-lying areas is possible in the next <time datetime="36h">36 hours</time>. Check this page regularly to get the latest information.</p>
+<div class="notice notice-flood-important">
+	<i class="icon icon-important">
+		<span class="visually-hidden">Warning</span>
+	</i>
+	<strong class="bold-small">
+		<a href="">Flooding is possible - Check for warnings</a>
+	</strong>
+</div>
+<p>Some flooding of low-lying areas is possible in the next <time datetime="36h">36 hours</time>.</p>
 <p class="font-small">
 	Latest recorded level <span class="bold-small">2.42m</span> at <span class="bold-small"><time datetime="2017-05-16T12:00:00">12:00pm on 16 May 2017</time></span>.
 </p>{% endblock %}

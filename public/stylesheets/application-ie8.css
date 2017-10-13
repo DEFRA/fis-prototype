@@ -788,14 +788,14 @@ hr {
   }
 }
 
-.icon-important, .icon.icon-warning {
+.icon-important, .icon.icon-warning, .icon.icon-flood-warning, .icon.icon-flood-alert {
   width: 35px;
   height: 35px;
   background-image: url("/public/images/icon-important.png");
 }
 
 @media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 20 / 10), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
-  .icon-important, .icon.icon-warning {
+  .icon-important, .icon.icon-warning, .icon.icon-flood-warning, .icon.icon-flood-alert {
     background-image: url("/public/images/icon-important-2x.png");
     background-size: 100%;
   }
@@ -2499,12 +2499,16 @@ table.table-levels tbody .error:before {
   margin-top: 0.9375em;
 }
 
-.notice.notice-warning {
+.notice.notice-flood-warning {
   margin-bottom: 1.5em;
 }
 
-.notice.notice-warning strong {
-  padding-left: 62px;
+.notice.notice-flood-warning strong {
+  padding-left: 72px;
+}
+
+.notice.notice-flood-important {
+  margin-bottom: 1.5em;
 }
 
 .icon.icon-warning {
@@ -2514,6 +2518,24 @@ table.table-levels tbody .error:before {
   margin-left: 2px;
   width: 37px;
   height: 37px;
+}
+
+.icon.icon-flood-warning {
+  background-image: url("/public/images/flood-warnings-icon.gif");
+  background-size: 100%;
+  margin-top: -28px;
+  margin-left: -1px;
+  width: 55px;
+  height: 55px;
+}
+
+.icon.icon-flood-alert {
+  background-image: url("/public/images/flood-alerts-icon.gif");
+  background-size: 100%;
+  margin-top: -28px;
+  margin-left: -1px;
+  width: 55px;
+  height: 55px;
 }
 
 .warning-inline {
