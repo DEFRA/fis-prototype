@@ -2949,12 +2949,12 @@ table.table-levels tbody .error:before {
   }
 }
 
-.nearby-station-select {
-  margin-top: 1em;
+.next-steps {
+  margin-top: 2em;
 }
 
 .station-technical-data {
-  margin-top: 2em;
+  margin-top: 1em;
 }
 
 .station-technical-data p {

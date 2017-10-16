@@ -42,17 +42,17 @@
   </section>
   {% endblock %}
 
-  {% block next_steps %}
-  <div class="nearby-station-select">
-    <h2 class="visuallyhidden" id="check-your-risk">Check your risk</h2>
-    <a href="">Select a nearby measuring station</a> or <a href="">check for flood warnings near you</a>.
-  </div>
-  {% endblock %}
-
   {% block technical_data %}
   <div class="station-technical-data">
     <h2 class="visuallyhidden" id="technical-data-heading">Measuring station technical data</h2>
     <p class="font-xsmall">Station Id: 1234, Datum: 142mAOD</p>
+  </div>
+  {% endblock %}
+  
+  {% block next_steps %}
+  <div class="next-steps">
+    <h2 class="visuallyhidden" id="next-steps">Next steps</h2>
+    <a href="">Select a nearby measuring station</a> or <a href="">check for flood warnings near you</a>.
   </div>
   {% endblock %}
 
