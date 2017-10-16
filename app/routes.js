@@ -98,6 +98,12 @@ module.exports = {
       res.render('stations-v9', { 'page_name': pageName })
     })
 
+    // Measuring and forecasting river levels
+    app.get('/river-levels-measuring-forecasting', function (req, res) {
+      var pageName = 'Flood Information Service'
+      res.render('river-levels-measuring-forecasting', { 'page_name': pageName })
+    })
+
     //
     // Forecast line only
     //
@@ -182,11 +188,9 @@ module.exports = {
       var levelData = '/public/javascripts/json/shrewsbury-probabilistic-c2.json'
       res.render('station/5034-forecast-data-error', { 'section': section, 'section_name': sectionName, 'page_name': pageName, 'level_data': levelData })
     })
-
     //
     // End
     //
-
 
     // Forecast error band and buffer
 

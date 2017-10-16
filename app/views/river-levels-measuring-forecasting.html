@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+
+{% block page_title %}How river levels are measured and forecast - GOV.UK{% endblock %}
+
+
+{% block head %}
+  {% include "partials/head.html" %}
+  {% include "partials/snippets_head.html" %}
+  <meta name="description" content="Meta description placeholder">
+{% endblock %}
+
+
+{% block content %}
+<main id="content" role="main" tabindex="-1">
+
+  {% include "partials/phase_banner.html" %}
+
+  <div class="grid-row">
+    <div class="column-two-thirds">
+
+      <h1 class="heading-xlarge">
+        How river levels are measured and forecast?
+      </h1>
+ 
+      <h2 class="heading-medium">Measuring</h2>
+      <p>Copy including time lag...</p>
+
+      <h2 class="heading-medium">Forecasting</h2>
+      <p>Copy including models and uncertainty...</p>
+
+    </div>
+  </div>
+
+</main><!-- / #content -->
+{% endblock %}
+
+
+{% block body_end %}
+  {% include "partials/scripts.html" %}
+{% endblock %}
+
