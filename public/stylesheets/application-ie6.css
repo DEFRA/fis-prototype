@@ -2447,6 +2447,10 @@ table.table-levels tbody .error:before {
   margin-top: 1.25em;
 }
 
+.visualisation-more {
+  margin-bottom: 0;
+}
+
 .visualisation-table {
   max-height: 30em;
   overflow: auto;
