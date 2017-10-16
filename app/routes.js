@@ -118,6 +118,14 @@ module.exports = {
       var levelData = '/public/javascripts/json/shrewsbury-probabilistic-a2.json'
       res.render('station/5034-forecast-warning-highest', { 'section': section, 'section_name': sectionName, 'page_name': pageName, 'level_data': levelData })
     })
+      // Example station: Forecast with alert
+      app.get('/station/5034-forecast-alert', function (req, res) {
+        var section = 'station'
+        var sectionName = 'Station'
+        var pageName = 'Irk at Collyhurst Weir'
+        var levelData = '/public/javascripts/json/shrewsbury-probabilistic-a.json'
+        res.render('station/5034-forecast-alert', { 'section': section, 'section_name': sectionName, 'page_name': pageName, 'level_data': levelData })
+      })    
     // Example station: Forecast with low-laying land flooding possible
     app.get('/station/5034-forecast-low-lying-flooding-possible', function (req, res) {
       var section = 'station'
