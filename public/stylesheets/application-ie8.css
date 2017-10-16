@@ -2461,6 +2461,14 @@ table.table-levels tbody .error:before {
   margin-top: 1em;
 }
 
+.station-technical-data {
+  margin-top: 2em;
+}
+
+.station-technical-data p {
+  margin-bottom: 0;
+}
+
 .time-stamp {
   color: #6f777b;
   margin-top: -0.75em;
