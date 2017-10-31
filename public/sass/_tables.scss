@@ -1,0 +1,10 @@
+// Graphs
+
+.table-nearby-areas {
+    th {
+        @include core-19($font-weight:bold);
+    }
+    td {
+        @include core-19;
+    }
+}

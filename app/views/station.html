@@ -29,9 +29,54 @@
     </div>
   </div>
 
-  {% block riverLevels %}
-  {% endblock %}
-  
+  <section class="visualisation" id="visualisation" aria-labelledby="visualisation-heading" aria-live="polite">
+
+    <details style="margin-bottom:0.5em">
+      <summary>
+        <span class="summary">How river levels are displayed?</span>
+      </summary>
+      <div class="panel panel-border-narrow">
+        <p>Copy</p>
+      </div>
+    </details>
+
+    {% block riverLevels %}
+    {% endblock %}
+    
+    <!--
+    <details style="margin-bottom:0.5em">
+      <summary>
+        <span class="summary">How river levels are measured?</span>
+      </summary>
+      <div class="panel panel-border-narrow">
+        <p>Copy</p>
+      </div>
+    </details>
+
+    <details style="margin-bottom:0.5em">
+      <summary>
+        <span class="summary">How river levels are forecast?</span>
+      </summary>
+      <div class="panel panel-border-narrow">
+        <p>Copy</p>
+      </div>
+    </details>
+
+    <details style="margin-bottom:0.5em">
+      <summary>
+        <span class="summary">How river levels are displayed?</span>
+      </summary>
+      <div class="panel panel-border-narrow">
+        <p>Copy</p>
+      </div>
+    </details>
+    -->
+
+    <p><a href="/river-levels-measuring-forecasting">How river levels are measured, forecast and displayed?</a></p>
+
+  </section>
+
+
   {% block nearby_areas %}
   <section id="nearby-areas" class="nearby-areas" aria-labelledby="nearby-areas-heading" role="status" aria-live="polite">
     <div class="grid-row">

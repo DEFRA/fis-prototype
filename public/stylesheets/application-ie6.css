@@ -2284,6 +2284,26 @@ table.table-levels tbody .error:before {
   line-height: 1.25;
 }
 
+.table-nearby-areas th {
+  font-family: "nta", Arial, sans-serif;
+  font-weight: bold;
+  text-transform: none;
+  font-size: 16px;
+  line-height: 1.25;
+  font-size: 19px;
+  line-height: 1.3157894737;
+}
+
+.table-nearby-areas td {
+  font-family: "nta", Arial, sans-serif;
+  font-weight: 400;
+  text-transform: none;
+  font-size: 16px;
+  line-height: 1.25;
+  font-size: 19px;
+  line-height: 1.3157894737;
+}
+
 .map {
   height: 450px;
 }
