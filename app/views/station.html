@@ -31,15 +31,6 @@
 
   <section class="visualisation" id="visualisation" aria-labelledby="visualisation-heading" aria-live="polite">
 
-    <details style="margin-bottom:0.5em">
-      <summary>
-        <span class="summary">How river levels are displayed?</span>
-      </summary>
-      <div class="panel panel-border-narrow">
-        <p>Copy</p>
-      </div>
-    </details>
-
     {% block riverLevels %}
     {% endblock %}
     
@@ -72,8 +63,15 @@
     </details>
     -->
 
-    <p><a href="/river-levels-measuring-forecasting">How river levels are measured, forecast and displayed?</a></p>
-
+    <details style="margin-bottom:0.5em">
+      <summary>
+        <span class="summary">Why there may be a gap between now and the latest recording?</span>
+      </summary>
+      <div class="panel panel-border-narrow">
+        <p>For most river levels the data we collect is fed into this service once or twice a day. We often increase this frequency whenever there is a greater risk of flooding.</p>
+      </div>
+    </details>
+  
   </section>
 
 
@@ -90,7 +88,8 @@
   {% block technical_data %}
   <div class="station-technical-data">
     <h2 class="visuallyhidden" id="technical-data-heading">Measuring station technical data</h2>
-    <p class="font-xsmall">Station Id: 1234, Datum: 142mAOD</p>
+    <p style="margin-bottom:1.5em" class="font-xsmall">Station Id: 1234, Datum: 142mAOD</p>
+    <p><a href="/river-levels-measuring-forecasting">How river levels are measured, forecast and displayed?</a></p>
   </div>
   {% endblock %}
   
