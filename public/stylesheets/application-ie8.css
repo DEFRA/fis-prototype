@@ -2246,6 +2246,7 @@ table.table-levels tbody .error:before {
   line-height: 1.25;
   font-size: 19px;
   line-height: 1.3157894737;
+  vertical-align: top;
 }
 
 .table-nearby-areas td {
@@ -2256,6 +2257,7 @@ table.table-levels tbody .error:before {
   line-height: 1.25;
   font-size: 19px;
   line-height: 1.3157894737;
+  vertical-align: top;
 }
 
 .map {
@@ -2478,7 +2480,7 @@ table.table-levels tbody .error:before {
 }
 
 .next-steps {
-  margin-top: 2em;
+  margin-top: 1.5em;
 }
 
 .station-technical-data {

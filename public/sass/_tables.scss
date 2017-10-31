@@ -3,8 +3,10 @@
 .table-nearby-areas {
     th {
         @include core-19($font-weight:bold);
+        vertical-align:top;
     }
     td {
         @include core-19;
+        vertical-align:top;
     }
 }
