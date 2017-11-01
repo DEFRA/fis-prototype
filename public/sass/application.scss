@@ -182,28 +182,23 @@ $path: "/public/images/";
 // Warning inline
 
 .warning-inline {
-  text-decoration: none;
-  .warning-inline-name {
-    margin-right:0.2em;
-    text-decoration: underline;
-  }
-  .warning-inline-icon:before {
+  @include core-16;
+  &:before {
     display:inline-block;
-    vertical-align:bottom;
+    margin-right:0.2em;
+    vertical-align:middle;
+    position:relative;
     content:' ';
+    top:-2px;
     width:22px;
     height:22px;
     background:url('/public/images/icon-flood-warning-2x.png');
     background-position:left top;
     background-size:100%;
     @include media(tablet) {
-      top:-2px;
       width:26px;
       height:26px;
     }
-  }
-  .warning-inline-icon span {
-    color:$black;
   }
 }
 

@@ -28,7 +28,7 @@ River level
 
 {% block riverLevels %}
 <div class="grid-row">
-	<div class="column-two-thirds">
+	<div class="column-full">
 		<h2 class="heading-medium medium-river-level" id="visualisation-heading">
 			Levels: last 5 days and next 36 hours
 		</h2>   
@@ -40,51 +40,44 @@ River level
 		<div class="visualisation-summary" id="visualisation-summary">
 			<p>The water level has risen from 1.50m at <time datetime="2017-05-11T14:00:00">2pm on 11 May</time> to 2.42m at <time datetime="2017-05-16T12:00:00">12pm today</time> (latest recording). The forecast is for the level to rise sharply to 4.65m at <time datetime="2017-05-17T05:00:00">5:00am on 17 May</time> (forecast highest) and then fall to 2.95m at <time datetime="2017-05-18T02:00:00">2am on 18 May</time>. <a href="#low-lying-land" rel="nofollow">Low lying land may flood</a> from <time datetime="2017-05-16T07:00:00">7pm on 16 May</time> and <a href="#property" rel="nofollow">property flooding is possible</a> from <time datetime="2017-05-17T01:00:00">1am on 17 May</time>.</p>
 		</div>
-	</div>
-</div>
-
-<div class="grid-row">
-	<div class="column-full">
-		<div>
-			<!--
-				If D3 available (Javascript, SVG or VML)
-				remove hidden class and hidden attribute
-			-->
-			<div class="visualisation-inner hidden" hidden>
-				<figure class="graph" role="presentation" aria-hidden="true">
-					<div id="graph"></div>
-					<figcaption class="graph-legend">
-						<ul>
-							<li class="measured">
-								<span>Measured level</span>
-							</li>
-							<li class="forecast">
-								<span>Forecast level</span>
-							</li>
-							<li class="property">
-								<span>Property flooding possible</span>
-							</li>
-							<li class="land">
-								<span>Low lying land may flood</span>
-							</li>
-							<li class="normal">
-								<span>Typical range</span>
-							</li>
-							<li class="max max-off">
-								<span>
-									<a href="" class="button-hide-threshold" role="button" aria-controls="graph" onclick="return false">
-										Show highest recorded level
-									</a>
-								</span>
-							</li>
-						</ul>
-					</figcaption>
-				</figure>
-			</div>
-			<!--
-				End D3 available
-			-->
+		<!--
+			If D3 available (Javascript, SVG or VML)
+			remove hidden class and hidden attribute
+		-->
+		<div class="visualisation-inner hidden" hidden>
+			<figure class="graph" role="presentation" aria-hidden="true">
+				<div id="graph"></div>
+				<figcaption class="graph-legend">
+					<ul>
+						<li class="measured">
+							<span>Measured level</span>
+						</li>
+						<li class="forecast">
+							<span>Forecast level</span>
+						</li>
+						<li class="property">
+							<span>Property flooding possible</span>
+						</li>
+						<li class="land">
+							<span>Low lying land may flood</span>
+						</li>
+						<li class="normal">
+							<span>Typical range</span>
+						</li>
+						<li class="max max-off">
+							<span>
+								<a href="" class="button-hide-threshold" role="button" aria-controls="graph" onclick="return false">
+									Show highest recorded level
+								</a>
+							</span>
+						</li>
+					</ul>
+				</figcaption>
+			</figure>
 		</div>
+		<!--
+			End D3 available
+		-->
 	</div>
 </div>
 
@@ -163,78 +156,65 @@ River level
 
 			<table style="margin-bottom:1em" class="table-nearby-areas">
 				<caption class="visuallyhidden">Typical range</caption>
-				<thead>
-					<tr>
-						<th scope="col" colspan="3">Typical range</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<td scope="row" colspan="3">0.75m to 2.70m</td>
-					</tr>
-				</tbody>
+				<tr>
+					<th scope="col" colspan="3">Typical range</th>
+				</tr>
+				<tr>
+					<td scope="row" colspan="3">0.75m to 2.70m</td>
+				</tr>
+				<tr>
+					<th id="low-lying-land" scope="col" colspan="3">Low lying land may flood</th>
+				</tr>
+				<tr>
+					<td style="width:10%" scope="row">2.70m</td>
+					<td><a href="">River Irk lower catchment</a></td>
+					<td style="width:40%" class="last">
+						<strong class="warning-inline">
+							Flood alert in force
+						</strong>
+					</td>
+				</tr>
+				<tr>
+					<th id="property" scope="col" colspan="3">Property flooding is possible</th>
+				</tr>
+				<tr>
+					<td style="width:10%" scope="row">4.35m</td>
+					<td><a href="">River Irk at Vale Park Industrial Estate</a></td>
+					<td style="width:40%" class="last">
+						<strong class="warning-inline">
+							Flood warning in force
+						</strong>
+					</td>
+				</tr>
+				<tr>
+					<td scope="row">4.37m</td>
+					<td><a href="">River Irk at Cheetham Hill</a></td>
+					<td class="last">
+						<strong class="warning-inline">
+							Flood warning in force
+						</strong>
+					</td>
+				</tr>
+				<tr>
+					<td scope="row">4.50m</td>
+					<td colspan="2"><a href="">River Irk at Vale Park Industrial Estate</a></td>
+				</tr>
+				<tr>
+					<td scope="row">4.65m</td>
+					<td><a href="">Another target area</a></td>
+					<td class="last">
+						<strong class="font-xsmall">
+							Flood warning no longer in force
+						</strong>
+					</td>
+				</tr>
+				<tr>
+					<th scope="col" colspan="3">Highest level recorded</th>
+				</tr>
+				<tr>
+					<td scope="row" colspan="3">5.10m on 6 December 2015</td>
+				</tr>
 			</table>
-
-			<table style="margin-bottom:1em" class="table-nearby-areas">
-				<caption class="visuallyhidden">Low lying land may flood</caption>
-				<thead>
-					<tr>
-						<th id="low-lying-land" scope="col" colspan="3">Low lying land may flood</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<td style="width:10%" scope="row">2.70m</td>
-						<td><a href="">River Irk lower catchment</a></td>
-						<td style="width:40%" class="last">Flood alert in force</td>
-					</tr>
-				</tbody>
-			</table>
-
-			<table style="margin-bottom:1em" class="table-nearby-areas">
-				<caption class="visuallyhidden">Property flooding is possible</caption>
-				<thead>
-					<tr>
-						<th id="property" scope="col" colspan="3">Property flooding is possible</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<td style="width:10%" scope="row">4.35m</td>
-						<td><a href="">River Irk at Vale Park Industrial Estate</a></td>
-						<td style="width:40%" class="last">Flood warning in force</td>
-					</tr>
-					<tr>
-						<td scope="row">4.37m</td>
-						<td><a href="">River Irk at Cheetham Hill</a></td>
-						<td class="last">Flood warning in force</td>
-					</tr>
-					<tr>
-						<td scope="row">4.50m</td>
-						<td colspan="2"><a href="">River Irk at Vale Park Industrial Estate</a></td>
-					</tr>
-					<tr>
-						<td scope="row">4.65m</td>
-						<td><a href="">Another target area</a></td>
-						<td class="last">Flood warning no longer in force</td>
-					</tr>
-				</tbody>
-			</table>
-
-			<table style="margin-bottom:1em" class="table-nearby-areas">
-				<caption class="visuallyhidden">Highest level recorded</caption>
-				<thead>
-					<tr>
-						<th scope="col" colspan="3">Highest level recorded</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<td scope="row" colspan="3">5.10m on 6 December 2015</td>
-					</tr>
-				</tbody>
-			</table>
-
 		</div>
 	</div>
 </section>

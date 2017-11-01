@@ -1910,7 +1910,7 @@ input[type=number] {
   margin-bottom: 2em;
   margin-bottom: 1em;
   margin-bottom: 0.5em;
-  width: 80%;
+  width: 81%;
 }
 
 .graph-legend {
@@ -1925,9 +1925,8 @@ input[type=number] {
   position: absolute;
   left: 100%;
   top: 0;
-  width: 20%;
-  margin-left: 30px;
-  margin-right: 15px;
+  width: 19.6%;
+  margin-left: 3.85%;
 }
 
 .graph-legend li {
@@ -2092,7 +2091,6 @@ table.table-levels tbody .error:before {
   overflow: visible;
   height: 300px;
   width: 100%;
-  margin-bottom: 1.0526315789em;
   height: 450px;
   /*
     .observed-focus .observed-line {
@@ -2615,30 +2613,29 @@ table.table-levels tbody .error:before {
 }
 
 .warning-inline {
-  text-decoration: none;
+  font-family: "nta", Arial, sans-serif;
+  font-weight: 400;
+  text-transform: none;
+  font-size: 14px;
+  line-height: 1.1428571429;
+  font-size: 16px;
+  line-height: 1.25;
 }
 
-.warning-inline .warning-inline-name {
-  margin-right: 0.2em;
-  text-decoration: underline;
-}
-
-.warning-inline .warning-inline-icon:before {
+.warning-inline:before {
   display: inline-block;
-  vertical-align: bottom;
+  margin-right: 0.2em;
+  vertical-align: middle;
+  position: relative;
   content: ' ';
+  top: -2px;
   width: 22px;
   height: 22px;
   background: url("/public/images/icon-flood-warning-2x.png");
   background-position: left top;
   background-size: 100%;
-  top: -2px;
   width: 26px;
   height: 26px;
-}
-
-.warning-inline .warning-inline-icon span {
-  color: #0b0c0c;
 }
 
 .list .target-area-name {
