@@ -1,0 +1,62 @@
+{% extends "layout.html" %}
+
+{% block page_title %}Flood map for planning - GOV.UK{% endblock %}
+
+{% block head %}
+  {% include "partials/head.html" %}  
+  <link rel="stylesheet" type="text/css" href="/static/flood-map-for-planning/public/stylesheets/application.css">
+  {% include "partials/snippets_head.html" %}
+{% endblock %}
+
+{% block content %}
+<div id="content" class="wrapper">
+	<div class="phase-banner-beta">
+    <p>
+      <strong class="phase-tag">beta</strong>
+      <span>
+        This is a new service – your <a href="/long-term-flood-risk/feedback">feedback</a> will help us to improve it.
+      </span>
+    </p>
+  </div>
+
+  <link rel="stylesheet" type="text/css" href="/static/long-term-flood-risk/public/stylesheets/search/index.css">
+  
+  <main id="search-page">
+    <div id="banner"></div>
+    <section class="mission">
+      <h1 class="heading-xlarge">Confirm the development location</h1>
+      <p>Copy...</p>
+    </section>
+  </main>
+  
+  <div class="grid-row">
+    <div class="column-two-thirds">
+      <p>Your <a href="/long-term-flood-risk/feedback">feedback</a> will help us improve this service</p>
+    </div>
+  </div>
+
+</div>
+
+{% endblock %}
+
+{% block footer_support_links %}
+<h2 class="visuallyhidden">Support links</h2>
+<ul>
+    <li><a href="https://www.gov.uk/help">Help</a></li>
+    <li><a href="https://www.gov.uk/help/cookies">Cookies</a></li>
+    <li><a href="https://www.gov.uk/contact">Contact</a></li>
+    <li><a href="https://www.gov.uk/cymraeg">Cymraeg</a></li>
+    <li>Built by the <a href="https://www.gov.uk/government/organisations/environment-agency">Environment Agency</a>
+    </li>
+</ul>
+<p class="font-xsmall">&#169; Crown copyright and database rights 2017 <a href='http://www.ordnancesurvey.co.uk'>OS</a> 100024198. Use of this addressing  data is subject to the <a href="/long-term-flood-risk/os-terms">terms and conditions</a>.</p>
+{% endblock %}
+
+{% block body_end %}
+
+  <!-- GOV.UK elements redirect -->
+  <!--<script src="/public/javascripts/redirect.js"></script>-->
+  {% include "partials/scripts.html" %}
+
+{% endblock %}
+

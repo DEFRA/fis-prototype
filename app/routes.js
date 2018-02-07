@@ -5,6 +5,22 @@ module.exports = {
     })
 
     //
+    // Flood map for planning 
+    //
+    
+    // Start - flood map for planning
+    app.get('/flood-map-for-planning', function (req, res) {
+      var pageName = 'Flood map for planning'
+      res.render('flood-map-for-planning/start', { 'page_name': pageName })
+    })
+
+    // Confirm location - flood map for planning
+    app.get('/flood-map-for-planning/confirm-location', function (req, res) {
+      var pageName = 'Flood map for planning'
+      res.render('flood-map-for-planning/confirm-location', { 'page_name': pageName })
+    })
+
+    //
     // Long term flood risk 
     //
     
