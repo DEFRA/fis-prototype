@@ -1,0 +1,59 @@
+.message {
+  display: block;
+  margin: 30px 0 0;
+  background: #dee0e2;
+  padding: 8px 10px 5px;
+  text-decoration: none;
+}
+
+.message img {
+  width: 30px;
+  vertical-align: middle;
+}
+
+.message.warning {
+  background: #e3000f;
+  color: #fff;
+}
+
+.message.alert {
+  background: #f18700;
+  color: #0b0c0c;
+}
+
+.message.banner-error {
+  background: white;
+  border: 1px solid #bfc1c3;
+}
+
+.message span.pseudo-link {
+  text-decoration: underline;
+}
+
+.message:focus {
+  outline: 3px solid #ffbf47;
+}
+
+a.banner {
+  outline: none;
+}
+
+#search-page #banner {
+  display: none;
+}
+
+#search-page h1.heading-xlarge {
+  margin-bottom: 30px;
+}
+
+#search-page .postcode-display {
+  display: inline-block;
+  margin: 0 10px 20px 0;
+  text-transform: uppercase;
+}
+
+@media (max-width: 640px) {
+  #search-page .button {
+    width: 100%;
+  }
+}

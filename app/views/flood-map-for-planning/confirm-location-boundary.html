@@ -6,6 +6,14 @@
   {% include "partials/head.html" %}  
   <link rel="stylesheet" type="text/css" href="/static/flood-map-for-planning/public/stylesheets/application.css">
   {% include "partials/snippets_head.html" %}
+  <style>
+  .map {
+    border:3px solid #ccc;
+    height:576px;
+    margin-bottom:1.5em;
+    text-align: center;
+  }
+  </style>
 {% endblock %}
 
 {% block content %}
@@ -19,21 +27,30 @@
     </p>
   </div>
 
-  <link rel="stylesheet" type="text/css" href="/static/long-term-flood-risk/public/stylesheets/search/index.css">
+  <link rel="stylesheet" type="text/css" href="/static/flood-map-for-planning/public/stylesheets/index.css">
   
   <main id="search-page">
     <div id="banner"></div>
     <section class="mission">
-      <h1 class="heading-xlarge">Confirm the development location</h1>
-      <p>Copy...</p>
+      <h1 class="heading-xlarge">Confirm the location</h1>
+      <p>You can get a flood zone report for a marked point or for the area within a site boundary</p>
+      <h2 class="heading-medium">Get a flood zone report for a site boundary</h2>
+      <details style="margin-bottom:1.5em">
+        <summary>
+          <span class="summary">How to draw a site boundary</span>
+        </summary>
+        <div class="panel panel-border-narrow">
+          <ol class="list list-number">
+            <li>Select 'Start drawing' at the top of the map</li>
+            <li>Work your way around your site, selecting each corner in turn</li>
+          </ol>
+        </div>
+      </details>
+      <div class="map"></div>
+      <input class="button" type="submit" value="Continue" style="margin-bottom:1.5em">
+      <p><a href="/flood-map-for-planning/confirm-location-point">Get a flood zone report for a marked point</a></p>
     </section>
   </main>
-  
-  <div class="grid-row">
-    <div class="column-two-thirds">
-      <p>Your <a href="/long-term-flood-risk/feedback">feedback</a> will help us improve this service</p>
-    </div>
-  </div>
 
 </div>
 

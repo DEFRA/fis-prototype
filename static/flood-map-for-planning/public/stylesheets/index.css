@@ -1,0 +1,39 @@
+.form-group-easting {
+  width: 50%;
+  float: left;
+  margin-bottom: 0;
+}
+
+@media (min-width: 641px) {
+  .form-group-easting {
+    width: 33%;
+  }
+}
+
+.form-group-easting .form-group-container {
+  padding-right: 0.3947em;
+}
+
+.form-group-easting .form-control {
+  width: 100%;
+}
+
+.form-group-northing {
+  width: 50%;
+  float: left;
+  margin-bottom: 0;
+}
+
+@media (min-width: 641px) {
+  .form-group-northing {
+    width: 33%;
+  }
+}
+
+.form-group-northing .form-group-container {
+  padding-left: 0.3947em;
+}
+
+.form-group-northing .form-control {
+  width: 100%;
+}

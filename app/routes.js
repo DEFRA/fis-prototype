@@ -14,10 +14,16 @@ module.exports = {
       res.render('flood-map-for-planning/start', { 'page_name': pageName })
     })
 
-    // Confirm location - flood map for planning
-    app.get('/flood-map-for-planning/confirm-location', function (req, res) {
+    // Confirm location for a point - flood map for planning
+    app.get('/flood-map-for-planning/confirm-location-point', function (req, res) {
       var pageName = 'Flood map for planning'
-      res.render('flood-map-for-planning/confirm-location', { 'page_name': pageName })
+      res.render('flood-map-for-planning/confirm-location-point', { 'page_name': pageName })
+    })
+
+    // Confirm location for a boundary - flood map for planning
+    app.get('/flood-map-for-planning/confirm-location-boundary', function (req, res) {
+      var pageName = 'Flood map for planning'
+      res.render('flood-map-for-planning/confirm-location-boundary', { 'page_name': pageName })
     })
 
     //
