@@ -5,7 +5,6 @@ module.exports = {
     })
 
     //
-<<<<<<< HEAD
     // Planning 
     //
     
@@ -13,27 +12,6 @@ module.exports = {
     app.get('/planning/map', function (req, res) {
       var pageName = 'Likelihood of flooding in this area'
       res.render('planning/map', { 'page_name': pageName })
-=======
-    // Flood map for planning 
-    //
-    
-    // Start - flood map for planning
-    app.get('/flood-map-for-planning', function (req, res) {
-      var pageName = 'Flood map for planning'
-      res.render('flood-map-for-planning/start', { 'page_name': pageName })
-    })
-
-    // Confirm location for a point - flood map for planning
-    app.get('/flood-map-for-planning/confirm-location-point', function (req, res) {
-      var pageName = 'Flood map for planning'
-      res.render('flood-map-for-planning/confirm-location-point', { 'page_name': pageName })
-    })
-
-    // Confirm location for a boundary - flood map for planning
-    app.get('/flood-map-for-planning/confirm-location-boundary', function (req, res) {
-      var pageName = 'Flood map for planning'
-      res.render('flood-map-for-planning/confirm-location-boundary', { 'page_name': pageName })
->>>>>>> d09bb4055c2830d651a7d9db15bcbfa395664bd7
     })
 
     //
