@@ -1,0 +1,13 @@
+#home-page h1.heading-xlarge {
+  margin-bottom: 30px;
+}
+
+@media (max-width: 640px) {
+  #home-page .button {
+    width: 100%;
+  }
+}
+
+#home-page input#postcode {
+  margin-top: 10px;
+}

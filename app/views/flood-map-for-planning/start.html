@@ -1,0 +1,206 @@
+{% extends "layout.html" %}
+
+{% block page_title %}Flood map for planning - GOV.UK{% endblock %}
+
+{% block head %}
+  {% include "partials/head.html" %}  
+  <link rel="stylesheet" type="text/css" href="/static/flood-map-for-planning/public/stylesheets/application.css">
+  {% include "partials/snippets_head.html" %}
+{% endblock %}
+
+{% block content %}
+<div id="content" class="wrapper">
+	<div class="phase-banner-beta">
+    <p>
+      <strong class="phase-tag">beta</strong>
+      <span>
+        This is a new service – your <a href="/long-term-flood-risk/feedback">feedback</a> will help us to improve it.
+      </span>
+    </p>
+  </div>
+
+  <link rel="stylesheet" type="text/css" href="/static/flood-map-for-planning/public/stylesheets/index.css">
+  
+  <main id="home-page">
+    <div class="grid-row">
+      <div class="column-two-thirds">
+        <h1 class="heading-xlarge">Flood map for planning</h1>
+        <p>Use this service to find which flood zone your location is in.</p>
+        <h2 class="heading-medium">Before you start</h2>
+        <p>This service has 3 steps:</p>
+        <ol class="list list-number">
+          <li>Give a postcode, place, National Grid Reference or easting and northing co-ordinates for your location</li>
+          <li>Confirm the location on a map</li>
+          <li>See the flood zones in and around your location</li>
+        </ol>
+        <form autocomplete="off" class="form" method="post" action="/">
+          <div class="form-group form-location-planning">
+            <fieldset>
+              <legend>
+                <h1 class="heading-large">Find the location</h1>
+              </legend>
+              <!-- Place or postcode -->
+              <div class="multiple-choice" data-target="place-postcode">
+                <input id="pp" type="radio" name="type" value="placeOrPostcode" checked="checked">
+                <label for="pp">By place or postcode</label>
+              </div>
+              <div id="place-postcode" class="panel panel-border-narrow ">
+                <label class="form-label" for="place">
+                  <span class="visuallyhidden">Place or postcode</span>
+                  <span class="form-hint">For example, Bakewell or WA4 1AB</span>
+                  
+                </label>
+                <input class="form-control " id="placeOrPostcode" name="placeOrPostcode" type="text" value="">
+              </div>
+  
+              <!-- National grid reference -->
+              <div class="multiple-choice" data-target="national-grid-reference">
+                <input id="ngr" type="radio" name="type" value="nationalGridReference" >
+                <label for="ngr">By National Grid Reference (NGR)</label>
+              </div>
+              <div id="national-grid-reference" class="panel panel-border-narrow ">
+                <label class="form-label" for="ngr">
+                  <span class="visuallyhidden">National Grid Reference</span>
+                  <span class="form-hint">For example, NY395557 (6, 8 or 12 digits)</span>
+                  
+                </label>
+                <input class="form-control " id="nationalGridReference" name="nationalGridReference" type="text" value="">
+              </div>
+  
+              <!-- Easting Northing -->
+              <div class="multiple-choice" data-target="easting-northing">
+                <input id="en" type="radio" name="type" value="eastingNorthing" >
+                <label for="en">By easting and northing</label>
+              </div>
+              <div id="easting-northing" class="panel panel-border-narrow ">
+                <div class="form-group-easting-northing">
+                  <fieldset>
+                    <legend>
+                      <span class="visuallyhidden">Easting and northing</span>
+                      <span class="form-hint">For example, 123456 123456</span>
+                    </legend>
+                    <div class="form-group form-group-easting">
+                      <div class="form-group-container">
+                        <label class="form-label" for="easting">
+                          <span class="font-small">Easting</span>
+                        </label>
+                        <input class="form-control " id="easting" name="easting" type="number" value="">
+                      </div>
+                    </div>
+                    <div class="form-group form-group-northing">
+                      <div class="form-group-container">
+                        <label class="form-label" for="northing">
+                          <span class="font-small">Northing</span>
+                        </label>
+                        <input class="form-control " id="northing" name="northing" type="number" value="">
+                      </div>
+                    </div>
+                  </fieldset>
+                </div>
+              </div>
+            </fieldset>
+          </div>
+          <div class="form-group">
+            <button class="button" type="submit" onclick="window.location.href = '/flood-map-for-planning/confirm-location-point';return false;">Continue</button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="ie-hide nojs-show">
+      <div class="grid-row">
+        <div class="column-full">
+          <div class="panel panel-device-requirements">
+            <p>
+              It looks like your computer or device isn’t giving you the best version of this service
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="grid-row">
+        <div class="column-two-thirds">
+          <p>This could be because you’re using an older version of your browser (for example Chrome, Internet Explorer, Firefox or Safari).</p>
+          <p>You can try <a href="https://www.gov.uk/help/browsers">updating your browser</a>.</p>
+          <details>
+            <summary>
+              <span class="summary">Alternatively you can contact the Environment Agency</span>
+            </summary>
+            <div class="panel panel-border-narrow">
+              <p>You can get general advice and information about flood probability in your area.</p>
+              <p>Email: <a href="mailto:enquiries@environment-agency.gov.uk">enquiries@environment-agency.gov.uk</a></p>
+              <p>Telephone: 0370 8506 506<br/>
+              Telephone (from outside the UK): +44 1709 389 201<br/>
+              Monday to Friday, 8am to 6pm</p>
+              <p><a href="https://www.gov.uk/call-charges">Find out more about call charges</a></p>
+            </div>
+          </details>
+        </div>
+      </div>
+    </div>  <div class="ie-show">
+      <div class="grid-row">
+        <div class="column-full">
+          <div class="panel panel-device-requirements">
+            <p>
+              It looks like your computer or device isn’t giving you the best version of this service
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="grid-row">
+        <div class="column-two-thirds">
+          <p>This could be because you’re using an older version of your browser (for example Chrome, Internet Explorer, Firefox or Safari).</p>
+          <p>You can try <a href="https://www.gov.uk/help/browsers">updating your browser</a>.</p>
+          <details>
+            <summary>
+              <span class="summary">Alternatively you can contact the Environment Agency</span>
+            </summary>
+            <div class="panel panel-border-narrow">
+              <p>You can get general advice and information about flood probability in your area.</p>
+              <p>Email: <a href="mailto:enquiries@environment-agency.gov.uk">enquiries@environment-agency.gov.uk</a></p>
+              <p>Telephone: 0370 8506 506<br/>
+              Telephone (from outside the UK): +44 1709 389 201<br/>
+              Monday to Friday, 8am to 6pm</p>
+              <p><a href="https://www.gov.uk/call-charges">Find out more about call charges</a></p>
+            </div>
+          </details>
+        </div>
+      </div>
+    </div>  <div class="grid-row">
+      <div class="column-full">
+        <p>
+          For general flood information, including local flood warnings, use the <a href="https://flood-warning-information.service.gov.uk/" data-journey-click="FMFP:StartPage:FisLink">flood information service</a>.
+        </p>
+      </div>
+    </div>
+  </main>
+  
+  <div class="grid-row">
+    <div class="column-two-thirds">
+      <p>Your <a href="/long-term-flood-risk/feedback">feedback</a> will help us improve this service</p>
+    </div>
+  </div>
+
+</div>
+
+{% endblock %}
+
+{% block footer_support_links %}
+<h2 class="visuallyhidden">Support links</h2>
+<ul>
+    <li><a href="https://www.gov.uk/help">Help</a></li>
+    <li><a href="https://www.gov.uk/help/cookies">Cookies</a></li>
+    <li><a href="https://www.gov.uk/contact">Contact</a></li>
+    <li><a href="https://www.gov.uk/cymraeg">Cymraeg</a></li>
+    <li>Built by the <a href="https://www.gov.uk/government/organisations/environment-agency">Environment Agency</a>
+    </li>
+</ul>
+<p class="font-xsmall">&#169; Crown copyright and database rights 2017 <a href='http://www.ordnancesurvey.co.uk'>OS</a> 100024198. Use of this addressing  data is subject to the <a href="/long-term-flood-risk/os-terms">terms and conditions</a>.</p>
+{% endblock %}
+
+{% block body_end %}
+
+  <!-- GOV.UK elements redirect -->
+  <!--<script src="/public/javascripts/redirect.js"></script>-->
+  {% include "partials/scripts.html" %}
+
+{% endblock %}
+

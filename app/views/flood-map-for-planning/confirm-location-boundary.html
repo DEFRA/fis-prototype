@@ -1,0 +1,79 @@
+{% extends "layout.html" %}
+
+{% block page_title %}Flood map for planning - GOV.UK{% endblock %}
+
+{% block head %}
+  {% include "partials/head.html" %}  
+  <link rel="stylesheet" type="text/css" href="/static/flood-map-for-planning/public/stylesheets/application.css">
+  {% include "partials/snippets_head.html" %}
+  <style>
+  .map {
+    border:3px solid #ccc;
+    height:576px;
+    margin-bottom:1.5em;
+    text-align: center;
+  }
+  </style>
+{% endblock %}
+
+{% block content %}
+<div id="content" class="wrapper">
+	<div class="phase-banner-beta">
+    <p>
+      <strong class="phase-tag">beta</strong>
+      <span>
+        This is a new service – your <a href="/long-term-flood-risk/feedback">feedback</a> will help us to improve it.
+      </span>
+    </p>
+  </div>
+
+  <link rel="stylesheet" type="text/css" href="/static/flood-map-for-planning/public/stylesheets/index.css">
+  
+  <main id="search-page">
+    <div id="banner"></div>
+    <section class="mission">
+      <h1 class="heading-xlarge">Confirm the location</h1>
+      <p>You can get a flood zone report for a marked point or for the area within a site boundary</p>
+      <h2 class="heading-medium">Get a flood zone report for a site boundary</h2>
+      <details style="margin-bottom:1.5em">
+        <summary>
+          <span class="summary">How to draw a site boundary</span>
+        </summary>
+        <div class="panel panel-border-narrow">
+          <ol class="list list-number">
+            <li>Select 'Start drawing' at the top of the map</li>
+            <li>Work your way around your site, selecting each corner in turn</li>
+          </ol>
+        </div>
+      </details>
+      <div class="map"></div>
+      <input class="button" type="submit" value="Continue" style="margin-bottom:1.5em">
+      <p><a href="/flood-map-for-planning/confirm-location-point">Get a flood zone report for a marked point</a></p>
+    </section>
+  </main>
+
+</div>
+
+{% endblock %}
+
+{% block footer_support_links %}
+<h2 class="visuallyhidden">Support links</h2>
+<ul>
+    <li><a href="https://www.gov.uk/help">Help</a></li>
+    <li><a href="https://www.gov.uk/help/cookies">Cookies</a></li>
+    <li><a href="https://www.gov.uk/contact">Contact</a></li>
+    <li><a href="https://www.gov.uk/cymraeg">Cymraeg</a></li>
+    <li>Built by the <a href="https://www.gov.uk/government/organisations/environment-agency">Environment Agency</a>
+    </li>
+</ul>
+<p class="font-xsmall">&#169; Crown copyright and database rights 2017 <a href='http://www.ordnancesurvey.co.uk'>OS</a> 100024198. Use of this addressing  data is subject to the <a href="/long-term-flood-risk/os-terms">terms and conditions</a>.</p>
+{% endblock %}
+
+{% block body_end %}
+
+  <!-- GOV.UK elements redirect -->
+  <!--<script src="/public/javascripts/redirect.js"></script>-->
+  {% include "partials/scripts.html" %}
+
+{% endblock %}
+
