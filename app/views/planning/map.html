@@ -1,0 +1,265 @@
+{% extends "layout.html" %}
+
+{% block page_title %}Long term flood risk - GOV.UK{% endblock %}
+
+{% block head %}
+  {% include "partials/head.html" %}
+  {% include "partials/snippets_head.html" %}
+  <!--<link rel="stylesheet" href="/static/planning/public/stylesheets/application.css">-->
+  <link rel="stylesheet" href="/static/planning/public/stylesheets/style.css">
+{% endblock %}
+
+{% block content %}
+    <div id="content" class="wrapper">
+			<div class="phase-banner-beta">
+  <p>
+    <strong class="phase-tag">beta</strong>
+    <span>
+      This is a new service – your <a href="https://fmp-qa.envage.co.uk/feedback">feedback</a> will help us to improve it.
+    </span>
+  </p>
+</div>
+
+<link rel="stylesheet" type="text/css" href="/static/planning/public/stylesheets/ol.css">
+<link rel="stylesheet" type="text/css" href="/static/planning/public/stylesheets/index.css">
+<main id="confirm-location-page">
+  <div class="dialog" id="report" aria-hidden="true">
+    <div class="dialog-holder" aria-labelledby="dialog-title" aria-describedby="dialog-content" role="alertdialog">
+      <div class="dialog-content" role="document" tabindex="0">
+        <h1 class="dialog-heading">Download report</h1>
+        <form class="form" method="POST" action="https://fmp-qa.envage.co.uk/pdf">
+          <input name="id" type="hidden">
+          <input name="zone" type="hidden" value="">
+          <input name="polygon" type="hidden" value="">
+          <input name="center" type="hidden" value="[401301.278,425861.265]">
+          <div class="form-group">
+            <label class="form-label" for="reference">Your reference</label>
+            <input class="form-control" id="reference" name="reference" type="text" maxlength="13">
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="scale">Scale</label>
+            <select class="form-control" id="scale" name="scale" style="max-width: 200px;">            
+              <option value="2500">1:2500</option>
+              <option value="10000">1:10000</option>
+              <option value="25000">1:25000</option>
+              <option value="50000">1:50000</option>
+            </select>
+          </div>
+          <div class="dialog-actions">
+            <button class="button" type="submit">Download</button>
+            <a class="dialog-cancel" href="https://fmp-qa.envage.co.uk/confirm-location?easting=401301.278&amp;northing=425861.265#">Cancel</a>
+          </div>
+          <button class="dialog-close" aria-label="close" type="submit">
+            <span class="icon icon-close">x</span>
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="dialog" id="report-downloading" aria-hidden="true">
+    <div class="dialog-holder" aria-labelledby="dialog-title" aria-describedby="dialog-content" role="alertdialog">
+      <div class="dialog-content" role="document" tabindex="0">
+        <h1 class="dialog-heading">Downloading report</h1>
+      </div>
+    </div>
+  </div>  <h1 class="heading-xlarge">Likelihood of flooding in this area</h1>
+  <div class="ie-hide nojs-show">
+    <div class="grid-row">
+      <div class="column-full">
+        <div class="panel panel-device-requirements">
+          <p>
+            It looks like your computer or device isn’t giving you the best version of this service
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="grid-row">
+      <div class="column-two-thirds">
+        <p>This could be because you’re using an older version of your browser (for example Chrome, Internet Explorer, Firefox or Safari).</p>
+        <p>You can try <a href="https://www.gov.uk/help/browsers">updating your browser</a>.</p>
+        <details>
+          <summary>
+            <span class="summary">Alternatively you can contact the Environment Agency</span>
+          </summary>
+          <div class="panel panel-border-narrow">
+            <p>You can get general advice and information about flood probability in your area.</p>
+            <p>Email: <a href="mailto:enquiries@environment-agency.gov.uk">enquiries@environment-agency.gov.uk</a></p>
+            <p>Telephone: 0370 8506 506<br>
+            Telephone (from outside the UK): +44 1709 389 201<br>
+            Monday to Friday, 8am to 6pm</p>
+            <p><a href="https://www.gov.uk/call-charges">Find out more about call charges</a></p>
+          </div>
+        </details>
+      </div>
+    </div>
+  </div>  <div class="ie-show">
+    <div class="grid-row">
+      <div class="column-full">
+        <div class="panel panel-device-requirements">
+          <p>
+            It looks like your computer or device isn’t giving you the best version of this service
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="grid-row">
+      <div class="column-two-thirds">
+        <p>This could be because you’re using an older version of your browser (for example Chrome, Internet Explorer, Firefox or Safari).</p>
+        <p>You can try <a href="https://www.gov.uk/help/browsers">updating your browser</a>.</p>
+        <details>
+          <summary>
+            <span class="summary">Alternatively you can contact the Environment Agency</span>
+          </summary>
+          <div class="panel panel-border-narrow">
+            <p>You can get general advice and information about flood probability in your area.</p>
+            <p>Email: <a href="mailto:enquiries@environment-agency.gov.uk">enquiries@environment-agency.gov.uk</a></p>
+            <p>Telephone: 0370 8506 506<br>
+            Telephone (from outside the UK): +44 1709 389 201<br>
+            Monday to Friday, 8am to 6pm</p>
+            <p><a href="https://www.gov.uk/call-charges">Find out more about call charges</a></p>
+          </div>
+        </details>
+      </div>
+    </div>
+  </div>    
+  <div class="nojs-hide ie-hide">
+      <p class="info">
+        You can move the marker <img class="marker-indicator" src="/static/planning/public/images/pin.png"> on the map to identify a specific location.<br>
+        Alternatively draw a shape to identify an approximate site boundary.
+      </p>
+      <details class="details-how-to-draw">
+        <summary aria-controls="polygon-tool" aria-expanded="false" role="button" data-journey-click="FMFP:confirm-location:HowToDrawAShape">
+          <span class="summary">How to draw a shape</span>
+        </summary>
+        <div id="polygon-tool" class="panel panel-border-narrow" aria-hidden="true">
+          <ul class="list list-bullet">
+            <li>Select 'Draw shape'</li>
+            <li>Select any point on the site boundary</li>
+            <li>Select a second point on the boundary. You should see a line drawn between the first two points</li>
+            <li>Keep adding points until the boundary is defined</li>
+            <li>Double click or tap when you return to your first point</li>
+            <li>Edit the finished shape by dragging the points</li>
+            <li>Add more points to a shape by clicking or tapping on a line</li>
+          </ul>
+        </div>
+      </details>
+      <div class="map-download">
+        <div class="map-download-inner">
+          <button class="button-map-download">Download printable map (PDF)</button>
+        </div>
+      </div>
+    </div>
+    <div class="main-container nojs-hide ie-hide">
+      <div class="map-container">
+        <div class="radio-button-group">
+          <input type="button" class="radio-button" name="type" value="point" id="marker" data-journey-click="FMFP:map:moveMarker">
+          <label for="marker">Move marker</label>
+          <input type="button" class="radio-button" name="type" value="polygon" id="polygon" data-journey-click="FMFP:map:DrawShape">
+          <label for="polygon">Draw Shape</label>
+          <input type="button" class="radio-button" name="type" value="deletePolygon" id="deletePolygon" data-journey-click="FMFP:map:Delete">
+          <label for="deletePolygon">Delete</label>
+        </div>
+        <div id="map" class="map"><div class="ol-viewport" data-view="34" style="position: relative; overflow: hidden; width: 100%; height: 100%; touch-action: none;"><canvas class="ol-unselectable" width="960" height="600" style="width: 100%; height: 100%; display: block;"></canvas><div class="ol-overlaycontainer"></div><div class="ol-overlaycontainer-stopevent"><div class="ol-zoom ol-unselectable ol-control"><button class="ol-zoom-in" type="button" title="Zoom in">+</button><button class="ol-zoom-out" type="button" title="Zoom out">−</button></div><div class="ol-rotate ol-unselectable ol-control ol-hidden"><button class="ol-rotate-reset" type="button" title="Reset rotation"><span class="ol-compass" style="transform: rotate(0rad);">⇧</span></button></div><div class="ol-attribution ol-unselectable ol-control ol-collapsed"><ul><li style=""><a href="https://openlayers.org/"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAAAA3NCSVQICAjb4U/gAAAACXBIWXMAAAHGAAABxgEXwfpGAAAAGXRFWHRTb2Z0d2FyZQB3d3cuaW5rc2NhcGUub3Jnm+48GgAAAhNQTFRF////AP//AICAgP//AFVVQECA////K1VVSbbbYL/fJ05idsTYJFtbbcjbJllmZszWWMTOIFhoHlNiZszTa9DdUcHNHlNlV8XRIVdiasrUHlZjIVZjaMnVH1RlIFRkH1RkH1ZlasvYasvXVsPQH1VkacnVa8vWIVZjIFRjVMPQa8rXIVVkXsXRsNveIFVkIFZlIVVj3eDeh6GmbMvXH1ZkIFRka8rWbMvXIFVkIFVjIFVkbMvWH1VjbMvWIFVlbcvWIFVla8vVIFVkbMvWbMvVH1VkbMvWIFVlbcvWIFVkbcvVbMvWjNPbIFVkU8LPwMzNIFVkbczWIFVkbsvWbMvXIFVkRnB8bcvW2+TkW8XRIFVkIlZlJVloJlpoKlxrLl9tMmJwOWd0Omh1RXF8TneCT3iDUHiDU8LPVMLPVcLPVcPQVsPPVsPQV8PQWMTQWsTQW8TQXMXSXsXRX4SNX8bSYMfTYcfTYsfTY8jUZcfSZsnUaIqTacrVasrVa8jTa8rWbI2VbMvWbcvWdJObdcvUdszUd8vVeJaee87Yfc3WgJyjhqGnitDYjaarldPZnrK2oNbborW5o9bbo9fbpLa6q9ndrL3ArtndscDDutzfu8fJwN7gwt7gxc/QyuHhy+HizeHi0NfX0+Pj19zb1+Tj2uXk29/e3uLg3+Lh3+bl4uXj4ufl4+fl5Ofl5ufl5ujm5+jmySDnBAAAAFp0Uk5TAAECAgMEBAYHCA0NDg4UGRogIiMmKSssLzU7PkJJT1JTVFliY2hrdHZ3foSFhYeJjY2QkpugqbG1tre5w8zQ09XY3uXn6+zx8vT09vf4+Pj5+fr6/P39/f3+gz7SsAAAAVVJREFUOMtjYKA7EBDnwCPLrObS1BRiLoJLnte6CQy8FLHLCzs2QUG4FjZ5GbcmBDDjxJBXDWxCBrb8aM4zbkIDzpLYnAcE9VXlJSWlZRU13koIeW57mGx5XjoMZEUqwxWYQaQbSzLSkYGfKFSe0QMsX5WbjgY0YS4MBplemI4BdGBW+DQ11eZiymfqQuXZIjqwyadPNoSZ4L+0FVM6e+oGI6g8a9iKNT3o8kVzNkzRg5lgl7p4wyRUL9Yt2jAxVh6mQCogae6GmflI8p0r13VFWTHBQ0rWPW7ahgWVcPm+9cuLoyy4kCJDzCm6d8PSFoh0zvQNC5OjDJhQopPPJqph1doJBUD5tnkbZiUEqaCnB3bTqLTFG1bPn71kw4b+GFdpLElKIzRxxgYgWNYc5SCENVHKeUaltHdXx0dZ8uBI1hJ2UUDgq82CM2MwKeibqAvSO7MCABq0wXEPiqWEAAAAAElFTkSuQmCC"></a></li><li>© Crown copyright and database rights 2018 <a href="http://www.ordnancesurvey.co.uk/">OS</a> 0100024198</li></ul><button type="button" title="Attributions"><span>i</span></button></div><div class="ol-scale-line ol-unselectable"><div class="ol-scale-line-inner" style="width: 57px;">100 m</div></div></div></div></div>
+        <div class="enter-fullscreen toggle-fullscreen ol-full-screen ol-control">
+          <button class="ol-full-screen-false" type="button" title="Full screen" data-journey-click="FMFP:map:FullScreen"><span>Full screen</span> <i class="fa fa-enlarge2"></i></button>
+        </div>
+        <div class="form-section visible-mobile">
+          <div class="multiple-choice multiple-choice-layers">
+            <input id="layer-toggle" class="layer-toggle" name="layer-toggle" type="checkbox" checked="" data-journey-click="FMFP:confirm-location:HideFloodZones">
+            <label for="layer-toggle">Show flood zones</label>
+          </div>
+        </div>
+        <div class="rhs">
+          <aside class="controls" id="legend">
+          <div class="legend">
+            <ul>
+              <li class="image pin">
+                <div>Selected location</div>
+              </li>
+              <li class="polygon rectangle red-border">
+                <div>Selected area</div>
+              </li>
+              <li class="rectangle dark-blue">
+                <div>Flood zone 3</div>
+              </li>
+              <li class="image area-benefiting">
+                <div>Areas benefiting from flood defences</div>
+              </li>
+              <li class="rectangle light-blue">
+                <div>Flood zone 2</div>
+              </li>
+              <li class="rectangle black-border">
+                <div>Flood zone 1</div>
+              </li>
+              <li class="line orange">
+                <div>Flood defence</div>
+              </li>
+              <li class="image main-river">
+                <div>Main river</div>
+              </li>
+              <li class="image flood-holding-area">
+                <div>Flood storage area</div>
+              </li>
+            </ul>
+          </div>          </aside>
+        </div>
+        <div class="form-section hidden-mobile">
+          <div class="multiple-choice multiple-choice-layers">
+            <input id="layer-toggle2" class="layer-toggle" name="layer-toggle" type="checkbox" checked="" data-journey-click="FMFP:confirm-location:HideFloodZones">
+            <label for="layer-toggle2">Show flood zones</label>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br>
+    <div class="nojs-hide ie-hide">
+      <p><a href="https://fmp-qa.envage.co.uk/summary?easting=401301.278&amp;northing=425861.265" class="continue" title="View flood zone summary map and more guidance" data-journey-click="FMFP:confirm-location:ViewFloodZoneSummaryMapAndMoreGuidance">View flood zone summary map and more guidance</a></p>
+      <p>You can use this information as part of a <a href="https://www.gov.uk/guidance/flood-risk-assessment-for-planning-applications#when-you-need-an-assessment" rel="external" data-journey-click="FMFP:confirm-location:FloodRiskAssessmentForAPlanningApplication">flood risk assessment for a planning application</a></p>
+    </div>
+</main>
+<script src="/static/planning/public/javascripts/confirm-location.js"></script>
+<script>
+  $(function () {
+    var data = null
+    ;(new FMP.ConfirmLocationPage({
+      easting: '401301.278',
+      northing: '425861.265',
+      polygon: data
+    }))
+  })
+</script>
+
+			
+		</div>
+    {% endblock %}
+
+    {% block footer_support_links %}
+            <h2 class="visuallyhidden">Support links</h2>
+            <ul>
+              <li><a href="https://www.gov.uk/help">Help</a></li>
+              <li><a href="https://www.gov.uk/help/cookies">Cookies</a></li>
+              <li><a href="https://www.gov.uk/contact">Contact</a></li>
+              <li><a href="https://www.gov.uk/cymraeg">Cymraeg</a></li>
+              <li>Built by the <a href="https://www.gov.uk/government/organisations/environment-agency">Environment Agency</a></li>
+            </ul>
+            <div><p class="font-xsmall">© Crown copyright and database rights 2018 <a href="http://www.ordnancesurvey.co.uk/">OS</a> 100024198. Use of the address and mapping data is subject to the <a href="https://fmp-qa.envage.co.uk/os-terms">terms and conditions</a>.</p></div>
+
+            <div class="open-government-licence">
+              <p class="logo"><a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/" rel="license">Open Government Licence</a></p>
+              
+                <p>All other content is available under the <a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/" rel="license">Open Government Licence v3.0</a>, except where otherwise stated</p>
+              
+            </div>
+          </div>
+
+          <div class="copyright">
+            <a href="https://www.nationalarchives.gov.uk/information-management/re-using-public-sector-information/copyright-and-re-use/crown-copyright/">© Crown copyright</a>
+          </div>{% endblock %}
+
+          {% block body_end %}
+          
+            <!-- GOV.UK elements redirect -->
+            <!--<script src="/public/javascripts/redirect.js"></script>-->
+            {% include "partials/scripts.html" %}
+          
+          {% endblock %}

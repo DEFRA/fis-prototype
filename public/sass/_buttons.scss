@@ -1,0 +1,38 @@
+.map-download {
+    position:relative;
+    // Position
+    margin-bottom:1.25em;
+    @include media(tablet) {
+        margin-bottom:0;
+    }
+}
+.map-download-inner {
+    @include media(tablet) {
+        position:absolute;
+        bottom:1.25em;
+        right:0;
+    }
+}
+.button-map-download {
+    // Presentation
+    @extend .button;
+    @include core-16;
+    background-color:$grey-2;
+    color:$black;
+    width:auto;
+    // Remove bottom shadow
+    -webkit-box-shadow-color: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    border-bottom:2px solid $grey-2;
+}
+.button-map-download:hover {
+    background-color:darken($grey-2, 10%);
+    border-color:darken($grey-2, 10%);
+    color:$black;
+}
+.button-map-download:active {
+    background-color:darken($grey-2, 10%);
+    border-color:darken($grey-2, 10%);
+    color:$black;
+}

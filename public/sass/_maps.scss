@@ -6,3 +6,12 @@
 
 // Open layers specific
 
+.ol-full-screen.ol-control.toggle-fullscreen button {
+    width: auto;
+    padding: 3px;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 1.5;
+    cursor: pointer;
+    height: 25px;
+}

@@ -657,7 +657,7 @@ hr {
   line-height: 1;
 }
 
-.button {
+.button, .button-map-download {
   background-color: #00823b;
   position: relative;
   display: -moz-inline-stack;
@@ -688,33 +688,33 @@ hr {
   vertical-align: top;
 }
 
-.button:visited {
+.button:visited, .button-map-download:visited {
   background-color: #00823b;
 }
 
-.button:hover, .button:focus {
+.button:hover, .button-map-download:hover, .button:focus, .button-map-download:focus {
   background-color: #00692f;
 }
 
-.button:active {
+.button:active, .button-map-download:active {
   top: 2px;
   -webkit-box-shadow: 0 0 0 #00823b;
   -moz-box-shadow: 0 0 0 #00823b;
   box-shadow: 0 0 0 #00823b;
 }
 
-.button.disabled, .button[disabled="disabled"], .button[disabled] {
+.button.disabled, .disabled.button-map-download, .button[disabled="disabled"], [disabled="disabled"].button-map-download, .button[disabled], [disabled].button-map-download {
   zoom: 1;
   filter: alpha(opacity=50);
   opacity: 0.5;
 }
 
-.button.disabled:hover, .button[disabled="disabled"]:hover, .button[disabled]:hover {
+.button.disabled:hover, .disabled.button-map-download:hover, .button[disabled="disabled"]:hover, [disabled="disabled"].button-map-download:hover, .button[disabled]:hover, [disabled].button-map-download:hover {
   cursor: default;
   background-color: #00823b;
 }
 
-.button.disabled:active, .button[disabled="disabled"]:active, .button[disabled]:active {
+.button.disabled:active, .disabled.button-map-download:active, .button[disabled="disabled"]:active, [disabled="disabled"].button-map-download:active, .button[disabled]:active, [disabled].button-map-download:active {
   top: 0;
   -webkit-box-shadow: 0 2px 0 #003618;
   -moz-box-shadow: 0 2px 0 #003618;
@@ -722,11 +722,11 @@ hr {
   border-bottom: 2px solid #003618;
 }
 
-.button:link, .button:hover, .button:focus, .button:visited {
+.button:link, .button-map-download:link, .button:hover, .button-map-download:hover, .button:focus, .button-map-download:focus, .button:visited, .button-map-download:visited {
   color: #fff;
 }
 
-.button:before {
+.button:before, .button-map-download:before {
   content: "";
   height: 110%;
   width: 100%;
@@ -737,35 +737,35 @@ hr {
   left: 0;
 }
 
-.button:active:before {
+.button:active:before, .button-map-download:active:before {
   top: -10%;
   height: 120%;
   top: auto;
   height: 100%;
 }
 
-.button[type="submit"], .button[type="reset"], .button[type="button"] {
+.button[type="submit"], [type="submit"].button-map-download, .button[type="reset"], [type="reset"].button-map-download, .button[type="button"], [type="button"].button-map-download {
   filter: chroma(color=#0b0c0c);
 }
 
-.button[type=submit].button {
+.button[type=submit].button, [type=submit].button-map-download {
   filter: none;
 }
 
-.button::-moz-focus-inner {
+.button::-moz-focus-inner, .button-map-download::-moz-focus-inner {
   border: 0;
   padding: 0;
 }
 
-.button:focus {
+.button:focus, .button-map-download:focus {
   outline: 3px solid #ffbf47;
 }
 
-.button[disabled="disabled"] {
+.button[disabled="disabled"], [disabled="disabled"].button-map-download {
   background: #00823b;
 }
 
-.button[disabled="disabled"]:focus {
+.button[disabled="disabled"]:focus, [disabled="disabled"].button-map-download:focus {
   outline: none;
 }
 
@@ -2308,6 +2308,16 @@ table.table-levels tbody .error:before {
   height: 450px;
 }
 
+.ol-full-screen.ol-control.toggle-fullscreen button {
+  width: auto;
+  padding: 3px;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 1.5;
+  cursor: pointer;
+  height: 25px;
+}
+
 @font-face {
   font-family: 'icomoon';
   src: url("fonts/icomoon.eot");
@@ -2441,6 +2451,64 @@ table.table-levels tbody .error:before {
   display: inline-block;
   margin-right: 5px;
   text-decoration: none;
+}
+
+.map-download {
+  position: relative;
+  margin-bottom: 1.25em;
+  margin-bottom: 0;
+}
+
+.map-download-inner {
+  position: absolute;
+  bottom: 1.25em;
+  right: 0;
+}
+
+.button-map-download {
+  font-family: "nta", Arial, sans-serif;
+  font-weight: 400;
+  text-transform: none;
+  font-size: 14px;
+  line-height: 1.1428571429;
+  font-size: 16px;
+  line-height: 1.25;
+  background-color: #bfc1c3;
+  color: #0b0c0c;
+  width: auto;
+  -webkit-box-shadow-color: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  border-bottom: 2px solid #bfc1c3;
+}
+
+.button-map-download:hover {
+  background-color: #a5a8aa;
+  border-color: #a5a8aa;
+  color: #0b0c0c;
+}
+
+.button-map-download:active {
+  background-color: #a5a8aa;
+  border-color: #a5a8aa;
+  color: #0b0c0c;
+}
+
+#confirm-location-page .map {
+  background: #eee url(/static/planning/public/images/map.jpeg) center center no-repeat;
+  background-size: 1256px 704px;
+}
+
+#confirm-location-page h1.heading-xlarge {
+  margin-bottom: 20px;
+}
+
+#confirm-location-page .details-how-to-draw {
+  margin-bottom: 1.25em;
+}
+
+#confirm-location-page .multiple-choice-layers {
+  margin-bottom: 1.25em;
 }
 
 .warning-inline .visuallyhidden {
@@ -2708,7 +2776,7 @@ table.table-levels tbody .error:before {
   padding-top: 7px;
 }
 
-.map-controls .button {
+.map-controls .button, .map-controls .button-map-download {
   float: left;
   width: 40px;
   height: 29px;
@@ -2720,7 +2788,7 @@ table.table-levels tbody .error:before {
   height: 34px;
 }
 
-.map-controls .button i {
+.map-controls .button i, .map-controls .button-map-download i {
   width: 21px;
   margin-left: -1px;
   color: #fff;

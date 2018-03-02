@@ -9,6 +9,25 @@ $path: "/public/images/";
 @import 'tables';
 @import 'maps';
 @import 'social';
+@import 'buttons';
+
+// Flood map for planning
+
+#confirm-location-page {
+  .map {
+    background:#eee url(/static/planning/public/images/map.jpeg) center center no-repeat;
+    background-size:1256px 704px;
+  }
+  h1.heading-xlarge {
+    margin-bottom: 20px;
+  }
+  .details-how-to-draw {
+    margin-bottom:1.25em;
+  }
+  .multiple-choice-layers {
+    margin-bottom:1.25em;
+  }
+}
 
 // Visuallyhidden VoiceOver read order fix
 

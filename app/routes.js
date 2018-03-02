@@ -5,6 +5,16 @@ module.exports = {
     })
 
     //
+    // Planning 
+    //
+    
+    // Map - Flood map for planning
+    app.get('/planning/map', function (req, res) {
+      var pageName = 'Likelihood of flooding in this area'
+      res.render('planning/map', { 'page_name': pageName })
+    })
+
+    //
     // Long term flood risk 
     //
     
